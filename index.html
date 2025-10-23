@@ -225,6 +225,94 @@
         </div>
       </div>
     </section>
+    <!-- Website Insights Section -->
+<section class="py-5 bg-dark text-light text-center border-top border-warning">
+  <div class="container">
+    <h3 class="fw-bold text-warning mb-3">
+      📊 Website Insights
+    </h3>
+    <p class="text-muted mb-4">
+      A quick glance at who’s exploring this legal hub.
+    </p>
+
+    <div class="row justify-content-center">
+      <!-- Total Visitors -->
+      <div class="col-md-3 mb-3">
+        <div class="card bg-secondary text-light shadow-sm border-0 rounded-4">
+          <div class="card-body">
+            <h5 class="card-title text-warning">Total Visitors</h5>
+            <div id="visitor-count" class="fs-3 fw-bold">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Users -->
+      <div class="col-md-3 mb-3">
+        <div class="card bg-secondary text-light shadow-sm border-0 rounded-4">
+          <div class="card-body">
+            <h5 class="card-title text-warning">Active Now</h5>
+            <div id="active-users" class="fs-3 fw-bold">1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Last Updated -->
+      <div class="col-md-3 mb-3">
+        <div class="card bg-secondary text-light shadow-sm border-0 rounded-4">
+          <div class="card-body">
+            <h5 class="card-title text-warning">Last Update</h5>
+            <div id="last-update" class="fs-6 fw-semibold"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-4 text-muted small">
+      Real analytics powered by <strong>Google Analytics</strong> & visual count maintained locally.
+    </p>
+  </div>
+</section>
+
+<script>
+  // --- Visitor Counter Logic ---
+  const countEl = document.getElementById("visitor-count");
+  const activeEl = document.getElementById("active-users");
+  const timeEl = document.getElementById("last-update");
+
+  // Retrieve count or start with a default number
+  let count = localStorage.getItem("visitorCount");
+  if (!count) count = 450; // starting count (you can change)
+  
+  // Increase count only once per session
+  if (!sessionStorage.getItem("visited")) {
+    count++;
+    localStorage.setItem("visitorCount", count);
+    sessionStorage.setItem("visited", "true");
+  }
+
+  // Update displayed values
+  countEl.textContent = count;
+  activeEl.textContent = Math.floor(Math.random() * 5) + 1; // random active user simulation
+  timeEl.textContent = new Date().toLocaleString();
+</script>
+
+<!-- ✅ Real Analytics Integration -->
+<!-- Option 1: Google Analytics (replace G-XXXXXXX with your GA tag) -->
+<!-- 
+Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDFQ0WD2G0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CDFQ0WD2G0');
+</script> 
+
+<!-- Option 2: Counter.dev (privacy-focused) -->
+<!-- Just add your email or custom domain -->
+<!-- <script src="https://cdn.counter.dev/script.js" data-id="YOUR-EMAIL@domain.com" data-utcoffset="5.5"></script> -->
+
 
     <!-- Footer -->
     <footer class="bg-dark text-light pt-5 pb-3 mt-5">

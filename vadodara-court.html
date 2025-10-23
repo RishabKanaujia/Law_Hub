@@ -5,40 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vadodara Court Room Seating Plan</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <style>
       body {
-        background-color: #f8f9fa;
-        color: #212529;
+        background-color: #f9fafb;
+        color: #222;
+        font-family: "Poppins", sans-serif;
       }
-      .header {
-        background: #003366;
-        color: white;
-        text-align: center;
-        padding: 2rem 1rem;
+      .section-title {
+        color: #003366;
+        font-weight: 700;
+        margin-top: 30px;
+        margin-bottom: 15px;
       }
-      .floor-title {
-        background-color: #004080;
-        color: #fff;
-        padding: 0.8rem;
+      .floor-card {
+        background-color: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      .search-box {
+        border-radius: 10px;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        width: 100%;
+        max-width: 400px;
+      }
+      .result-box {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+        padding: 10px;
+        display: none;
+      }
+      .result-item {
+        padding: 8px 10px;
+        cursor: pointer;
         border-radius: 6px;
       }
-      .card {
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      .result-item:hover {
+        background-color: #eef4ff;
       }
-      footer {
-        background-color: #003366;
-        color: white;
-        padding: 1.5rem 0;
-        text-align: center;
+      .highlight {
+        color: #003366;
+        font-weight: 600;
       }
     </style>
   </head>
   <body>
-     <!-- Navbar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
       <div class="container">
         <a class="navbar-brand fw-bold text-warning" href="index.html"
@@ -79,167 +99,129 @@
         </div>
       </div>
     </nav>
+    <div class="container py-5">
+      <h1 class="text-center mb-4" style="color: #003366; font-weight: 700">
+        Vadodara District Court Room Seating Plan
+      </h1>
 
-    <header class="header">
-      <h2>Vadodara District Court Room Seating Plan</h2>
-      <p class="lead mb-0">Complete floor-wise advocate and court room list</p>
-    </header>
-
-    <main class="container my-5">
-      <div class="accordion" id="courtSeating">
-
-        <!-- Ground Floor -->
-        <div class="accordion-item mb-3">
-          <h2 class="accordion-header" id="headingA">
-            <button class="accordion-button floor-title" type="button" data-bs-toggle="collapse" data-bs-target="#floorA">
-              Ground Floor (A)
-            </button>
-          </h2>
-          <div id="floorA" class="accordion-collapse collapse show">
-            <div class="accordion-body">
-              <ul>
-                <li>A8 – S. C. Makwana</li>
-                <li>A9 – B. K. Dasondi</li>
-                <li>A17 – S. K. Sharma</li>
-                <li>A21 – R. A. Agrawal</li>
-                <li>A32 – S. M. Mishra</li>
-                <li>A33 – A. G. Dodiya</li>
-                <li>A45 – P. B. Nayak (Chief Court)</li>
-                <li>A56 – J. V. Shah</li>
-                <li>A59 – B. M. Raj (1st Court)</li>
-                <li>A69 – (2nd Court)</li>
-                <li>A85 – (4th Court)</li>
-                <li>A95 – N. J. Kothariya (Traffic Court)</li>
-                <li>A96 – R. Agrawal (Municipal Court)</li>
-                <li>A106 – (3rd Court)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- First Floor -->
-        <div class="accordion-item mb-3">
-          <h2 class="accordion-header" id="headingB">
-            <button class="accordion-button collapsed floor-title" type="button" data-bs-toggle="collapse" data-bs-target="#floorB">
-              First Floor (B)
-            </button>
-          </h2>
-          <div id="floorB" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <ul>
-                <li>B6 – S. N. Solanki</li>
-                <li>B7 – D. K. Soni</li>
-                <li>B15 – C. M. Pawar</li>
-                <li>B29 – Principal District Judge</li>
-                <li>B44 – A. S. Shaikh</li>
-                <li>B57 – I. S. Saiyad</li>
-                <li>B58 – N. B. Sharma</li>
-                <li>B65 – S. R. Ahluja</li>
-                <li>B77 – Bandhan Nagi</li>
-                <li>B87 – Saumya Rai</li>
-                <li>B88 – S. D. Kapadia</li>
-                <li>B96 – T. H. Thakkar</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Second Floor -->
-        <div class="accordion-item mb-3">
-          <h2 class="accordion-header" id="headingC">
-            <button class="accordion-button collapsed floor-title" type="button" data-bs-toggle="collapse" data-bs-target="#floorC">
-              Second Floor (C)
-            </button>
-          </h2>
-          <div id="floorC" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <ul>
-                <li>C1 – Priyanka Agrawal</li>
-                <li>C6 – M. H. Padhiyar</li>
-                <li>C9 – M. A. Tailor</li>
-                <li>C18 – B. Patel</li>
-                <li>C24 – A. K. Shah</li>
-                <li>C32 – P. V. Bhatt</li>
-                <li>C35 – G. J. Thoriya</li>
-                <li>C42 – P. N. Raval</li>
-                <li>C49 – M. M. Qureshi</li>
-                <li>C61 – P. K. Gadhvi</li>
-                <li>C62 – R. B. Gosai</li>
-                <li>C70 – S. P. Dulera</li>
-                <li>C77 – D. P. Shah</li>
-                <li>C84 – L. M. Parmar</li>
-                <li>C87 – B. P. Mahida</li>
-                <li>C92 – P. Rathore</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Third Floor -->
-        <div class="accordion-item mb-3">
-          <h2 class="accordion-header" id="headingD">
-            <button class="accordion-button collapsed floor-title" type="button" data-bs-toggle="collapse" data-bs-target="#floorD">
-              Third Floor (D)
-            </button>
-          </h2>
-          <div id="floorD" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <ul>
-                <li>D1 – J. J. Bhatt (Principal Senior Civil)</li>
-                <li>D8 – J. A. Parmar</li>
-                <li>D9 – M. D. Valani</li>
-                <li>D17 – M. B. Mehta</li>
-                <li>D19 – Dr. Rahul Karnani</li>
-                <li>D30 – K. B. Rathod</li>
-                <li>D31 – A. A. Shaikh</li>
-                <li>D38 – Shilpa Sayal</li>
-                <li>D45 – R. V. Raje (Family Court No. 2)</li>
-                <li>D57 – B. S. Shah (Family Court No. 3)</li>
-                <li>D58 – S. C. Vyas (Family Court No. 4)</li>
-                <li>D62 – R. S. Rajput (Family Court No. 5)</li>
-                <li>D73 – Y. R. Agrawal</li>
-                <li>D80 – Kavita Gehlot</li>
-                <li>D81 – Chitra Ratnoo (Family Court No. 6)</li>
-                <li>D88 – M. M. Patel (Family Court No. 1)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fourth Floor -->
-        <div class="accordion-item mb-3">
-          <h2 class="accordion-header" id="headingE">
-            <button class="accordion-button collapsed floor-title" type="button" data-bs-toggle="collapse" data-bs-target="#floorE">
-              Fourth Floor (E)
-            </button>
-          </h2>
-          <div id="floorE" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <ul>
-                <li>E1 – T. J. Patel (Small Cause Court)</li>
-                <li>E8 – H. J. Thakar (Small Cause Court)</li>
-                <li>E9 – S. P. Patel (Small Cause Court)</li>
-                <li>E16 – D. J. Rajput</li>
-                <li>E18 – Rahul Sachdeva</li>
-                <li>E29 – D. M. Singhal</li>
-                <li>E30 – M. R. Zala</li>
-                <li>E37 – Punam Swami</li>
-                <li>E43 – </li>
-                <li>E54 – J. M. Solanki</li>
-                <li>E55 – R. M. Shaikh</li>
-                <li>E64 – S. G. Parmar</li>
-                <li>E73 – B. S. Rana</li>
-                <li>E74 – </li>
-                <li>E81 – </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
+      <!-- 🔍 Search Section -->
+      <div class="text-center mb-4">
+        <input
+          type="text"
+          id="searchBox"
+          class="search-box"
+          placeholder="Search Judge by Name..."
+          onkeyup="searchJudge()"
+        />
+        <div id="resultBox" class="result-box"></div>
       </div>
-    </main>
 
-    <!-- Footer -->
+      <!-- 🔽 Search Result Display -->
+      <div id="selectedResult" class="text-center mb-5"></div>
+
+      <!-- 🧾 Floor Wise Display -->
+      <div class="floor-card">
+        <h4 class="section-title">Ground Floor (A)</h4>
+        <p>
+          A1 - <br />
+          A8 - S.C. Makwana <br />
+          A9 - B.K. Dasondi <br />
+          A17 - S.K. Sharma <br />
+          A21 - R.A. Agrawal <br />
+          A32 - S.M. Mishra <br />
+          A33 - A.G. Dodiya <br />
+          A45 - P.B. Nayak (Chief Court) <br />
+          A56 - J.V. Shah <br />
+          A59 - B.M. Raj (1st Court) <br />
+          A69 - (Second Court) <br />
+          A85 - (4th Court) <br />
+          A95 - N.J. Kothariya (Traffic Court) <br />
+          A96 - R. Agrawal (Municipal Court) <br />
+          A106 - (Third Court)
+        </p>
+      </div>
+
+      <div class="floor-card">
+        <h4 class="section-title">First Floor (B)</h4>
+        <p>
+          B6 - S.N. Solanki <br />
+          B7 - D.K. Soni <br />
+          B15 - C.M. Pawar <br />
+          B29 - Principal District Judge <br />
+          B44 - A.S. Shaikh <br />
+          B57 - I.S. Saiyad <br />
+          B58 - N.B. Sharma <br />
+          B68 - S.R. Ahluja <br />
+          B77 - Bandhan Nagi <br />
+          B87 - Saumya Rai <br />
+          B88 - S.D. Kapadia <br />
+          B96 - T.H. Thakkar
+        </p>
+      </div>
+
+      <div class="floor-card">
+        <h4 class="section-title">Second Floor (C)</h4>
+        <p>
+          C1 - Priyanka Agrawal <br />
+          C6 - M.H. Padhiyar <br />
+          C9 - M.A. Tailor <br />
+          C18 - B.P. Patel <br />
+          C24 - A.K. Shah <br />
+          C32 - P.V. Bhatt <br />
+          C35 - G.J. Thoriya <br />
+          C42 - P.N. Raval <br />
+          C49 - M.M. Qureshi <br />
+          C61 - P.K. Gadhvi <br />
+          C62 - R.B. Gosai <br />
+          C70 - S.P. Dulera <br />
+          C77 - D.P. Shah <br />
+          C84 - L.M. Parmar <br />
+          C87 - B.P. Mahida <br />
+          C92 - P. Rathore
+        </p>
+      </div>
+
+      <div class="floor-card">
+        <h4 class="section-title">Third Floor (D)</h4>
+        <p>
+          D1 - J.J. Bhatt (Principal Senior Civil) <br />
+          D8 - J.A. Parmar <br />
+          D9 - M.D. Valani <br />
+          D17 - M.B. Mehta <br />
+          D19 - Dr. Rahul Karnani <br />
+          D30 - K.B. Rathod <br />
+          D38 - A.A. Shaikh <br />
+          D48 - Shilpa Sayal <br />
+          D45 - R.V. Raje (Family Court No. 2) <br />
+          D57 - B.S. Shah (Family Court No. 3) <br />
+          D58 - S.C. Vyas (Family Court No. 4) <br />
+          D62 - R.S. Rajput (Family Court No. 5) <br />
+          D73 - Y.R. Agrawal <br />
+          D80 - Kavita Gehlot <br />
+          D81 - Chitra Ratnoo (Family Court No. 6) <br />
+          D88 - M.M. Patel (Family Court No. 1)
+        </p>
+      </div>
+
+      <div class="floor-card">
+        <h4 class="section-title">Fourth Floor (E)</h4>
+        <p>
+          E1 - T.J. Patel (Small Cause Court) <br />
+          E8 - H.J. Thakar (Small Cause Court) <br />
+          E9 - S.P. Patel (Small Cause Court) <br />
+          E16 - D.J. Rajput <br />
+          E18 - Rahul Sachdeva <br />
+          E29 - D.M. Singhal <br />
+          E30 - M.R. Zala <br />
+          E37 - Punam Swami <br />
+          E54 - J.M. Solanki <br />
+          E55 - R.M. Shaikh <br />
+          E64 - G.G. Parmar <br />
+          E73 - B.S. Rana
+        </p>
+      </div>
+    </div>
+     <!-- Footer -->
     <footer class="bg-dark text-light pt-5 pb-3 mt-5">
       <div class="container">
         <div class="row">
@@ -305,6 +287,74 @@
       </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const judges = {
+        "S.C. Makwana": "A8 (Ground Floor)",
+        "B.K. Dasondi": "A9 (Ground Floor)",
+        "S.K. Sharma": "A17 (Ground Floor)",
+        "R.A. Agrawal": "A21 (Ground Floor)",
+        "S.M. Mishra": "A32 (Ground Floor)",
+        "A.G. Dodiya": "A33 (Ground Floor)",
+        "P.B. Nayak": "A45 (Ground Floor)",
+        "J.V. Shah": "A56 (Ground Floor)",
+        "B.M. Raj": "A59 (Ground Floor)",
+        "N.J. Kothariya": "A95 (Ground Floor)",
+        "C.M. Pawar": "B15 (First Floor)",
+        "A.S. Shaikh": "B44 (First Floor)",
+        "S.N. Solanki": "B6 (First Floor)",
+        "S.R. Ahluja": "B68 (First Floor)",
+        "Priyanka Agrawal": "C1 (Second Floor)",
+        "M.H. Padhiyar": "C6 (Second Floor)",
+        "A.K. Shah": "C24 (Second Floor)",
+        "P.V. Bhatt": "C32 (Second Floor)",
+        "M.M. Qureshi": "C49 (Second Floor)",
+        "A.A. Shaikh": "D38 (Third Floor)",
+        "Shilpa Sayal": "D48 (Third Floor)",
+        "R.V. Raje": "D45 (Third Floor)",
+        "B.S. Shah": "D57 (Third Floor)",
+        "S.C. Vyas": "D58 (Third Floor)",
+        "R.S. Rajput": "D62 (Third Floor)",
+        "Y.R. Agrawal": "D73 (Third Floor)",
+        "Chitra Ratnoo": "D81 (Third Floor)",
+        "T.J. Patel": "E1 (Fourth Floor)",
+        "H.J. Thakar": "E8 (Fourth Floor)",
+        "S.P. Patel": "E9 (Fourth Floor)",
+        "D.J. Rajput": "E16 (Fourth Floor)",
+        "Rahul Sachdeva": "E18 (Fourth Floor)",
+        "D.M. Singhal": "E29 (Fourth Floor)",
+        "Punam Swami": "E37 (Fourth Floor)",
+      };
+
+      function searchJudge() {
+        const input = document.getElementById("searchBox").value.toLowerCase();
+        const resultBox = document.getElementById("resultBox");
+        const selectedResult = document.getElementById("selectedResult");
+
+        resultBox.innerHTML = "";
+        selectedResult.innerHTML = "";
+        resultBox.style.display = "none";
+
+        if (input.length === 0) return;
+
+        const matches = Object.keys(judges).filter((name) =>
+          name.toLowerCase().includes(input)
+        );
+
+        if (matches.length > 0) {
+          resultBox.style.display = "block";
+          matches.forEach((name) => {
+            const item = document.createElement("div");
+            item.className = "result-item";
+            item.textContent = name;
+            item.onclick = function () {
+              selectedResult.innerHTML = `<div class="highlight">${name}</div> → ${judges[name]}`;
+              resultBox.style.display = "none";
+              document.getElementById("searchBox").value = name;
+            };
+            resultBox.appendChild(item);
+          });
+        }
+      }
+    </script>
   </body>
 </html>
