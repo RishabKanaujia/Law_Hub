@@ -133,7 +133,11 @@
             <div class="col-lg-7">
               <div class="p-4">
                 <h5 class="mb-3">Send a Message</h5>
-                <form id="contactForm" novalidate>
+                <form
+                  id="contactForm"
+                  action="https://formspree.io/f/xjkjkezv"
+                  method="POST"
+                >
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <label for="cName" class="form-label">Name</label>
@@ -273,28 +277,43 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      (function () {
-        const form = document.getElementById("contactForm");
-        const status = document.getElementById("cfStatus");
+      const form = document.getElementById("contactForm");
+      const status = document.getElementById("cfStatus");
 
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          if (!form.checkValidity()) {
-            form.classList.add("was-validated");
-            return;
-          }
-          status.style.display = "block";
-          status.className = "alert alert-info";
-          status.textContent = "Sending message...";
-          setTimeout(() => {
-            status.className = "alert alert-success";
-            status.textContent =
-              "Message sent — I will contact you soon. Thank you!";
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        status.style.display = "block";
+        status.className = "alert alert-info mt-3";
+        status.textContent = "📨 Sending your message...";
+
+        // Collect the data properly (add name attributes)
+        const data = new FormData(form);
+        data.append("name", document.getElementById("cName").value);
+        data.append("email", document.getElementById("cEmail").value);
+        data.append("subject", document.getElementById("cSubject").value);
+        data.append("message", document.getElementById("cMessage").value);
+
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: data,
+            headers: { Accept: "application/json" },
+          });
+
+          if (res.ok) {
+            status.className = "alert alert-success mt-3";
+            status.textContent = "✅ Message sent successfully!";
             form.reset();
-            form.classList.remove("was-validated");
-          }, 800);
-        });
-      })();
+          } else {
+            const errorData = await res.json();
+            throw new Error(errorData.error || "Unknown error");
+          }
+        } catch (err) {
+          status.className = "alert alert-danger mt-3";
+          status.textContent = "❌ Failed to send. Please try again later.";
+          console.error("Error:", err);
+        }
+      });
     </script>
   </body>
 </html>
