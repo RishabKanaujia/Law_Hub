@@ -69,9 +69,9 @@
             <li class="nav-item">
               <a class="nav-link" href="about.html">About</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="bareact.html">Bare Acts</a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="judgement.html">Judgements</a>
             </li>
@@ -94,7 +94,7 @@
       <div class="container">
         <h1>Court Visitor Quick Help</h1>
         <p>Simplifying Law with Examples, Visuals & Humor.</p>
-        <a href="articles.html" class="btn btn-warning mt-3 px-4"
+        <a href="article.html" class="btn btn-warning mt-3 px-4"
           >Explore Articles</a
         >
       </div>
@@ -267,35 +267,38 @@
       <div class="container">
         <h2 class="section-title">Explore</h2>
         <div class="row g-4">
-          <div class="col-md-3">
+          <!-- <div class="col-md-3">
             <a href="bareact.html" class="text-decoration-none text-dark">
               <div class="card category-card shadow-sm text-center p-4">
                 <i class="bi bi-journal-text fs-1 text-warning"></i>
                 <h5 class="mt-3">Bare Acts</h5>
               </div>
             </a>
-          </div>
-          <div class="col-md-3">
-            <a href="judgments.html" class="text-decoration-none text-dark">
+          </div> -->
+          <div class="col-md-4">
+            <a href="judgment.html" class="text-decoration-none text-dark">
               <div class="card category-card shadow-sm text-center p-4">
                 <i class="bi bi-bank fs-1 text-warning"></i>
                 <h5 class="mt-3">Judgments</h5>
               </div>
             </a>
           </div>
-          <div class="col-md-3">
-            <a href="articles.html" class="text-decoration-none text-dark">
+          <div class="col-md-4">
+            <a href="article.html" class="text-decoration-none text-dark">
               <div class="card category-card shadow-sm text-center p-4">
                 <i class="bi bi-pen fs-1 text-warning"></i>
                 <h5 class="mt-3">Articles</h5>
               </div>
             </a>
           </div>
-          <div class="col-md-3">
-            <a href="internships.html" class="text-decoration-none text-dark">
+          <div class="col-md-4">
+            <a
+              href="vadodara-court.html"
+              class="text-decoration-none text-dark"
+            >
               <div class="card category-card shadow-sm text-center p-4">
                 <i class="bi bi-briefcase fs-1 text-warning"></i>
-                <h5 class="mt-3">Internships</h5>
+                <h5 class="mt-3">Layout</h5>
               </div>
             </a>
           </div>
@@ -414,11 +417,11 @@
 
         <div class="row justify-content-center">
           <!-- Total Visitors -->
-          <div class="col-md-3 mb-3">
+          <div class="col-md-3 mb-3 d-flex">
             <div
-              class="card bg-secondary text-light shadow-sm border-0 rounded-4"
+              class="card bg-secondary text-light shadow-sm border-0 rounded-4 h-100 w-100"
             >
-              <div class="card-body">
+              <div class="card-body d-flex flex-column justify-content-center">
                 <h5 class="card-title text-warning">Total Visitors</h5>
                 <div id="visitor-count" class="fs-3 fw-bold">0</div>
               </div>
@@ -426,11 +429,11 @@
           </div>
 
           <!-- Active Users -->
-          <div class="col-md-3 mb-3">
+          <div class="col-md-3 mb-3 d-flex">
             <div
-              class="card bg-secondary text-light shadow-sm border-0 rounded-4"
+              class="card bg-secondary text-light shadow-sm border-0 rounded-4 h-100 w-100"
             >
-              <div class="card-body">
+              <div class="card-body d-flex flex-column justify-content-center">
                 <h5 class="card-title text-warning">Active Now</h5>
                 <div id="active-users" class="fs-3 fw-bold">1</div>
               </div>
@@ -438,11 +441,11 @@
           </div>
 
           <!-- Last Updated -->
-          <div class="col-md-3 mb-3">
+          <div class="col-md-3 mb-3 d-flex">
             <div
-              class="card bg-secondary text-light shadow-sm border-0 rounded-4"
+              class="card bg-secondary text-light shadow-sm border-0 rounded-4 h-100 w-100"
             >
-              <div class="card-body">
+              <div class="card-body d-flex flex-column justify-content-center">
                 <h5 class="card-title text-warning">Last Update</h5>
                 <div id="last-update" class="fs-6 fw-semibold"></div>
               </div>
@@ -450,7 +453,7 @@
           </div>
         </div>
 
-        <p class="mt-4 text-muted small">
+        <p class="mt-4 small">
           Real analytics powered by <strong>Google Analytics</strong> & visual
           count maintained locally.
         </p>
