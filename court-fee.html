@@ -1,17 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Me - Rishab's Legal Portfolio</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Court Fee Calculator | Rishab-LEX</title>
 
-  <body>
-    <!-- Navbar -->
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+</head>
+
+<body class="bg-light">
+
+<!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
       <div class="container">
         <a class="navbar-brand fw-bold text-warning" href="index.html"
@@ -37,10 +44,10 @@
               <a class="nav-link" href="bareact.html">Bare Acts</a>
             </li> -->
             <li class="nav-item">
-              <a class="nav-link" href="judgment/judgment.html">Judgments</a>
+              <a class="nav-link" href="judgement.html">Judgements</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="article/article.html">Articles</a>
+              <a class="nav-link" href="article.html">Articles</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="vadodara-court.html">Vadodara-Court</a>
@@ -53,75 +60,72 @@
       </div>
     </nav>
 
-    <!-- About Section -->
-    <section class="py-5 bg-light">
-      <div class="container">
-        <div class="row align-items-center">
-          <!-- Left Side: Image -->
-          <div class="col-md-4 text-center mb-4 mb-md-0">
-            <img
-              src="photo2.jpg"
-              alt="Rishab Profile"
-              class="img-fluid rounded-circle shadow"
-              style="
-                width: 220px;
-                height: 220px;
-                object-fit: cover;
-                object-position: center top;
-              "
+<!-- Header Section -->
+<section class="py-5 text-center bg-secondary text-light">
+  <div class="container">
+    <h2 class="fw-bold">Court Fee Calculator</h2>
+    <p class="mb-0">
+      Calculate applicable court fees as per recovery amount.
+    </p>
+  </div>
+</section>
+
+<!-- Calculator Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <div class="col-lg-6">
+
+        <div class="card shadow-sm border-0 rounded-4">
+          <div class="card-body p-4">
+
+            <label class="form-label fw-semibold">
+              Enter Recovery Amount (₹)
+            </label>
+
+            <input
+              type="number"
+              id="claimAmount"
+              class="form-control form-control-lg mb-3"
+              placeholder="Example: 425890"
             />
-          </div>
-          <!-- Right Side: Content -->
-          <div class="col-md-8">
-            <h2 class="fw-bold">About Me</h2>
-            <p class="lead text-muted">
-              Hi, I’m <strong>Rishab Kanaujia</strong> — a law student at <br>
-              <strong>The Maharaja Sayajirao University of Baroda</strong>
-            </p>
-            <p>
-              Law became a natural area of interest as I began exploring how
-              legal rules shape society and influence everyday life. My exposure
-              to technology further enhanced my ability to analyze information,
-              think critically, and present complex ideas in a structured
-              manner.
-            </p>
-            <p>
-              As I progressed in my legal journey, I had the opportunity to
-              observe the law beyond textbooks—through courtrooms, legal
-              practice, and interactions with people seeking solutions to
-              real-world problems. These experiences reinforced an important
-              realization: law is not merely a collection of statutes and
-              precedents, but a living system that continuously evolves
-              alongside society and human relationships.
-            </p>
-            <p>
-              Every experience, whether in academic study, legal research,
-              internships, or practical exposure, has contributed to a deeper
-              understanding of how legal principles operate in practice. At the
-              same time, the legal profession remains a field of constant
-              learning, where every case, courtroom, and conversation offers a
-              new perspective.
-            </p>
-            <p>
-              This platform is my digital notebook—a space where I share
-              simplified Bare Acts, case law summaries, legal articles, and
-              insights drawn from academic learning, courtrooms, internships,
-              and practical legal exposure. My goal is to make legal knowledge
-              simpler, practical, and easier to understand while continuing to
-              learn, explore, and grow alongside the legal community.
-            </p>
-            <p class="fst-italic">
-              “The life of the law has not been logic; it has been experience.”
-            </p>
-            <a href="contact.html" class="btn btn-dark rounded-pill px-4 mt-2">
-              Connect With Me
-            </a>
+
+            <div class="d-grid">
+              <button
+                class="btn btn-dark"
+                onclick="calculateCourtFee()"
+              >
+                <i class="bi bi-calculator me-2"></i>
+                Calculate Court Fee
+              </button>
+            </div>
+
+            <!-- Result -->
+            <div class="mt-4 text-center">
+              <h5 id="feeResult" class="fw-bold text-primary"></h5>
+            </div>
+
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Footer Section -->
+        <!-- Note Card -->
+        <div class="card border-0 shadow-sm rounded-4 mt-4">
+          <div class="card-body">
+            <p class="small text-muted mb-0">
+              Note: Court fees are calculated as per applicable slab rates.
+              Please verify with the official court fee schedule before filing.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
     <footer class="bg-dark text-light pt-5 pb-3">
       <div class="container">
         <div class="row">
@@ -196,6 +200,49 @@
       </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Court Fee Logic -->
+<script>
+function calculateCourtFee() {
+  const amount = parseInt(document.getElementById("claimAmount").value);
+  const result = document.getElementById("feeResult");
+
+  if (!amount || amount <= 0) {
+    result.innerHTML = "Please enter a valid amount.";
+    return;
+  }
+
+  // EDIT THESE SLABS ACCORDING TO YOUR PDF
+  const slabs = [
+    { min: 1, max: 1000, fee: 100 },
+    { min: 420000, max: 430000, fee: 12550 },
+    { min: 420000, max: 430000, fee: 12550 },
+    { min: 420000, max: 430000, fee: 12550 },
+    { min: 420000, max: 430000, fee: 12550 },
+    { min: 420000, max: 430000, fee: 12550 },
+    { min: 410000, max: 420000, fee: 12250 },
+    { min: 430000, max: 440000, fee: 12850 }
+  ];
+
+  let found = false;
+
+  for (let slab of slabs) {
+    if (amount >= slab.min && amount <= slab.max) {
+      result.innerHTML =
+        "Applicable Court Fee: ₹ " +
+        slab.fee.toLocaleString();
+      found = true;
+      break;
+    }
+  }
+
+  if (!found) {
+    result.innerHTML = "Amount not found in slab table.";
+  }
+}
+</script>
+
+</body>
 </html>
