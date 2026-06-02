@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      Civil Suit Court Fee Calculator (Vadodara) | Calculate Ad Valorem Court
+      Fees Online | Rishab-LEX
+    </title>
+
+    <meta
+      name="description"
+      content="Free Civil Suit Court Fee Calculator for Gujarat. Instantly calculate ad valorem court fees based on suit value. Useful for advocates, law students, litigants, legal interns and court practitioners."
+    />
+
+    <meta
+      name="keywords"
+      content="Court Fee Calculator, Civil Suit Court Fee, Gujarat Court Fee Calculator, Ad Valorem Court Fee, Court Fees Act, Legal Calculator, Suit Valuation Calculator, Court Fee Online, Vadodara Civil Court Fees, Rishab LEX"
+    />
+
+    <meta name="author" content="Rishab Kanaujia" />
+
+    <meta name="robots" content="index, follow" />
+
+    <meta
+      property="og:title"
+      content="Civil Suit Court Fee Calculator | Rishab-LEX"
+    />
+
+    <meta
+      property="og:description"
+      content="Calculate civil suit court fees instantly according to the applicable court fee schedule. Free legal utility for advocates, litigants and law students."
+    />
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:site_name" content="Rishab-LEX" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta
+      name="twitter:title"
+      content="Civil Suit Court Fee Calculator | Rishab-LEX"
+    />
+
+    <meta
+      name="twitter:description"
+      content="Calculate court fees instantly for civil suits using the applicable court fee schedule."
+    />
+
+    <link
+      rel="canonical"
+      href="https://rishab-lex.vercel.app/court-fee-calculator.html"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-light">
+   <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-warning" href="index.html"
+          ><i class="bi bi-balance-scale"></i> Rishab-LEX</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="article/article.html">About</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="NGO.html">ngo list</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="judgment/judgment.html">Judgments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="article/article.html">Articles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="vadodara-court.html">Vadodara-Court</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="text-dark py-5">
+      <div class="container text-center">
+        <h1 class="fw-bold">Civil Suit Court Fee Calculator</h1>
+
+        <p class="lead">
+          Instantly calculate court fees payable on civil suits based on the
+          value of the subject matter.
+        </p>
+        <!-- <span class="badge bg-warning text-dark px-3 py-2">
+          Legal Utility Tool
+        </span> -->
+      </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="py-0">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card border-0 shadow rounded-4">
+              <div class="card-body p-4">
+                <h4 class="mb-4">
+                  <i class="bi bi-calculator-fill text-warning"></i>
+                  Court Fee Calculator
+                </h4>
+
+                <div class="mb-3">
+                  <label class="form-label fw-semibold">
+                    Enter Suit Value (₹)
+                  </label>
+
+                  <input
+                    type="text"
+                    id="amount"
+                    class="form-control form-control-lg"
+                    placeholder="Example: 4,25,890"
+                  />
+                </div>
+
+                <button
+                  class="btn btn-warning text-dark fw-bold"
+                  onclick="calculateCourtFee()"
+                >
+                  Calculate Fee
+                </button>
+              </div>
+            </div>
+
+            <!-- Result -->
+            <div
+              id="resultCard"
+              class="card border-0 shadow rounded-4 mt-4 d-none"
+            >
+              <div class="card-body p-4">
+                <h4 class="text-success mb-4">Calculation Result</h4>
+
+                <div class="row">
+                  <div class="col-md-4 mb-3">
+                    <h6>Suit Value</h6>
+                    <div id="suitValue" class="fw-bold fs-5"></div>
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <h6>Court Fee</h6>
+                    <div id="courtFee" class="fw-bold fs-4 text-success"></div>
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <h6>Applicable Slab</h6>
+                    <div id="slab"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Examples -->
+            <div class="card border-0 shadow rounded-4 mt-4">
+              <div class="card-body">
+                <h5 class="mb-3">Examples</h5>
+
+                <ul class="mb-0">
+                  <li>₹1,564 → Court Fee ₹200</li>
+                  <li>₹20,500 → Court Fee ₹1,525</li>
+                  <li>₹98,000 → Court Fee ₹5,950</li>
+                  <li>₹4,25,890 → Court Fee ₹12,550</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="card border-0 shadow rounded-4 mt-4">
+              <div class="card-body">
+                <h6 class="fw-bold">Disclaimer</h6>
+
+                <p class="small text-muted mb-0">
+                  This calculator is a personal initiative developed by me as a
+                  law student to make court fee calculations easier and more
+                  accessible. The data has been compiled from authentic sources
+                  and verified to the best of my ability. However, due to the
+                  extensive nature of the court fee schedule, some errors may
+                  unintentionally remain. If you find any mistake or
+                  discrepancy, kindly contact me so that it can be corrected and
+                  improved for everyone's benefit.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5 class="fw-bold text-warning">📜 Law Portal</h5>
+            <p class="small">
+              Explore Bare Acts, Judgments & Articles in simple language.
+            </p>
+            <p class="small mb-0">
+              &copy; 2025 Law Portal. All Rights Reserved.
+            </p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h6 class="fw-bold text-warning">Quick Links</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="index.html" class="text-light text-decoration-none"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="articles.html" class="text-light text-decoration-none"
+                  >Articles</a
+                >
+              </li>
+              <li>
+                <a href="judgments.html" class="text-light text-decoration-none"
+                  >Judgments</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" class="text-light text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h6 class="fw-bold text-warning">Follow</h6>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-light fs-4"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a href="#" class="text-light fs-4"
+                ><i class="bi bi-twitter"></i
+              ></a>
+              <a href="#" class="text-light fs-4"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a href="#" class="text-light fs-4"
+                ><i class="bi bi-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="border-secondary" />
+        <div class="text-center small text-muted">
+          Made with ❤️ for Law Students & Legal Enthusiasts |
+          <a href="privacy.html" class="text-decoration-none text-light"
+            >Privacy Policy</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const courtFees = [
+        { min: 1, max: 1000, fee: 100 },
+        { min: 1000, max: 2000, fee: 200 },
+        { min: 2000, max: 3000, fee: 300 },
+        { min: 3000, max: 4000, fee: 400 },
+        { min: 4000, max: 5000, fee: 500 },
+        { min: 5000, max: 6000, fee: 600 },
+        { min: 6000, max: 7000, fee: 700 },
+        { min: 7000, max: 8000, fee: 800 },
+        { min: 8000, max: 9000, fee: 900 },
+        { min: 9000, max: 10000, fee: 1000 },
+
+        { min: 10000, max: 15000, fee: 1250 },
+        { min: 15000, max: 20000, fee: 1500 },
+
+        { min: 20000, max: 21000, fee: 1525 },
+        { min: 21000, max: 22000, fee: 1600 },
+        { min: 22000, max: 23000, fee: 1675 },
+        { min: 23000, max: 24000, fee: 1750 },
+        { min: 24000, max: 25000, fee: 1825 },
+        { min: 25000, max: 26000, fee: 1900 },
+        { min: 26000, max: 27000, fee: 1975 },
+        { min: 27000, max: 28000, fee: 2050 },
+        { min: 28000, max: 29000, fee: 2125 },
+        { min: 29000, max: 30000, fee: 2200 },
+
+        { min: 30000, max: 32000, fee: 2375 },
+        { min: 32000, max: 34000, fee: 2500 },
+        { min: 34000, max: 36000, fee: 2650 },
+        { min: 36000, max: 38000, fee: 2800 },
+        { min: 38000, max: 40000, fee: 2950 },
+        { min: 40000, max: 42000, fee: 3100 },
+        { min: 42000, max: 44000, fee: 3250 },
+        { min: 44000, max: 46000, fee: 3400 },
+        { min: 46000, max: 48000, fee: 3550 },
+        { min: 48000, max: 50000, fee: 3700 },
+
+        { min: 50000, max: 55000, fee: 4000 },
+        { min: 55000, max: 60000, fee: 4300 },
+        { min: 60000, max: 65000, fee: 4600 },
+        { min: 65000, max: 70000, fee: 4900 },
+        { min: 70000, max: 75000, fee: 5200 },
+        { min: 75000, max: 80000, fee: 5350 },
+        { min: 80000, max: 85000, fee: 5500 },
+        { min: 85000, max: 90000, fee: 5650 },
+        { min: 90000, max: 95000, fee: 5800 },
+        { min: 95000, max: 100000, fee: 5950 },
+
+        { min: 100000, max: 110000, fee: 6150 },
+        { min: 110000, max: 120000, fee: 6350 },
+        { min: 120000, max: 130000, fee: 6550 },
+        { min: 130000, max: 140000, fee: 6750 },
+        { min: 140000, max: 150000, fee: 6950 },
+        { min: 150000, max: 160000, fee: 7150 },
+        { min: 160000, max: 170000, fee: 7350 },
+        { min: 170000, max: 180000, fee: 7550 },
+
+        { min: 180000, max: 190000, fee: 7750 },
+        { min: 190000, max: 200000, fee: 7950 },
+        { min: 200000, max: 210000, fee: 8150 },
+        { min: 210000, max: 220000, fee: 8350 },
+        { min: 220000, max: 230000, fee: 8550 },
+        { min: 230000, max: 240000, fee: 8750 },
+        { min: 240000, max: 250000, fee: 8950 },
+        { min: 250000, max: 260000, fee: 9150 },
+        { min: 260000, max: 270000, fee: 9350 },
+        { min: 270000, max: 280000, fee: 9550 },
+        { min: 280000, max: 290000, fee: 9750 },
+        { min: 290000, max: 300000, fee: 9950 },
+
+        { min: 300000, max: 310000, fee: 10150 },
+        { min: 310000, max: 320000, fee: 10350 },
+        { min: 320000, max: 330000, fee: 10550 },
+        { min: 330000, max: 340000, fee: 10750 },
+        { min: 340000, max: 350000, fee: 10950 },
+        { min: 350000, max: 360000, fee: 11150 },
+        { min: 360000, max: 370000, fee: 11350 },
+        { min: 370000, max: 380000, fee: 11550 },
+        { min: 380000, max: 390000, fee: 11750 },
+        { min: 390000, max: 400000, fee: 11950 },
+        { min: 400000, max: 410000, fee: 12150 },
+        { min: 410000, max: 420000, fee: 12350 },
+        { min: 420000, max: 430000, fee: 12550 },
+        { min: 430000, max: 440000, fee: 12750 },
+        { min: 440000, max: 450000, fee: 12950 },
+        { min: 450000, max: 460000, fee: 13150 },
+        { min: 460000, max: 470000, fee: 13350 },
+        { min: 470000, max: 480000, fee: 13550 },
+        { min: 480000, max: 490000, fee: 13750 },
+        { min: 490000, max: 500000, fee: 13950 },
+        { min: 500000, max: 510000, fee: 14150 },
+        { min: 510000, max: 520000, fee: 14350 },
+        { min: 520000, max: 530000, fee: 14550 },
+        { min: 530000, max: 540000, fee: 14750 },
+        { min: 540000, max: 550000, fee: 14950 },
+        { min: 550000, max: 560000, fee: 15150 },
+        { min: 560000, max: 570000, fee: 15350 },
+        { min: 570000, max: 580000, fee: 15550 },
+        { min: 580000, max: 590000, fee: 15750 },
+        { min: 590000, max: 600000, fee: 15950 },
+        { min: 600000, max: 610000, fee: 16150 },
+        { min: 610000, max: 620000, fee: 16350 },
+        { min: 620000, max: 630000, fee: 16550 },
+        { min: 630000, max: 640000, fee: 16750 },
+        { min: 640000, max: 650000, fee: 16950 },
+        { min: 650000, max: 660000, fee: 17150 },
+        { min: 660000, max: 670000, fee: 17350 },
+        { min: 670000, max: 680000, fee: 17550 },
+
+        { min: 680000, max: 690000, fee: 17750 },
+        { min: 690000, max: 700000, fee: 17950 },
+        { min: 700000, max: 710000, fee: 18150 },
+        { min: 710000, max: 720000, fee: 18350 },
+        { min: 720000, max: 730000, fee: 18550 },
+        { min: 730000, max: 740000, fee: 18750 },
+        { min: 740000, max: 750000, fee: 18950 },
+        { min: 750000, max: 760000, fee: 19150 },
+        { min: 760000, max: 770000, fee: 19350 },
+        { min: 770000, max: 780000, fee: 19550 },
+        { min: 780000, max: 790000, fee: 19750 },
+        { min: 790000, max: 800000, fee: 19950 },
+        { min: 800000, max: 810000, fee: 20150 },
+        { min: 810000, max: 820000, fee: 20350 },
+        { min: 820000, max: 830000, fee: 20550 },
+        { min: 830000, max: 840000, fee: 20750 },
+        { min: 840000, max: 850000, fee: 20950 },
+        { min: 850000, max: 860000, fee: 21150 },
+        { min: 860000, max: 870000, fee: 21350 },
+        { min: 870000, max: 880000, fee: 21550 },
+        { min: 880000, max: 890000, fee: 21750 },
+        { min: 890000, max: 900000, fee: 21950 },
+        { min: 900000, max: 910000, fee: 22150 },
+        { min: 910000, max: 920000, fee: 22350 },
+        { min: 920000, max: 930000, fee: 22550 },
+
+        { min: 930000, max: 940000, fee: 22750 },
+        { min: 940000, max: 950000, fee: 22950 },
+        { min: 950000, max: 960000, fee: 23150 },
+        { min: 960000, max: 970000, fee: 23350 },
+        { min: 970000, max: 980000, fee: 23550 },
+        { min: 980000, max: 990000, fee: 23750 },
+        { min: 990000, max: 1000000, fee: 23950 },
+
+        { min: 1000000, max: 1100000, fee: 25150 },
+        { min: 1100000, max: 1200000, fee: 26350 },
+        { min: 1200000, max: 1300000, fee: 27550 },
+        { min: 1300000, max: 1400000, fee: 28750 },
+        { min: 1400000, max: 1500000, fee: 29950 },
+        { min: 1500000, max: 1600000, fee: 31150 },
+        { min: 1600000, max: 1700000, fee: 32350 },
+        { min: 1700000, max: 1800000, fee: 33550 },
+        { min: 1800000, max: 1900000, fee: 34750 },
+        { min: 1900000, max: 2000000, fee: 35950 },
+        { min: 2000000, max: 2100000, fee: 36450 },
+        { min: 2100000, max: 2200000, fee: 36950 },
+        { min: 2200000, max: 2300000, fee: 37450 },
+        { min: 2300000, max: 2400000, fee: 37950 },
+        { min: 2400000, max: 2500000, fee: 38450 },
+        { min: 2500000, max: 2600000, fee: 38950 },
+        { min: 2600000, max: 2700000, fee: 39450 },
+        { min: 2700000, max: 2800000, fee: 39950 },
+        // SR. NO. 151 - 175
+
+        { min: 2800000, max: 2900000, fee: 40450 },
+        { min: 2900000, max: 3000000, fee: 40950 },
+        { min: 3000000, max: 3100000, fee: 41450 },
+        { min: 3100000, max: 3200000, fee: 41950 },
+        { min: 3200000, max: 3300000, fee: 42450 },
+        { min: 3300000, max: 3400000, fee: 42950 },
+        { min: 3400000, max: 3500000, fee: 43450 },
+        { min: 3500000, max: 3600000, fee: 43950 },
+        { min: 3600000, max: 3700000, fee: 44450 },
+        { min: 3700000, max: 3800000, fee: 44950 },
+        { min: 3800000, max: 3900000, fee: 45450 },
+        { min: 3900000, max: 4000000, fee: 45950 },
+        { min: 4000000, max: 4100000, fee: 46450 },
+        { min: 4100000, max: 4200000, fee: 46950 },
+        { min: 4200000, max: 4300000, fee: 47450 },
+        { min: 4300000, max: 4400000, fee: 47950 },
+        { min: 4400000, max: 4500000, fee: 48450 },
+        { min: 4500000, max: 4600000, fee: 48950 },
+        { min: 4600000, max: 4700000, fee: 49450 },
+        { min: 4700000, max: 4800000, fee: 49950 },
+        { min: 4800000, max: 4900000, fee: 50450 },
+        { min: 4900000, max: 5000000, fee: 50950 },
+        { min: 5000000, max: 5100000, fee: 51450 },
+        { min: 5100000, max: 5200000, fee: 51950 },
+        { min: 5200000, max: 5300000, fee: 52450 },
+
+        // SR. NO. 176 - 200
+
+        { min: 5300000, max: 5400000, fee: 52950 },
+        { min: 5400000, max: 5500000, fee: 53450 },
+        { min: 5500000, max: 5600000, fee: 53950 },
+        { min: 5600000, max: 5700000, fee: 54450 },
+        { min: 5700000, max: 5800000, fee: 54950 },
+        { min: 5800000, max: 5900000, fee: 55450 },
+        { min: 5900000, max: 6000000, fee: 55950 },
+        { min: 6000000, max: 6100000, fee: 56450 },
+        { min: 6100000, max: 6200000, fee: 56950 },
+        { min: 6200000, max: 6300000, fee: 57450 },
+        { min: 6300000, max: 6400000, fee: 57950 },
+        { min: 6400000, max: 6500000, fee: 58450 },
+        { min: 6500000, max: 6600000, fee: 58950 },
+        { min: 6600000, max: 6700000, fee: 59450 },
+        { min: 6700000, max: 6800000, fee: 59950 },
+        { min: 6800000, max: 6900000, fee: 60450 },
+        { min: 6900000, max: 7000000, fee: 60950 },
+        { min: 7000000, max: 7100000, fee: 61450 },
+        { min: 7100000, max: 7200000, fee: 61950 },
+        { min: 7200000, max: 7300000, fee: 62450 },
+        { min: 7300000, max: 7400000, fee: 62950 },
+        { min: 7400000, max: 7500000, fee: 63450 },
+        { min: 7500000, max: 7600000, fee: 63950 },
+        { min: 7600000, max: 7700000, fee: 64450 },
+        { min: 7700000, max: 7800000, fee: 64950 },
+
+        // SR. NO. 201 - 221
+
+        { min: 7800000, max: 7900000, fee: 65450 },
+        { min: 7900000, max: 8000000, fee: 65950 },
+        { min: 8000000, max: 8100000, fee: 66450 },
+        { min: 8100000, max: 8200000, fee: 66950 },
+        { min: 8200000, max: 8300000, fee: 67450 },
+        { min: 8300000, max: 8400000, fee: 67950 },
+        { min: 8400000, max: 8500000, fee: 68450 },
+        { min: 8500000, max: 8600000, fee: 68950 },
+        { min: 8600000, max: 8700000, fee: 69450 },
+        { min: 8700000, max: 8800000, fee: 69950 },
+        { min: 8800000, max: 8900000, fee: 70450 },
+        { min: 8900000, max: 9000000, fee: 70950 },
+        { min: 9000000, max: 9100000, fee: 71450 },
+        { min: 9100000, max: 9200000, fee: 71950 },
+        { min: 9200000, max: 9300000, fee: 72450 },
+        { min: 9300000, max: 9400000, fee: 72950 },
+        { min: 9400000, max: 9500000, fee: 73450 },
+        { min: 9500000, max: 9600000, fee: 73950 },
+        { min: 9600000, max: 9700000, fee: 74450 },
+        { min: 9700000, max: 9800000, fee: 74950 },
+        { min: 9800000, max: 9900000, fee: 75000 },
+      ];
+
+      function calculateCourtFee() {
+        const amount = Number(
+          document.getElementById("amount").value.replace(/,/g, ""),
+        );
+
+        const slab = courtFees.find(
+          (item) => amount > item.min && amount <= item.max,
+        );
+
+        if (!slab) {
+          alert("Amount not found in available schedule.");
+          return;
+        }
+
+        document.getElementById("resultCard").classList.remove("d-none");
+
+        document.getElementById("suitValue").innerText =
+          "₹" + amount.toLocaleString("en-IN");
+
+        document.getElementById("courtFee").innerText =
+          "₹" + slab.fee.toLocaleString("en-IN");
+
+        document.getElementById("slab").innerText =
+          "₹" +
+          slab.min.toLocaleString("en-IN") +
+          " - ₹" +
+          slab.max.toLocaleString("en-IN");
+      }
+
+      document.getElementById("amount").addEventListener("keyup", function () {
+        let x = this.value.replace(/,/g, "");
+        if (!isNaN(x) && x !== "") {
+          this.value = Number(x).toLocaleString("en-IN");
+        }
+      });
+    </script>
+  </body>
+</html>
