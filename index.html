@@ -25,38 +25,23 @@
       rel="stylesheet"
     />
     <style>
-      /* Hero Section */
-      .hero {
-        background:
-          linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-          url("https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&w=1600&q=80")
-            center/cover;
-        color: #fff;
-        padding: 120px 0;
-        text-align: center;
-      }
-      .hero h1 {
-        font-size: 3rem;
-        font-weight: 700;
-      }
-      .hero p {
-        font-size: 1.2rem;
-      }
+      .hero{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(5,10,20,.78),rgba(5,10,20,.82)),
+    url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1800&q=80");
+    background-size:cover;
+    background-position:center;
+}
 
-      /* Category Tiles */
-      .category-card {
-        transition: transform 0.2s ease-in-out;
-      }
-      .category-card:hover {
-        transform: translateY(-6px);
-      }
+.hero .card{
+    backdrop-filter: blur(10px);
+    transition:.3s;
+}
 
-      /* Section Headings */
-      .section-title {
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 2rem;
-      }
+.hero .card:hover{
+    transform:translateY(-8px);
+}
     </style>
   </head>
   <body>
@@ -102,16 +87,104 @@
       </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <h1>Beyond Bare Acts</h1>
-        <p>Legal resources that connect law in books with law in practice</p>
-        <a href="article/article.html" class="btn btn-warning mt-3 px-4"
-          >Explore Articles</a
-        >
+   <!-- Hero Section -->
+<section class="hero d-flex align-items-center">
+  <div class="container">
+
+    <div class="row align-items-center">
+
+      <!-- Left Content -->
+      <div class="col-lg-6 text-white">
+
+        <span class="badge bg-warning text-dark px-3 py-2 mb-3">
+          <i class="bi bi-shield-check me-1"></i>
+          Practical Legal Resources
+        </span>
+
+        <h1 class="display-3 fw-bold">
+          Beyond <span class="text-warning">Bare Acts</span>
+        </h1>
+
+        <p class="lead text-light mt-4">
+          Simplifying law through practical tools, court resources,
+          legal articles and easy-to-understand explanations.
+        </p>
+
+        <div class="mt-4">
+
+          <a href="/" class="btn btn-warning btn-lg px-4 me-3">
+            Explore Resources
+          </a>
+
+          <a href="court-fee-calculator.html" class="btn btn-outline-light btn-lg px-4">
+            Court Fee Calculator
+          </a>
+
+        </div>
+
       </div>
-    </section>
+
+      <!-- Right Cards -->
+      <div class="col-lg-6 mt-5 mt-lg-0">
+
+        <div class="row g-3">
+
+          <div class="col-6">
+            <div class="card border-0 shadow-lg bg-dark bg-opacity-75 text-white rounded-4 h-100">
+              <div class="card-body text-center py-4">
+                <i class="bi bi-building fs-1 text-warning"></i>
+                <h5 class="mt-3"><a class="text-reset text-decoration-none" href="vadodara-court.html">Court Directory</a></h5>
+                <small class="text-light-emphasis">
+                  Find courtrooms & judges instantly.
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="card border-0 shadow-lg bg-dark bg-opacity-75 text-white rounded-4 h-100">
+              <div class="card-body text-center py-4">
+                <i class="bi bi-calculator fs-1 text-warning"></i>
+                <h5 class="mt-3"><a class="text-reset text-decoration-none" href="judgment/judgment.html">Judgments</a></h5>
+                <small class="text-light-emphasis">
+                  Explore important court decisions
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="card border-0 shadow-lg bg-dark bg-opacity-75 text-white rounded-4 h-100">
+              <div class="card-body text-center py-4">
+                <i class="bi bi-people fs-1 text-warning"></i>
+                <h5 class="mt-3"><a class="text-reset text-decoration-none" href="NGO.html">NGO List</a></h5>
+                <small class="text-light-emphasis">
+                  Explore NGOs across Vadodara
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="card border-0 shadow-lg bg-dark bg-opacity-75 text-white rounded-4 h-100">
+              <div class="card-body text-center py-4">
+                <i class="bi bi-journal-text fs-1 text-warning"></i>
+                <h5 class="mt-3"><a class="text-reset text-decoration-none" href="article/article.html">Articles</a></h5>
+                <small class="text-light-emphasis">
+                  Practical legal insights.
+                </small>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
     <section class="py-5 bg-light">
       <div class="container">
@@ -276,7 +349,7 @@
     </section> -->
 
     <!-- Categories -->
-    <section class="py-5">
+    <!-- <section class="py-5">
       <div class="container">
         <h2 class="section-title">Explore</h2>
         <div class="row g-4">
@@ -334,7 +407,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Contact via Instagram Section -->
     <section class="instagram-contact-section py-5 text-center text-light">
