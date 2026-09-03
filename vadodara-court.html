@@ -1,485 +1,490 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vadodara Court Room Seating Plan</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-      body {
-        background-color: #f9fafb;
-        color: #222;
-        font-family: "Poppins", sans-serif;
-      }
-      .section-title {
-        color: #003366;
-        font-weight: 700;
-        margin-top: 30px;
-        margin-bottom: 15px;
-      }
-      .floor-card {
-        background-color: white;
-        border: 1px solid #e0e0e0;
-        border-radius: 12px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      }
-      .search-box {
-        border-radius: 10px;
-        padding: 12px 15px;
-        border: 1px solid #ccc;
-        width: 100%;
-        max-width: 400px;
-      }
-      .result-box {
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        margin-top: 10px;
-        padding: 10px;
-        display: none;
-      }
-      .result-item {
-        padding: 8px 10px;
-        cursor: pointer;
-        border-radius: 6px;
-      }
-      .result-item:hover {
-        background-color: #eef4ff;
-      }
-      .highlight {
-        color: #003366;
-        font-weight: 600;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-      <div class="container">
-        <a class="navbar-brand fw-bold text-warning" href="index.html"
-          ><i class="bi bi-balance-scale"></i> Rishab-LEX</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <!-- <li class="nav-item">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vadodara Court Room Seating Plan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f9fafb;
+      color: #222;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .section-title {
+      color: #003366;
+      font-weight: 700;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    .floor-card {
+      background-color: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .search-box {
+      border-radius: 10px;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .result-box {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 10px;
+      padding: 10px;
+      display: none;
+    }
+
+    .result-item {
+      padding: 8px 10px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .result-item:hover {
+      background-color: #eef4ff;
+    }
+
+    .highlight {
+      color: #003366;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-warning" href="index.html"><i class="bi bi-balance-scale"></i> Rishab-LEX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <!-- <li class="nav-item">
               <a class="nav-link" href="bareact.html">Bare Acts</a>
             </li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="judgment/judgment.html">Judgments</a>
+          <li class="nav-item">
+            <a class="nav-link" href="judgment/judgment.html">Judgments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="article/article.html">Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vadodara-court.html">Vadodara-Court</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container py-5">
+    <!-- <marquee>djsjgjdshgjdshgldsglds</marquee> -->
+    <h1 class="text-center mb-4" style="color: #003366; font-weight: 700">
+      Vadodara District Court Room Seating Plan
+    </h1>
+
+    <!-- 🔍 Search Section -->
+    <div class="text-center mb-4">
+      <input type="text" id="searchBox" class="search-box" placeholder="Search Judge by Name..."
+        onkeyup="searchJudge()" />
+      <div id="resultBox" class="result-box"></div>
+    </div>
+
+    <!-- 🔽 Search Result Display -->
+    <div id="selectedResult" class="text-center mb-5"></div>
+
+    <!-- 🧾 Floor Wise Display -->
+    <div class="floor-card">
+      <h4 class="section-title">Ground Floor (A)</h4>
+      <p>
+        A1 - <br />
+        A8 - Mr. P.N. Raval, 4th AddL District judge <br />
+        A9 - Mr B.K Dasondi 9th Addl. District judge <br />
+        A17 - Mr. Sunilkumar Sharma, 19th Addl. Sr. Civil Judge <br />
+        A29 - Mr. R.A Agrawal, 10 Addl. District judge <br />
+        A32 - Mr. S.M. Mishra, 14th Addl. Sr. Civil Judgе <br />
+        A33 - Mr. A.G Dodia, 17th Addl. Sr. Civil Judge <br />
+        A45 - Mr. P.B. Nayak, Chief Judicial Magistrate <br />
+        A56 - Mr. J.V. Shah, 15th Addl. Sr. Civil Judge <br />
+        <!-- A58 - J.V. Shah <br /> -->
+        A59 - Ms D.P Shah, J.M.F.C. 1st Court <br />
+        A69 - Ms. Shipra Sayal, J.M.F.C., 2nd Court <br />
+        A85 - Ms H.D.Panchal, J.M.F.C., 4th Court <br />
+        A95 - Mr. B.U Tarak, J.M.F.C., Traffic Court <br />
+        A96 - Ms. E.K Chandawal, JMFC (Municipal Court) <br />
+        A106 - Ms. K N.Trived, J.M.F.C., 3rd Court
+      </p>
+    </div>
+
+    <div class="floor-card">
+      <h4 class="section-title">First Floor (B)</h4>
+      <p>
+        B6 - Mr. M.A.Tailor. 3 Addl. District Judge <br />
+        B7 - D.K. Soni, 6th Addl. District judge <br />
+        B15 - C.M. Pawar, Addl. District Judge<br />
+        B21 - Mr. D.V.Savala, Secretary DLSA<br />
+        B29 - Mr. B.G.Dave, Principal District Judge <br />
+        B44 - Mr. D.D.Shah. 15th Addl. District judge <br />
+        B57 - Mr. I.S. Saiyed, 12th Addl. Sr. Civil Judge <br />
+        B58 - Mr. D.J.Rajput. 16th Addl. District judge<br />
+        B65 - MS. HD Panchal, 10 Addl. Civil Judge <br />
+        B77 - A.P Kadiwar, Addl. Civil Judge
+        <br />
+        B87 - Dr. H.P. Joshi, 24th Addl. Civil Judge <br />
+        <!-- B88 - S.D. Kapadia <br /> -->
+        <!-- B98 - T.H. Thakkar -->
+      </p>
+    </div>
+
+    <div class="floor-card">
+      <h4 class="section-title">Second Floor (C)</h4>
+      <p>
+        C1 - Mr. R.B Marfatiya, 12th Addl. District judge<br />
+        C6 - Mr. M.H. Padhiyar, 8th Addl. Sr. Civil Judge <br />
+        C9 - Mr. M.R Zala, 14th Addl. District judge <br />
+        C18 - Mr. P.B. Patel, 16th Addl. Sr. Civil Judge <br />
+        C24 - Mr. K.L. Nadia, 23rd Addl. Sr. Civil Judge <br />
+        C32 - Mr.P.V.Bhatt, 11th Addl. District judge <br />
+        C35 - Mr. G.J. Thoriya 8th Addl. District judge <br />
+        C42 - Mr. H.J.Thaker, 13th Addl. District judge <br />
+        <!-- C49 - M.M. Qureshi <br /> -->
+        C61 - Mr.P.K. Gadhvi, 5th AddL, Sr. Civil Judge <br />
+        C62 - Mr. R.B. Gosai, 9th Addl. Sr. Civil Judge <br />
+        C70 - Dr.A.K.Sharma, 2 Addl. Sr. Civil Judge <br />
+        <!-- C77 - D.P. Shah <br /> -->
+        <!-- C84 - L.M. Parmar <br /> -->
+        C87 - Mr.bB.P.Mahida, 3rd Addl. Sr. Civil Judge <br />
+        <!-- C94 - P. Rathore -->
+      </p>
+    </div>
+
+    <div class="floor-card">
+      <h4 class="section-title">Third Floor (D)</h4>
+      <p>
+        D1 - Mr. J.J. Bhatt, Principal Sr.Civil Judge <br />
+        D8 - Mr. M.J. Gadhavi, 6th Addl. Sr. Civil Judge <br />
+        <!-- D9 - M.D. Valani <br /> -->
+        <!-- D17 - M.B. Mehta <br /> -->
+        D19 - Mr. C.V. Bhatt, 21th Addl. Sr. Civil Judge <br />
+        D30 - Mr.B.M. Gadhiya, 11th Addl. Sr. Civil Judge <br />
+        <!-- D31 - A.A. Shaikh <br /> -->
+        D45 - R.V. Raje (Family Court No. 2) <br />
+        D57 - B.S. Shah (Family Court No. 3) <br />
+        D58 - S.C. Vyas (Family Court No. 4) <br />
+        D62 - R.S. Rajput (Family Court No. 5) <br />
+        D73 - Mr. Y.R. Agrawal, 7th Addl. Sr. Civil Judge <br />
+        D80 - Mrs Kavita Gehlot, 2nd Addl. Civil Judge <br />
+        D81 - N/A<br />
+        D88 - Mr. R.P. Raghav, Principal Judge
+      </p>
+    </div>
+
+    <div class="floor-card">
+      <h4 class="section-title">Fourth Floor (E)</h4>
+      <p>
+        E1 - T.J. Patel (Small Cause Court) <br />
+        E8 - B.M Raj, 2nd Addl. Judge (Small Cause Court) <br />
+        E9 - Mr. K. H. Shekha, Addl. Judge, (Small Cause Court) <br />
+        E16 - Mr. O.L. Pathan, 22nd Addl. Sr. Civil Judge <br />
+        E18 - Mr. H.S. Desai, 25th Addl. Civil Judge <br />
+        E29 - Mr. D.M. Singhal, 18th Addl. Sr. Civil Judge <br />
+        E30 - Mr. R.V. Limbachiya, 4th Addl. Sr. Civil Judge <br />
+        E37 - Ms. Poonam Swami, 3rd Addl. Civil Judge<br />
+        E54 - Mr. J.M. Solanki, 10th Addl. Sr. Civil Judge <br />
+        <!-- E55 - R.M. Shaikh <br /> -->
+        E62 - Chitra Ratnoo (Family Court No. 6) <br />
+        E64 - Mr. S.G. Parmar, 13th Addl. Sr. Civil Judge <br />
+        E73 - Mr. D.M. Bavishi, 20th Addl. Sr. Civil Judge
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="alert alert-warning border-0 shadow-sm rounded-4 mt-4" role="alert">
+      <div class="d-flex">
+        <div class="me-3 fs-5">⚠️</div>
+        <div>
+          <h6 class="fw-bold mb-2"> Vadodara District Court Seating Plan – Latest Update as on 9 August 2026</h6>
+
+          <p class="mb-2 small">
+            This seating plan has been recently updated to reflect
+            <strong>the new courtroom allocations following recent transfers, promotions, and changes in judicial
+              postings</strong>.
+            As these details may change from time to time, there may be an unintended
+            error, mismatch, missing entry, or outdated information.
+          </p>
+
+          <p class="mb-2 small">
+            If you notice any <strong>incorrect judge name, courtroom/room number,
+              missing entry, mismatch, or technical issue</strong>,
+            please inform me through the
+            <a href="contact.html" class="fw-semibold text-decoration-none">Contact section</a>,
+            Instagram DM, or WhatsApp.Your feedback will help me verify and correct the information at the earliest.
+          </p>
+
+          <p class="mb-0 small text-muted">
+            <em>Please verify important information with the concerned court or official sources before relying on
+              it.</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- About -->
+        <div class="col-lg-4 col-md-6">
+          <h5 class="fw-bold text-warning">
+            <i class="bi bi-balance-scale"></i> Rishab-LEX
+          </h5>
+
+          <p class="small text-light-emphasis">
+            A practical legal resource platform built to help law students,
+            interns, advocates and court visitors through simplified legal
+            resources, court utilities and region-specific information.
+          </p>
+
+          <small class="text-secondary">
+            © 2025 Rishab-LEX. All Rights Reserved.
+          </small>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold text-warning">Quick Links</h6>
+
+          <ul class="list-unstyled small">
+            <li class="mb-2">
+              <a href="index.html" class="text-light text-decoration-none">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="article/article.html">Articles</a>
+
+            <li class="mb-2">
+              <a href="about.html" class="text-light text-decoration-none">About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="vadodara-court.html">Vadodara-Court</a>
+
+            <li class="mb-2">
+              <a href="article/article.html" class="text-light text-decoration-none">Articles</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+
+            <li class="mb-2">
+              <a href="judgment/judgment.html" class="text-light text-decoration-none">Judgments</a>
+            </li>
+            <a href="contact.html" class="text-light text-decoration-none">Contact</a>
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
-    <div class="container py-5">
-      <h1 class="text-center mb-4" style="color: #003366; font-weight: 700">
-        Vadodara District Court Room Seating Plan
-      </h1>
 
-      <!-- 🔍 Search Section -->
-      <div class="text-center mb-4">
-        <input
-          type="text"
-          id="searchBox"
-          class="search-box"
-          placeholder="Search Judge by Name..."
-          onkeyup="searchJudge()"
-        />
-        <div id="resultBox" class="result-box"></div>
-      </div>
+        <!-- Resources -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold text-warning">Resources</h6>
 
-      <!-- 🔽 Search Result Display -->
-      <div id="selectedResult" class="text-center mb-5"></div>
+          <ul class="list-unstyled small">
+            <li class="mb-2">
+              <a href="vadodara-court.html" class="text-light text-decoration-none">
+                Vadodara Court Directory
+              </a>
+            </li>
 
-      <!-- 🧾 Floor Wise Display -->
-      <div class="floor-card">
-        <h4 class="section-title">Ground Floor (A)</h4>
-        <p>
-          A1 - <br />
-          A8 - Mr. DA Vora, 2 Addl.District Judge <br />
-          A9 - B.K. Dasondi, 13 Addl.District judge <br />
-          A17 - S.K. Sharma, 20 Addl. Sr. Civil Judge <br />
-          A29 - R.A. Agrawal 14 Addl.District judge <br />
-          A32 - S.M. Mishra <br />
-          A33 - A.G. Dodiya, 18 Addl. Sr. Civil Judge <br />
-          A45 - P.B. Nayak (Chief Court) <br />
-          A58 - J.V. Shah <br />
-          A59 - B.M. Raj (1st Court) <br />
-          A69 - (Second Court) <br />
-          A85 - (4th Court) <br />
-          A95 - Mr. B.U. Tarak, J.MF.C (Traffic Court) <br />
-          A96 - Ms. E.K Chandawal, JMFC (Municipal Court) <br />
-          A106 - (Third Court)
-        </p>
-      </div>
+            <li class="mb-2">
+              <a href="court-fee-calculator.html" class="text-light text-decoration-none">
+                Court Fee Calculator
+              </a>
+            </li>
 
-      <div class="floor-card">
-        <h4 class="section-title">First Floor (B)</h4>
-        <p>
-          B6 - S.N. Solanki <br />
-          B7 - D.K. Soni, 9 Addl. District judge <br />
-          B15 - C.M. Pawar, 4 Add. District Judge<br />
-          B29 - V.K. Pathak Principal District Judge <br />
-          B44 - A.S. Shaikh <br />
-          B57 - I.S. Saiyad <br />
-          B58 - Ms. KN.Trivedi, 9 Addl. Civil Judge <br />
-          B65 - MS. HD Panchal, 10 Addl. Civil Judge <br />
-          B77 - Bandhan Nagi, Addl. Civil Judge
-          <br />
-          B87 - Dr. HP Joshi, 2 Addl. Civil Judge <br />
-          B88 - S.D. Kapadia <br />
-          B98 - T.H. Thakkar
-        </p>
+            <li class="mb-2">
+              <a href="ngo.html" class="text-light text-decoration-none">
+                NGOs in Vadodara
+              </a>
+            </li>
+
+            <li>
+              <a href="/" class="text-light text-decoration-none">
+                Legal Glossary
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Connect -->
+        <div class="col-lg-2 col-md-6">
+          <h6 class="fw-bold text-warning">Connect</h6>
+
+          <div class="d-flex gap-3 fs-4">
+            <a href="https://www.instagram.com/lawgically_incorrect" target="_blank" class="text-light">
+              <i class="bi bi-instagram"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/rishab910" target="_blank" class="text-light">
+              <i class="bi bi-linkedin"></i>
+            </a>
+
+            <a href="https://github.com/RishabKanaujia" target="_blank" class="text-light">
+              <i class="bi bi-github"></i>
+            </a>
+          </div>
+
+          <p class="small text-secondary mt-3 mb-0">
+            Feedback and suggestions are always welcome.
+          </p>
+        </div>
       </div>
 
-      <div class="floor-card">
-        <h4 class="section-title">Second Floor (C)</h4>
-        <p>
-          C1 - Mr. CH Shah, 3 Addl.Disrict Judge <br />
-          C8 - M.H. Padhiyar <br />
-          C9 - M.A. Tailor, 6 Addl. District judge <br />
-          C18 - B.P. Patel <br />
-          C24 - A.K. Shah <br />
-          C32 - P.V. Bhatt <br />
-          C35 - Mr. G.J. Thoriya 12 Addl. District judge <br />
-          C42 - P.N. Raval, 7 Addl. District judge <br />
-          C49 - M.M. Qureshi <br />
-          C61 - P.K. Gadhvi <br />
-          C62 - R.B. Gosai <br />
-          C70 - Dr. AK Sharma <br />
-          C77 - D.P. Shah <br />
-          C84 - L.M. Parmar <br />
-          C87 - B.P. Mahida <br />
-          C94 - P. Rathore
-        </p>
-      </div>
+      <hr class="border-secondary my-4" />
 
-      <div class="floor-card">
-        <h4 class="section-title">Third Floor (D)</h4>
-        <p>
-          D1 - J.J. Bhatt (Principal Senior Civil) <br />
-          D8 - M.J.Gadhavi <br />
-          D9 - M.D. Valani <br />
-          D17 - M.B. Mehta <br />
-          D19 - C. V Bhatt <br />
-          D30 - Mr. B. M. Gadhiya, 12th Addl. Sr. Civil Judge  <br />
-          D31 - A.A. Shaikh <br />
-          D38 - Shilpa Sayal <br />
-          D45 - R.V. Raje (Family Court No. 2) <br />
-          D57 - B.S. Shah (Family Court No. 3) <br />
-          D58 - S.C. Vyas (Family Court No. 4) <br />
-          D62 - R.S. Rajput (Family Court No. 5) <br />
-          D73 - Y.R. Agrawal <br />
-          D80 - Kavita Gehlot <br />
-          D81 - Chitra Ratnoo (Family Court No. 6) <br />
-          D88 - M.M. Patel (Family Court No. 1)
-        </p>
-      </div>
+      <div class="d-md-flex justify-content-between align-items-center small">
+        <div class="text-secondary">
+          Built with ❤️ to make legal information more accessible and
+          practical.
+        </div>
 
-      <div class="floor-card">
-        <h4 class="section-title">Fourth Floor (E)</h4>
-        <p>
-          E1 - T.J. Patel (Small Cause Court) <br />
-          E8 - H.J. Thakar (Small Cause Court) <br />
-          E9 - Mr. K. H. Shekha, 2nd Addl. Judge, (Small Cause Court) <br />
-          E16 - D.J. Rajput <br />
-          E18 - Mr. H. S. Desai, 4th Addl. Civil Judge  <br />
-          E29 - D.M. Singhal <br />
-          E30 - M.R. Zala <br />
-          E37 - Punam Swami <br />
-          E54 - J.M. Solanki <br />
-          E55 - R.M. Shaikh <br />
-          E64 - S.G. Parmar <br />
-          E73 - D.M Bavish
-        </p>
+        <div class="mt-2 mt-md-0">
+          <a href="privacy_policy.html" class="text-decoration-none text-light me-3">
+            Privacy Policy
+          </a>
+
+          <a href="privacy_policy.html" class="text-decoration-none text-light">
+            Disclaimer
+          </a>
+        </div>
       </div>
     </div>
-    
-    <!-- Footer -->
-    <footer class="bg-dark text-light pt-5 pb-3 mt-5">
-      <div class="container">
-        <div class="row g-4">
-          <!-- About -->
-          <div class="col-lg-4 col-md-6">
-            <h5 class="fw-bold text-warning">
-              <i class="bi bi-balance-scale"></i> Rishab-LEX
-            </h5>
+  </footer>
 
-            <p class="small text-light-emphasis">
-              A practical legal resource platform built to help law students,
-              interns, advocates and court visitors through simplified legal
-              resources, court utilities and region-specific information.
-            </p>
+  <script>
+    const judges = {
+      "Mr. P.N. Raval, 4th AddL District judge": "A8 (Ground Floor)",
+      "Mr B.K Dasondi 9th Addl. District judge": "A9 (Ground Floor)",
+      "Mr. Sunilkumar Sharma, 19th Addl. Sr. Civil Judge ": "A17 (Ground Floor)",
+      "Mr. R.A Agrawal, 10 Addl. District judge": "A21 (Ground Floor)",
+      "Mr. S.M. Mishra, 14th Addl. Sr. Civil Judgе": "A32 (Ground Floor)",
+      "Mr. A.G Dodia, 17th Addl. Sr. Civil Judge": "A33 (Ground Floor)",
+      "Mr. P.B. Nayak, Chief Judicial Magistrate": "A45 (Ground Floor)",
+      "Mr. J.V. Shah, 15th Addl. Sr. Civil Judge ": "A56 (Ground Floor)",
+      // "J.V. Shah": "A58 (Ground Floor)",
+      "Ms D.P Shah, J.M.F.C. 1st Court": "A59 (Ground Floor)",
+      "Ms Shipra Sayal, J.M.F.C., 2nd Court  ": "A69 (Ground Floor)",
+      "Ms H.D.Panchal, J.M.F.C., 4th Court ": "A85 (Municipal Court, Ground Floor)",
+      "Mr. B.U Tarak, J.M.F.C., Traffic Court": "A95 (Ground Floor)",
+      "Ms. E.K Chandawat, JMFC (Municipal Court)": "A96 (Ground Floor)",
+      "Ms. K N.Trived, J.M.F.C., 3rd Court ": "A106  (Ground Floor)",
 
-            <small class="text-secondary">
-              © 2025 Rishab-LEX. All Rights Reserved.
-            </small>
-          </div>
+      "Mr. M.A. Tailor. 3 Addl. District Judge": "B6 (First Floor)",
+      "D.K. Soni, 6th Addl. District judge": "B7 (First Floor)",
+      "C.M. Pawar, Addl. District Judge": "B15 (First Floor)",
+      "Mr. D.V.Savala, Secretary DLSA": "B21 (First Floor)",
+      "Mr. B.G.Dave, Principal District Judge": "B29 (Principal District Judge)",
+      "Mr. I.S. Saiyed, 12th Addl. Sr. Civil Judge": "B57 (First Floor)",
+      "Mr. D.J.Rajput. 16th Addl. District judge": "B58 (First Floor)",
+      "Mr. D.D.Shah. 15th Addl. District judge": "B44 (First Floor)",
+      "Ms. A.P Kadiwar, Addl. Civil Judge": "B77 (First Floor)",
+      "Dr. H.P. Joshi, 24th Addl. Civil Judge": "B87 (First Floor)",
+      // "T.H. Thakkar": "B98 (First Floor)",
+      // "S.D. Kapadia": "B88 (First Floor)",
+      // "HD Panchal": "B65 (First Floor)",
 
-          <!-- Quick Links -->
-          <div class="col-lg-3 col-md-6">
-            <h6 class="fw-bold text-warning">Quick Links</h6>
+      "Mr. R.B Marfatiya, 12th Addl. District judge": "C1 (Second Floor)",
+      "Mr. M.H. Padhiyar, 8th Addl. Sr. Civil Judge": "C6 (Second Floor)",
+      "Mr. M.R Zala, 14th Addl. District judge": "C9 (Second Floor)",
+      "Mr. P.B. Patel, 16th Addl. Sr. Civil Judge": "C18 (Second Floor)",
+      "Mr. K.L. Nadia, 23rd Addl. Sr. Civil Judge": "C24 (Second Floor)",
+      "Mr. P.V.Bhatt, 11th Addl. District judge": "C34 (Second Floor)",
+      "Mr. G.J. Thoriya 8th Addl. District judge": "C35 (Second Floor)",
+      "Mr. H.J.Thaker, 13th Addl. District judge": "C42 (Second Floor)",
+      // "M.M. Qureshi": "C49 (Second Floor)",
+      "Mr.P.K. Gadhvi, 5th AddL, Sr. Civil Judge": "C61 (Second Floor)",
+      "Mr. R.B. Gosai, 9th Addl. Sr. Civil Judge": "C62 (Second Floor)",
+      "Dr.A.K.Sharma, 2nd Addl. Sr. Civil Judge": "C70 (Second Floor)",
+      // "D.P. Shah": "C77 (Second Floor)",
+      // "L.M. Parmar": "C86 (Second Floor)",
+      "Mr. B.P.Mahida, 3rd Addl. Sr. Civil Judge": "C87 (Second Floor)",
+      // "P. Rathore": "C94 (Second Floor)",
 
-            <ul class="list-unstyled small">
-              <li class="mb-2">
-                <a href="index.html" class="text-light text-decoration-none"
-                  >Home</a
-                >
-              </li>
+      "J.J. Bhat, Principal Senior Civil": "D1 (Third Floor)",
+      "Mr. M.J. Gadhavi, 6th Addl. Sr. Civil Judge": "D8 (Third Floor)",
+      // "M.D. Valani": "D9 (Third Floor)",
+      // "M.B. Mehta": "D17 (Third Floor)",
+      "Mr. C.V. Bhatt, 21th Addl. Sr. Civil Judge": "D19 (Third Floor)",
+      "Mr.B.M.Gadhiya, 11th Addl. Sr. Civil Judge": "D30 (Third Floor)",
+      // "A.A. Shaikh": "D31 (Third Floor)",
+      "R.V. Raje": "D45 (Third Floor)",
+      "B.S. Shah": "D57 (Third Floor)",
+      "S.C. Vyas": "D58 (Third Floor)",
+      "R.S. Rajput": "D62 (Third Floor)",
+      "Mr. Y.R. Agrawal, 7th Addl. Sr. Civil Judge": "D73 (Third Floor)",
+      "Mrs Kavita Gehlot, 2nd Addl. Civil Judge": "D80 (Third Floor)",
+      // "Chitra Ratnoo": "D81 (Third Floor)",
+      "Mr. R.P. Raghav, Principal Judge": "D88 (Third Floor)",
 
-              <li class="mb-2">
-                <a href="about.html" class="text-light text-decoration-none"
-                  >About</a
-                >
-              </li>
+      "T.J. Patel, Small Cause Court Judge": "E1 (Fourth Floor)",
+      "B.M Raj, 2nd Addl. Small Cause Court Judge": "E8 (Fourth Floor)",
+      "Mr. K. H. Shekha, Addl Judge, Sa.Ca Court ": "E9 (Fourth Floor)",
+      "Mr. O.L. Pathan, 22nd Addl. Sr. Civil Judge": "E16 (Fourth Floor)",
+      "Mr. H.S. Desai, 25th Addl. Civil Judge": "E18 (Fourth Floor)",
+      "Mr. D.M. Singhal, 18th Addl. Sr. Civil Judge": "E29 (Fourth Floor)",
+      "Mr. R.V. Limbachiya, 4th Addl. Sr. Civil Judge": "E30 (Fourth Floor)",
+      "Ms. Poonam Swami, 3rd Addl. Civil Judge": "E37 (Fourth Floor)",
+      "Mr. J.M. Solanki, 10th Addl. Sr. Civil Judge": "E54 (Fourth Floor)",
+      // "R.M. Shaikh": "E55 (Fourth Floor)",
+      "Chitra Ratnoo (Family Court No. 6)": "E62 (Fourth Floor)",
+      "Mr. S.G. Parmar, 13th Addl. Sr. Civil Judge": "E64 (Fourth Floor)",
+      "Mr. D.M. Bavishi, 20th Addl. Sr. Civil Judge": "E73 (Fourth Floor)",
+    };
 
-              <li class="mb-2">
-                <a href="article/article.html" class="text-light text-decoration-none"
-                  >Articles</a
-                >
-              </li>
+    function searchJudge() {
+      const input = document.getElementById("searchBox").value.toLowerCase();
+      const resultBox = document.getElementById("resultBox");
+      const selectedResult = document.getElementById("selectedResult");
 
-              <li class="mb-2">
-                <a href="judgment/judgment.html" class="text-light text-decoration-none"
-                  >Judgments</a
-                >
-              </li>
-                <a href="contact.html" class="text-light text-decoration-none"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
+      resultBox.innerHTML = "";
+      selectedResult.innerHTML = "";
+      resultBox.style.display = "none";
 
-          <!-- Resources -->
-          <div class="col-lg-3 col-md-6">
-            <h6 class="fw-bold text-warning">Resources</h6>
+      if (input.length === 0) return;
 
-            <ul class="list-unstyled small">
-              <li class="mb-2">
-                <a
-                  href="vadodara-court.html"
-                  class="text-light text-decoration-none"
-                >
-                  Vadodara Court Directory
-                </a>
-              </li>
+      const matches = Object.keys(judges).filter((name) =>
+        name.toLowerCase().includes(input),
+      );
 
-              <li class="mb-2">
-                <a
-                  href="court-fee-calculator.html"
-                  class="text-light text-decoration-none"
-                >
-                  Court Fee Calculator
-                </a>
-              </li>
-
-              <li class="mb-2">
-                <a href="ngo.html" class="text-light text-decoration-none">
-                  NGOs in Vadodara
-                </a>
-              </li>
-
-              <li>
-                <a href="/" class="text-light text-decoration-none">
-                  Legal Glossary
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Connect -->
-          <div class="col-lg-2 col-md-6">
-            <h6 class="fw-bold text-warning">Connect</h6>
-
-            <div class="d-flex gap-3 fs-4">
-              <a
-                href="https://www.instagram.com/lawgically_incorrect"
-                target="_blank"
-                class="text-light"
-              >
-                <i class="bi bi-instagram"></i>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/rishab910"
-                target="_blank"
-                class="text-light"
-              >
-                <i class="bi bi-linkedin"></i>
-              </a>
-
-              <a
-                href="https://github.com/RishabKanaujia"
-                target="_blank"
-                class="text-light"
-              >
-                <i class="bi bi-github"></i>
-              </a>
-            </div>
-
-            <p class="small text-secondary mt-3 mb-0">
-              Feedback and suggestions are always welcome.
-            </p>
-          </div>
-        </div>
-
-        <hr class="border-secondary my-4" />
-
-        <div class="d-md-flex justify-content-between align-items-center small">
-          <div class="text-secondary">
-            Built with ❤️ to make legal information more accessible and
-            practical.
-          </div>
-
-          <div class="mt-2 mt-md-0">
-            <a href="privacy_policy.html" class="text-decoration-none text-light me-3">
-              Privacy Policy
-            </a>
-
-            <a href="privacy_policy.html" class="text-decoration-none text-light">
-              Disclaimer
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script>
-      const judges = {
-        "Mr. DA Vora": "A8 (Ground Floor)",
-        "B.K. Dasondi": "A9 (Ground Floor)",
-        "S.K. Sharma": "A17 (Ground Floor)",
-        "R.A. Agrawal": "A21 (Ground Floor)",
-        "S.M. Mishra": "A32 (Ground Floor)",
-        "A.G. Dodiya": "A33 (Ground Floor)",
-        "P.B. Nayak": "A45 (Ground Floor)",
-        "J.V. Shah": "A58 (Ground Floor)",
-        "B.M. Raj": "A59 (Ground Floor)",
-        "Mr. B.U. Tarak": "A95 (Ground Floor)",
-        "Ms. E.K Chandawal": "A96  (Municipal Court, Ground Floor)",
-
-        "S.N. Solanki": "B6 (First Floor)",
-        "D.K. Soni": "B7 (First Floor)",
-        "C.M. Pawar": "B15 (First Floor)",
-        "V.K. Pathak": "B29 (Principal District Judge)",
-        "I.S. Saiyad": "B57 (First Floor)",
-        "Ms. KN.Trivedi": "B58 (First Floor)",
-        "A.S. Shaikh": "B44 (First Floor)",
-        "Bandhan Nagi": "B77 (First Floor)",
-        "Saumya Rai": "B87 (First Floor)",
-        "T.H. Thakkar": "B98 (First Floor)",
-        "S.D. Kapadia": "B88 (First Floor)",
-        "Dr. HP Joshi": "B87 (First Floor)",
-        "HD Panchal": "B65 (First Floor)",
-
-        "CH Shah": "C1 (Second Floor)",
-        "M.H. Padhiyar": "C8 (Second Floor)",
-        "M.A. Tailor": "C9 (Second Floor)",
-        "P.B. Patel": "C18 (Second Floor)",
-        "A.K. Shah": "C24 (Second Floor)",
-        "P.V. Bhatt": "C34 (Second Floor)",
-        "G.J. Thoriya": "C35 (Second Floor)",
-        "P.N. Raval": "C42 (Second Floor)",
-        "M.M. Qureshi": "C49 (Second Floor)",
-        "P.K Gadhvi": "C61 (Second Floor)",
-        "R.B. Gosai ": "C62 (Second Floor)",
-        "Dr. AK Sharma": "C70 (Second Floor)",
-        "D.P. Shah": "C77 (Second Floor)",
-        "L.M. Parmar": "C86 (Second Floor)",
-        "B.P. Mahida": "C87 (Second Floor)",
-        "P. Rathore": "C94 (Second Floor)",
-
-        "J.J. Bhat": "D1 (Principal Senior Civil),(Third Floor)",
-        "J.A. Parmar": "D8 (Third Floor)",
-        "M.D. Valani": "D9 (Third Floor)",
-        "M.B. Mehta": "D17 (Third Floor)",
-        "C. V Bhatt": "D19 (Third Floor)",
-        "Mr. B. M. Gadhiya": "D30 (Third Floor)",
-        "A.A. Shaikh": "D31 (Third Floor)",
-        "Shilpa Sayal": "D38 (Third Floor)",
-        "R.V. Raje": "D45 (Third Floor)",
-        "B.S. Shah": "D57 (Third Floor)",
-        "S.C. Vyas": "D58 (Third Floor)",
-        "R.S. Rajput": "D62 (Third Floor)",
-        "Y.R. Agrawal": "D73 (Third Floor)",
-        "Kavita Gehlot ": "D80 (Third Floor)",
-        "Chitra Ratnoo": "D81 (Third Floor)",
-        "M.M. Patel": "D88 (Third Floor)",
-
-        "T.J. Patel": "E1 (Fourth Floor)",
-        "H.J. Thakar": "E8 (Fourth Floor)",
-        "Mr. K. H. Shekha": "E9 (Fourth Floor)",
-        "D.J. Rajput": "E16 (Fourth Floor)",
-        "Mr. H. S. Desai": "E18 (Fourth Floor)",
-        "D.M. Singhal": "E29 (Fourth Floor)",
-        "M.R. Zala": "E30 (Fourth Floor)",
-        "Punam Swami": "E37 (Fourth Floor)",
-        "J.M. Solanki": "E54 (Fourth Floor)",
-        "R.M. Shaikh": "E55 (Fourth Floor)",
-        "S.G. Parmar": "E64 (Fourth Floor)",
-        "D.M Bavishi": "E73 (Fourth Floor)",
-      };
-
-      function searchJudge() {
-        const input = document.getElementById("searchBox").value.toLowerCase();
-        const resultBox = document.getElementById("resultBox");
-        const selectedResult = document.getElementById("selectedResult");
-
-        resultBox.innerHTML = "";
-        selectedResult.innerHTML = "";
-        resultBox.style.display = "none";
-
-        if (input.length === 0) return;
-
-        const matches = Object.keys(judges).filter((name) =>
-          name.toLowerCase().includes(input),
-        );
-
-        if (matches.length > 0) {
-          resultBox.style.display = "block";
-          matches.forEach((name) => {
-            const item = document.createElement("div");
-            item.className = "result-item";
-            item.textContent = name;
-            item.onclick = function () {
-              selectedResult.innerHTML = `<div class="highlight">${name}</div> → ${judges[name]}`;
-              resultBox.style.display = "none";
-              document.getElementById("searchBox").value = name;
-            };
-            resultBox.appendChild(item);
-          });
-        }
+      if (matches.length > 0) {
+        resultBox.style.display = "block";
+        matches.forEach((name) => {
+          const item = document.createElement("div");
+          item.className = "result-item";
+          item.textContent = name;
+          item.onclick = function () {
+            selectedResult.innerHTML = `<div class="highlight">${name}</div> → ${judges[name]}`;
+            resultBox.style.display = "none";
+            document.getElementById("searchBox").value = name;
+          };
+          resultBox.appendChild(item);
+        });
       }
-    </script>
-  </body>
+    }
+  </script>
+</body>
+
 </html>
