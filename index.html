@@ -1,180 +1,197 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Rishab-LEX is a legal resource platform featuring simplified judgments, legal articles, court fee calculator, Vadodara District Court room directory, legal glossary, internships, and practical law resources for students and litigants."
-    />
-    <meta
-      name="keywords"
-      content="Rishab Lex, Law Student, Legal Resources, Legal Articles, Bare Acts, Court Fee Calculator, Vadodara District Court, Court Room Directory, Legal Judgments, Gujarat Law, Legal Education"
-    />
-    <meta name="author" content="Rishab Kanaujia" />
 
-    <title>Rishab-LEX | Legal Resources, Court Guides & Law Student Hub</title>
-    <link rel="canonical" href="https://rishab-lex.vercel.app/" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Rishab-LEX is a legal resource platform featuring simplified judgments, legal articles, court fee calculator, Vadodara District Court room directory, legal glossary, internships, and practical law resources for students and litigants." />
+  <meta name="keywords"
+    content="Rishab Lex, Law Student, Legal Resources, Legal Articles, Bare Acts, Court Fee Calculator, Vadodara District Court, Court Room Directory, Legal Judgments, Gujarat Law, Legal Education" />
+  <meta name="author" content="Rishab Kanaujia" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <style>
-      .hero{
-    min-height:100vh;
-    background:
-    linear-gradient(rgba(5,10,20,.78),rgba(5,10,20,.82)),
-    url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1800&q=80");
-    background-size:cover;
-    background-position:center;
-}
+  <title>Rishab-LEX | Legal Resources, Court Guides & Law Student Hub</title>
+  <link rel="canonical" href="https://rishab-lex.vercel.app/" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    .hero {
+      position: relative;
+      /* ← zaroori: warna ::after hero se anchor nahi hoga */
+      overflow: hidden;
+      /* ← fade ko andar rakhta hai */
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(5, 10, 20, .78), rgba(5, 10, 20, .82)),
+        url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
+    }
 
-.hero .card{
-    backdrop-filter: blur(10px);
-    transition:.3s;
-}
+    /* Bottom fade — hero ko neeche wale bg-light section me seamlessly melt karta hai */
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 160px;
+      background: linear-gradient(to bottom,
+          rgba(5, 10, 20, 0) 0%,
+          rgba(5, 10, 20, .55) 55%,
+          rgba(5, 10, 20, .95) 100%);
+      pointer-events: none;
+      /* ← buttons clickable rehte hain */
+      z-index: 1;
+    }
 
-.hero .card:hover{
-    transform:translateY(-8px);
-}
-    </style>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-      <div class="container">
-        <a class="navbar-brand fw-bold text-warning" href="index.html"
-          ><i class="bi bi-balance-scale"></i> Rishab-LEX</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <!-- <li class="nav-item">
+    /* Content fade ke upar rahe */
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero .card {
+      backdrop-filter: blur(10px);
+      transition: .3s;
+    }
+
+    .hero .card:hover {
+      transform: translateY(-8px);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-warning" href="index.html"><i class="bi bi-balance-scale"></i> Rishab-LEX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <!-- <li class="nav-item">
               <a class="nav-link" href="NGO.html">ngo list</a>
             </li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="judgment/judgment.html">Judgments</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="article/article.html">Articles</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="vadodara-court.html">Vadodara-Court</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="judgment/judgment.html">Judgments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="article/article.html">Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vadodara-court.html">Vadodara-Court</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero d-flex align-items-center">
+    <div class="container">
+
+      <div class="row align-items-center">
+
+        <!-- Left Content -->
+        <div class="col-lg-6 mt-2 text-white">
+
+          <span class="badge bg-warning text-dark px-3 py-2 mb-3">
+            <i class="bi bi-shield-check me-1"></i>
+            Practical Legal Resources
+          </span>
+
+          <h1 class="display-3 fw-bold">
+            Beyond <span class="text-warning">Bare Acts</span>
+          </h1>
+
+          <p class="lead text-light mt-4">
+            Simplifying law through practical tools, court resources,
+            legal articles and easy-to-understand explanations.
+          </p>
+
+          <div class="mt-4 d-flex flex-column flex-sm-row gap-3">
+
+            <a href="/sale_deed_calc.html" class="btn btn-warning btn-lg px-4">
+             Sale Deed Calculator
+            </a>
+
+            <a href="court-fee-calculator.html" class="btn btn-outline-light btn-lg px-4">
+              Court Fee Calculator
+            </a>
+
+          </div>
+
         </div>
-      </div>
-    </nav>
 
-   <!-- Hero Section -->
-<section class="hero d-flex align-items-center">
-  <div class="container">
+        <!-- Right Cards -->
+        <div class="col-lg-6 mt-5 mt-lg-0">
 
-    <div class="row align-items-center">
+          <div class="row g-3">
 
-      <!-- Left Content -->
-      <div class="col-lg-6 mt-2 text-white">
-
-        <span class="badge bg-warning text-dark px-3 py-2 mb-3">
-          <i class="bi bi-shield-check me-1"></i>
-          Practical Legal Resources
-        </span>
-
-        <h1 class="display-3 fw-bold">
-          Beyond <span class="text-warning">Bare Acts</span>
-        </h1>
-
-        <p class="lead text-light mt-4">
-          Simplifying law through practical tools, court resources,
-          legal articles and easy-to-understand explanations.
-        </p>
-
-    <div class="mt-4 d-flex flex-column flex-sm-row gap-3">
-
-  <a href="/" class="btn btn-warning btn-lg px-4">
-    Explore Resources
-  </a>
-
-  <a href="court-fee-calculator.html" class="btn btn-outline-light btn-lg px-4">
-    Court Fee Calculator
-  </a>
-
-</div>
-
-      </div>
-
-      <!-- Right Cards -->
-      <div class="col-lg-6 mt-5 mt-lg-0">
-
-        <div class="row g-3">
-
-          <div class="col-6">
-            <div class="card border-0 shadow-lg bg-dark bg-opacity-75 text-white rounded-4 h-100">
-              <div class="card-body text-center py-4">
-                <i class="bi bi-building fs-1 text-warning"></i>
-                <h5 class="mt-3"><a class="text-reset text-decoration-none" href="vadodara-court.html">Court Directory</a></h5>
-                <small class="text-light-emphasis">
-                  Find courtrooms & judges instantly.
-                </small>
+            <div class="col-6">
+              <div class="card border-0 shadow-lg bg-dark bg-opacity-75 text-white rounded-4 h-100">
+                <div class="card-body text-center py-4">
+                  <i class="bi bi-building fs-1 text-warning"></i>
+                  <h5 class="mt-3"><a class="text-reset text-decoration-none" href="vadodara-court.html">Court
+                      Directory</a></h5>
+                  <small class="text-light-emphasis">
+                    Find courtrooms & judges instantly.
+                  </small>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-6">
-            <div class="card border-0 shadow-lg bg-dark bg-opacity-75 text-white rounded-4 h-100">
-              <div class="card-body text-center py-4">
-                <i class="bi bi-calculator fs-1 text-warning"></i>
-                <h5 class="mt-3"><a class="text-reset text-decoration-none" href="judgment/judgment.html">Judgments</a></h5>
-                <small class="text-light-emphasis">
-                  Explore important court decisions
-                </small>
+            <div class="col-6">
+              <div class="card border-0 shadow-lg bg-dark bg-opacity-75 text-white rounded-4 h-100">
+                <div class="card-body text-center py-4">
+                  <i class="bi bi-calculator fs-1 text-warning"></i>
+                  <h5 class="mt-3"><a class="text-reset text-decoration-none"
+                      href="judgment/judgment.html">Judgments</a></h5>
+                  <small class="text-light-emphasis">
+                    Explore important court decisions
+                  </small>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-6">
-            <div class="card border-0 shadow-lg bg-dark bg-opacity-75 text-white rounded-4 h-100">
-              <div class="card-body text-center py-4">
-                <i class="bi bi-people fs-1 text-warning"></i>
-                <h5 class="mt-3"><a class="text-reset text-decoration-none" href="NGO.html">NGO List</a></h5>
-                <small class="text-light-emphasis">
-                  Explore NGOs across Vadodara
-                </small>
+            <div class="col-6">
+              <div class="card border-0 shadow-lg bg-dark bg-opacity-75 text-white rounded-4 h-100">
+                <div class="card-body text-center py-4">
+                  <i class="bi bi-people fs-1 text-warning"></i>
+                  <h5 class="mt-3"><a class="text-reset text-decoration-none" href="NGO.html">NGO List</a></h5>
+                  <small class="text-light-emphasis">
+                    Explore NGOs across Vadodara
+                  </small>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-6">
-            <div class="card border-0 shadow-lg bg-dark bg-opacity-75 text-white rounded-4 h-100">
-              <div class="card-body text-center py-4">
-                <i class="bi bi-journal-text fs-1 text-warning"></i>
-                <h5 class="mt-3"><a class="text-reset text-decoration-none" href="article/article.html">Articles</a></h5>
-                <small class="text-light-emphasis">
-                  Practical legal insights.
-                </small>
+            <div class="col-6">
+              <div class="card border-0 shadow-lg bg-dark bg-opacity-75 text-white rounded-4 h-100">
+                <div class="card-body text-center py-4">
+                  <i class="bi bi-journal-text fs-1 text-warning"></i>
+                  <h5 class="mt-3"><a class="text-reset text-decoration-none" href="/police-station-jurisdiction.html">Police Jurisdiction Finder</a>
+                  </h5>
+                  <small class="text-light-emphasis">
+                    Find the concerned court
+                  </small>
+                </div>
               </div>
             </div>
+
           </div>
 
         </div>
@@ -182,145 +199,143 @@
       </div>
 
     </div>
+  </section>
 
-  </div>
-</section>
+  <section class="py-5 bg-light0" id="glossary">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Legal Glossary (Simple Meanings)</h2>
+        <p class="text-muted">
+          Common legal terms explained in easy language for students & court
+          visitors
+        </p>
+      </div>
 
-    <section class="py-5 bg-light">
-      <div class="container">
-        <div class="text-center mb-4">
-          <h2 class="fw-bold">Legal Glossary (Simple Meanings)</h2>
-          <p class="text-muted">
-            Common legal terms explained in easy language for students & court
-            visitors
-          </p>
-        </div>
-
-        <div class="card shadow-sm rounded-4 border-0">
-          <div class="card-body p-4">
-            <div class="row g-4 glossary-scroll">
-              <div class="col-md-6">
-                <h6 class="fw-bold">Advocate</h6>
-                <p class="mb-0 text-muted">
-                  A legal professional who represents a client in court.
-                </p>
-              </div>
-
-              <div class="col-md-6">
-                <h6 class="fw-bold">Petitioner</h6>
-                <p class="mb-0 text-muted">
-                  The person who files a petition or complaint in a court
-                  seeking a legal remedy (a petition, like a writ petition is
-                  filed by the petitioner).
-                </p>
-              </div>
-
-              <div class="col-md-6">
-                <h6 class="fw-bold">Respondent</h6>
-                <p class="mb-0 text-muted">
-                  The person against whom a petition or complaint is filed and
-                  who must respond to the allegations in court (against whom a
-                  petition, like a writ petition is filed)
-                </p>
-              </div>
-
-              <div class="col-md-6">
-                <h6 class="fw-bold">Plaintiff</h6>
-                <p class="mb-0 text-muted">
-                  The party who initiates a lawsuit by filing a complaint in
-                  court, seeking a legal remedy (say, in a civil case).
-                </p>
-              </div>
-
-              <div class="col-md-6">
-                <h6 class="fw-bold">Defendant</h6>
-                <p class="mb-0 text-muted">
-                  The party against whom a lawsuit is filed, who must respond to
-                  the allegations and defend against the claim in court (say, in
-                  a civil case).
-                </p>
-              </div>
-
-              <div class="col-md-6">
-                <h6 class="fw-bold">Accused</h6>
-                <p class="mb-0 text-muted">
-                  A person who has been charged with a criminal offence and is
-                  facing trial in court.
-                </p>
-              </div>
-
-              <div class="col-md-6">
-                <h6 class="fw-bold">Complainant</h6>
-                <p class="mb-0 text-muted">
-                  The person who files a complaint with the police or in court,
-                  alleging that a crime has been committed.
-                </p>
-              </div>
-
-              <div class="col-md-6">
-                <h6 class="fw-bold">Appeal</h6>
-                <p class="mb-0 text-muted">
-                  The process of challenging a decision of a lower court in a
-                  higher court, seeking a review or reversal of the decision.
-                </p>
-              </div>
-
-              <div class="col-md-6">
-                <h6 class="fw-bold">Appellant</h6>
-                <p class="mb-0 text-muted">
-                  The party who files an appeal in a higher court seeking a
-                  review or reversal of a decision of a lower court.
-                </p>
-              </div>
-
-              <div class="col-md-6">
-                <h6 class="fw-bold">Writ Petition</h6>
-                <p class="mb-0 text-muted">
-                  A legal document filed in court seeking a writ, a court order
-                  directing a public official or entity to perform a certain
-                  action or refrain from doing so.
-                </p>
-              </div>
-
-              <div class="col-md-6">
-                <h6 class="fw-bold">Stay Order</h6>
-                <p class="mb-0 text-muted">
-                  An order issued by a court to temporarily suspend or stop the
-                  proceedings of a case, usually to maintain the status quo
-                  until a final decision is made.
-                </p>
-              </div>
-
-              <div class="col-md-6">
-                <h6 class="fw-bold">Interim Order</h6>
-                <p class="mb-0 text-muted">
-                  A temporary order issued by a court during the pendency of a
-                  case, providing relief or direction until a final decision is
-                  made.
-                </p>
-              </div>
-
-              <div class="col-md-6">
-                <h6 class="fw-bold">Decree Holder</h6>
-                <p class="mb-0 text-muted">
-                  A person who has obtained a court decree, a legal order or
-                  judgment in their favour, usually in a civil case.
-                </p>
-              </div>
+      <div class="card shadow-sm rounded-4 border-0">
+        <div class="card-body p-4">
+          <div class="row g-4 glossary-scroll">
+            <div class="col-md-6">
+              <h6 class="fw-bold">Advocate</h6>
+              <p class="mb-0 text-muted">
+                A legal professional who represents a client in court.
+              </p>
             </div>
 
-            <div class="text-center mt-4">
-              <a href="/" class="btn btn-outline-primary btn-sm">
-                View Full Legal Glossary →
-              </a>
+            <div class="col-md-6">
+              <h6 class="fw-bold">Petitioner</h6>
+              <p class="mb-0 text-muted">
+                The person who files a petition or complaint in a court
+                seeking a legal remedy (a petition, like a writ petition is
+                filed by the petitioner).
+              </p>
             </div>
+
+            <div class="col-md-6">
+              <h6 class="fw-bold">Respondent</h6>
+              <p class="mb-0 text-muted">
+                The person against whom a petition or complaint is filed and
+                who must respond to the allegations in court (against whom a
+                petition, like a writ petition is filed)
+              </p>
+            </div>
+
+            <div class="col-md-6">
+              <h6 class="fw-bold">Plaintiff</h6>
+              <p class="mb-0 text-muted">
+                The party who initiates a lawsuit by filing a complaint in
+                court, seeking a legal remedy (say, in a civil case).
+              </p>
+            </div>
+
+            <div class="col-md-6">
+              <h6 class="fw-bold">Defendant</h6>
+              <p class="mb-0 text-muted">
+                The party against whom a lawsuit is filed, who must respond to
+                the allegations and defend against the claim in court (say, in
+                a civil case).
+              </p>
+            </div>
+
+            <div class="col-md-6">
+              <h6 class="fw-bold">Accused</h6>
+              <p class="mb-0 text-muted">
+                A person who has been charged with a criminal offence and is
+                facing trial in court.
+              </p>
+            </div>
+
+            <div class="col-md-6">
+              <h6 class="fw-bold">Complainant</h6>
+              <p class="mb-0 text-muted">
+                The person who files a complaint with the police or in court,
+                alleging that a crime has been committed.
+              </p>
+            </div>
+
+            <div class="col-md-6">
+              <h6 class="fw-bold">Appeal</h6>
+              <p class="mb-0 text-muted">
+                The process of challenging a decision of a lower court in a
+                higher court, seeking a review or reversal of the decision.
+              </p>
+            </div>
+
+            <div class="col-md-6">
+              <h6 class="fw-bold">Appellant</h6>
+              <p class="mb-0 text-muted">
+                The party who files an appeal in a higher court seeking a
+                review or reversal of a decision of a lower court.
+              </p>
+            </div>
+
+            <div class="col-md-6">
+              <h6 class="fw-bold">Writ Petition</h6>
+              <p class="mb-0 text-muted">
+                A legal document filed in court seeking a writ, a court order
+                directing a public official or entity to perform a certain
+                action or refrain from doing so.
+              </p>
+            </div>
+
+            <div class="col-md-6">
+              <h6 class="fw-bold">Stay Order</h6>
+              <p class="mb-0 text-muted">
+                An order issued by a court to temporarily suspend or stop the
+                proceedings of a case, usually to maintain the status quo
+                until a final decision is made.
+              </p>
+            </div>
+
+            <div class="col-md-6">
+              <h6 class="fw-bold">Interim Order</h6>
+              <p class="mb-0 text-muted">
+                A temporary order issued by a court during the pendency of a
+                case, providing relief or direction until a final decision is
+                made.
+              </p>
+            </div>
+
+            <div class="col-md-6">
+              <h6 class="fw-bold">Decree Holder</h6>
+              <p class="mb-0 text-muted">
+                A person who has obtained a court decree, a legal order or
+                judgment in their favour, usually in a civil case.
+              </p>
+            </div>
+          </div>
+
+          <div class="text-center mt-4">
+            <a href="#glossary" class="btn btn-outline-primary btn-sm">
+              View Full Legal Glossary →
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Website Maintenance Notice -->
-    <!-- <section class="maintenance-section py-5 text-center text-light">
+  <!-- Website Maintenance Notice -->
+  <!-- <section class="maintenance-section py-5 text-center text-light">
       <div class="container">
         <div class="p-4 rounded shadow" style="background-color: #1a1a1a">
           <h2 class="fw-bold mb-3">🚧 Website Under Maintenance</h2>
@@ -348,8 +363,8 @@
       </div>
     </section> -->
 
-    <!-- Categories -->
-    <!-- <section class="py-5">
+  <!-- Categories -->
+  <!-- <section class="py-5">
       <div class="container">
         <h2 class="section-title">Explore</h2>
         <div class="row g-4">
@@ -409,358 +424,267 @@
       </div>
     </section> -->
 
-    <!-- Contact via Instagram Section -->
-    <section class="instagram-contact-section py-5 text-center text-light">
-      <div class="container">
-        <div class="p-5 rounded shadow-lg" style="background-color: #1a1a1a">
-          <h2 class="fw-bold mb-3 text-warning">📩 Get in Touch</h2>
-          <p class="lead mb-4" style="max-width: 700px; margin: 0 auto">
-            Have a legal query, want to collaborate, or need guidance? Reach out
-            directly on <strong>Instagram</strong> — I personally check my DMs.
-          </p>
+  <!-- Contact via Instagram Section -->
+  <section class="instagram-contact-section py-5 text-center text-light">
+    <div class="container">
+      <div class="p-5 rounded shadow-lg" style="background-color: #1a1a1a">
+        <h2 class="fw-bold mb-3 text-warning">📩 Get in Touch</h2>
+        <p class="lead mb-4" style="max-width: 700px; margin: 0 auto">
+          Have a legal query, want to collaborate, or need guidance? Reach out
+          directly on <strong>Instagram</strong> — I personally check my DMs.
+        </p>
 
-          <!-- Instagram Card -->
-          <div
-            class="card mx-auto border-0 shadow-lg mt-4"
-            style="max-width: 420px; background-color: #222"
-          >
-            <div
-              class="card-body d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png"
-                alt="Instagram Icon"
-                class="me-3"
-                style="width: 50px; height: 50px"
-              />
-              <div class="text-start">
-                <h5 class="mb-1 text-light">@lawgically_incorrect</h5>
-                <p class="text-muted small mb-3">
-                  Click below to send a message
-                </p>
-                <a
-                  href="https://www.instagram.com/lawgically_incorrect?igsh=OGcwczNxNmh4Y2F1"
-                  target="_blank"
-                  class="btn btn-warning btn-sm px-4 fw-semibold"
-                >
-                  DM on Instagram
-                </a>
-              </div>
+        <!-- Instagram Card -->
+        <div class="card mx-auto border-0 shadow-lg mt-4" style="max-width: 420px; background-color: #222">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram Icon" class="me-3"
+              style="width: 50px; height: 50px" />
+            <div class="text-start">
+              <h5 class="mb-1 text-light">@lawgically_incorrect</h5>
+              <p class="text-muted small mb-3">
+                Click below to send a message
+              </p>
+              <a href="https://www.instagram.com/lawgically_incorrect?igsh=OGcwczNxNmh4Y2F1" target="_blank"
+                class="btn btn-warning btn-sm px-4 fw-semibold">
+                DM on Instagram
+              </a>
             </div>
           </div>
-
-          <!-- Optional Info -->
-          <p class="mt-5 small text-secondary">
-            📍 Typically responds within 24 hours — keep your query short and
-            clear.
-          </p>
         </div>
-      </div>
-    </section>
 
-    <!-- Blogs -->
-    <section class="py-5">
-      <div class="container">
-        <h2 class="section-title">Latest Blogs & Articles</h2>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-              <div class="card-body">
-                <h5 class="card-title">NLU Aspirants</h5>
-                <p class="card-text">
-                  Didn’t Clear CLAT? Your Journey to an NLU Might...
-                </p>
-                <a
-                  href="article/article-view1.html"
-                  class="btn btn-sm btn-outline-warning"
-                  >Read</a
-                >
-              </div>
+        <!-- Optional Info -->
+        <p class="mt-5 small text-secondary">
+          📍 Typically responds within 24 hours — keep your query short and
+          clear.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blogs -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title mb-4">Latest Blogs & Articles</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">NLU Aspirants</h5>
+              <p class="card-text">
+                Didn’t Clear CLAT? Your Journey to an NLU Might...
+              </p>
+              <a href="article/article-view1.html" class="btn btn-sm btn-outline-warning">Read</a>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-              <div class="card-body">
-                <h5 class="card-title">The Interface of Technology and Law</h5>
-                <p class="card-text">
-                  Clear explanation with examples and case laws...
-                </p>
-                <a
-                  href="article/article-view2.html"
-                  class="btn btn-sm btn-outline-warning"
-                  >Read</a
-                >
-              </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">The Interface of Technology and Law</h5>
+              <p class="card-text">
+                Clear explanation with examples and case laws...
+              </p>
+              <a href="article/article-view2.html" class="btn btn-sm btn-outline-warning">Read</a>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-              <div class="card-body">
-                <h5 class="card-title">Cyber Laws in India</h5>
-                <p class="card-text">
-                  Understanding IT Act provisions in the age of AI & Digital
-                  Evidence...
-                </p>
-                <a href="index.html" class="btn btn-sm btn-outline-warning"
-                  >Read</a
-                >
-              </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Cyber Laws in India</h5>
+              <p class="card-text">
+                Understanding IT Act provisions in the age of AI & Digital
+                Evidence...
+              </p>
+              <a href="index.html" class="btn btn-sm btn-outline-warning">Read</a>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Website Insights Section -->
-    <section
-      class="py-5 bg-dark text-light text-center border-top border-warning"
-    >
+  <!-- Site Stats Section -->
+  <div class="container">
+    <section class="py-5 bg-dark text-light text-center border-top border-warning">
       <div class="container">
-        <h3 class="fw-bold text-warning mb-3">📊 Website Insights</h3>
+        <h3 class="fw-bold text-warning mb-3">📚 Site at a Glance</h3>
         <p class="text-muted mb-4">
-          A quick glance at who’s exploring this legal hub.
+          A quick look at what this legal hub currently offers.
         </p>
 
         <div class="row justify-content-center">
-          <!-- Total Visitors -->
+          <!-- Glossary Terms -->
           <div class="col-md-3 mb-3 d-flex">
-            <div
-              class="card bg-secondary text-light shadow-sm border-0 rounded-4 h-100 w-100"
-            >
+            <div class="card bg-secondary text-light shadow-sm border-0 rounded-4 h-100 w-100">
               <div class="card-body d-flex flex-column justify-content-center">
-                <h5 class="card-title text-warning">Total Visitors</h5>
-                <div id="visitor-count" class="fs-3 fw-bold">0</div>
+                <h5 class="card-title text-warning">Glossary Terms</h5>
+                <div class="fs-3 fw-bold">13</div>
               </div>
             </div>
           </div>
 
-          <!-- Active Users -->
+          <!-- Judgment Summaries -->
           <div class="col-md-3 mb-3 d-flex">
-            <div
-              class="card bg-secondary text-light shadow-sm border-0 rounded-4 h-100 w-100"
-            >
+            <div class="card bg-secondary text-light shadow-sm border-0 rounded-4 h-100 w-100">
               <div class="card-body d-flex flex-column justify-content-center">
-                <h5 class="card-title text-warning">Active Now</h5>
-                <div id="active-users" class="fs-3 fw-bold">1</div>
+                <h5 class="card-title text-warning">Judgment Summaries</h5>
+                <div class="fs-3 fw-bold">04</div>
               </div>
             </div>
           </div>
 
-          <!-- Last Updated -->
+          <!-- Articles Published -->
           <div class="col-md-3 mb-3 d-flex">
-            <div
-              class="card bg-secondary text-light shadow-sm border-0 rounded-4 h-100 w-100"
-            >
+            <div class="card bg-secondary text-light shadow-sm border-0 rounded-4 h-100 w-100">
               <div class="card-body d-flex flex-column justify-content-center">
-                <h5 class="card-title text-warning">Last Update</h5>
-                <div id="last-update" class="fs-6 fw-semibold"></div>
+                <h5 class="card-title text-warning">Articles Published</h5>
+                <div class="fs-3 fw-bold">03</div>
               </div>
             </div>
           </div>
         </div>
 
-        <p class="mt-4 small">
-          Real analytics powered by <strong>Google Analytics</strong> & visual
-          count maintained locally.
+        <p class="mt-4 small text-secondary">
+          Numbers update as new resources are added. Traffic is measured
+          privately via Google Analytics.
         </p>
       </div>
     </section>
+  </div>
 
-    <script>
-      // --- Visitor Counter Logic ---
-      const countEl = document.getElementById("visitor-count");
-      const activeEl = document.getElementById("active-users");
-      const timeEl = document.getElementById("last-update");
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDFQ0WD2G0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CDFQ0WD2G0');
+  </script>
 
-      // Retrieve count or start with a default number
-      let count = localStorage.getItem("visitorCount");
-      if (!count) count = 450; // starting count (you can change)
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- About -->
+        <div class="col-lg-4 col-md-6">
+          <h5 class="fw-bold text-warning">
+            <i class="bi bi-balance-scale"></i> Rishab-LEX
+          </h5>
 
-      // Increase count only once per session
-      if (!sessionStorage.getItem("visited")) {
-        count++;
-        localStorage.setItem("visitorCount", count);
-        sessionStorage.setItem("visited", "true");
-      }
+          <p class="small text-light-emphasis">
+            A practical legal resource platform built to help law students,
+            interns, advocates and court visitors through simplified legal
+            resources, court utilities and region-specific information.
+          </p>
 
-      // Update displayed values
-      countEl.textContent = count;
-      activeEl.textContent = Math.floor(Math.random() * 5) + 1; // random active user simulation
-      timeEl.textContent = new Date().toLocaleString();
-    </script>
-
-    <!-- ✅ Real Analytics Integration -->
-    <!-- Option 1: Google Analytics (replace G-XXXXXXX with your GA tag) -->
-    <!-- 
-Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-CDFQ0WD2G0"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-CDFQ0WD2G0");
-    </script>
-
-    <!-- Option 2: Counter.dev (privacy-focused) -->
-    <!-- Just add your email or custom domain -->
-    <!-- <script src="https://cdn.counter.dev/script.js" data-id="YOUR-EMAIL@domain.com" data-utcoffset="5.5"></script> -->
-
-    <!-- Footer -->
-    <footer class="bg-dark text-light pt-5 pb-3 mt-5">
-      <div class="container">
-        <div class="row g-4">
-          <!-- About -->
-          <div class="col-lg-4 col-md-6">
-            <h5 class="fw-bold text-warning">
-              <i class="bi bi-balance-scale"></i> Rishab-LEX
-            </h5>
-
-            <p class="small text-light-emphasis">
-              A practical legal resource platform built to help law students,
-              interns, advocates and court visitors through simplified legal
-              resources, court utilities and region-specific information.
-            </p>
-
-            <small class="text-secondary">
-              © 2025 Rishab-LEX. All Rights Reserved.
-            </small>
-          </div>
-
-          <!-- Quick Links -->
-          <div class="col-lg-3 col-md-6">
-            <h6 class="fw-bold text-warning">Quick Links</h6>
-
-            <ul class="list-unstyled small">
-              <li class="mb-2">
-                <a href="index.html" class="text-light text-decoration-none"
-                  >Home</a
-                >
-              </li>
-
-              <li class="mb-2">
-                <a href="about.html" class="text-light text-decoration-none"
-                  >About</a
-                >
-              </li>
-
-              <li class="mb-2">
-                <a href="article/article.html" class="text-light text-decoration-none"
-                  >Articles</a
-                >
-              </li>
-
-              <li class="mb-2">
-                <a href="judgment/judgment.html" class="text-light text-decoration-none"
-                  >Judgments</a
-                >
-              </li>
-                <a href="contact.html" class="text-light text-decoration-none"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Resources -->
-          <div class="col-lg-3 col-md-6">
-            <h6 class="fw-bold text-warning">Resources</h6>
-
-            <ul class="list-unstyled small">
-              <li class="mb-2">
-                <a
-                  href="vadodara-court.html"
-                  class="text-light text-decoration-none"
-                >
-                  Vadodara Court Directory
-                </a>
-              </li>
-
-              <li class="mb-2">
-                <a
-                  href="court-fee-calculator.html"
-                  class="text-light text-decoration-none"
-                >
-                  Court Fee Calculator
-                </a>
-              </li>
-
-              <li class="mb-2">
-                <a href="NGO.html" class="text-light text-decoration-none">
-                  NGOs in Vadodara
-                </a>
-              </li>
-
-              <li>
-                <a href="/" class="text-light text-decoration-none">
-                  Legal Glossary
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Connect -->
-          <div class="col-lg-2 col-md-6">
-            <h6 class="fw-bold text-warning">Connect</h6>
-
-            <div class="d-flex gap-3 fs-4">
-              <a
-                href="https://www.instagram.com/lawgically_incorrect"
-                target="_blank"
-                class="text-light"
-              >
-                <i class="bi bi-instagram"></i>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/rishab910"
-                target="_blank"
-                class="text-light"
-              >
-                <i class="bi bi-linkedin"></i>
-              </a>
-
-              <a
-                href="https://github.com/RishabKanaujia"
-                target="_blank"
-                class="text-light"
-              >
-                <i class="bi bi-github"></i>
-              </a>
-            </div>
-
-            <p class="small text-secondary mt-3 mb-0">
-              Feedback and suggestions are always welcome.
-            </p>
-          </div>
+          <small class="text-secondary">
+            © 2025 Rishab-LEX. All Rights Reserved.
+          </small>
         </div>
 
-        <hr class="border-secondary my-4" />
+        <!-- Quick Links -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold text-warning">Quick Links</h6>
 
-        <div class="d-md-flex justify-content-between align-items-center small">
-          <div class="text-secondary">
-            Built with ❤️ to make legal information more accessible and
-            practical.
-          </div>
+          <ul class="list-unstyled small">
+            <li class="mb-2">
+              <a href="index.html" class="text-light text-decoration-none">Home</a>
+            </li>
 
-          <div class="mt-2 mt-md-0">
-            <a href="privacy_policy.html" class="text-decoration-none text-light me-3">
-              Privacy Policy
+            <li class="mb-2">
+              <a href="about.html" class="text-light text-decoration-none">About</a>
+            </li>
+
+            <li class="mb-2">
+              <a href="article/article.html" class="text-light text-decoration-none">Articles</a>
+            </li>
+
+            <li class="mb-2">
+              <a href="judgment/judgment.html" class="text-light text-decoration-none">Judgments</a>
+            </li>
+            <a href="contact.html" class="text-light text-decoration-none">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold text-warning">Resources</h6>
+
+          <ul class="list-unstyled small">
+            <li class="mb-2">
+              <a href="vadodara-court.html" class="text-light text-decoration-none">
+                Vadodara Court Directory
+              </a>
+            </li>
+
+            <li class="mb-2">
+              <a href="court-fee-calculator.html" class="text-light text-decoration-none">
+                Court Fee Calculator
+              </a>
+            </li>
+
+            <li class="mb-2">
+              <a href="NGO.html" class="text-light text-decoration-none">
+                NGOs in Vadodara
+              </a>
+            </li>
+
+            <li>
+              <a href="#glossary" class="text-light text-decoration-none">
+                Legal Glossary
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Connect -->
+        <div class="col-lg-2 col-md-6">
+          <h6 class="fw-bold text-warning">Connect</h6>
+
+          <div class="d-flex gap-3 fs-4">
+            <a href="https://www.instagram.com/lawgically_incorrect" target="_blank" class="text-light">
+              <i class="bi bi-instagram"></i>
             </a>
 
-            <a href="privacy_policy.html" class="text-decoration-none text-light">
-              Disclaimer
+            <a href="https://www.linkedin.com/in/rishab910" target="_blank" class="text-light">
+              <i class="bi bi-linkedin"></i>
+            </a>
+
+            <a href="https://github.com/RishabKanaujia" target="_blank" class="text-light">
+              <i class="bi bi-github"></i>
             </a>
           </div>
+
+          <p class="small text-secondary mt-3 mb-0">
+            Feedback and suggestions are always welcome.
+          </p>
         </div>
       </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+      <hr class="border-secondary my-4" />
+
+      <div class="d-md-flex justify-content-between align-items-center small">
+        <div class="text-secondary">
+          Built with ❤️ to make legal information more accessible and
+          practical.
+        </div>
+
+        <div class="mt-2 mt-md-0">
+          <a href="privacy_policy.html" class="text-decoration-none text-light me-3">
+            Privacy Policy
+          </a>
+
+          <a href="privacy_policy.html" class="text-decoration-none text-light">
+            Disclaimer
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>

@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advocate Website Templates – Rishab-LEX</title>
+  <meta name="description"
+    content="Professional, mobile-friendly, advocate portfolio websites. Choose a template, share details, and go live with your own domain." />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    /* =========================================================
+       Rishab-LEX style + Aesthetic layout
+       ========================================================= */
+
+    :root {
+      --rlx-accent: #ffc107;
+      --rlx-deep: #0b2545;
+      --rlx-deep-2: #0f3b6b;
+    }
+
+    .hero-surface {
+      background:
+        radial-gradient(1100px 500px at 15% 15%, rgba(13, 110, 253, .18), transparent 60%),
+        radial-gradient(1000px 500px at 90% 10%, rgba(255, 193, 7, .18), transparent 55%),
+        linear-gradient(180deg, rgba(0, 0, 0, .03), transparent 30%),
+        #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, .06);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, .86);
+      border: 1px solid rgba(0, 0, 0, .06);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .10);
+      backdrop-filter: blur(10px);
+    }
+
+    .section-title {
+      letter-spacing: .2px;
+    }
+
+    .icon-chip {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(13, 110, 253, .10);
+      border: 1px solid rgba(13, 110, 253, .14);
+    }
+
+    .template-thumb {
+      height: 140px;
+      border-radius: 18px;
+      border: 1px solid rgba(0, 0, 0, .08);
+      background:
+        radial-gradient(400px 140px at 10% 20%, rgba(255, 193, 7, .25), transparent 60%),
+        radial-gradient(420px 160px at 90% 0%, rgba(13, 110, 253, .25), transparent 60%),
+        linear-gradient(135deg, rgba(11, 37, 69, .08), rgba(0, 0, 0, 0)),
+        #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .template-thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, .06) 1px, transparent 1px);
+      background-size: 16px 16px;
+      opacity: .35;
+      pointer-events: none;
+    }
+
+    .feature-list li {
+      margin-bottom: .4rem;
+    }
+
+    .pricing-badge {
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .timeline-step {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+    }
+
+    .timeline-dot {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 193, 7, .14);
+      border: 1px solid rgba(255, 193, 7, .28);
+      color: #8a6d00;
+      flex: 0 0 auto;
+    }
+
+    .contact-pane {
+      background: linear-gradient(135deg, var(--rlx-deep), var(--rlx-deep-2));
+      color: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-pane::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(700px 400px at 20% 10%, rgba(255, 193, 7, .22), transparent 55%),
+        radial-gradient(650px 380px at 90% 80%, rgba(13, 110, 253, .22), transparent 55%);
+      opacity: .9;
+      pointer-events: none;
+    }
+
+    .contact-pane>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap .bi {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: .65;
+      pointer-events: none;
+    }
+
+    .input-wrap textarea+.bi {
+      top: 22px;
+      transform: none;
+    }
+
+    .input-wrap .form-control,
+    .input-wrap .form-select {
+      padding-left: 42px;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 0, 0, .10);
+      background: rgba(255, 255, 255, .92);
+    }
+
+    .btn-rlx {
+      border-radius: 14px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      border: 0;
+      background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+      box-shadow: 0 14px 28px rgba(13, 110, 253, .24);
+    }
+
+    .btn-rlx:disabled {
+      box-shadow: none;
+      opacity: .75;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 1050;
+    }
+
+    .floating-whatsapp a {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      background: #25D366;
+      color: #0b1b12;
+      box-shadow: 0 18px 34px rgba(0, 0, 0, .22);
+      border: 1px solid rgba(0, 0, 0, .10);
+    }
+
+    /* =========================================================
+       Theme: High Contrast (Accessibility)
+       ========================================================= */
+    [data-theme="high-contrast"] {
+      background-color: #000 !important;
+      color: #ff0 !important;
+    }
+
+    [data-theme="high-contrast"] body,
+    [data-theme="high-contrast"] .hero-surface,
+    [data-theme="high-contrast"] .glass-card,
+    [data-theme="high-contrast"] .card,
+    [data-theme="high-contrast"] section,
+    [data-theme="high-contrast"] footer,
+    [data-theme="high-contrast"] nav {
+      background-color: #000 !important;
+      color: #ff0 !important;
+      border-color: #ff0 !important;
+    }
+
+    [data-theme="high-contrast"] a {
+      color: #0ff !important;
+      text-decoration: underline !important;
+      font-weight: 800;
+    }
+
+    [data-theme="high-contrast"] .text-muted,
+    [data-theme="high-contrast"] .text-secondary,
+    [data-theme="high-contrast"] .lead,
+    [data-theme="high-contrast"] .form-text {
+      color: #ff0 !important;
+      opacity: 1 !important;
+    }
+
+    [data-theme="high-contrast"] .badge,
+    [data-theme="high-contrast"] .btn,
+    [data-theme="high-contrast"] .btn-rlx,
+    [data-theme="high-contrast"] .navbar,
+    [data-theme="high-contrast"] .bg-dark,
+    [data-theme="high-contrast"] .bg-light {
+      background-color: #ff0 !important;
+      color: #000 !important;
+      border: 2px solid #fff !important;
+    }
+
+    [data-theme="high-contrast"] .form-control,
+    [data-theme="high-contrast"] .form-select {
+      background: #000 !important;
+      color: #ff0 !important;
+      border: 3px solid #ff0 !important;
+    }
+
+    [data-theme="high-contrast"] *:focus {
+      outline: 4px solid #0ff !important;
+      outline-offset: 2px;
+    }
+
+    /* Bootstrap dark theme tuning */
+    [data-bs-theme="dark"] .hero-surface {
+      background:
+        radial-gradient(1100px 500px at 15% 15%, rgba(13, 110, 253, .22), transparent 60%),
+        radial-gradient(1000px 500px at 90% 10%, rgba(255, 193, 7, .16), transparent 55%),
+        linear-gradient(180deg, rgba(255, 255, 255, .03), transparent 30%),
+        #0b0f16;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    [data-bs-theme="dark"] .glass-card {
+      background: rgba(16, 16, 16, .72);
+      border: 1px solid rgba(255, 255, 255, .10);
+    }
+
+    [data-bs-theme="dark"] .template-thumb {
+      background:
+        radial-gradient(400px 140px at 10% 20%, rgba(255, 193, 7, .18), transparent 60%),
+        radial-gradient(420px 160px at 90% 0%, rgba(13, 110, 253, .18), transparent 60%),
+        linear-gradient(135deg, rgba(255, 255, 255, .06), rgba(0, 0, 0, 0)),
+        rgba(0, 0, 0, .12);
+      border-color: rgba(255, 255, 255, .12);
+    }
+
+    [data-bs-theme="dark"] .input-wrap .bi {
+      color: rgba(255, 255, 255, .75);
+    }
+
+    [data-bs-theme="dark"] .input-wrap .form-control,
+    [data-bs-theme="dark"] .input-wrap .form-select {
+      background: rgba(0, 0, 0, .35);
+      border-color: rgba(255, 255, 255, .14);
+      color: #fff;
+    }
+
+    [data-bs-theme="dark"] .input-wrap .form-control::placeholder {
+      color: rgba(255, 255, 255, .55);
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-warning" href="#">
+        <i class="bi bi-balance-scale"></i> Rishab-LEX
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#templates">Templates</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+          <!-- Theme Dropdown -->
+          <li class="nav-item dropdown ms-lg-2">
+            <button class="btn btn-link nav-link dropdown-toggle text-warning" id="themeMenu" type="button"
+              data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme">
+              <i class="bi bi-circle-half"></i> Theme
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+                  <i class="bi bi-sun-fill me-2"></i> Light
+                </button>
+              </li>
+              <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+                  <i class="bi bi-moon-stars-fill me-2"></i> Dark
+                </button>
+              </li>
+              <li>
+                <button type="button" class="dropdown-item d-flex align-items-center"
+                  data-bs-theme-value="high-contrast">
+                  <i class="bi bi-eye-fill me-2"></i> High Contrast
+                </button>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item ms-lg-1">
+            <a class="btn btn-warning fw-bold px-3" href="#templates">
+              <i class="bi bi-grid-3x3-gap me-2"></i>View Templates
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-surface py-5">
+    <div class="container">
+      <div class="row align-items-center g-4">
+
+        <div class="col-lg-7">
+          <span class="badge bg-dark mb-3 px-3 py-2">
+            Advocate Websites · Portfolio + Contact · Mobile Friendly
+          </span>
+
+          <h1 class="display-5 fw-bold mb-2">
+            Websites for Advocates & Law Firms
+          </h1>
+
+          <p class="lead text-secondary mb-3">
+            Many excellent advocates still don’t have a clean online profile. Choose a template,
+            share your details, and launch a professional website on your own domain.
+          </p>
+
+          <div class="d-flex gap-2 flex-wrap">
+            <a href="#templates" class="btn btn-dark btn-lg rounded-4 px-4">
+              <i class="bi bi-layout-text-window-reverse me-2"></i>Browse Templates
+            </a>
+            <a href="#contact" class="btn btn-outline-dark btn-lg rounded-4 px-4">
+              <i class="bi bi-chat-left-text me-2"></i>Get a Quote
+            </a>
+          </div>
+
+          <div class="mt-4 d-flex flex-wrap gap-2">
+            <span class="badge text-bg-light border">
+              <i class="bi bi-phone me-1"></i> Responsive
+            </span>
+            <span class="badge text-bg-light border">
+              <i class="bi bi-speedometer2 me-1"></i> Fast loading
+            </span>
+            <span class="badge text-bg-light border">
+              <i class="bi bi-shield-check me-1"></i> Informational (non-soliciting) format
+            </span>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="glass-card rounded-4 p-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="icon-chip">
+                <i class="bi bi-globe2 fs-4"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-1">What you get</h5>
+                <p class="text-muted mb-0">
+                  A clean advocate profile site: bio, practice areas, office info, map,
+                  WhatsApp/call buttons, and a contact form.
+                </p>
+              </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="p-3 rounded-4 border bg-body">
+                  <div class="fw-bold"><i class="bi bi-clock-history me-2"></i>Delivery</div>
+                  <div class="text-muted small">3–7 days (typical)</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 rounded-4 border bg-body">
+                  <div class="fw-bold"><i class="bi bi-pencil-square me-2"></i>Revisions</div>
+                  <div class="text-muted small">1–2 rounds included</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-3 rounded-4 border bg-body">
+                  <div class="fw-bold"><i class="bi bi-info-circle me-2"></i>Note</div>
+                  <div class="text-muted small">
+                    We keep content informational and professional (no aggressive marketing claims).
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main class="container py-5">
+
+    <!-- Why / Benefits -->
+    <section class="mb-5">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold section-title">Why advocates need a simple website</h2>
+        <p class="text-muted mb-0">Not for “ads”—for clarity, contactability, and credibility.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4">
+              <div class="icon-chip mb-3">
+                <i class="bi bi-search fs-4"></i>
+              </div>
+              <h5 class="fw-bold">Easy to find</h5>
+              <p class="text-muted mb-0">
+                When someone searches your name, they should land on a clean page with your correct details.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4">
+              <div class="icon-chip mb-3">
+                <i class="bi bi-geo-alt fs-4"></i>
+              </div>
+              <h5 class="fw-bold">Office info in one place</h5>
+              <p class="text-muted mb-0">
+                Address, map, office hours, phone, WhatsApp—clients don’t need to guess.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4">
+              <div class="icon-chip mb-3">
+                <i class="bi bi-file-earmark-text fs-4"></i>
+              </div>
+              <h5 class="fw-bold">Clear practice areas</h5>
+              <p class="text-muted mb-0">
+                A structured profile: courts handled, areas of practice, languages, and professional overview.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Templates -->
+    <section id="templates" class="mb-5">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+        <div>
+          <h2 class="fw-bold section-title mb-1">Choose a template</h2>
+          <p class="text-muted mb-0">Pick a base design. We personalize with your details, colors, and content.</p>
+        </div>
+        <span id="selectedTemplateBadge" class="badge bg-dark px-3 py-2 d-none"></span>
+      </div>
+
+      <div class="row g-4">
+        <!-- Template 1 -->
+        <div class="col-lg-4">
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4">
+              <div class="template-thumb mb-3"></div>
+              <div class="d-flex justify-content-between align-items-start gap-3">
+                <div>
+                  <h5 class="fw-bold mb-1">Classic Counsel</h5>
+                  <div class="text-muted small">Traditional, formal layout</div>
+                </div>
+                <span class="badge text-bg-light border">Static / WP</span>
+              </div>
+
+              <hr />
+
+              <ul class="feature-list small text-muted ps-3 mb-4">
+                <li>Hero + profile summary</li>
+                <li>Practice areas & courts</li>
+                <li>Office hours + map</li>
+                <li>WhatsApp/call buttons</li>
+                <li>Contact form</li>
+              </ul>
+
+              <div class="d-flex gap-2">
+                <button class="btn btn-outline-dark rounded-4 w-50" data-bs-toggle="modal"
+                  data-bs-target="#previewModal" data-template="Classic Counsel">
+                  <i class="bi bi-eye me-2"></i>Preview
+                </button>
+                <button class="btn btn-dark rounded-4 w-50 select-template" data-template="Classic Counsel">
+                  <i class="bi bi-check2-circle me-2"></i>Select
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Template 2 -->
+        <div class="col-lg-4">
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4">
+              <div class="template-thumb mb-3" style="background:
+                radial-gradient(420px 170px at 90% 0%, rgba(255,193,7,.25), transparent 60%),
+                radial-gradient(420px 170px at 10% 40%, rgba(13,110,253,.25), transparent 60%),
+                linear-gradient(135deg, rgba(0,0,0,.06), transparent),
+                #fff;">
+              </div>
+
+              <div class="d-flex justify-content-between align-items-start gap-3">
+                <div>
+                  <h5 class="fw-bold mb-1">Modern Chambers</h5>
+                  <div class="text-muted small">Premium feel, bold typography</div>
+                </div>
+                <span class="badge text-bg-light border">Best Seller</span>
+              </div>
+
+              <hr />
+
+              <ul class="feature-list small text-muted ps-3 mb-4">
+                <li>Multi-section homepage</li>
+                <li>Separate pages (optional)</li>
+                <li>SEO basics (titles/meta)</li>
+                <li>Fast & responsive</li>
+                <li>Compliance-friendly disclaimer</li>
+              </ul>
+
+              <div class="d-flex gap-2">
+                <button class="btn btn-outline-dark rounded-4 w-50" data-bs-toggle="modal"
+                  data-bs-target="#previewModal" data-template="Modern Chambers">
+                  <i class="bi bi-eye me-2"></i>Preview
+                </button>
+                <button class="btn btn-dark rounded-4 w-50 select-template" data-template="Modern Chambers">
+                  <i class="bi bi-check2-circle me-2"></i>Select
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Template 3 -->
+        <div class="col-lg-4">
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4">
+              <div class="template-thumb mb-3" style="background:
+                radial-gradient(500px 180px at 30% 10%, rgba(13,110,253,.18), transparent 60%),
+                radial-gradient(500px 180px at 80% 60%, rgba(255,193,7,.18), transparent 60%),
+                linear-gradient(135deg, rgba(11,37,69,.08), transparent),
+                #fff;">
+              </div>
+
+              <div class="d-flex justify-content-between align-items-start gap-3">
+                <div>
+                  <h5 class="fw-bold mb-1">Minimal Brief</h5>
+                  <div class="text-muted small">Clean, minimal, ultra-fast</div>
+                </div>
+                <span class="badge text-bg-light border">Starter</span>
+              </div>
+
+              <hr />
+
+              <ul class="feature-list small text-muted ps-3 mb-4">
+                <li>One-page profile</li>
+                <li>Practice areas grid</li>
+                <li>Office details & map</li>
+                <li>Click-to-call/WhatsApp</li>
+                <li>Light/Dark support</li>
+              </ul>
+
+              <div class="d-flex gap-2">
+                <button class="btn btn-outline-dark rounded-4 w-50" data-bs-toggle="modal"
+                  data-bs-target="#previewModal" data-template="Minimal Brief">
+                  <i class="bi bi-eye me-2"></i>Preview
+                </button>
+                <button class="btn btn-dark rounded-4 w-50 select-template" data-template="Minimal Brief">
+                  <i class="bi bi-check2-circle me-2"></i>Select
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-secondary border-0 rounded-4 mt-4 mb-0">
+        <div class="d-flex gap-2">
+          <i class="bi bi-exclamation-triangle mt-1"></i>
+          <div class="small">
+            <strong>Compliance note:</strong> Advocate websites are best kept informational.
+            Avoid “best/guaranteed” claims, heavy testimonials, and solicitation-style content.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What we need -->
+    <section class="mb-5">
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4">
+              <h4 class="fw-bold mb-2 section-title">
+                <i class="bi bi-clipboard-check me-2"></i>
+                Details we’ll need from you
+              </h4>
+              <p class="text-muted mb-3">
+                Once you select a template, just share these essentials.
+              </p>
+
+              <div class="row g-2 small">
+                <div class="col-md-6">
+                  <div class="p-3 rounded-4 border bg-body">
+                    <i class="bi bi-person-vcard me-2"></i>
+                    Name, designation, short bio
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 rounded-4 border bg-body">
+                    <i class="bi bi-building me-2"></i>
+                    Chamber/office address + map link
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 rounded-4 border bg-body">
+                    <i class="bi bi-telephone me-2"></i>
+                    Phone/WhatsApp + email
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 rounded-4 border bg-body">
+                    <i class="bi bi-diagram-3 me-2"></i>
+                    Practice areas & courts handled
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 rounded-4 border bg-body">
+                    <i class="bi bi-translate me-2"></i>
+                    Languages + office hours
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 rounded-4 border bg-body">
+                    <i class="bi bi-image me-2"></i>
+                    Photo/logo (optional)
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3 small text-muted">
+                Tip: If you already have a domain (e.g., <code>advxyz.com</code>), we’ll connect it to your website.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4">
+              <h4 class="fw-bold mb-2 section-title">
+                <i class="bi bi-gear me-2"></i>
+                Optional add-ons
+              </h4>
+              <p class="text-muted mb-3">
+                Choose only what you need.
+              </p>
+
+              <ul class="small text-muted mb-0">
+                <li class="mb-2"><strong>Domain + Hosting setup</strong> (if you don’t have it)</li>
+                <li class="mb-2"><strong>Business email</strong> (e.g., <code>contact@yourdomain.com</code>)</li>
+                <li class="mb-2"><strong>Basic SEO</strong> (titles, meta description, indexing)</li>
+                <li class="mb-2"><strong>WordPress admin panel</strong> (self-editing)</li>
+                <li class="mb-2"><strong>Maintenance</strong> (updates + small edits monthly)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="mb-5">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold section-title">Pricing (typical ranges)</h2>
+        <p class="text-muted mb-0">Final quote depends on pages, content, and whether it’s static or WordPress.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4">
+              <span class="badge bg-dark pricing-badge px-3 py-2 mb-3">Starter</span>
+              <h4 class="fw-bold mb-1">One-page (Static)</h4>
+              <p class="text-muted">Best for individual advocates</p>
+
+              <div class="display-6 fw-bold mb-3">₹ 8k – 25k</div>
+
+              <ul class="small text-muted mb-4">
+                <li>Single-page profile</li>
+                <li>Practice areas + contact</li>
+                <li>WhatsApp/call buttons</li>
+                <li>Basic deployment</li>
+              </ul>
+
+              <a href="#contact" class="btn btn-outline-dark rounded-4 w-100">
+                Request Starter Quote
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4">
+              <span class="badge bg-warning text-dark pricing-badge px-3 py-2 mb-3">Professional</span>
+              <h4 class="fw-bold mb-1">4–6 Pages (Static)</h4>
+              <p class="text-muted">Best for chambers/firms</p>
+
+              <div class="display-6 fw-bold mb-3">₹ 20k – 60k</div>
+
+              <ul class="small text-muted mb-4">
+                <li>Home + About + Practice Areas</li>
+                <li>Contact + Map + Office hours</li>
+                <li>Better structure & navigation</li>
+                <li>SEO basics</li>
+              </ul>
+
+              <a href="#contact" class="btn btn-dark rounded-4 w-100">
+                Request Pro Quote
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4">
+              <span class="badge bg-dark pricing-badge px-3 py-2 mb-3">WordPress</span>
+              <h4 class="fw-bold mb-1">Editable Website</h4>
+              <p class="text-muted">Update content yourself</p>
+
+              <div class="display-6 fw-bold mb-3">₹ 35k – 1.2L+</div>
+
+              <ul class="small text-muted mb-4">
+                <li>Admin panel (self edits)</li>
+                <li>Plugin/security basics</li>
+                <li>Backup setup</li>
+                <li>Optional maintenance</li>
+              </ul>
+
+              <a href="#contact" class="btn btn-outline-dark rounded-4 w-100">
+                Request WP Quote
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="small text-muted mt-3">
+        Note: Domain/hosting costs are usually annual and may be billed separately (transparent).
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="mb-5">
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4">
+              <h2 class="fw-bold section-title mb-2">How it works</h2>
+              <p class="text-muted mb-4">A simple, fast workflow (no confusion).</p>
+
+              <div class="timeline-step">
+                <div class="timeline-dot">1</div>
+                <div>
+                  <div class="fw-bold">Choose a template</div>
+                  <div class="text-muted small">Pick from the gallery above.</div>
+                </div>
+              </div>
+
+              <div class="timeline-step">
+                <div class="timeline-dot">2</div>
+                <div>
+                  <div class="fw-bold">Share details</div>
+                  <div class="text-muted small">Bio, address, practice areas, phone, email, etc.</div>
+                </div>
+              </div>
+
+              <div class="timeline-step">
+                <div class="timeline-dot">3</div>
+                <div>
+                  <div class="fw-bold">Draft + revisions</div>
+                  <div class="text-muted small">You review. We refine (1–2 rounds).</div>
+                </div>
+              </div>
+
+              <div class="timeline-step">
+                <div class="timeline-dot">4</div>
+                <div>
+                  <div class="fw-bold">Domain connect + launch</div>
+                  <div class="text-muted small">Your domain (or new one) goes live.</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="contact-pane p-4 p-md-5 h-100">
+            <div class="d-flex align-items-start gap-3 mb-3">
+              <div class="d-inline-block p-3 bg-white bg-opacity-10 rounded-3">
+                <i class="bi bi-balance-scale fs-3 text-warning" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold text-warning mb-1">Professional + Informational</h4>
+                <div style="color: rgba(255,255,255,.85);">
+                  The website is designed to be a clean profile—not aggressive advertising.
+                </div>
+              </div>
+            </div>
+
+            <ul class="small mb-0" style="color: rgba(255,255,255,.88);">
+              <li class="mb-2">Clear profile details for clients/court visitors</li>
+              <li class="mb-2">Fast on mobile & slow networks</li>
+              <li class="mb-2">Contact buttons + map for easy navigation</li>
+              <li class="mb-0">Disclaimer section included</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="mb-5">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold section-title">FAQ</h2>
+        <p class="text-muted mb-0">Common questions before you start.</p>
+      </div>
+
+      <div class="accordion shadow-sm rounded-4 overflow-hidden" id="faqAcc">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faq1" aria-expanded="true">
+              Can I use my existing domain?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc">
+            <div class="accordion-body text-muted">
+              Yes. If you already own a domain (e.g., <code>.com</code> / <code>.in</code>), we can connect it using DNS.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faq2" aria-expanded="false">
+              Do you provide hosting and maintenance?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+            <div class="accordion-body text-muted">
+              Hosting can be arranged as per your preference. Maintenance is optional and can include backups, updates,
+              and minor edits.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faq3" aria-expanded="false">
+              Can I add testimonials and client logos?
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+            <div class="accordion-body text-muted">
+              It’s safer to keep advocate websites informational and avoid solicitation-style elements.
+              If you want to add such sections, we’ll discuss compliance-friendly wording.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faq4" aria-expanded="false">
+              How long does it take?
+            </button>
+          </h2>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+            <div class="accordion-body text-muted">
+              Typically 3–7 days after you share content. Complex WordPress setups may take longer.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mb-4">
+      <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+        <div class="row g-0">
+
+          <!-- Left -->
+          <div class="col-lg-5 contact-pane p-4 p-md-5">
+            <span class="badge bg-white text-dark fw-bold mb-3">
+              <i class="bi bi-chat-dots me-2"></i>Get a quick quote
+            </span>
+
+            <h3 class="fw-bold text-warning mb-2">
+              Contact Rishab-LEX
+            </h3>
+            <p class="mb-4" style="color: rgba(255,255,255,.85);">
+              Share your details and preferred template. I’ll reply with timeline + estimated cost.
+            </p>
+
+            <div class="small" style="color: rgba(255,255,255,.85);">
+              <div class="mb-2"><i class="bi bi-envelope-fill me-2"></i> <a class="text-warning fw-bold"
+                  href="mailto:rishablex05@gmail.com">rishablex05@gmail.com</a></div>
+              <div class="mb-2"><i class="bi bi-telephone-fill me-2"></i> <a class="text-warning fw-bold"
+                  href="tel:+916351166095">+91 6351166095</a></div>
+              <div class="mb-0"><i class="bi bi-geo-alt-fill me-2"></i> Vadodara, Gujarat</div>
+            </div>
+
+            <hr class="border-light border-opacity-25 my-4" />
+
+            <div class="small" style="color: rgba(255,255,255,.85);">
+              <div class="fw-bold text-warning mb-1">Office Hours</div>
+              Mon–Fri: 10am–6pm <br />
+              Sat: 10am–2pm
+            </div>
+          </div>
+
+          <!-- Right form -->
+          <div class="col-lg-7">
+            <div class="p-4 p-md-5">
+              <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+                <div>
+                  <h4 class="fw-bold mb-1">Send your requirement</h4>
+                  <div class="text-muted">Template + pages + your basic info.</div>
+                </div>
+                <span class="badge bg-dark d-none d-md-inline-block">
+                  <i class="bi bi-shield-lock me-2"></i>Informational only
+                </span>
+              </div>
+
+              <!-- Replace action with your Formspree URL if needed -->
+              <form id="quoteForm" action="https://formspree.io/f/yourFormID" method="POST" novalidate>
+                <input type="hidden" name="selectedTemplate" id="selectedTemplate" value="" />
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="qName">Name</label>
+                    <div class="input-wrap">
+                      <i class="bi bi-person-fill"></i>
+                      <input class="form-control" id="qName" name="name" placeholder="Your name" required />
+                      <div class="invalid-feedback">Please enter your name.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="qPhone">Phone / WhatsApp</label>
+                    <div class="input-wrap">
+                      <i class="bi bi-telephone-fill"></i>
+                      <input class="form-control" id="qPhone" name="phone" placeholder="+91 ..." required />
+                      <div class="invalid-feedback">Please enter your phone number.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="qEmail">Email</label>
+                    <div class="input-wrap">
+                      <i class="bi bi-envelope-at-fill"></i>
+                      <input type="email" class="form-control" id="qEmail" name="email" placeholder="you@example.com"
+                        required />
+                      <div class="invalid-feedback">Please enter a valid email.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="qType">Website Type</label>
+                    <div class="input-wrap">
+                      <i class="bi bi-layout-text-window"></i>
+                      <select class="form-select" id="qType" name="websiteType" required>
+                        <option value="" selected disabled>Select</option>
+                        <option>One-page (Static)</option>
+                        <option>4–6 pages (Static)</option>
+                        <option>WordPress (Editable)</option>
+                      </select>
+                      <div class="invalid-feedback">Please choose a website type.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label fw-semibold" for="qMessage">Message</label>
+                    <div class="input-wrap">
+                      <i class="bi bi-pencil-square"></i>
+                      <textarea class="form-control" id="qMessage" name="message" rows="4"
+                        placeholder="Share: city, preferred template, pages, any special sections (map, languages, etc.)"
+                        required></textarea>
+                      <div class="invalid-feedback">Please write a short message.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 flex-wrap mt-3">
+                  <button id="qBtn" type="submit" class="btn btn-primary btn-rlx px-4">
+                    <span class="btn-text"><i class="bi bi-send me-2"></i>Send</span>
+                    <span class="btn-loading d-none">
+                      <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                      Sending...
+                    </span>
+                  </button>
+
+                  <div class="small text-muted">
+                    Selected template (if any) will be sent automatically.
+                  </div>
+                </div>
+
+                <div id="qStatus" class="mt-3 d-none" role="status" aria-live="polite"></div>
+              </form>
+
+              <div class="alert alert-secondary border-0 rounded-4 mt-4 mb-0">
+                <div class="small">
+                  <strong>Disclaimer:</strong> This is a website creation service. Website content will be kept
+                  informational and professional. Final responsibility of compliance remains with the website owner.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h5 class="fw-bold text-warning"><i class="bi bi-balance-scale"></i> Rishab-LEX</h5>
+          <p class="small text-light-emphasis mb-2">
+            Practical legal resources + court utilities + professional templates.
+          </p>
+          <small class="text-secondary">© 2026 Rishab-LEX. All Rights Reserved.</small>
+        </div>
+
+        <div class="col-lg-6 text-lg-end">
+          <div class="small text-secondary">
+            Built to make legal information more accessible and practical.
+          </div>
+          <div class="mt-2">
+            <a href="#contact" class="text-decoration-none text-light me-3">Contact</a>
+            <a href="#faq" class="text-decoration-none text-light">FAQ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <div class="floating-whatsapp">
+    <a href="https://wa.me/916351166095?text=Hello%20Rishab-LEX%2C%20I%20want%20an%20advocate%20website.%20Please%20share%20details."
+      target="_blank" rel="noopener" aria-label="WhatsApp">
+      <i class="bi bi-whatsapp fs-3"></i>
+    </a>
+  </div>
+
+  <!-- Preview Modal -->
+  <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-4 overflow-hidden">
+        <div class="modal-header">
+          <div>
+            <h5 class="modal-title fw-bold mb-0" id="previewTitle">Template Preview</h5>
+            <div class="small text-muted">Connect your own preview link later if needed.</div>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="p-4 rounded-4 border bg-body">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-info-circle"></i>
+              <div class="fw-semibold">Preview placeholder</div>
+            </div>
+            <div class="text-muted small">
+              This is a demo page. If you want, I can create dedicated live preview links for each template
+              (e.g., <code>templates.rishab-lex.com/classic</code>).
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark rounded-4" data-bs-dismiss="modal">Close</button>
+          <a href="#contact" class="btn btn-dark rounded-4" data-bs-dismiss="modal">Select & Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    /* =========================================================
+       Theme Toggle: light / dark / high-contrast
+       ========================================================= */
+    function applyTheme(theme) {
+      const html = document.documentElement;
+      html.removeAttribute("data-bs-theme");
+      html.removeAttribute("data-theme");
+
+      if (theme === "high-contrast") {
+        html.setAttribute("data-theme", "high-contrast");
+      } else {
+        html.setAttribute("data-bs-theme", theme);
+      }
+      localStorage.setItem("theme", theme);
+    }
+
+    document.querySelectorAll("[data-bs-theme-value]").forEach(btn => {
+      btn.addEventListener("click", () => applyTheme(btn.getAttribute("data-bs-theme-value")));
+    });
+
+    applyTheme(localStorage.getItem("theme") || "light");
+
+    /* =========================================================
+       Template selection + contact form integration
+       ========================================================= */
+    const selectedTemplateInput = document.getElementById("selectedTemplate");
+    const selectedTemplateBadge = document.getElementById("selectedTemplateBadge");
+    const messageBox = document.getElementById("qMessage");
+
+    function setSelectedTemplate(name) {
+      selectedTemplateInput.value = name;
+      selectedTemplateBadge.textContent = "Selected: " + name;
+      selectedTemplateBadge.classList.remove("d-none");
+
+      // Pre-fill message if empty (non-destructive)
+      if (messageBox && !messageBox.value.trim()) {
+        messageBox.value =
+          "Selected Template: " + name + "\n" +
+          "City:\n" +
+          "Preferred Website Type (Static / WordPress):\n" +
+          "Pages/Sections Needed:\n" +
+          "Domain Available? (Yes/No):\n";
+      }
+
+      // Scroll to contact
+      document.getElementById("contact").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    document.querySelectorAll(".select-template").forEach(btn => {
+      btn.addEventListener("click", () => setSelectedTemplate(btn.getAttribute("data-template")));
+    });
+
+    // Modal title changes based on template
+    const previewModal = document.getElementById("previewModal");
+    previewModal.addEventListener("show.bs.modal", (event) => {
+      const trigger = event.relatedTarget;
+      const tpl = trigger?.getAttribute("data-template") || "Template";
+      document.getElementById("previewTitle").textContent = tpl + " – Preview";
+    });
+
+    /* =========================================================
+       Quote Form submit (Formspree-ready)
+       - Replace action="https://formspree.io/f/yourFormID"
+       ========================================================= */
+    const form = document.getElementById("quoteForm");
+    const statusBox = document.getElementById("qStatus");
+    const btn = document.getElementById("qBtn");
+
+    function setLoading(isLoading) {
+      btn.disabled = isLoading;
+      btn.querySelector(".btn-text").classList.toggle("d-none", isLoading);
+      btn.querySelector(".btn-loading").classList.toggle("d-none", !isLoading);
+    }
+
+    function showStatus(type, message) {
+      statusBox.className = "mt-3 alert alert-" + type;
+      statusBox.textContent = message;
+      statusBox.classList.remove("d-none");
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      form.classList.add("was-validated");
+
+      if (!form.checkValidity()) {
+        showStatus("warning", "Please fill all required fields correctly.");
+        return;
+      }
+
+      setLoading(true);
+      showStatus("info", "Sending your request...");
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          showStatus("success", "Sent successfully. I will contact you soon.");
+          form.reset();
+          form.classList.remove("was-validated");
+          selectedTemplateBadge.classList.add("d-none");
+          selectedTemplateInput.value = "";
+        } else {
+          let msg = "Failed to send. Please try again later.";
+          try {
+            const data = await res.json();
+            if (data?.error) msg = data.error;
+          } catch (_) { }
+          showStatus("danger", msg);
+        }
+      } catch (err) {
+        console.error(err);
+        showStatus("danger", "Network error. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    });
+  </script>
+</body>
+
+</html>

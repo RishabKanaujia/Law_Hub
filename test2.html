@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vadodara Court Room Seating Plan</title>
-  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
@@ -76,8 +75,10 @@
       min-height: 430px;
 
       background-image:
-        linear-gradient(rgba(5, 22, 43, 0.70),
-          rgba(5, 22, 43, 0.70)),
+        linear-gradient(
+          rgba(5, 22, 43, 0.70),
+          rgba(5, 22, 43, 0.70)
+        ),
         url("/img/2022111729.jpg");
 
       background-size: cover;
@@ -100,9 +101,11 @@
 
       height: 80px;
 
-      background: linear-gradient(to bottom,
-          transparent,
-          var(--cream));
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--cream)
+      );
 
       pointer-events: none;
     }
@@ -150,7 +153,7 @@
       font-weight: 500;
 
       text-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.4);
+        0 4px 20px rgba(0,0,0,0.4);
     }
 
 
@@ -168,12 +171,202 @@
 
       margin: 20px auto 0;
 
-      color: rgba(255, 255, 255, 0.83);
+      color: rgba(255,255,255,0.83);
 
       font-size: 14px;
 
       line-height: 1.7;
     }
+
+
+    /* =====================================================
+       FOURTH FLOOR — INTERACTIVE ROOM MAP
+       (everything scoped under #floor4Map so it can never
+       leak into / clash with the rest of the page, and the
+       same #floor1Map / #floor2Map / #floor3Map pattern can
+       be added later without collisions)
+    ===================================================== */
+
+    #floor4Map {
+      --ink: #1c1c1c;
+      --paper: #faf9f6;
+      --line: #d8d5cc;
+      --room-red: #d64545;
+      --room-maroon: #3a1f2b;
+      --room-blue: #2f7bb8;
+      --room-green: #12523a;
+      --room-orange: #e08a2b;
+      --room-lime: #c9d94a;
+      --marker: #f5d547;
+      --marker-ring: #3a3a3a;
+      --highlight: #ff3b30;
+
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+      padding: 18px;
+      border-radius: 10px;
+    }
+
+    #floor4Map .sub {
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    #floor4Map .controls {
+      max-width: 1100px;
+      margin: 0 auto 16px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    #floor4Map .controls input {
+      padding: 9px 14px;
+      font-size: 15px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      width: 220px;
+      outline: none;
+    }
+
+    #floor4Map .controls button {
+      padding: 9px 16px;
+      font-size: 14px;
+      border: 2px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #floor4Map .controls button.secondary {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    #floor4Map .controls button:hover {
+      opacity: 0.85;
+    }
+
+    #floor4Map #floor4Status {
+      font-size: 13px;
+      color: #a02020;
+      min-height: 18px;
+      text-align: center;
+    }
+
+    #floor4Map .wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      border: 3px solid var(--ink);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #efece3;
+    }
+
+    #floor4Map svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    #floor4Map .room {
+      cursor: pointer;
+    }
+
+    #floor4Map .room rect {
+      stroke: rgba(0, 0, 0, 0.28);
+      stroke-width: 1;
+      transition: opacity 0.15s ease, filter 0.15s ease;
+    }
+
+    #floor4Map .room:hover rect {
+      filter: brightness(1.12);
+    }
+
+    #floor4Map .room.active rect {
+      stroke: var(--highlight);
+      stroke-width: 3.5;
+      filter: brightness(1.18);
+    }
+
+    #floor4Map .marker circle {
+      fill: var(--marker);
+      stroke: var(--marker-ring);
+      stroke-width: 1.5;
+      transition: r 0.15s ease, fill 0.15s ease;
+    }
+
+    #floor4Map .marker text {
+      font-size: 15px;
+      font-weight: 700;
+      fill: #1c1c1c;
+      text-anchor: middle;
+      dominant-baseline: central;
+      pointer-events: none;
+    }
+
+    #floor4Map .marker:hover circle {
+      fill: #ffe98a;
+    }
+
+    #floor4Map .marker.active circle {
+      fill: var(--highlight);
+      stroke: #7a0000;
+      r: 26;
+    }
+
+    #floor4Map .marker.active text {
+      fill: #fff;
+    }
+
+    #floor4Map .pulse {
+      fill: none;
+      stroke: var(--highlight);
+      stroke-width: 3;
+      opacity: 0;
+    }
+
+    #floor4Map .marker.active .pulse {
+      animation: floor4Pulse 1.4s ease-out infinite;
+    }
+
+    @keyframes floor4Pulse {
+      0% { r: 20; opacity: 0.9; }
+      100% { r: 44; opacity: 0; }
+    }
+
+    #floor4Map .you-are-here {
+      font-weight: 700;
+      font-size: 15px;
+      fill: #1c1c1c;
+    }
+
+    #floor4Map .legend {
+      max-width: 1100px;
+      margin: 14px auto 0;
+      display: flex;
+      gap: 22px;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    #floor4Map .legend .swatch {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      margin-right: 6px;
+      vertical-align: middle;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
   </style>
 </head>
 
@@ -259,7 +452,7 @@
         A32 - Mr. S.M. Mishra, 14th Addl. Sr. Civil Judgе <br />
         A33 - Mr. A.G Dodia, 17th Addl. Sr. Civil Judge <br />
         A45 - Mr. P.B. Nayak, Chief Judicial Magistrate <br />
-        A58 - Mr. J.V. Shah, 15th Addl. Sr. Civil Judge <br />
+        A56 - Mr. J.V. Shah, 15th Addl. Sr. Civil Judge <br />
         <!-- A58 - J.V. Shah <br /> -->
         A59 - Ms D.P Shah, J.M.F.C. 1st Court <br />
         A69 - Ms. Shipra Sayal, J.M.F.C., 2nd Court <br />
@@ -328,7 +521,7 @@
         D62 - R.S. Rajput (Family Court No. 5) <br />
         D73 - Mr. Y.R. Agrawal, 7th Addl. Sr. Civil Judge <br />
         D80 - Mrs Kavita Gehlot, 2nd Addl. Civil Judge <br />
-        D81 - Mrs Chitra Ratnoo (Family Court No. 6)<br />
+        D81 - N/A<br />
         D88 - Mr. R.P. Raghav, Principal Judge
       </p>
     </div>
@@ -346,11 +539,104 @@
         E37 - Ms. Poonam Swami, 3rd Addl. Civil Judge<br />
         E54 - Mr. J.M. Solanki, 10th Addl. Sr. Civil Judge <br />
         <!-- E55 - R.M. Shaikh <br /> -->
-        <!-- E62 - Chitra Ratnoo (Family Court No. 6) <br /> -->
+        E62 - Chitra Ratnoo (Family Court No. 6) <br />
         E64 - Mr. S.G. Parmar, 13th Addl. Sr. Civil Judge <br />
-        E73 - Mr. D.M. Bavishi, 20th Addl. Sr. Civil Judg
+        E73 - Mr. D.M. Bavishi, 20th Addl. Sr. Civil Judge
       </p>
     </div>
+
+    <!-- ================= FOURTH FLOOR — INTERACTIVE ROOM MAP ================= -->
+    <div class="floor-card">
+      <h4 class="section-title">Fourth Floor — Interactive Room Map</h4>
+
+      <div id="floor4Map">
+
+        <div class="sub">
+          Type a room number and press Enter (or Highlight) to locate it on the map.
+        </div>
+
+        <div class="controls">
+          <input
+            id="floor4SearchBox"
+            type="text"
+            inputmode="numeric"
+            placeholder="Enter room number (1–82)"
+          />
+          <button id="floor4HighlightBtn">Highlight</button>
+          <button id="floor4ClearBtn" class="secondary">Clear</button>
+        </div>
+        <div id="floor4Status"></div>
+
+        <div class="wrap">
+          <svg
+            id="floor4Svg"
+            viewBox="0 0 1600 823"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect x="0" y="0" width="1600" height="823" fill="#efece3" />
+
+            <!-- ===== Approximate room blocks (schematic, colors mirror legend) ===== -->
+            <g id="floor4RoomBlocks" opacity="0.85"></g>
+
+            <!-- corridors (light) -->
+            <rect x="0" y="0" width="1600" height="823" fill="none" />
+
+            <!-- You are here marker -->
+            <g transform="translate(762,412)">
+              <circle r="7" fill="#c0392b" />
+              <path
+                d="M0,-22 C10,-22 16,-14 16,-6 C16,4 0,20 0,20 C0,20 -16,4 -16,-6 C-16,-14 -10,-22 0,-22 Z"
+                fill="#c0392b"
+              />
+              <circle cy="-6" r="5" fill="#fff" />
+              <text x="22" y="-4" class="you-are-here">YOU ARE HERE</text>
+            </g>
+
+            <!-- Room number markers -->
+            <g id="floor4Markers"></g>
+          </svg>
+        </div>
+
+        <div class="legend">
+          <div>
+            <span class="swatch" style="background: #181818"></span>Toilet &amp;
+            Drinking Water
+          </div>
+          <div>
+            <span class="swatch" style="background: #d8433a"></span>&#9855;
+            Accessible Toilet &amp; Drinking Water
+          </div>
+          <div>
+            <span class="swatch" style="background: #2b1522"></span>Court room /
+            chamber
+          </div>
+          <div>
+            <span class="swatch" style="background: #2f7fc1"></span>Office block
+          </div>
+          <div>
+            <span class="swatch" style="background: #e08a2b"></span>Reception /
+            registry
+          </div>
+          <div>
+            <span class="swatch" style="background: #cbd94a"></span>Open area
+          </div>
+          <div>
+            <span
+              class="swatch"
+              style="background: var(--marker); border-color: #3a3a3a"
+            ></span
+            >Room number marker
+          </div>
+        </div>
+
+        <div class="sub" style="margin-top: 6px">
+          Colors follow the source signage; only black and red are formally keyed on
+          the original board — others are shown here for visual reference.
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
   <div class="container">
@@ -515,7 +801,7 @@
       "Mr. S.M. Mishra, 14th Addl. Sr. Civil Judgе": "A32 (Ground Floor)",
       "Mr. A.G Dodia, 17th Addl. Sr. Civil Judge": "A33 (Ground Floor)",
       "Mr. P.B. Nayak, Chief Judicial Magistrate": "A45 (Ground Floor)",
-      "Mr. J.V. Shah, 15th Addl. Sr. Civil Judge ": "A58 (Ground Floor)",
+      "Mr. J.V. Shah, 15th Addl. Sr. Civil Judge ": "A56 (Ground Floor)",
       // "J.V. Shah": "A58 (Ground Floor)",
       "Ms D.P Shah, J.M.F.C. 1st Court": "A59 (Ground Floor)",
       "Ms Shipra Sayal, J.M.F.C., 2nd Court  ": "A69 (Ground Floor)",
@@ -581,7 +867,7 @@
       "Ms. Poonam Swami, 3rd Addl. Civil Judge": "E37 (Fourth Floor)",
       "Mr. J.M. Solanki, 10th Addl. Sr. Civil Judge": "E54 (Fourth Floor)",
       // "R.M. Shaikh": "E55 (Fourth Floor)",
-      // "Chitra Ratnoo (Family Court No. 6)": "E62 (Fourth Floor)",
+      "Chitra Ratnoo (Family Court No. 6)": "E62 (Fourth Floor)",
       "Mr. S.G. Parmar, 13th Addl. Sr. Civil Judge": "E64 (Fourth Floor)",
       "Mr. D.M. Bavishi, 20th Addl. Sr. Civil Judge": "E73 (Fourth Floor)",
     };
@@ -617,6 +903,181 @@
       }
     }
   </script>
+
+  <!-- =====================================================
+       FOURTH FLOOR — INTERACTIVE ROOM MAP SCRIPT
+       Wrapped in its own IIFE and every name prefixed with
+       "floor4" so this can sit alongside a judges/searchJudge
+       script above, and so floor1Map / floor2Map / floor3Map
+       can be added later as separate blocks without any of
+       them clashing with each other.
+  ===================================================== -->
+  <script>
+    (function () {
+
+      // Approximate room-number positions (x, y) on a 1600x823 canvas,
+      // derived from the uploaded floor-plan photo.
+      const floor4Rooms = {
+        1: [676, 483], 2: [618, 499], 3: [601, 499], 4: [734, 592], 5: [639, 682],
+        6: [549, 538], 7: [543, 568], 8: [531, 635], 9: [395, 635], 10: [376, 568],
+        11: [376, 538], 12: [280, 676], 13: [196, 592], 14: [340, 494], 15: [301, 494],
+        16: [247, 481], 17: [43, 592], 18: [676, 354], 19: [620, 344], 20: [600, 338],
+        21: [724, 265], 22: [724, 229], 23: [724, 192], 24: [733, 155], 25: [699, 155],
+        26: [642, 157], 27: [546, 296], 28: [546, 268], 29: [536, 202], 30: [400, 202],
+        31: [383, 271], 32: [383, 296], 33: [295, 157], 34: [211, 244], 35: [340, 332],
+        36: [317, 340], 37: [254, 352], 38: [103, 280], 39: [18, 207], 40: [18, 314],
+        41: [18, 371], 42: [821, 375], 43: [956, 357], 44: [1014, 341], 45: [1042, 339],
+        46: [906, 247], 47: [933, 155], 48: [906, 155], 49: [908, 192], 50: [984, 163],
+        51: [1011, 163], 52: [1084, 296], 53: [1099, 270], 54: [1097, 205], 55: [1235, 205],
+        56: [1240, 270], 57: [1240, 300], 58: [1335, 163], 59: [1419, 249], 60: [1287, 339],
+        61: [1312, 340], 62: [1367, 357], 63: [1571, 249], 64: [968, 484], 65: [1028, 499],
+        66: [1052, 499], 67: [897, 575], 68: [918, 575], 69: [907, 610], 70: [988, 682],
+        71: [1085, 540], 72: [1099, 571], 73: [1109, 635], 74: [1235, 635], 75: [1240, 571],
+        76: [1252, 540], 77: [1348, 682], 78: [1424, 596], 79: [1289, 502], 80: [1311, 502],
+        81: [1370, 485], 82: [1583, 592]
+      };
+
+      // Colored room blocks [x, y, width, height, colorKey], derived from the source photo.
+      const floor4Blocks = {
+        1: [620, 440, 100, 70, "red"], 2: [620, 455, 40, 45, "maroon"], 3: [580, 455, 40, 45, "maroon"],
+        5: [600, 655, 90, 45, "blue"], 6: [540, 510, 40, 40, "maroon"], 7: [540, 550, 40, 40, "maroon"],
+        8: [495, 590, 85, 95, "red"], 9: [345, 585, 90, 95, "red"], 10: [345, 550, 55, 35, "maroon"],
+        11: [345, 515, 55, 35, "maroon"], 12: [225, 650, 95, 50, "lime"], 14: [330, 470, 30, 40, "maroon"],
+        15: [300, 470, 30, 40, "maroon"], 16: [205, 430, 95, 80, "red"], 17: [0, 550, 140, 150, "lime"],
+        18: [620, 305, 100, 75, "red"], 19: [620, 320, 40, 40, "maroon"], 20: [580, 320, 40, 40, "maroon"],
+        21: [680, 255, 70, 40, "blue"], 22: [680, 215, 70, 40, "blue"], 23: [680, 175, 70, 40, "blue"],
+        24: [715, 140, 35, 35, "blue"], 25: [680, 140, 35, 35, "blue"], 26: [605, 140, 75, 50, "orange"],
+        27: [495, 295, 55, 35, "maroon"], 28: [495, 255, 55, 40, "maroon"], 29: [490, 140, 110, 120, "red"],
+        30: [350, 140, 145, 115, "red"], 31: [345, 255, 55, 35, "maroon"], 32: [345, 290, 55, 35, "maroon"],
+        33: [160, 140, 170, 70, "orange"], 35: [330, 325, 30, 40, "maroon"], 36: [300, 325, 30, 40, "maroon"],
+        37: [205, 325, 95, 75, "red"], 38: [55, 180, 95, 200, "lime"], 39: [0, 170, 45, 80, "lime"],
+        40: [0, 280, 45, 65, "lime"], 41: [0, 345, 45, 65, "lime"], 42: [745, 345, 155, 45, "maroon"],
+        43: [905, 305, 105, 80, "red"], 44: [1005, 320, 35, 40, "maroon"], 45: [1040, 320, 35, 40, "maroon"],
+        47: [920, 140, 35, 35, "black"], 48: [890, 140, 35, 35, "black"], 49: [890, 175, 50, 40, "black"],
+        50: [980, 140, 35, 35, "blue"], 51: [1015, 140, 35, 35, "blue"], 52: [1055, 295, 50, 35, "maroon"],
+        53: [1055, 255, 50, 40, "maroon"], 54: [1055, 140, 105, 115, "red"], 55: [1195, 140, 105, 120, "red"],
+        56: [1195, 260, 50, 35, "maroon"], 57: [1195, 295, 50, 35, "maroon"], 58: [1300, 140, 75, 50, "blue"],
+        60: [1275, 325, 35, 40, "maroon"], 61: [1310, 325, 35, 40, "maroon"], 62: [1345, 310, 75, 80, "red"],
+        63: [1490, 140, 110, 175, "lime"], 64: [905, 445, 100, 75, "red"], 65: [1005, 480, 35, 40, "maroon"],
+        66: [1040, 480, 35, 40, "maroon"], 70: [955, 655, 90, 45, "blue"], 71: [1060, 530, 50, 35, "maroon"],
+        72: [1060, 565, 50, 35, "maroon"], 73: [1055, 600, 90, 95, "red"], 74: [1195, 590, 85, 95, "red"],
+        75: [1195, 550, 50, 40, "maroon"], 76: [1195, 515, 50, 35, "maroon"], 77: [1305, 655, 90, 45, "blue"],
+        78: [1400, 560, 70, 80, "blue"], 79: [1275, 465, 35, 40, "maroon"], 80: [1310, 465, 35, 40, "maroon"],
+        81: [1345, 445, 75, 65, "red"], 82: [1500, 590, 100, 120, "lime"]
+      };
+
+      const floor4ColorMap = {
+        red: "#d8433a",
+        maroon: "#2b1522",
+        blue: "#2f7fc1",
+        orange: "#e08a2b",
+        lime: "#cbd94a",
+        black: "#181818"
+      };
+
+      const floor4RoomBlocksG = document.getElementById("floor4RoomBlocks");
+      const floor4MarkersG = document.getElementById("floor4Markers");
+      const floor4Ns = "http://www.w3.org/2000/svg";
+
+      Object.entries(floor4Blocks).forEach(([id, [x, y, w, h, colorKey]]) => {
+        const g = document.createElementNS(floor4Ns, "g");
+        g.setAttribute("class", "room");
+        g.setAttribute("id", "floor4-block-" + id);
+
+        const rect = document.createElementNS(floor4Ns, "rect");
+        rect.setAttribute("x", x);
+        rect.setAttribute("y", y);
+        rect.setAttribute("width", w);
+        rect.setAttribute("height", h);
+        rect.setAttribute("fill", floor4ColorMap[colorKey]);
+        g.appendChild(rect);
+
+        g.addEventListener("click", () => floor4Highlight(id));
+        floor4RoomBlocksG.appendChild(g);
+      });
+
+      Object.entries(floor4Rooms).forEach(([id, [x, y]]) => {
+        const g = document.createElementNS(floor4Ns, "g");
+        g.setAttribute("class", "marker");
+        g.setAttribute("id", "floor4-room-" + id);
+        g.setAttribute("transform", `translate(${x},${y})`);
+
+        const pulse = document.createElementNS(floor4Ns, "circle");
+        pulse.setAttribute("class", "pulse");
+        pulse.setAttribute("r", "20");
+        g.appendChild(pulse);
+
+        const circle = document.createElementNS(floor4Ns, "circle");
+        circle.setAttribute("r", "15");
+        g.appendChild(circle);
+
+        const text = document.createElementNS(floor4Ns, "text");
+        text.textContent = id;
+        g.appendChild(text);
+
+        g.addEventListener("click", () => floor4Highlight(id));
+        floor4MarkersG.appendChild(g);
+      });
+
+      let floor4ActiveId = null;
+
+      function floor4Highlight(id) {
+        if (floor4ActiveId) {
+          const prevM = document.getElementById("floor4-room-" + floor4ActiveId);
+          if (prevM) prevM.classList.remove("active");
+          const prevB = document.getElementById("floor4-block-" + floor4ActiveId);
+          if (prevB) prevB.classList.remove("active");
+        }
+        const el = document.getElementById("floor4-room-" + id);
+        const blockEl = document.getElementById("floor4-block-" + id);
+        const status = document.getElementById("floor4Status");
+        if (el) {
+          el.classList.add("active");
+          if (blockEl) blockEl.classList.add("active");
+          floor4ActiveId = id;
+          el.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "center",
+          });
+          status.textContent = "";
+        } else {
+          floor4ActiveId = null;
+          status.textContent = "Room " + id + " not found (valid range: 1–82).";
+        }
+      }
+
+      function floor4ClearHighlight() {
+        if (floor4ActiveId) {
+          const prevM = document.getElementById("floor4-room-" + floor4ActiveId);
+          if (prevM) prevM.classList.remove("active");
+          const prevB = document.getElementById("floor4-block-" + floor4ActiveId);
+          if (prevB) prevB.classList.remove("active");
+        }
+        floor4ActiveId = null;
+        document.getElementById("floor4Status").textContent = "";
+        document.getElementById("floor4SearchBox").value = "";
+      }
+
+      document.getElementById("floor4HighlightBtn").addEventListener("click", () => {
+        const v = document.getElementById("floor4SearchBox").value.trim();
+        if (v) floor4Highlight(v);
+      });
+
+      document.getElementById("floor4SearchBox").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          const v = e.target.value.trim();
+          if (v) floor4Highlight(v);
+        }
+      });
+
+      document
+        .getElementById("floor4ClearBtn")
+        .addEventListener("click", floor4ClearHighlight);
+
+    })();
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

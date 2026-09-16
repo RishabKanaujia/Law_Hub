@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vadodara Police Station Jurisdiction – Rishab-LEX</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-warning" href="index.html"><i class="bi bi-balance-scale"></i> Rishab-LEX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <!-- <li class="nav-item">
+              <a class="nav-link" href="NGO.html">ngo list</a>
+            </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="judgment/judgment.html">Judgments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="article/article.html">Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vadodara-court.html">Vadodara-Court</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Gujarat Police Hero Banner -->
+  <section class="bg-white border-bottom py-4">
+    <div class="container">
+      <div class="row align-items-center g-4">
+
+        <!-- Gujarat Police Logo -->
+        <div class="col-md-3 text-center">
+          <img src="/img/gjpolice.png" alt="Gujarat Police" class="img-fluid" style="max-height: 180px;">
+        </div>
+
+        <!-- Heading -->
+        <div class="col-md-9 text-center text-md-start">
+
+          <span class="badge bg-dark mb-3 px-3 py-2">
+            Gujarat Police · Vadodara
+          </span>
+
+          <h1 class="display-5 fw-bold mb-2">
+            Police Station Jurisdiction Search
+          </h1>
+
+          <p class="lead text-secondary mb-2">
+            Find the allotted Court & Judicial Officer for a Police Station
+          </p>
+
+          <small class="text-muted">
+            Vadodara District & Sessions Court
+          </small>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <main class="container">
+
+
+
+    <!-- Information -->
+    <div class="card border-0 shadow-sm rounded-4 my-5">
+
+      <div class="card-body p-4">
+
+        <h5 class="fw-bold mb-3">
+          <i class="bi bi-info-circle me-2"></i>
+          How to use this page
+        </h5>
+
+        <div class="row g-4">
+
+          <div class="col-md-4">
+            <div class="d-flex gap-3">
+              <div class="fs-4">1️⃣</div>
+              <div>
+                <h6 class="fw-bold">Search Police Station</h6>
+                <p class="text-muted small mb-0">
+                  Enter the name of the Police Station.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="d-flex gap-3">
+              <div class="fs-4">2️⃣</div>
+              <div>
+                <h6 class="fw-bold">Find the Court</h6>
+                <p class="text-muted small mb-0">
+                  The allotted Court and Judicial Officer will appear.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="d-flex gap-3">
+              <div class="fs-4">3️⃣</div>
+              <div>
+                <h6 class="fw-bold">Check Part of Offence</h6>
+                <p class="text-muted small mb-0">
+                  The applicable Part I, II and/or III is displayed
+                  as per the allocation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+    <!-- Search Card -->
+    <div class="card border-0 shadow-sm rounded-4 mb-5">
+
+      <div class="card-body p-4 p-md-5">
+
+        <div class="text-center mb-4">
+
+          <h3 class="fw-bold">
+            <i class="bi bi-search me-2"></i>
+            Search Jurisdiction
+          </h3>
+
+          <p class="text-muted mb-0">
+            Search by Police Station or Judicial Officer
+          </p>
+
+        </div>
+
+
+        <!-- Search Type -->
+        <div class="d-flex justify-content-center gap-2 mb-4">
+
+          <button type="button" id="policeSearchBtn" class="btn btn-dark active">
+            <i class="bi bi-building me-1"></i>
+            Police Station
+          </button>
+
+          <button type="button" id="judgeSearchBtn" class="btn btn-outline-dark">
+            <i class="bi bi-person-badge me-1"></i>
+            Judge / Court
+          </button>
+
+        </div>
+
+
+        <!-- Police Search -->
+        <div id="policeSearchBox">
+
+          <label for="policeInput" class="form-label fw-semibold">
+            Search Police Station
+          </label>
+
+          <input type="text" id="policeInput" class="form-control form-control-lg" list="policeStations"
+            placeholder="e.g. Harni, Raopura, Gotri..." autocomplete="off">
+
+          <datalist id="policeStations"></datalist>
+
+          <div class="form-text">
+            Type the name of a Police Station to find the allotted
+            Court / Judicial Officer.
+          </div>
+
+        </div>
+
+
+        <!-- Judge Search -->
+        <div id="judgeSearchBox" class="d-none">
+
+          <label for="judgeInput" class="form-label fw-semibold">
+            Search Judge / Court
+          </label>
+
+          <input type="text" id="judgeInput" class="form-control form-control-lg" list="judgesList"
+            placeholder="e.g. J.M. Solanki, H.P. Joshi..." autocomplete="off">
+
+          <datalist id="judgesList"></datalist>
+
+          <div class="form-text">
+            Search a Judicial Officer to see all Police Stations
+            allotted to that Court.
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Results -->
+    <div id="resultsSection" class="d-none">
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+
+        <div>
+          <h4 class="fw-bold mb-1" id="resultsTitle">
+            Search Results
+          </h4>
+
+          <p class="text-muted mb-0" id="resultsSubtitle"></p>
+        </div>
+
+        <span id="resultCount" class="badge bg-dark rounded-pill px-3 py-2"></span>
+
+      </div>
+
+      <div id="resultsContainer" class="row g-4"></div>
+
+    </div>
+
+
+    <!-- No Results -->
+    <div id="noResults" class="d-none">
+
+      <div class="card border-0 shadow-sm rounded-4">
+        <div class="card-body text-center py-5">
+
+          <div class="display-5 mb-3">
+            🔎
+          </div>
+
+          <h5 class="fw-bold">
+            No jurisdiction found
+          </h5>
+
+          <p class="text-muted mb-0">
+            Please check the spelling or try another Police Station
+            or Judicial Officer.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="alert alert-secondary border-0 rounded-4 my-4">
+
+      <h6 class="fw-bold">
+        <i class="bi bi-exclamation-triangle me-2"></i>
+        Disclaimer
+      </h6>
+
+      <p class="small mb-2">
+        This information has been compiled by Rishab-LEX from the
+        District & Sessions Court, Vadodara office orders available
+        with us. It is intended only as a convenient reference for
+        advocates, law students, litigants and other court users.
+      </p>
+
+      <p class="small mb-2">
+        Court jurisdiction and Police Station allocations may change
+        due to transfers, promotions, new postings, administrative
+        orders or subsequent revisions. Existing cases may also be
+        governed by earlier orders, wherever applicable.
+      </p>
+
+      <p class="small mb-2">
+        Rishab-LEX does not claim that this information is a substitute
+        for an official court record or order. Users should verify
+        important and time-sensitive information with the concerned
+        court or official source before relying upon it.
+      </p>
+
+      <p class="small mb-0">
+        If you notice any incorrect, missing or outdated information,
+        please inform us through the
+        <a href="contact.html" class="fw-semibold text-dark">
+          Contact section
+        </a>,
+        Instagram DM or WhatsApp so that it can be reviewed and
+        corrected as soon as possible.
+      </p>
+
+    </div>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- About -->
+        <div class="col-lg-4 col-md-6">
+          <h5 class="fw-bold text-warning">
+            <i class="bi bi-balance-scale"></i> Rishab-LEX
+          </h5>
+
+          <p class="small text-light-emphasis">
+            A practical legal resource platform built to help law students,
+            interns, advocates and court visitors through simplified legal
+            resources, court utilities and region-specific information.
+          </p>
+
+          <small class="text-secondary">
+            © 2025 Rishab-LEX. All Rights Reserved.
+          </small>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold text-warning">Quick Links</h6>
+
+          <ul class="list-unstyled small">
+            <li class="mb-2">
+              <a href="index.html" class="text-light text-decoration-none">Home</a>
+            </li>
+
+            <li class="mb-2">
+              <a href="about.html" class="text-light text-decoration-none">About</a>
+            </li>
+
+            <li class="mb-2">
+              <a href="article/article.html" class="text-light text-decoration-none">Articles</a>
+            </li>
+
+            <li class="mb-2">
+              <a href="judgment/judgment.html" class="text-light text-decoration-none">Judgments</a>
+            </li>
+            <a href="contact.html" class="text-light text-decoration-none">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold text-warning">Resources</h6>
+
+          <ul class="list-unstyled small">
+            <li class="mb-2">
+              <a href="vadodara-court.html" class="text-light text-decoration-none">
+                Vadodara Court Directory
+              </a>
+            </li>
+
+            <li class="mb-2">
+              <a href="court-fee-calculator.html" class="text-light text-decoration-none">
+                Court Fee Calculator
+              </a>
+            </li>
+
+            <li class="mb-2">
+              <a href="NGO.html" class="text-light text-decoration-none">
+                NGOs in Vadodara
+              </a>
+            </li>
+
+            <li>
+              <a href="/index.html#glossary" class="text-light text-decoration-none">
+                Legal Glossary
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Connect -->
+        <div class="col-lg-2 col-md-6">
+          <h6 class="fw-bold text-warning">Connect</h6>
+
+          <div class="d-flex gap-3 fs-4">
+            <a href="https://www.instagram.com/lawgically_incorrect" target="_blank" class="text-light">
+              <i class="bi bi-instagram"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/rishab910" target="_blank" class="text-light">
+              <i class="bi bi-linkedin"></i>
+            </a>
+
+            <a href="https://github.com/RishabKanaujia" target="_blank" class="text-light">
+              <i class="bi bi-github"></i>
+            </a>
+          </div>
+
+          <p class="small text-secondary mt-3 mb-0">
+            Feedback and suggestions are always welcome.
+          </p>
+        </div>
+      </div>
+
+      <hr class="border-secondary my-4" />
+
+      <div class="d-md-flex justify-content-between align-items-center small">
+        <div class="text-secondary">
+          Built with ❤️ to make legal information more accessible and
+          practical.
+        </div>
+
+        <div class="mt-2 mt-md-0">
+          <a href="privacy_policy.html" class="text-decoration-none text-light me-3">
+            Privacy Policy
+          </a>
+
+          <a href="privacy_policy.html" class="text-decoration-none text-light">
+            Disclaimer
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+
+    /*
+      ============================================
+      VADODARA POLICE STATION JURISDICTION DATA
+      ============================================
+    */
+
+    const jurisdictionData = [
+
+      {
+        judge: "Mr. P.B. Nayak",
+        designation: "Chief Judicial Magistrate, Vadodara",
+        parts: "I & II",
+        stations: [
+          "D.C.B Police Station",
+          "L.C.B. Police Station",
+          "C.I.D. Police Station",
+          "Jawaharnagar Police Station",
+          "Kapurai Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. B.P. Mahida",
+        designation: "34th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I & V",
+        stations: [
+          "Raopura Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. R.V. Limbachiya",
+        designation: "4th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I & II",
+        stations: [
+          "Bapod Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. P.K. Gadhvi",
+        designation: "5th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I & II",
+        stations: [
+          "P Road Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. R.B. Gosai",
+        designation: "9th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I, II & III",
+        stations: [
+          "Panigate Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. J.M. Solanki",
+        designation: "10th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I & II",
+        stations: [
+          "Harni Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. L.S. Saiyed",
+        designation: "12th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "II & III",
+        stations: [
+          "Vadodara Railway Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. S.G. Parmar",
+        designation: "13th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "II",
+        stations: [
+          "Nawapura Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. S.M. Mishra",
+        designation: "14th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I",
+        stations: [
+          "Cyber Crime Police Station",
+          "Vadodara City Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. J.V. Shah",
+        designation: "15th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I",
+        stations: [
+          "Sayajigunj Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. P.B. Patel",
+        designation: "16th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I & II",
+        stations: [
+          "Chhani Police Station",
+          "Vadodara Taluka Police Station",
+          "Manjusar Police Station",
+          "Cyber Crime Range Station"
+        ]
+      },
+
+      {
+        judge: "Mr. A.G. Dodiya",
+        designation: "17th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "II",
+        stations: [
+          "Manjalpur Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. D.M. Singhal",
+        designation: "18th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I, II & III",
+        stations: [
+          "Warasiya Police Station",
+          "Kumbharwada Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. S.K. Sharma",
+        designation: "19th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I & II",
+        stations: [
+          "Fatehgunj Police Station",
+          "Laxmipura Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. C.V. Bhait",
+        designation: "20th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I, II & III",
+        stations: [
+          "Makarpura Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. O.L. Khan",
+        designation: "22nd Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I & II",
+        stations: [
+          "Wadi Police Station"
+        ]
+      },
+
+      {
+        judge: "Dr. H.P. Joshi",
+        designation: "24th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I, II & III",
+        stations: [
+          "Gotri Police Station",
+          "Chhani Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. H.S. Desai",
+        designation: "29th Additional Chief Judicial Magistrate, Vadodara",
+        parts: "I & II",
+        stations: [
+          "Atladara Police Station",
+          "Raopura Police Station",
+          "Laxmipura Police Station",
+          "Kapurai Police Station"
+        ]
+      },
+
+      {
+        judge: "Ms. E.K. Chandrawat",
+        designation: "Judicial Magistrate First Class (Municipal), Vadodara",
+        parts: "I & III",
+        stations: [
+          "Karelibaug Police Station",
+          "Nawapura Police Station"
+        ]
+      },
+
+      {
+        judge: "Mr. B.U. Tarak",
+        designation: "Judicial Magistrate First Class (Traffic), Vadodara",
+        parts: "II & III",
+        stations: [
+          "Sama Police Station"
+        ]
+      },
+
+      {
+        judge: "Ms. D.P. Shah",
+        designation: "Judicial Magistrate First Class (1st Court), Vadodara",
+        parts: "III",
+        stations: [
+          "Atladara Police Station",
+          "Akota Police Station",
+          "Varnama Police Station"
+        ]
+      },
+
+      {
+        judge: "Ms. Shipra Sayal",
+        designation: "Judicial Magistrate First Class (2nd Court), Vadodara",
+        parts: "I, II & III",
+        stations: [
+          "Vadodara City Police Station",
+          "Gorwa Police Station",
+          "Mahila City Police Station"
+        ]
+      },
+
+      {
+        judge: "Ms. K.N. Trivedi",
+        designation: "Judicial Magistrate First Class (3rd Court), Vadodara",
+        parts: "I & II",
+        stations: [
+          "Akota Police Station",
+          "P Road Police Station",
+          "Mahila City Police Station"
+        ]
+      },
+
+      {
+        judge: "Ms. H.D. Panchal",
+        designation: "Judicial Magistrate First Class (4th Court), Vadodara",
+        parts: "II & III",
+        stations: [
+          "D.C.B Police Station",
+          "Nandesari Police Station",
+          "Vadodara Taluka Police Station",
+          "Manjusar Police Station",
+          "L.C.B. Police Station"
+        ]
+      },
+
+      {
+        judge: "Mrs. Kavita Gehlot",
+        designation: "2nd Additional Civil Judge & Judicial Magistrate First Class, Vadodara",
+        parts: "II & III",
+        stations: [
+          "Bapod Police Station",
+          "Harni Police Station",
+          "Wadi Police Station"
+        ]
+      },
+
+      {
+        judge: "Ms. Poonam Swami",
+        designation: "3rd Additional Civil Judge & Judicial Magistrate First Class, Vadodara",
+        parts: "III",
+        stations: [
+          "Jawaharnagar Police Station",
+          "Sayajigunj Police Station",
+          "MGVCL Police Station",
+          "Mahila Rural Police Station"
+        ]
+      },
+
+
+      /* PADRA TALUKA */
+
+      {
+        judge: "Ms. M.S. Pande",
+        designation: "Principal Senior Civil Judge & ACJM, Padra",
+        parts: "As per Padra allocation order",
+        stations: [
+          "Vadu Police Station"
+        ],
+        padra: true
+      },
+
+      {
+        judge: "Mr. V.B. Chauhan",
+        designation: "Additional Senior Civil Judge & ACJM, Padra",
+        parts: "As per Padra allocation order",
+        stations: [
+          "Padra Police Station"
+        ],
+        padra: true
+      }
+
+    ];
+
+
+    /*
+      ============================================
+      ELEMENTS
+      ============================================
+    */
+
+    const policeInput = document.getElementById("policeInput");
+    const judgeInput = document.getElementById("judgeInput");
+
+    const policeSearchBox = document.getElementById("policeSearchBox");
+    const judgeSearchBox = document.getElementById("judgeSearchBox");
+
+    const policeSearchBtn = document.getElementById("policeSearchBtn");
+    const judgeSearchBtn = document.getElementById("judgeSearchBtn");
+
+    const policeStations = document.getElementById("policeStations");
+    const judgesList = document.getElementById("judgesList");
+
+    const resultsSection = document.getElementById("resultsSection");
+    const resultsContainer = document.getElementById("resultsContainer");
+    const resultsTitle = document.getElementById("resultsTitle");
+    const resultsSubtitle = document.getElementById("resultsSubtitle");
+    const resultCount = document.getElementById("resultCount");
+
+    const noResults = document.getElementById("noResults");
+
+
+    /*
+      ============================================
+      POPULATE AUTOCOMPLETE
+      ============================================
+    */
+
+    const allStations = [
+      ...new Set(
+        jurisdictionData.flatMap(item => item.stations)
+      )
+    ].sort();
+
+    allStations.forEach(station => {
+
+      const option = document.createElement("option");
+
+      option.value = station;
+
+      policeStations.appendChild(option);
+
+    });
+
+
+    const allJudges = jurisdictionData.map(item => item.judge);
+
+    allJudges.forEach(judge => {
+
+      const option = document.createElement("option");
+
+      option.value = judge;
+
+      judgesList.appendChild(option);
+
+    });
+
+
+    /*
+      ============================================
+      SEARCH MODE
+      ============================================
+    */
+
+    policeSearchBtn.addEventListener("click", () => {
+
+      policeSearchBox.classList.remove("d-none");
+      judgeSearchBox.classList.add("d-none");
+
+      policeSearchBtn.classList.add("btn-dark", "active");
+      policeSearchBtn.classList.remove("btn-outline-dark");
+
+      judgeSearchBtn.classList.remove("btn-dark", "active");
+      judgeSearchBtn.classList.add("btn-outline-dark");
+
+      judgeInput.value = "";
+
+      hideResults();
+
+      policeInput.focus();
+
+    });
+
+
+    judgeSearchBtn.addEventListener("click", () => {
+
+      judgeSearchBox.classList.remove("d-none");
+      policeSearchBox.classList.add("d-none");
+
+      judgeSearchBtn.classList.add("btn-dark", "active");
+      judgeSearchBtn.classList.remove("btn-outline-dark");
+
+      policeSearchBtn.classList.remove("btn-dark", "active");
+      policeSearchBtn.classList.add("btn-outline-dark");
+
+      policeInput.value = "";
+
+      hideResults();
+
+      judgeInput.focus();
+
+    });
+
+
+    /*
+      ============================================
+      POLICE STATION SEARCH
+      ============================================
+    */
+
+    policeInput.addEventListener("input", () => {
+
+      const query = policeInput.value.trim().toLowerCase();
+
+      if (!query) {
+        hideResults();
+        return;
+      }
+
+      const results = [];
+
+      jurisdictionData.forEach(item => {
+
+        item.stations.forEach(station => {
+
+          if (station.toLowerCase().includes(query)) {
+
+            results.push({
+              ...item,
+              matchedStation: station
+            });
+
+          }
+
+        });
+
+      });
+
+      renderPoliceResults(results, policeInput.value);
+
+    });
+
+
+    /*
+      ============================================
+      JUDGE SEARCH
+      ============================================
+    */
+
+    judgeInput.addEventListener("input", () => {
+
+      const query = judgeInput.value.trim().toLowerCase();
+
+      if (!query) {
+        hideResults();
+        return;
+      }
+
+      const results = jurisdictionData.filter(item =>
+        item.judge.toLowerCase().includes(query) ||
+        item.designation.toLowerCase().includes(query)
+      );
+
+      renderJudgeResults(results, judgeInput.value);
+
+    });
+
+
+    /*
+      ============================================
+      POLICE RESULTS
+      ============================================
+    */
+
+    function renderPoliceResults(results, query) {
+
+      if (!results.length) {
+
+        showNoResults();
+
+        return;
+
+      }
+
+      noResults.classList.add("d-none");
+      resultsSection.classList.remove("d-none");
+
+      resultsContainer.innerHTML = "";
+
+      resultsTitle.textContent = "Jurisdiction Found";
+
+      resultsSubtitle.textContent =
+        `Police Station search: ${query}`;
+
+      resultCount.textContent =
+        `${results.length} result${results.length > 1 ? "s" : ""}`;
+
+
+      results.forEach(item => {
+
+        const card = document.createElement("div");
+
+        card.className = "col-12";
+
+
+        card.innerHTML = `
+
+          <div class="card border-0 shadow-sm rounded-4 h-100">
+
+            <div class="card-body p-4">
+
+              <div class="row g-4 align-items-center">
+
+                <div class="col-lg-7">
+
+                  <div class="d-flex align-items-start gap-3">
+
+                    <div class="bg-light rounded-3 p-3">
+                      <i class="bi bi-building fs-3"></i>
+                    </div>
+
+                    <div>
+
+                      <span class="badge bg-secondary mb-2">
+                        Police Station
+                      </span>
+
+                      <h4 class="fw-bold mb-1">
+                        ${escapeHTML(item.matchedStation)}
+                      </h4>
+
+                      <p class="text-muted mb-0">
+                        <i class="bi bi-arrow-right-circle me-1"></i>
+                        Allotted Court / Judicial Officer
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="col-lg-5">
+
+                  <div class="border rounded-4 p-3 bg-light">
+
+                    <h5 class="fw-bold mb-1">
+                      ${escapeHTML(item.judge)}
+                    </h5>
+
+                    <p class="text-muted mb-3">
+                      ${escapeHTML(item.designation)}
+                    </p>
+
+                    <div>
+
+                      <span class="small fw-semibold me-2">
+                        Part of Offence:
+                      </span>
+
+                      ${partBadges(item.parts)}
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        `;
+
+        resultsContainer.appendChild(card);
+
+      });
+
+    }
+
+
+    /*
+      ============================================
+      JUDGE RESULTS
+      ============================================
+    */
+
+    function renderJudgeResults(results, query) {
+
+      if (!results.length) {
+
+        showNoResults();
+
+        return;
+
+      }
+
+      noResults.classList.add("d-none");
+      resultsSection.classList.remove("d-none");
+
+      resultsContainer.innerHTML = "";
+
+      resultsTitle.textContent = "Judge / Court Jurisdiction";
+
+      resultsSubtitle.textContent =
+        `Judge search: ${query}`;
+
+      resultCount.textContent =
+        `${results.length} result${results.length > 1 ? "s" : ""}`;
+
+
+      results.forEach(item => {
+
+        const card = document.createElement("div");
+
+        card.className = "col-12";
+
+
+        const stationHTML = item.stations.map(station => `
+
+          <div class="border rounded-3 p-3 mb-2 bg-light">
+
+            <div class="d-flex align-items-center gap-2">
+
+              <i class="bi bi-building text-secondary"></i>
+
+              <span class="fw-semibold">
+                ${escapeHTML(station)}
+              </span>
+
+            </div>
+
+          </div>
+
+        `).join("");
+
+
+        card.innerHTML = `
+
+          <div class="card border-0 shadow-sm rounded-4">
+
+            <div class="card-body p-4">
+
+              <div class="d-flex align-items-start gap-3 mb-4">
+
+                <div class="bg-dark text-white rounded-3 p-3">
+                  <i class="bi bi-person-badge fs-3"></i>
+                </div>
+
+                <div>
+
+                  <span class="badge bg-dark mb-2">
+                    Judicial Officer
+                  </span>
+
+                  <h4 class="fw-bold mb-1">
+                    ${escapeHTML(item.judge)}
+                  </h4>
+
+                  <p class="text-muted mb-2">
+                    ${escapeHTML(item.designation)}
+                  </p>
+
+                  <div>
+                    <span class="small fw-semibold me-2">
+                      Part of Offence:
+                    </span>
+
+                    ${partBadges(item.parts)}
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <hr>
+
+
+              <h6 class="fw-bold mb-3">
+                <i class="bi bi-geo-alt me-2"></i>
+                Allotted Police Stations
+              </h6>
+
+              ${stationHTML}
+
+            </div>
+
+          </div>
+
+        `;
+
+        resultsContainer.appendChild(card);
+
+      });
+
+    }
+
+
+    /*
+      ============================================
+      PART BADGES
+      ============================================
+    */
+
+    function partBadges(parts) {
+
+      if (parts === "As per Padra allocation order") {
+
+        return `
+          <span class="badge bg-secondary">
+            As per Padra allocation order
+          </span>
+        `;
+
+      }
+
+      const cleanParts = parts
+        .replace(/&/g, ",")
+        .split(",")
+        .map(part => part.trim())
+        .filter(Boolean);
+
+      return cleanParts.map(part => {
+
+        return `
+          <span class="badge bg-dark me-1">
+            Part ${escapeHTML(part)}
+          </span>
+        `;
+
+      }).join("");
+
+    }
+
+
+    /*
+      ============================================
+      NO RESULTS
+      ============================================
+    */
+
+    function showNoResults() {
+
+      resultsSection.classList.add("d-none");
+
+      noResults.classList.remove("d-none");
+
+    }
+
+
+    function hideResults() {
+
+      resultsSection.classList.add("d-none");
+
+      noResults.classList.add("d-none");
+
+      resultsContainer.innerHTML = "";
+
+    }
+
+
+    /*
+      ============================================
+      BASIC HTML ESCAPE
+      ============================================
+    */
+
+    function escapeHTML(value) {
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+</body>
+
+</html>

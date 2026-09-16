@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Legal Opportunities | Rishab-LEX</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+</head>
+
+<body class="bg-light">
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+
+    <a class="navbar-brand fw-semibold" href="index.html">
+      <i class="bi bi-balance-scale me-2"></i>
+      Rishab-LEX
+    </a>
+
+    <a href="index.html" class="btn btn-outline-light btn-sm">
+      <i class="bi bi-house me-1"></i>
+      Home
+    </a>
+
+  </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="bg-dark text-white py-5">
+  <div class="container text-center">
+
+    <span class="badge bg-warning text-dark mb-3">
+      Legal Opportunities
+    </span>
+
+    <h1 class="fw-bold">
+      Connect. Learn. Grow.
+    </h1>
+
+    <p class="lead text-white-50 mx-auto" style="max-width: 700px;">
+      Find internships, junior positions and professional opportunities
+      for advocates, law students and legal professionals.
+    </p>
+
+    <div class="d-flex justify-content-center gap-2 flex-wrap mt-4">
+
+      <a href="#opportunities" class="btn btn-warning">
+        <i class="bi bi-search me-1"></i>
+        Find Opportunities
+      </a>
+
+      <a href="#post" class="btn btn-outline-light">
+        <i class="bi bi-plus-circle me-1"></i>
+        Post an Opportunity
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= INFO ================= -->
+
+<div class="container mt-4">
+
+  <div class="alert alert-warning border-0 shadow-sm">
+
+    <div class="d-flex">
+
+      <i class="bi bi-info-circle-fill fs-5 me-3"></i>
+
+      <div>
+        <strong>How this works</strong>
+
+        <div class="small mt-1">
+          Submit an opportunity using the form below. In the current
+          version, listings are stored locally in your browser.
+          A future backend version can add central storage and admin approval.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= CATEGORY CARDS ================= -->
+
+<section class="container py-4">
+
+  <div class="row g-3">
+
+    <div class="col-md-3">
+
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+
+          <i class="bi bi-briefcase fs-2 text-warning"></i>
+
+          <h5 class="mt-3">
+            Internships
+          </h5>
+
+          <p class="text-muted small mb-0">
+            Find internships with advocates, chambers and law firms.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="col-md-3">
+
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+
+          <i class="bi bi-person-badge fs-2 text-warning"></i>
+
+          <h5 class="mt-3">
+            Junior Positions
+          </h5>
+
+          <p class="text-muted small mb-0">
+            Opportunities for junior advocates and fresh law graduates.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="col-md-3">
+
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+
+          <i class="bi bi-building fs-2 text-warning"></i>
+
+          <h5 class="mt-3">
+            Advocates & Firms
+          </h5>
+
+          <p class="text-muted small mb-0">
+            Connect with advocates, chambers and legal firms.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="col-md-3">
+
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+
+          <i class="bi bi-mortarboard fs-2 text-warning"></i>
+
+          <h5 class="mt-3">
+            Law Students
+          </h5>
+
+          <p class="text-muted small mb-0">
+            Students can find internships and practical learning opportunities.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= OPPORTUNITIES ================= -->
+
+<section id="opportunities" class="container py-5">
+
+  <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+
+    <div>
+      <h2 class="fw-bold mb-1">
+        Available Opportunities
+      </h2>
+
+      <p class="text-muted mb-0">
+        Explore legal opportunities posted on Rishab-LEX.
+      </p>
+    </div>
+
+    <span id="resultCount" class="badge text-bg-dark">
+      0 Opportunities
+    </span>
+
+  </div>
+
+
+  <!-- SEARCH & FILTER -->
+
+  <div class="card border-0 shadow-sm mb-4">
+
+    <div class="card-body">
+
+      <div class="row g-3">
+
+        <div class="col-lg-5">
+
+          <label class="form-label fw-semibold">
+            Search
+          </label>
+
+          <div class="input-group">
+
+            <span class="input-group-text">
+              <i class="bi bi-search"></i>
+            </span>
+
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search by name, firm, area..."
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="col-md-4 col-lg-2">
+
+          <label class="form-label fw-semibold">
+            District
+          </label>
+
+          <select id="districtFilter" class="form-select">
+
+            <option value="">All Districts</option>
+            <option>Vadodara</option>
+            <option>Ahmedabad</option>
+            <option>Surat</option>
+            <option>Rajkot</option>
+            <option>Gandhinagar</option>
+            <option>Bhavnagar</option>
+            <option>Anand</option>
+            <option>Bharuch</option>
+            <option>Other Gujarat</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="col-md-4 col-lg-2">
+
+          <label class="form-label fw-semibold">
+            Looking For
+          </label>
+
+          <select id="typeFilter" class="form-select">
+
+            <option value="">All</option>
+            <option value="Internship">Internship</option>
+            <option value="Junior Advocate">Junior Advocate</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="col-md-4 col-lg-3">
+
+          <label class="form-label fw-semibold">
+            Practice Area
+          </label>
+
+          <select id="practiceFilter" class="form-select">
+
+            <option value="">All Practice Areas</option>
+            <option>Criminal Law</option>
+            <option>Civil Law</option>
+            <option>Family Law</option>
+            <option>Corporate Law</option>
+            <option>Cyber Law</option>
+            <option>Constitutional Law</option>
+            <option>Property Law</option>
+            <option>Commercial Law</option>
+            <option>Other</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- LISTINGS -->
+
+  <div id="listingContainer" class="row g-4"></div>
+
+
+  <!-- NO RESULTS -->
+
+  <div id="noResults" class="text-center py-5 d-none">
+
+    <i class="bi bi-search fs-1 text-muted"></i>
+
+    <h5 class="mt-3">
+      No opportunities found
+    </h5>
+
+    <p class="text-muted">
+      Try changing your search or filters.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= POST ================= -->
+
+<section id="post" class="container pb-5">
+
+  <div class="card border-0 shadow-sm">
+
+    <div class="card-body p-4 p-lg-5">
+
+      <div class="text-center mb-4">
+
+        <span class="badge text-bg-warning mb-2">
+          Post Opportunity
+        </span>
+
+        <h2 class="fw-bold">
+          Share a Legal Opportunity
+        </h2>
+
+        <p class="text-muted">
+          Advocates, firms, law students and legal professionals can post
+          relevant opportunities.
+        </p>
+
+      </div>
+
+
+      <form id="opportunityForm">
+
+        <div class="row g-3">
+
+          <!-- POSTER TYPE -->
+
+          <div class="col-md-6">
+
+            <label class="form-label fw-semibold">
+              I am
+            </label>
+
+            <select id="posterType" class="form-select" required>
+
+              <option value="">
+                Select
+              </option>
+
+              <option value="Advocate/Firm">
+                Advocate / Law Firm
+              </option>
+
+              <option value="Law Student">
+                Law Student
+              </option>
+
+              <option value="Junior Advocate">
+                Junior Advocate
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- OPPORTUNITY TYPE -->
+
+          <div class="col-md-6">
+
+            <label class="form-label fw-semibold">
+              Opportunity
+            </label>
+
+            <select id="opportunityType" class="form-select" required>
+
+              <option value="">
+                Select
+              </option>
+
+              <option value="Internship">
+                Internship
+              </option>
+
+              <option value="Junior Advocate">
+                Junior Advocate Position
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- NAME -->
+
+          <div class="col-md-6">
+
+            <label class="form-label fw-semibold">
+              Name / Firm Name
+            </label>
+
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              placeholder="Enter name or firm name"
+              required
+            >
+
+          </div>
+
+
+          <!-- DISTRICT -->
+
+          <div class="col-md-6">
+
+            <label class="form-label fw-semibold">
+              District
+            </label>
+
+            <select id="district" class="form-select" required>
+
+              <option value="">
+                Select District
+              </option>
+
+              <option>Vadodara</option>
+              <option>Ahmedabad</option>
+              <option>Surat</option>
+              <option>Rajkot</option>
+              <option>Gandhinagar</option>
+              <option>Bhavnagar</option>
+              <option>Anand</option>
+              <option>Bharuch</option>
+              <option>Other Gujarat</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- PRACTICE AREA -->
+
+          <div class="col-md-6">
+
+            <label class="form-label fw-semibold">
+              Area of Practice
+            </label>
+
+            <select id="practiceArea" class="form-select" required>
+
+              <option value="">
+                Select Practice Area
+              </option>
+
+              <option>Criminal Law</option>
+              <option>Civil Law</option>
+              <option>Family Law</option>
+              <option>Corporate Law</option>
+              <option>Cyber Law</option>
+              <option>Constitutional Law</option>
+              <option>Property Law</option>
+              <option>Commercial Law</option>
+              <option>Other</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- EXPERIENCE -->
+
+          <div class="col-md-6">
+
+            <label class="form-label fw-semibold">
+              Experience Required
+            </label>
+
+            <select id="experience" class="form-select">
+
+              <option>No Experience Required</option>
+              <option>0–1 Year</option>
+              <option>1–2 Years</option>
+              <option>2+ Years</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- DURATION -->
+
+          <div class="col-md-6">
+
+            <label class="form-label fw-semibold">
+              Duration
+            </label>
+
+            <input
+              type="text"
+              id="duration"
+              class="form-control"
+              placeholder="e.g. 2 Months / Flexible"
+              required
+            >
+
+          </div>
+
+
+          <!-- STIPEND -->
+
+          <div class="col-md-6">
+
+            <label class="form-label fw-semibold">
+              Stipend / Payment
+            </label>
+
+            <select id="stipend" class="form-select">
+
+              <option>Not Specified</option>
+              <option>Paid</option>
+              <option>Unpaid</option>
+              <option>Negotiable</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- CONTACT -->
+
+          <div class="col-md-6">
+
+            <label class="form-label fw-semibold">
+              Contact Details
+            </label>
+
+            <input
+              type="text"
+              id="contact"
+              class="form-control"
+              placeholder="Mobile / Email / WhatsApp"
+              required
+            >
+
+          </div>
+
+
+          <!-- DESCRIPTION -->
+
+          <div class="col-12">
+
+            <label class="form-label fw-semibold">
+              Short Description
+            </label>
+
+            <textarea
+              id="description"
+              class="form-control"
+              rows="4"
+              placeholder="Briefly describe the opportunity..."
+              required
+            ></textarea>
+
+          </div>
+
+
+          <!-- SUBMIT -->
+
+          <div class="col-12">
+
+            <div class="alert alert-light border small">
+
+              <i class="bi bi-shield-check me-1"></i>
+
+              Your listing will initially be marked as
+              <strong>Pending Review</strong>.
+              In this browser-only version, you can approve it using
+              the local demo controls.
+
+            </div>
+
+          </div>
+
+
+          <div class="col-12 text-center">
+
+            <button
+              type="submit"
+              class="btn btn-dark px-4"
+            >
+
+              <i class="bi bi-send me-2"></i>
+              Submit Opportunity
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= DETAILS MODAL ================= -->
+
+<div
+  class="modal fade"
+  id="detailsModal"
+  tabindex="-1"
+>
+
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+
+    <div class="modal-content border-0 shadow">
+
+      <div class="modal-header">
+
+        <h5 class="modal-title" id="modalTitle">
+          Opportunity Details
+        </h5>
+
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+
+      </div>
+
+
+      <div class="modal-body" id="modalBody"></div>
+
+
+      <div class="modal-footer">
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="bg-dark text-white mt-5">
+
+  <div class="container py-4">
+
+    <div class="row g-4">
+
+      <div class="col-md-6">
+
+        <h5 class="fw-semibold">
+          <i class="bi bi-balance-scale me-2"></i>
+          Rishab-LEX
+        </h5>
+
+        <p class="text-white-50 small mb-0">
+          A practical legal resource for law students,
+          advocates and those learning through real-world legal work.
+        </p>
+
+      </div>
+
+
+      <div class="col-md-6 text-md-end">
+
+        <div class="mb-2">
+
+          <a href="#" class="text-white me-3">
+            <i class="bi bi-instagram"></i>
+          </a>
+
+          <a href="#" class="text-white me-3">
+            <i class="bi bi-linkedin"></i>
+          </a>
+
+          <a href="#" class="text-white">
+            <i class="bi bi-github"></i>
+          </a>
+
+        </div>
+
+        <small class="text-white-50">
+          © 2026 Rishab-LEX
+        </small>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- ================= BOOTSTRAP ================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+
+const STORAGE_KEY = "rishabLexLegalOpportunities";
+
+
+/* =========================================
+   SAMPLE DATA
+========================================= */
+
+const defaultListings = [
+
+  {
+    id: 1,
+    posterType: "Advocate/Firm",
+    type: "Internship",
+    name: "Legal Chamber – Vadodara",
+    district: "Vadodara",
+    practice: "Criminal Law",
+    experience: "No Experience Required",
+    duration: "2 Months",
+    stipend: "Negotiable",
+    contact: "example@email.com",
+    description:
+      "Looking for a law student interested in criminal litigation and practical court exposure.",
+    views: 247,
+    status: "Approved",
+    featured: true,
+    verified: true,
+    createdAt: "2026-09-01"
+  },
+
+  {
+    id: 2,
+    posterType: "Advocate/Firm",
+    type: "Junior Advocate",
+    name: "Advocate's Office – Ahmedabad",
+    district: "Ahmedabad",
+    practice: "Civil Law",
+    experience: "0–1 Year",
+    duration: "Long Term",
+    stipend: "Paid",
+    contact: "contact@example.com",
+    description:
+      "Junior advocate position involving civil litigation, drafting and court work.",
+    views: 184,
+    status: "Approved",
+    featured: false,
+    verified: true,
+    createdAt: "2026-09-03"
+  },
+
+  {
+    id: 3,
+    posterType: "Advocate/Firm",
+    type: "Internship",
+    name: "Law Office – Surat",
+    district: "Surat",
+    practice: "Corporate Law",
+    experience: "No Experience Required",
+    duration: "1 Month",
+    stipend: "Unpaid",
+    contact: "contact@example.com",
+    description:
+      "Internship opportunity for students interested in corporate and commercial legal work.",
+    views: 96,
+    status: "Approved",
+    featured: false,
+    verified: false,
+    createdAt: "2026-09-04"
+  }
+
+];
+
+
+function getListings() {
+
+  const saved = localStorage.getItem(STORAGE_KEY);
+
+  if (!saved) {
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(defaultListings)
+    );
+
+    return defaultListings;
+
+  }
+
+  return JSON.parse(saved);
+
+}
+
+
+function saveListings(listings) {
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(listings)
+  );
+
+}
+
+
+/* =========================================
+   RENDER LISTINGS
+========================================= */
+
+function renderListings() {
+
+  const container =
+    document.getElementById("listingContainer");
+
+  const noResults =
+    document.getElementById("noResults");
+
+  const search =
+    document.getElementById("searchInput")
+      .value
+      .toLowerCase()
+      .trim();
+
+  const district =
+    document.getElementById("districtFilter").value;
+
+  const type =
+    document.getElementById("typeFilter").value;
+
+  const practice =
+    document.getElementById("practiceFilter").value;
+
+
+  let listings = getListings();
+
+
+  listings = listings.filter(item => {
+
+    if (item.status !== "Approved") {
+      return false;
+    }
+
+
+    const searchableText = (
+
+      item.name + " " +
+      item.district + " " +
+      item.practice + " " +
+      item.type + " " +
+      item.description
+
+    ).toLowerCase();
+
+
+    const matchesSearch =
+      !search ||
+      searchableText.includes(search);
+
+
+    const matchesDistrict =
+      !district ||
+      item.district === district;
+
+
+    const matchesType =
+      !type ||
+      item.type === type;
+
+
+    const matchesPractice =
+      !practice ||
+      item.practice === practice;
+
+
+    return (
+      matchesSearch &&
+      matchesDistrict &&
+      matchesType &&
+      matchesPractice
+    );
+
+  });
+
+
+  document.getElementById("resultCount").textContent =
+    `${listings.length} Opportunities`;
+
+
+  container.innerHTML = "";
+
+
+  if (listings.length === 0) {
+
+    noResults.classList.remove("d-none");
+
+    return;
+
+  }
+
+
+  noResults.classList.add("d-none");
+
+
+  listings.forEach(item => {
+
+    const featuredBadge = item.featured
+      ? `
+        <span class="badge text-bg-warning">
+          <i class="bi bi-star-fill me-1"></i>
+          Featured
+        </span>
+      `
+      : "";
+
+
+    const verifiedBadge = item.verified
+      ? `
+        <span class="badge text-bg-success">
+          <i class="bi bi-patch-check-fill me-1"></i>
+          Verified
+        </span>
+      `
+      : "";
+
+
+    container.innerHTML += `
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="card border-0 shadow-sm h-100">
+
+          <div class="card-body d-flex flex-column">
+
+            <div class="d-flex justify-content-between align-items-start mb-3">
+
+              <div>
+
+                <span class="badge text-bg-dark">
+                  ${item.type}
+                </span>
+
+              </div>
+
+              <div class="d-flex gap-1 flex-wrap justify-content-end">
+                ${featuredBadge}
+                ${verifiedBadge}
+              </div>
+
+            </div>
+
+
+            <h5 class="fw-bold">
+              ${escapeHTML(item.name)}
+            </h5>
+
+
+            <p class="text-muted small mb-2">
+
+              <i class="bi bi-geo-alt me-1"></i>
+              ${escapeHTML(item.district)}
+
+            </p>
+
+
+            <p class="small mb-2">
+
+              <i class="bi bi-briefcase me-1"></i>
+
+              <strong>Practice:</strong>
+              ${escapeHTML(item.practice)}
+
+            </p>
+
+
+            <p class="small mb-2">
+
+              <i class="bi bi-clock me-1"></i>
+
+              <strong>Duration:</strong>
+              ${escapeHTML(item.duration)}
+
+            </p>
+
+
+            <p class="small mb-2">
+
+              <i class="bi bi-cash me-1"></i>
+
+              <strong>Stipend:</strong>
+              ${escapeHTML(item.stipend)}
+
+            </p>
+
+
+            <p class="text-muted small flex-grow-1">
+
+              ${escapeHTML(item.description)}
+
+            </p>
+
+
+            <div class="border-top pt-3 mt-2">
+
+              <div class="d-flex justify-content-between align-items-center">
+
+                <small class="text-muted">
+
+                  <i class="bi bi-eye me-1"></i>
+                  ${item.views} views
+
+                </small>
+
+
+                <button
+                  class="btn btn-dark btn-sm"
+                  onclick="viewDetails(${item.id})"
+                >
+
+                  View Details
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+/* =========================================
+   VIEW DETAILS
+========================================= */
+
+function viewDetails(id) {
+
+  const listings = getListings();
+
+  const item =
+    listings.find(listing => listing.id === id);
+
+
+  if (!item) return;
+
+
+  item.views++;
+
+  saveListings(listings);
+
+
+  document.getElementById("modalTitle").textContent =
+    item.name;
+
+
+  document.getElementById("modalBody").innerHTML = `
+
+    <div class="mb-3">
+
+      <span class="badge text-bg-dark me-1">
+        ${escapeHTML(item.type)}
+      </span>
+
+      ${
+        item.verified
+        ? `
+          <span class="badge text-bg-success">
+            <i class="bi bi-patch-check-fill me-1"></i>
+            Verified
+          </span>
+        `
+        : ""
+      }
+
+    </div>
+
+
+    <div class="row g-3">
+
+      <div class="col-md-6">
+
+        <div class="border rounded p-3">
+
+          <small class="text-muted">
+            District
+          </small>
+
+          <div class="fw-semibold">
+            ${escapeHTML(item.district)}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="border rounded p-3">
+
+          <small class="text-muted">
+            Practice Area
+          </small>
+
+          <div class="fw-semibold">
+            ${escapeHTML(item.practice)}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="border rounded p-3">
+
+          <small class="text-muted">
+            Experience
+          </small>
+
+          <div class="fw-semibold">
+            ${escapeHTML(item.experience)}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="border rounded p-3">
+
+          <small class="text-muted">
+            Duration
+          </small>
+
+          <div class="fw-semibold">
+            ${escapeHTML(item.duration)}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="border rounded p-3">
+
+          <small class="text-muted">
+            Stipend
+          </small>
+
+          <div class="fw-semibold">
+            ${escapeHTML(item.stipend)}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="border rounded p-3">
+
+          <small class="text-muted">
+            Contact
+          </small>
+
+          <div class="fw-semibold">
+            ${escapeHTML(item.contact)}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-12">
+
+        <div class="border rounded p-3">
+
+          <small class="text-muted">
+            Description
+          </small>
+
+          <p class="mb-0 mt-1">
+            ${escapeHTML(item.description)}
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  const modal =
+    new bootstrap.Modal(
+      document.getElementById("detailsModal")
+    );
+
+
+  modal.show();
+
+}
+
+
+/* =========================================
+   FORM SUBMISSION
+========================================= */
+
+document
+  .getElementById("opportunityForm")
+  .addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const listing = {
+
+      id: Date.now(),
+
+      posterType:
+        document.getElementById("posterType").value,
+
+      type:
+        document.getElementById("opportunityType").value,
+
+      name:
+        document.getElementById("name").value.trim(),
+
+      district:
+        document.getElementById("district").value,
+
+      practice:
+        document.getElementById("practiceArea").value,
+
+      experience:
+        document.getElementById("experience").value,
+
+      duration:
+        document.getElementById("duration").value.trim(),
+
+      stipend:
+        document.getElementById("stipend").value,
+
+      contact:
+        document.getElementById("contact").value.trim(),
+
+      description:
+        document.getElementById("description").value.trim(),
+
+      views: 0,
+
+      status: "Pending",
+
+      featured: false,
+
+      verified: false,
+
+      createdAt:
+        new Date().toISOString()
+
+    };
+
+
+    const listings = getListings();
+
+    listings.push(listing);
+
+    saveListings(listings);
+
+
+    alert(
+      "Opportunity submitted successfully. It is currently pending review."
+    );
+
+
+    this.reset();
+
+
+    /*
+      Demo behaviour:
+      Since there is no backend yet, automatically approve
+      the listing after submission so you can test the complete UI.
+    */
+
+    setTimeout(() => {
+
+      const updatedListings = getListings();
+
+      const submitted =
+        updatedListings.find(
+          item => item.id === listing.id
+        );
+
+
+      if (submitted) {
+
+        submitted.status = "Approved";
+
+        saveListings(updatedListings);
+
+        renderListings();
+
+      }
+
+    }, 1000);
+
+  });
+
+
+/* =========================================
+   FILTER EVENTS
+========================================= */
+
+document
+  .getElementById("searchInput")
+  .addEventListener("input", renderListings);
+
+
+document
+  .getElementById("districtFilter")
+  .addEventListener("change", renderListings);
+
+
+document
+  .getElementById("typeFilter")
+  .addEventListener("change", renderListings);
+
+
+document
+  .getElementById("practiceFilter")
+  .addEventListener("change", renderListings);
+
+
+/* =========================================
+   BASIC HTML ESCAPE
+========================================= */
+
+function escapeHTML(value) {
+
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================
+   INITIAL LOAD
+========================================= */
+
+renderListings();
+
+</script>
+
+</body>
+</html>

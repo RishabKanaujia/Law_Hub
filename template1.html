@@ -1,0 +1,2379 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Adv. Devang H. Mehta — Advocate, Gujarat High Court & District Courts,
+      Vadodara
+    </title>
+    <meta
+      name="description"
+      content="Adv. Devang H. Mehta, advocate enrolled with the Bar Council of Gujarat. Practice before the Gujarat High Court and the District & Sessions Courts at Vadodara in criminal, family, property and civil matters."
+    />
+    <meta name="theme-color" content="#0A0A0B" />
+    <style>
+      /* ============================================================
+   ADVOCATE — single page concept site
+   Design system: ink / bone / brass. No external assets.
+   ============================================================ */
+      :root {
+        --serif:
+          "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+          Georgia, "Times New Roman", serif;
+        --sans:
+          system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+          sans-serif;
+        --mono:
+          ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+          monospace;
+
+        --bg: #0a0a0b;
+        --bg-2: #101012;
+        --panel: #141417;
+        --panel-2: #17171b;
+        --txt: #efeae1;
+        --muted: #9b968c;
+        --faint: #6e6a63;
+        --line: rgba(201, 169, 97, 0.16);
+        --line-2: rgba(255, 255, 255, 0.08);
+        --brass: #c9a961;
+        --brass-2: #e7cd92;
+        --brass-ink: #0a0a0b;
+        --maroon: #7a1f26;
+        --shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.9);
+        --r: 2px;
+        --pad: clamp(20px, 5vw, 64px);
+        --maxw: 1280px;
+      }
+      html[data-theme="light"] {
+        --bg: #f5f1e8;
+        --bg-2: #ede6d9;
+        --panel: #ffffff;
+        --panel-2: #fbf8f2;
+        --txt: #14130f;
+        --muted: #5d574c;
+        --faint: #8a8477;
+        --line: rgba(24, 20, 12, 0.14);
+        --line-2: rgba(24, 20, 12, 0.09);
+        --brass: #8c6d2c;
+        --brass-2: #a9863a;
+        --brass-ink: #fbf8f2;
+        --shadow: 0 30px 70px -45px rgba(40, 30, 10, 0.45);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--txt);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.65;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        transition:
+          background 0.5s ease,
+          color 0.5s ease;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font: inherit;
+        color: inherit;
+      }
+      ::selection {
+        background: var(--brass);
+        color: var(--brass-ink);
+      }
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 var(--pad);
+      }
+      .mono {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--brass);
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 32px;
+        height: 1px;
+        background: currentColor;
+        opacity: 0.7;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+        font-family: var(--serif);
+        font-weight: 400;
+        letter-spacing: -0.01em;
+      }
+      p {
+        margin: 0;
+      }
+      .lead {
+        font-size: clamp(15px, 1.35vw, 18.5px);
+        color: var(--muted);
+        max-width: 62ch;
+      }
+
+      /* ---------- texture + cursor + progress ---------- */
+      .grain {
+        position: fixed;
+        inset: 0;
+        z-index: 9000;
+        pointer-events: none;
+        opacity: 0.055;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='220' height='220' filter='url(%23n)'/></svg>");
+      }
+      .cur,
+      .cur-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9500;
+        pointer-events: none;
+        border-radius: 50%;
+        will-change: transform;
+      }
+      .cur {
+        width: 6px;
+        height: 6px;
+        background: var(--brass);
+        margin: -3px 0 0 -3px;
+      }
+      .cur-ring {
+        width: 38px;
+        height: 38px;
+        border: 1px solid var(--brass);
+        opacity: 0.5;
+        margin: -19px 0 0 -19px;
+        transition:
+          width 0.25s,
+          height 0.25s,
+          margin 0.25s,
+          opacity 0.25s;
+      }
+      .cur-ring.grow {
+        width: 70px;
+        height: 70px;
+        margin: -35px 0 0 -35px;
+        opacity: 0.28;
+      }
+      @media (hover: none), (pointer: coarse) {
+        .cur,
+        .cur-ring {
+          display: none;
+        }
+      }
+      #bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        width: 0;
+        background: linear-gradient(90deg, var(--brass), var(--brass-2));
+        z-index: 9600;
+      }
+
+      /* ---------- loader ---------- */
+      #loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9800;
+        background: var(--bg);
+        display: grid;
+        place-items: center;
+        transition:
+          opacity 0.6s ease,
+          visibility 0.6s;
+      }
+      #loader.done {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .seal {
+        width: 74px;
+        height: 74px;
+        animation: spin 6s linear infinite;
+      }
+      .seal .st {
+        stroke: var(--brass);
+        fill: none;
+        stroke-width: 1;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      #loader .ldtxt {
+        position: absolute;
+        bottom: 14%;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.3em;
+        color: var(--faint);
+        text-transform: uppercase;
+      }
+
+      /* ---------- header ---------- */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 800;
+        transition:
+          background 0.45s,
+          backdrop-filter 0.45s,
+          border-color 0.45s,
+          padding 0.45s;
+        border-bottom: 1px solid transparent;
+        padding: 18px 0;
+      }
+      header.on {
+        background: color-mix(in srgb, var(--bg) 78%, transparent);
+        backdrop-filter: blur(14px) saturate(140%);
+        border-color: var(--line-2);
+        padding: 11px 0;
+      }
+      .hd {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        min-width: 0;
+      }
+      .brand .mark {
+        width: 34px;
+        height: 34px;
+        flex: none;
+      }
+      .brand b {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 17px;
+        letter-spacing: 0.01em;
+        display: block;
+        line-height: 1.15;
+      }
+      .brand span {
+        display: block;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        color: var(--faint);
+        text-transform: uppercase;
+        margin-top: 3px;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        gap: clamp(14px, 2vw, 30px);
+      }
+      nav a {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        position: relative;
+        padding: 4px 0;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        background: var(--brass);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      nav a:hover {
+        color: var(--txt);
+      }
+      nav a:hover::after {
+        transform: scaleX(1);
+      }
+      .tools {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .iconbtn {
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--line-2);
+        background: transparent;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: 0.3s;
+        color: var(--muted);
+      }
+      .iconbtn:hover {
+        border-color: var(--brass);
+        color: var(--brass);
+        transform: rotate(15deg);
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 13px 22px;
+        border: 1px solid var(--brass);
+        background: var(--brass);
+        color: var(--brass-ink);
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--r);
+        transition: color 0.35s;
+      }
+      .btn span {
+        position: relative;
+        z-index: 2;
+      }
+      .btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--txt);
+        transform: translateY(101%);
+        transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1;
+      }
+      .btn:hover::before {
+        transform: translateY(0);
+      }
+      .btn:hover {
+        color: var(--bg);
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--txt);
+        border-color: var(--line-2);
+      }
+      .btn.ghost::before {
+        background: var(--brass);
+      }
+      .btn.ghost:hover {
+        color: var(--brass-ink);
+        border-color: var(--brass);
+      }
+      @media (max-width: 900px) {
+        nav {
+          display: none;
+        }
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        overflow: hidden;
+        padding: 120px 0 34px;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .hero-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 42%;
+        transform: scale(1.14);
+        animation: kb 18s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+        filter: saturate(0.75) contrast(1.05);
+      }
+      @keyframes kb {
+        to {
+          transform: scale(1.01);
+        }
+      }
+      .hero-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            120% 90% at 78% 18%,
+            transparent 0%,
+            rgba(0, 0, 0, 0.55) 55%,
+            rgba(0, 0, 0, 0.92) 100%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(10, 10, 11, 0.86) 0%,
+            rgba(10, 10, 11, 0.35) 32%,
+            rgba(10, 10, 11, 0.86) 78%,
+            var(--bg) 100%
+          );
+      }
+      html[data-theme="light"] .hero-bg img {
+        filter: saturate(0.85) contrast(0.95) brightness(0.92);
+      }
+      html[data-theme="light"] .hero-bg::after {
+        background:
+          radial-gradient(
+            120% 90% at 78% 18%,
+            transparent 0%,
+            rgba(245, 241, 232, 0.35) 55%,
+            rgba(245, 241, 232, 0.92) 100%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(245, 241, 232, 0.82) 0%,
+            rgba(245, 241, 232, 0.25) 34%,
+            rgba(245, 241, 232, 0.85) 80%,
+            var(--bg) 100%
+          );
+      }
+      .hero .wrap {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+      }
+      .hero h1 {
+        font-size: clamp(52px, 11.2vw, 168px);
+        line-height: 0.88;
+        letter-spacing: -0.03em;
+        margin: 18px 0 0;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--brass-2);
+      }
+      .hero .sub {
+        margin-top: 26px;
+        max-width: 56ch;
+        font-size: clamp(15px, 1.5vw, 19px);
+        color: #d6d0c4;
+      }
+      html[data-theme="light"] .hero .sub {
+        color: #3f3a31;
+      }
+      .hero .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+      .hero-foot {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(18px, 4vw, 54px);
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-top: clamp(38px, 6vh, 66px);
+        padding-top: 22px;
+        border-top: 1px solid var(--line-2);
+      }
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(20px, 4vw, 52px);
+      }
+      .stat b {
+        display: block;
+        font-family: var(--serif);
+        font-size: clamp(24px, 3vw, 38px);
+        line-height: 1;
+      }
+      .stat i {
+        font-style: normal;
+        display: block;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--faint);
+        margin-top: 8px;
+      }
+      .scroll {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--faint);
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .scroll i {
+        display: block;
+        width: 1px;
+        height: 44px;
+        background: linear-gradient(var(--brass), transparent);
+        animation: drop 2.2s infinite;
+      }
+      @keyframes drop {
+        0% {
+          transform: scaleY(0.2);
+          transform-origin: top;
+        }
+        60% {
+          transform: scaleY(1);
+          transform-origin: top;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .side-note {
+        position: absolute;
+        right: calc(var(--pad) * 0.35);
+        top: 50%;
+        transform: translateY(-50%);
+        writing-mode: vertical-rl;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.36em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.35);
+        z-index: 2;
+      }
+      html[data-theme="light"] .side-note {
+        color: rgba(0, 0, 0, 0.35);
+      }
+      @media (max-width: 820px) {
+        .side-note {
+          display: none;
+        }
+      }
+
+      /* ---------- ticker ---------- */
+      .ticker {
+        border-top: 1px solid var(--line-2);
+        border-bottom: 1px solid var(--line-2);
+        background: var(--bg-2);
+        overflow: hidden;
+        padding: 16px 0;
+      }
+      .tk {
+        display: flex;
+        gap: 0;
+        width: max-content;
+        animation: slide 42s linear infinite;
+      }
+      .ticker:hover .tk {
+        animation-play-state: paused;
+      }
+      .tk span {
+        display: inline-flex;
+        align-items: center;
+        gap: 26px;
+        padding: 0 26px;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+      .tk span::after {
+        content: "";
+        width: 5px;
+        height: 5px;
+        background: var(--brass);
+        border-radius: 50%;
+        opacity: 0.8;
+      }
+      @keyframes slide {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ---------- sections ---------- */
+      section.blk {
+        padding: clamp(74px, 11vh, 150px) 0;
+        position: relative;
+      }
+      .shead {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding-bottom: 26px;
+        border-bottom: 1px solid var(--line-2);
+        margin-bottom: clamp(34px, 6vh, 66px);
+      }
+      .shead h2 {
+        font-size: clamp(30px, 4.6vw, 64px);
+        line-height: 1.02;
+        max-width: 20ch;
+      }
+      .shead .idx {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.24em;
+        color: var(--faint);
+      }
+
+      /* reveal */
+      .rv {
+        opacity: 0;
+        transform: translateY(26px);
+        transition:
+          opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .rv.in {
+        opacity: 1;
+        transform: none;
+      }
+      .mask {
+        display: block;
+        overflow: hidden;
+      }
+      .mask > span {
+        display: block;
+        transform: translateY(105%);
+        transition: transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .in .mask > span,
+      .mask.in > span {
+        transform: translateY(0);
+      }
+
+      /* ---------- chambers ---------- */
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 1.12fr;
+        gap: clamp(28px, 5vw, 80px);
+        align-items: center;
+      }
+      @media (max-width: 900px) {
+        .two {
+          grid-template-columns: 1fr;
+        }
+      }
+      .frame {
+        position: relative;
+      }
+      .frame img {
+        width: 100%;
+        aspect-ratio: 4/5.1;
+        object-fit: cover;
+        object-position: 50% 28%;
+        filter: saturate(0.72) contrast(1.06);
+      }
+      .frame::before {
+        content: "";
+        position: absolute;
+        inset: -14px -14px 14px 14px;
+        border: 1px solid var(--line);
+        z-index: 0;
+      }
+      .frame::after {
+        content: "";
+        position: absolute;
+        left: -18px;
+        bottom: -18px;
+        width: 120px;
+        height: 120px;
+        border-left: 2px solid var(--brass);
+        border-bottom: 2px solid var(--brass);
+        opacity: 0.75;
+      }
+      .frame .cap {
+        position: absolute;
+        right: 0;
+        bottom: -13px;
+        background: var(--bg);
+        padding-left: 12px;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--faint);
+      }
+      .drop::first-letter {
+        float: left;
+        font-family: var(--serif);
+        font-size: 4.1em;
+        line-height: 0.82;
+        padding: 6px 12px 0 0;
+        color: var(--brass);
+      }
+      .chambers p + p {
+        margin-top: 18px;
+      }
+      .quote {
+        margin-top: 34px;
+        padding: 22px 0 0 22px;
+        border-left: 2px solid var(--brass);
+      }
+      .quote p {
+        font-family: var(--serif);
+        font-size: clamp(18px, 2vw, 23px);
+        font-style: italic;
+        line-height: 1.5;
+      }
+      .quote i {
+        display: block;
+        margin-top: 10px;
+        font-style: normal;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--faint);
+      }
+
+      /* ---------- practice ---------- */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--line-2);
+        border: 1px solid var(--line-2);
+      }
+      @media (max-width: 980px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 620px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .card {
+        background: var(--bg);
+        padding: clamp(24px, 3vw, 38px);
+        position: relative;
+        overflow: hidden;
+        transition:
+          background 0.5s,
+          transform 0.5s;
+      }
+      .card .n {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        color: var(--faint);
+      }
+      .card h3 {
+        font-size: clamp(20px, 2.1vw, 27px);
+        margin: 40px 0 12px;
+        line-height: 1.15;
+      }
+      .card p {
+        font-size: 14.5px;
+        color: var(--muted);
+      }
+      .card .courts {
+        margin-top: 20px;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--faint);
+      }
+      .card .ico {
+        position: absolute;
+        top: clamp(24px, 3vw, 38px);
+        right: clamp(24px, 3vw, 38px);
+        width: 30px;
+        height: 30px;
+        stroke: var(--brass);
+        fill: none;
+        stroke-width: 1.1;
+        opacity: 0.85;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .card::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        background: var(--brass);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .card:hover {
+        background: var(--panel);
+        transform: translateY(-3px);
+      }
+      .card:hover::after {
+        transform: scaleX(1);
+      }
+      .card:hover .ico {
+        transform: translateY(-4px) rotate(-6deg);
+      }
+
+      /* ---------- approach ---------- */
+      .steps {
+        position: relative;
+        padding-left: clamp(26px, 4vw, 64px);
+      }
+      .steps::before {
+        content: "";
+        position: absolute;
+        left: clamp(6px, 1.4vw, 18px);
+        top: 8px;
+        bottom: 8px;
+        width: 1px;
+        background: var(--line-2);
+      }
+      .steps::after {
+        content: "";
+        position: absolute;
+        left: clamp(6px, 1.4vw, 18px);
+        top: 8px;
+        width: 1px;
+        background: var(--brass);
+        height: calc(var(--p, 0) * (100% - 16px));
+        transition: height 0.2s linear;
+      }
+      .step {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: clamp(14px, 3vw, 40px);
+        padding: clamp(20px, 3vh, 32px) 0;
+        border-bottom: 1px solid var(--line-2);
+      }
+      .step:last-child {
+        border-bottom: 0;
+      }
+      .step .sn {
+        font-family: var(--serif);
+        font-size: clamp(28px, 3.4vw, 46px);
+        color: var(--brass);
+        line-height: 0.9;
+        opacity: 0.9;
+      }
+      .step h3 {
+        font-size: clamp(19px, 2.1vw, 26px);
+        margin-bottom: 8px;
+      }
+      .step p {
+        color: var(--muted);
+        font-size: 15px;
+        max-width: 70ch;
+      }
+      @media (max-width: 620px) {
+        .step {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+      }
+
+      /* ---------- credentials ---------- */
+      .creds {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        background: var(--line-2);
+        border: 1px solid var(--line-2);
+      }
+      @media (max-width: 760px) {
+        .creds {
+          grid-template-columns: 1fr;
+        }
+      }
+      .cbox {
+        background: var(--bg);
+        padding: clamp(24px, 3vw, 40px);
+      }
+      .cbox h4 {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--brass);
+        margin-bottom: 18px;
+      }
+      .cbox ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+      }
+      .cbox li {
+        display: flex;
+        gap: 14px;
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .cbox li::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        flex: none;
+        margin-top: 9px;
+        background: var(--brass);
+        border-radius: 50%;
+      }
+      .cbox li b {
+        color: var(--txt);
+        font-weight: 500;
+      }
+      .note {
+        position: relative;
+        margin-top: 34px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        padding: clamp(24px, 3.4vw, 46px);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: clamp(18px, 3vw, 38px);
+        align-items: center;
+      }
+      .note svg {
+        width: 56px;
+        height: 56px;
+        stroke: var(--brass);
+        fill: none;
+        stroke-width: 0.9;
+      }
+      .note p {
+        font-family: var(--serif);
+        font-size: clamp(17px, 1.9vw, 23px);
+        line-height: 1.5;
+        font-style: italic;
+      }
+      .note small {
+        display: block;
+        margin-top: 10px;
+        font-family: var(--mono);
+        font-style: normal;
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--faint);
+      }
+      @media (max-width: 620px) {
+        .note {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ---------- faq ---------- */
+      .faq {
+        border-top: 1px solid var(--line-2);
+      }
+      .q {
+        border-bottom: 1px solid var(--line-2);
+      }
+      .q button {
+        width: 100%;
+        background: none;
+        border: 0;
+        padding: 26px 0;
+        display: flex;
+        gap: 20px;
+        align-items: baseline;
+        justify-content: space-between;
+        text-align: left;
+        cursor: pointer;
+      }
+      .q h3 {
+        font-size: clamp(17px, 2vw, 24px);
+        line-height: 1.3;
+        font-weight: 400;
+        transition: color 0.3s;
+      }
+      .q button:hover h3 {
+        color: var(--brass);
+      }
+      .q .pm {
+        flex: none;
+        width: 18px;
+        height: 18px;
+        position: relative;
+      }
+      .q .pm::before,
+      .q .pm::after {
+        content: "";
+        position: absolute;
+        background: var(--brass);
+        inset: 8px 0 auto 0;
+        height: 1px;
+        transition: transform 0.4s;
+      }
+      .q .pm::after {
+        transform: rotate(90deg);
+      }
+      .q.open .pm::after {
+        transform: rotate(0);
+      }
+      .q .a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .q .a p {
+        padding: 0 0 28px;
+        color: var(--muted);
+        max-width: 80ch;
+        font-size: 15px;
+      }
+
+      /* ---------- contact ---------- */
+      .contact {
+        background: var(--bg-2);
+        border-top: 1px solid var(--line-2);
+      }
+      .cgrid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: clamp(30px, 5vw, 72px);
+      }
+      @media (max-width: 900px) {
+        .cgrid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .clist {
+        list-style: none;
+        margin: 30px 0 0;
+        padding: 0;
+        display: grid;
+        gap: 2px;
+      }
+      .clist li {
+        display: grid;
+        grid-template-columns: 130px 1fr;
+        gap: 16px;
+        padding: 18px 0;
+        border-top: 1px solid var(--line-2);
+        font-size: 15px;
+      }
+      .clist li:last-child {
+        border-bottom: 1px solid var(--line-2);
+      }
+      .clist b {
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--faint);
+        padding-top: 4px;
+      }
+      .clist a:hover {
+        color: var(--brass);
+      }
+      .map {
+        margin-top: 28px;
+        border: 1px solid var(--line);
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+        background: var(--panel);
+      }
+      .map svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .map .tag {
+        position: absolute;
+        left: 18px;
+        bottom: 16px;
+        right: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .map .tag a {
+        border-bottom: 1px solid var(--brass);
+        color: var(--brass);
+        padding-bottom: 2px;
+      }
+      form {
+        display: grid;
+        gap: 14px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        padding: clamp(22px, 3vw, 36px);
+      }
+      .field {
+        display: grid;
+        gap: 8px;
+      }
+      .field label {
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--faint);
+      }
+      .field input,
+      .field select,
+      .field textarea {
+        background: transparent;
+        border: 1px solid var(--line-2);
+        color: var(--txt);
+        padding: 13px 14px;
+        font-family: var(--sans);
+        font-size: 15px;
+        border-radius: var(--r);
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      .field textarea {
+        resize: vertical;
+        min-height: 96px;
+      }
+      .field input:focus,
+      .field select:focus,
+      .field textarea:focus {
+        border-color: var(--brass);
+      }
+      .field select {
+        appearance: none;
+        background-image:
+          linear-gradient(45deg, transparent 50%, var(--brass) 50%),
+          linear-gradient(135deg, var(--brass) 50%, transparent 50%);
+        background-position:
+          calc(100% - 20px) 21px,
+          calc(100% - 14px) 21px;
+        background-size:
+          6px 6px,
+          6px 6px;
+        background-repeat: no-repeat;
+      }
+      .form-note {
+        font-size: 12.5px;
+        color: var(--faint);
+        line-height: 1.6;
+      }
+      .vern {
+        margin-top: 6px;
+        font-size: 13.5px;
+        color: var(--muted);
+      }
+
+      /* ---------- footer ---------- */
+      footer {
+        border-top: 1px solid var(--line-2);
+        padding: clamp(40px, 6vh, 70px) 0 120px;
+      }
+      .fgrid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr;
+        gap: 30px;
+      }
+      @media (max-width: 820px) {
+        .fgrid {
+          grid-template-columns: 1fr;
+        }
+      }
+      footer .dis {
+        font-size: 12.5px;
+        color: var(--faint);
+        line-height: 1.7;
+        max-width: 62ch;
+      }
+      footer h5 {
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--brass);
+        margin: 0 0 14px;
+      }
+      footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 9px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      footer a:hover {
+        color: var(--brass);
+      }
+      .fbot {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 44px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line-2);
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--faint);
+      }
+
+      /* ---------- mobile action bar ---------- */
+      .mbar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 850;
+        display: none;
+        background: color-mix(in srgb, var(--bg) 92%, transparent);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid var(--line);
+      }
+      .mbar a {
+        flex: 1;
+        text-align: center;
+        padding: 15px 6px;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+        border-right: 1px solid var(--line-2);
+      }
+      .mbar a:last-child {
+        border-right: 0;
+      }
+      .mbar a.hi {
+        background: var(--brass);
+        color: var(--brass-ink);
+      }
+      @media (max-width: 820px) {
+        .mbar {
+          display: flex;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.001s !important;
+          transition-duration: 0.001s !important;
+        }
+        .rv {
+          opacity: 1;
+          transform: none;
+        }
+        .mask > span {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="bar" aria-hidden="true"></div>
+    <div class="cur" id="cur" aria-hidden="true"></div>
+    <div class="cur-ring" id="ring" aria-hidden="true"></div>
+
+    <div id="loader" aria-hidden="true">
+      <svg class="seal" viewBox="0 0 100 100" aria-hidden="true">
+        <circle class="st" cx="50" cy="50" r="46" stroke-dasharray="4 7" />
+        <circle class="st" cx="50" cy="50" r="37" />
+        <path
+          class="st"
+          d="M50 22v56M28 78h44M50 34 30 40m20-6 20 6M30 40l-7 14h14zM70 40l7 14H63z"
+        />
+      </svg>
+      <div class="ldtxt">Chambers · Vadodara</div>
+    </div>
+
+    <header id="hd">
+      <div class="wrap hd">
+        <a class="brand" href="#home" aria-label="Home">
+          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+            <circle
+              cx="50"
+              cy="50"
+              r="47"
+              fill="none"
+              stroke="var(--brass)"
+              stroke-width="1.4"
+            />
+            <circle
+              cx="50"
+              cy="50"
+              r="40"
+              fill="none"
+              stroke="var(--brass)"
+              stroke-width=".6"
+              opacity=".6"
+              stroke-dasharray="3 5"
+            />
+            <text
+              x="50"
+              y="63"
+              text-anchor="middle"
+              font-family="Georgia,serif"
+              font-size="36"
+              fill="var(--brass)"
+            >
+              M
+            </text>
+          </svg>
+          <span>
+            <b>Devang H. Mehta</b>
+            <span>Advocate · Vadodara</span>
+          </span>
+        </a>
+        <nav>
+          <a href="#chambers">Chambers</a>
+          <a href="#practice">Practice</a>
+          <a href="#approach">Approach</a>
+          <a href="#credentials">Credentials</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="tools">
+          <button
+            class="iconbtn"
+            id="theme"
+            aria-label="Switch theme"
+            title="Light / dark"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+            >
+              <circle cx="12" cy="12" r="4.2" />
+              <path
+                d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"
+              />
+            </svg>
+          </button>
+          <a class="btn" href="#contact" data-cur
+            ><span>Book consultation</span></a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-bg">
+          <img src="__LIB__" alt="Chambers library in warm afternoon light" />
+        </div>
+        <div class="side-note">
+          Gujarat High Court · District &amp; Sessions Court, Vadodara
+        </div>
+        <div class="wrap">
+          <span class="eyebrow rv"
+            >Enrolment No. G/1234/2008 · Bar Council of Gujarat</span
+          >
+          <h1 class="mask">
+            <span>Devang H. Mehta<br /><em>Advocate</em></span>
+          </h1>
+          <p class="sub rv">
+            Practising before the Gujarat High Court, the District &amp;
+            Sessions Courts at Vadodara and the tribunals across Gujarat — in
+            criminal, family, property and civil matters. Consultations in
+            Gujarati, Hindi and English.
+          </p>
+          <div class="cta rv">
+            <a class="btn" href="#contact" data-cur
+              ><span>Book a consultation</span></a
+            >
+            <a class="btn ghost" href="tel:+919825000000" data-cur
+              ><span>Call the chambers</span></a
+            >
+          </div>
+          <div class="hero-foot">
+            <div class="stats rv">
+              <div class="stat">
+                <b data-count="18" data-suffix=" years">0</b><i>At the bar</i>
+              </div>
+              <div class="stat">
+                <b data-count="1200" data-suffix="+">0</b><i>Matters handled</i>
+              </div>
+              <div class="stat">
+                <b data-count="3" data-suffix="">0</b><i>Languages</i>
+              </div>
+              <div class="stat"><b>Vadodara</b><i>&amp; Ahmedabad</i></div>
+            </div>
+            <div class="scroll">Scroll to explore <i></i></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="tk" id="tk">
+          <span>Criminal Defence</span><span>Bail &amp; Anticipatory Bail</span
+          ><span>Family &amp; Matrimonial</span><span>Property &amp; Title</span
+          ><span>Civil Litigation</span><span>Negotiable Instruments</span
+          ><span>Consumer &amp; Service</span><span>NRI Instructions</span>
+        </div>
+      </div>
+
+      <section class="blk" id="chambers">
+        <div class="wrap">
+          <div class="shead rv">
+            <div>
+              <span class="eyebrow">01 — The chambers</span>
+              <h2 style="margin-top: 16px">
+                A practice built on preparation, not on publicity.
+              </h2>
+            </div>
+            <div class="idx">Diwalipura · Vadodara 390007</div>
+          </div>
+          <div class="two">
+            <div class="frame rv">
+              <img src="__PORTRAIT__" alt="Adv. Devang H. Mehta" />
+              <div class="cap">Adv. Devang H. Mehta</div>
+            </div>
+            <div>
+              <p class="lead drop rv">
+                I enrolled with the Bar Council of Gujarat in 2008 and have
+                since appeared in matters that begin as a family dispute, a
+                property title question, a cheque that was dishonoured or an FIR
+                — and end in settlement, acquittal, decree or appeal. Every
+                brief is read personally, in full, before it is argued.
+              </p>
+              <p class="lead rv" style="margin-top: 18px">
+                Instructions are accepted from clients in Vadodara, Ahmedabad,
+                Anand, Bharuch and from non-resident Indians who need
+                representation in Gujarat courts while living abroad. Where a
+                matter is best served outside the courtroom, mediation and
+                settlement are considered first — litigation is a strategy, not
+                a habit.
+              </p>
+              <div class="quote rv">
+                <p>
+                  “A client should never learn the status of their own case from
+                  court records. They should hear it from counsel.”
+                </p>
+                <i>Adv. Devang H. Mehta</i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="blk" id="practice" style="padding-top: 0">
+        <div class="wrap">
+          <div class="shead rv">
+            <div>
+              <span class="eyebrow">02 — Areas of practice</span>
+              <h2 style="margin-top: 16px">Where the chambers appears.</h2>
+            </div>
+            <div class="idx">Six practice areas</div>
+          </div>
+          <div class="grid">
+            <article class="card rv">
+              <div class="n">01</div>
+              <svg class="ico" viewBox="0 0 32 32">
+                <path d="M16 4l10 5v7c0 6-4 10-10 12-6-2-10-6-10-12V9z" />
+              </svg>
+              <h3>Criminal defence</h3>
+              <p>
+                Bail and anticipatory bail applications, trial defence, revision
+                and criminal appeals; representation at the police station stage
+                through to sessions trial.
+              </p>
+              <div class="courts">
+                Sessions Court · JMFC · Gujarat High Court
+              </div>
+            </article>
+            <article class="card rv">
+              <div class="n">02</div>
+              <svg class="ico" viewBox="0 0 32 32">
+                <path
+                  d="M16 28s-9-5.6-9-12a5 5 0 019-3 5 5 0 019 3c0 6.4-9 12-9 12z"
+                />
+              </svg>
+              <h3>Family &amp; matrimonial</h3>
+              <p>
+                Divorce and judicial separation, maintenance, custody and
+                guardianship, domestic violence proceedings and mutual-consent
+                settlements.
+              </p>
+              <div class="courts">
+                Family Court · Mediation Centre · High Court
+              </div>
+            </article>
+            <article class="card rv">
+              <div class="n">03</div>
+              <svg class="ico" viewBox="0 0 32 32">
+                <path d="M6 12l10-6 10 6M8 12v12M24 12v12M5 26h22" />
+              </svg>
+              <h3>Property &amp; title</h3>
+              <p>
+                Title and partition suits, sale-deed and agreement disputes,
+                tenancy and possession matters, and due-diligence opinion on
+                Gujarat land records.
+              </p>
+              <div class="courts">
+                Civil Judge · District Court · Revenue authorities
+              </div>
+            </article>
+            <article class="card rv">
+              <div class="n">04</div>
+              <svg class="ico" viewBox="0 0 32 32">
+                <path d="M16 5v22M9 9h12a4 4 0 010 8h-9a4 4 0 000 8h13" />
+              </svg>
+              <h3>Civil litigation</h3>
+              <p>
+                Recovery suits, injunction applications, specific performance,
+                execution proceedings and civil appeals arising from contractual
+                and commercial disputes.
+              </p>
+              <div class="courts">
+                City Civil Court · District Court · High Court
+              </div>
+            </article>
+            <article class="card rv">
+              <div class="n">05</div>
+              <svg class="ico" viewBox="0 0 32 32">
+                <rect x="5" y="8" width="22" height="16" rx="1.5" />
+                <path d="M9 13h11M9 18h7" />
+              </svg>
+              <h3>Negotiable instruments</h3>
+              <p>
+                Cheque dishonour complaints under Section 138, statutory
+                notices, interim compensation and defence in proceedings arising
+                from business credit.
+              </p>
+              <div class="courts">JMFC · Sessions Court (appeals)</div>
+            </article>
+            <article class="card rv">
+              <div class="n">06</div>
+              <svg class="ico" viewBox="0 0 32 32">
+                <circle cx="16" cy="16" r="11" />
+                <path d="M16 10v6l4 3" />
+              </svg>
+              <h3>Consumer &amp; service matters</h3>
+              <p>
+                Complaints before the District and State Consumer Commissions,
+                insurance repudiation claims and service disputes against
+                institutions.
+              </p>
+              <div class="courts">District Commission · State Commission</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="blk" id="approach">
+        <div class="wrap">
+          <div class="shead rv">
+            <div>
+              <span class="eyebrow">03 — How a brief is handled</span>
+              <h2 style="margin-top: 16px">Four stages. No surprises.</h2>
+            </div>
+            <div class="idx">From first call to final order</div>
+          </div>
+          <div class="steps" id="steps">
+            <div class="step rv">
+              <div class="sn">01</div>
+              <div>
+                <h3>Consultation &amp; honest merit assessment</h3>
+                <p>
+                  Documents are read before the meeting. If the matter is weak,
+                  that is said in the first sitting — filing a case that should
+                  not be filed wastes a client's money and time.
+                </p>
+              </div>
+            </div>
+            <div class="step rv">
+              <div class="sn">02</div>
+              <div>
+                <h3>Strategy, notice and documentation</h3>
+                <p>
+                  Forum, limitation, relief and evidence are decided in writing.
+                  Notices, pleadings and applications are drafted in-house by
+                  the chambers.
+                </p>
+              </div>
+            </div>
+            <div class="step rv">
+              <div class="sn">03</div>
+              <div>
+                <h3>Filing, appearances and argument</h3>
+                <p>
+                  Admission, interim relief, evidence and final hearing are
+                  attended personally. Dates, orders and adjournments are
+                  tracked in a chamber diary.
+                </p>
+              </div>
+            </div>
+            <div class="step rv">
+              <div class="sn">04</div>
+              <div>
+                <h3>Reporting and next step</h3>
+                <p>
+                  After every effective hearing the client is informed of the
+                  order in plain language — Gujarati, Hindi or English — with
+                  the next date and the next step.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="blk" id="credentials" style="padding-top: 0">
+        <div class="wrap">
+          <div class="shead rv">
+            <div>
+              <span class="eyebrow">04 — Credentials</span>
+              <h2 style="margin-top: 16px">Stated plainly.</h2>
+            </div>
+            <div class="idx">Verified particulars</div>
+          </div>
+          <div class="creds">
+            <div class="cbox rv">
+              <h4>Enrolment &amp; membership</h4>
+              <ul>
+                <li>
+                  <span
+                    ><b>Bar Council of Gujarat</b> — Enrolment No.
+                    G/1234/2008</span
+                  >
+                </li>
+                <li>
+                  <span><b>Baroda Bar Association</b> — Member</span>
+                </li>
+                <li>
+                  <span
+                    ><b>Gujarat High Court Advocates' Association</b> —
+                    Member</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="cbox rv">
+              <h4>Education</h4>
+              <ul>
+                <li>
+                  <span
+                    ><b>B.A. LL.B. (Hons.)</b> — The Maharaja Sayajirao
+                    University of Baroda</span
+                  >
+                </li>
+                <li>
+                  <span
+                    ><b>Diploma in Alternate Dispute Resolution</b> — Mediation
+                    training</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="cbox rv">
+              <h4>Courts of practice</h4>
+              <ul>
+                <li><span>Gujarat High Court, Ahmedabad</span></li>
+                <li><span>District &amp; Sessions Court, Vadodara</span></li>
+                <li>
+                  <span
+                    >Family Court, City Civil Court &amp; JMFC, Vadodara</span
+                  >
+                </li>
+                <li>
+                  <span
+                    >District Consumer Disputes Redressal Commission,
+                    Vadodara</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="cbox rv">
+              <h4>Consultation</h4>
+              <ul>
+                <li>
+                  <span>Languages — <b>Gujarati, Hindi, English</b></span>
+                </li>
+                <li>
+                  <span>Appointments — Monday to Saturday, 10:00 to 19:00</span>
+                </li>
+                <li>
+                  <span
+                    >NRI clients — instructions accepted by email, video call
+                    and power of attorney</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="note rv">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="30" />
+              <path d="M32 17v30M20 26h18a6 6 0 010 12H25a6 6 0 000 12h19" />
+            </svg>
+            <div>
+              <p>
+                “No results are published here, no ratings, no promises. Under
+                the Bar Council of India Rules an advocate may furnish only
+                specified information. Every matter is discussed in confidence,
+                and only with you.”
+              </p>
+              <small
+                >Rule 36 · Section IV, Chapter II, Part VI — Bar Council of
+                India Rules</small
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="blk faq" id="faq" style="padding-top: 0; border-top: 0">
+        <div class="wrap" style="padding-top: clamp(60px, 9vh, 120px)">
+          <div class="shead rv">
+            <div>
+              <span class="eyebrow">05 — Before you call</span>
+              <h2 style="margin-top: 16px">Questions clients ask.</h2>
+            </div>
+            <div class="idx">Five answers</div>
+          </div>
+          <div class="faq rv">
+            <div class="q">
+              <button type="button">
+                <h3>What should I bring for the first consultation?</h3>
+                <div class="pm"></div>
+              </button>
+              <div class="a">
+                <p>
+                  Whatever exists in writing — notices, agreements, FIR copy,
+                  court orders, bank statements, property documents or WhatsApp
+                  correspondence. If nothing is in writing yet, come anyway;
+                  your account of events is enough to begin. Originals are not
+                  required for the first meeting.
+                </p>
+              </div>
+            </div>
+            <div class="q">
+              <button type="button">
+                <h3>Can you take up a matter outside Vadodara?</h3>
+                <div class="pm"></div>
+              </button>
+              <div class="a">
+                <p>
+                  Yes. Courts in Anand, Bharuch, Kheda, Ahmedabad and the
+                  Gujarat High Court are attended regularly, and matters in
+                  other districts are taken up where travel is workable. This is
+                  discussed honestly before the brief is accepted.
+                </p>
+              </div>
+            </div>
+            <div class="q">
+              <button type="button">
+                <h3>I am an NRI. Can you represent me in Gujarat?</h3>
+                <div class="pm"></div>
+              </button>
+              <div class="a">
+                <p>
+                  Yes. Property, family and litigation instructions from
+                  non-resident clients are handled with the documents executed
+                  by power of attorney, and updates are given by video call and
+                  email in your time zone.
+                </p>
+              </div>
+            </div>
+            <div class="q">
+              <button type="button">
+                <h3>What are the consultation charges?</h3>
+                <div class="pm"></div>
+              </button>
+              <div class="a">
+                <p>
+                  Consultation charges are told to you before the appointment is
+                  fixed. Professional fees for a matter depend on the nature of
+                  the dispute, the forum and the likely duration, and are agreed
+                  in writing at the start.
+                </p>
+              </div>
+            </div>
+            <div class="q">
+              <button type="button">
+                <h3>Is my matter urgent?</h3>
+                <div class="pm"></div>
+              </button>
+              <div class="a">
+                <p>
+                  If a police complaint has been registered, a summons or
+                  warrant has been received, goods are to be attached, a cheque
+                  notice period is running, or a limitation date is close —
+                  treat it as urgent and call the chambers directly on the
+                  number below.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="blk contact" id="contact">
+        <div class="wrap">
+          <div class="shead rv">
+            <div>
+              <span class="eyebrow">06 — Contact</span>
+              <h2 style="margin-top: 16px">Chambers, and how to reach them.</h2>
+            </div>
+            <div class="idx">Mon – Sat · 10:00 – 19:00</div>
+          </div>
+          <div class="cgrid">
+            <div class="rv">
+              <p class="lead">
+                An appointment is preferable to a walk-in — it means your file
+                is read before you sit down. Send a short note of the matter and
+                the relevant dates, and you will receive a time slot the same
+                working day.
+              </p>
+              <ul class="clist">
+                <li>
+                  <b>Chambers</b
+                  ><span
+                    >203, Kanchan Building, Diwalipura Road,<br />Opposite the
+                    District Court, Vadodara 390007, Gujarat</span
+                  >
+                </li>
+                <li>
+                  <b>Phone</b><a href="tel:+919825000000">+91 98250 00000</a>
+                </li>
+                <li>
+                  <b>WhatsApp</b
+                  ><a
+                    href="https://wa.me/919825000000"
+                    target="_blank"
+                    rel="noopener"
+                    >Send a message</a
+                  >
+                </li>
+                <li>
+                  <b>Email</b
+                  ><a href="mailto:chambers@devangmehta.in"
+                    >chambers@devangmehta.in</a
+                  >
+                </li>
+                <li>
+                  <b>NRI desk</b
+                  ><span
+                    >Video consultation by appointment — IST 18:00 to
+                    21:00</span
+                  >
+                </li>
+              </ul>
+              <div class="map">
+                <svg
+                  viewBox="0 0 800 450"
+                  preserveAspectRatio="xMidYMid slice"
+                  aria-hidden="true"
+                >
+                  <rect width="800" height="450" fill="var(--panel-2)" />
+                  <g stroke="var(--line-2)" stroke-width="1">
+                    <path
+                      d="M0 90h800M0 190h800M0 300h800M0 380h800M120 0v450M260 0v450M420 0v450M560 0v450M690 0v450"
+                    />
+                  </g>
+                  <path
+                    d="M0 300h800"
+                    stroke="var(--line)"
+                    stroke-width="14"
+                    opacity=".5"
+                  />
+                  <path
+                    d="M420 0v450"
+                    stroke="var(--line)"
+                    stroke-width="14"
+                    opacity=".5"
+                  />
+                  <path
+                    d="M260 90C320 170 380 190 470 240S600 300 800 330"
+                    fill="none"
+                    stroke="var(--brass)"
+                    stroke-width="1.4"
+                    stroke-dasharray="6 6"
+                    opacity=".8"
+                  />
+                  <g transform="translate(420,240)">
+                    <circle
+                      r="30"
+                      fill="none"
+                      stroke="var(--brass)"
+                      stroke-width="1"
+                      opacity=".55"
+                    />
+                    <circle
+                      r="46"
+                      fill="none"
+                      stroke="var(--brass)"
+                      stroke-width=".7"
+                      opacity=".3"
+                    />
+                    <path
+                      d="M0-18c-9 0-15 7-15 15 0 11 15 25 15 25s15-14 15-25c0-8-6-15-15-15z"
+                      fill="var(--brass)"
+                    />
+                  </g>
+                </svg>
+                <div class="tag">
+                  <span>District Court Road · Diwalipura</span
+                  ><a
+                    href="https://maps.google.com/?q=Diwalipura+District+Court+Vadodara"
+                    target="_blank"
+                    rel="noopener"
+                    >Open in Maps</a
+                  >
+                </div>
+              </div>
+            </div>
+            <form id="cform" class="rv" novalidate>
+              <div class="field">
+                <label for="n">Your name</label
+                ><input
+                  id="n"
+                  name="name"
+                  type="text"
+                  placeholder="Full name"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="p">Mobile / WhatsApp</label
+                ><input
+                  id="p"
+                  name="phone"
+                  type="tel"
+                  placeholder="+91"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="m">Nature of the matter</label>
+                <select id="m" name="matter">
+                  <option>Criminal — bail / FIR / trial</option>
+                  <option>Family — divorce, maintenance, custody</option>
+                  <option>Property — title, partition, possession</option>
+                  <option>Civil — recovery, injunction, appeal</option>
+                  <option>Cheque dishonour / Section 138</option>
+                  <option>Consumer / insurance</option>
+                  <option>Outstation or NRI instruction</option>
+                  <option>Not sure — need advice</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="d">Short note (dates matter)</label
+                ><textarea
+                  id="d"
+                  name="details"
+                  placeholder="One or two lines is enough. Please do not attach confidential documents here."
+                ></textarea>
+              </div>
+              <button
+                class="btn"
+                type="submit"
+                data-cur
+                style="justify-content: center"
+              >
+                <span>Request an appointment</span>
+              </button>
+              <p class="form-note">
+                This opens WhatsApp with your details filled in, so the chambers
+                can reverify and confirm a slot. Please do not send confidential
+                documents on the first message — they will be requested if
+                required.
+              </p>
+              <p class="vern">
+                ગુજરાતી, हिन्दी, English — જે ભાષામાં તમે સરળતાથી વાત કરી શકો
+                તેમાં પરામર્શ ઉપલબ્ધ છે.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="fgrid">
+          <div>
+            <svg
+              class="mark"
+              viewBox="0 0 100 100"
+              style="width: 42px; height: 42px; margin-bottom: 16px"
+              aria-hidden="true"
+            >
+              <circle
+                cx="50"
+                cy="50"
+                r="47"
+                fill="none"
+                stroke="var(--brass)"
+                stroke-width="1.4"
+              />
+              <text
+                x="50"
+                y="63"
+                text-anchor="middle"
+                font-family="Georgia,serif"
+                font-size="36"
+                fill="var(--brass)"
+              >
+                M
+              </text>
+            </svg>
+            <p class="dis">
+              <b
+                style="
+                  font-family: var(--serif);
+                  font-size: 17px;
+                  font-weight: 400;
+                  color: var(--txt);
+                  display: block;
+                  margin-bottom: 10px;
+                "
+                >Chambers of Adv. Devang H. Mehta</b
+              >
+              Advocate, enrolled with the Bar Council of Gujarat (G/1234/2008).
+              Practice before the Gujarat High Court and the District &amp;
+              Sessions Court, Vadodara.
+            </p>
+            <p class="dis" style="margin-top: 16px">
+              This website is informational in nature. In accordance with the
+              proviso to Rule 36 of the Bar Council of India Rules, no
+              information furnished here is intended as advertisement,
+              solicitation or inducement, and nothing on this website is a claim
+              regarding the outcome of any matter.
+            </p>
+          </div>
+          <div>
+            <h5>Navigate</h5>
+            <ul>
+              <li><a href="#chambers">The chambers</a></li>
+              <li><a href="#practice">Areas of practice</a></li>
+              <li><a href="#approach">How a brief is handled</a></li>
+              <li><a href="#credentials">Credentials</a></li>
+              <li><a href="#faq">Questions</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Reach the chambers</h5>
+            <ul>
+              <li>203, Kanchan Building, Diwalipura Road, Vadodara 390007</li>
+              <li><a href="tel:+919825000000">+91 98250 00000</a></li>
+              <li>
+                <a href="mailto:chambers@devangmehta.in"
+                  >chambers@devangmehta.in</a
+                >
+              </li>
+              <li>Monday – Saturday, 10:00 – 19:00</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fbot">
+          <span
+            >© <span id="yr">2026</span> Adv. Devang H. Mehta · Vadodara</span
+          >
+          <span>Design concept — [Your Studio] · single page, no trackers</span>
+        </div>
+      </div>
+    </footer>
+
+    <div class="mbar">
+      <a href="tel:+919825000000">Call</a>
+      <a
+        class="hi"
+        href="https://wa.me/919825000000"
+        target="_blank"
+        rel="noopener"
+        >WhatsApp</a
+      >
+      <a
+        href="https://maps.google.com/?q=Diwalipura+District+Court+Vadodara"
+        target="_blank"
+        rel="noopener"
+        >Directions</a
+      >
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+        var rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* loader */
+        var ld = document.getElementById("loader");
+        function ready() {
+          if (ld) ld.classList.add("done");
+          setTimeout(function () {
+            if (ld && ld.parentNode) ld.parentNode.removeChild(ld);
+          }, 900);
+          boot();
+        }
+        window.addEventListener("load", function () {
+          setTimeout(ready, rm ? 0 : 520);
+        });
+        setTimeout(ready, 2600);
+
+        /* year */
+        document.getElementById("yr").textContent = new Date().getFullYear();
+
+        /* theme */
+        var root = document.documentElement;
+        document.getElementById("theme").addEventListener("click", function () {
+          root.setAttribute(
+            "data-theme",
+            root.getAttribute("data-theme") === "dark" ? "light" : "dark",
+          );
+        });
+
+        /* ticker duplicate */
+        var tk = document.getElementById("tk");
+        if (tk) {
+          tk.innerHTML += tk.innerHTML;
+        }
+
+        /* header + progress */
+        var hd = document.getElementById("hd"),
+          bar = document.getElementById("bar"),
+          steps = document.getElementById("steps");
+        function onScroll() {
+          var y = window.pageYOffset || document.documentElement.scrollTop;
+          hd.classList.toggle("on", y > 40);
+          var h = document.documentElement.scrollHeight - window.innerHeight;
+          bar.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+          if (steps) {
+            var r = steps.getBoundingClientRect(),
+              vh = window.innerHeight;
+            var p = (vh * 0.75 - r.top) / Math.max(1, r.height);
+            steps.style.setProperty(
+              "--p",
+              Math.max(0, Math.min(1, p)).toFixed(3),
+            );
+          }
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        /* reveal */
+        function boot() {
+          var els = document.querySelectorAll(".rv,.mask");
+          if (!("IntersectionObserver" in window) || rm) {
+            els.forEach(function (e) {
+              e.classList.add("in");
+            });
+            return;
+          }
+          var io = new IntersectionObserver(
+            function (en) {
+              en.forEach(function (x) {
+                if (x.isIntersecting) {
+                  x.target.classList.add("in");
+                  io.unobserve(x.target);
+                }
+              });
+            },
+            { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
+          );
+          els.forEach(function (e, i) {
+            e.style.transitionDelay = Math.min(i, 6) * 45 + "ms";
+            io.observe(e);
+          });
+        }
+        boot();
+        onScroll();
+
+        /* counters */
+        var counters = document.querySelectorAll("[data-count]");
+        function run(el) {
+          var to = parseFloat(el.getAttribute("data-count")),
+            sfx = el.getAttribute("data-suffix") || "",
+            t0 = null,
+            dur = 1500;
+          function tick(t) {
+            if (!t0) t0 = t;
+            var p = Math.min(1, (t - t0) / dur);
+            var e = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(to * e).toLocaleString("en-IN") + sfx;
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }
+        if ("IntersectionObserver" in window && !rm) {
+          var io2 = new IntersectionObserver(
+            function (en) {
+              en.forEach(function (x) {
+                if (x.isIntersecting) {
+                  run(x.target);
+                  io2.unobserve(x.target);
+                }
+              });
+            },
+            { threshold: 0.6 },
+          );
+          counters.forEach(function (c) {
+            io2.observe(c);
+          });
+        } else {
+          counters.forEach(function (c) {
+            c.textContent =
+              parseFloat(c.getAttribute("data-count")).toLocaleString("en-IN") +
+              (c.getAttribute("data-suffix") || "");
+          });
+        }
+
+        /* faq */
+        document.querySelectorAll(".q").forEach(function (q) {
+          var b = q.querySelector("button"),
+            a = q.querySelector(".a");
+          b.setAttribute("aria-expanded", "false");
+          b.addEventListener("click", function () {
+            var open = q.classList.contains("open");
+            document.querySelectorAll(".q.open").forEach(function (o) {
+              o.classList.remove("open");
+              o.querySelector(".a").style.maxHeight = "0px";
+              o.querySelector("button").setAttribute("aria-expanded", "false");
+            });
+            if (!open) {
+              q.classList.add("open");
+              a.style.maxHeight = a.scrollHeight + "px";
+              b.setAttribute("aria-expanded", "true");
+            }
+          });
+        });
+
+        /* form -> whatsapp */
+        var f = document.getElementById("cform");
+        f.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var n = document.getElementById("n").value.trim(),
+            p = document.getElementById("p").value.trim(),
+            m = document.getElementById("m").value,
+            d = document.getElementById("d").value.trim();
+          if (!n || !p) {
+            (!n
+              ? document.getElementById("n")
+              : document.getElementById("p")
+            ).focus();
+            return;
+          }
+          var msg =
+            "Consultation request%0AName: " +
+            encodeURIComponent(n) +
+            "%0AMobile: " +
+            encodeURIComponent(p) +
+            "%0AMatter: " +
+            encodeURIComponent(m) +
+            (d ? "%0ANote: " + encodeURIComponent(d) : "");
+          window.open(
+            "https://wa.me/919825000000?text=" + msg,
+            "_blank",
+            "noopener",
+          );
+        });
+
+        /* cursor */
+        if (
+          !rm &&
+          window.matchMedia("(hover:hover) and (pointer:fine)").matches
+        ) {
+          var cur = document.getElementById("cur"),
+            ring = document.getElementById("ring");
+          var mx = innerWidth / 2,
+            my = innerHeight / 2,
+            rx = mx,
+            ry = my;
+          addEventListener("mousemove", function (e) {
+            mx = e.clientX;
+            my = e.clientY;
+            cur.style.transform = "translate(" + mx + "px," + my + "px)";
+          });
+          (function loop() {
+            rx += (mx - rx) * 0.16;
+            ry += (my - ry) * 0.16;
+            ring.style.transform = "translate(" + rx + "px," + ry + "px)";
+            requestAnimationFrame(loop);
+          })();
+          document
+            .querySelectorAll("a,button,[data-cur]")
+            .forEach(function (el) {
+              el.addEventListener("mouseenter", function () {
+                ring.classList.add("grow");
+              });
+              el.addEventListener("mouseleave", function () {
+                ring.classList.remove("grow");
+              });
+            });
+        } else {
+          document.getElementById("cur").style.display = "none";
+          document.getElementById("ring").style.display = "none";
+        }
+
+        /* hero parallax (light touch) */
+        var heroImg = document.querySelector(".hero-bg img");
+        if (heroImg && !rm) {
+          addEventListener(
+            "scroll",
+            function () {
+              var y = Math.min(window.pageYOffset || 0, window.innerHeight);
+              heroImg.style.transform =
+                "translate3d(0," +
+                y * 0.12 +
+                "px,0) scale(" +
+                (1.02 + y / 9000) +
+                ")";
+            },
+            { passive: true },
+          );
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,394 +1,631 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact – Law Hub</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <style>
-      body {
-        background: linear-gradient(180deg, #f7f9fc, #eef2f7);
-        /* background: #f5f6fa; Light greyish background for whole page */
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-      section#contact {
-        /* background: linear-gradient(180deg, #f7f9fc, #eef2f7); */
-        padding: 60px 0;
-      }
-      footer {
-        margin-top: 60px;
-      }
+        body {
+            background: linear-gradient(180deg, #f7f9fc, #eef2f7);
+            /* background: #f5f6fa; Light greyish background for whole page */
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        section#contact {
+            /* background: linear-gradient(180deg, #f7f9fc, #eef2f7); */
+            padding: 60px 0;
+        }
+
+        footer {
+            margin-top: 60px;
+        }
     </style>
-  </head>
-  <body>
+
+    <style>
+        /* Additional Custom Styles */
+        #contact .form-control:focus,
+        #contact .form-select:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+        }
+
+        #contact .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        #contact .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        #contact .card {
+            transition: transform 0.3s;
+        }
+
+        #contact .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Smooth animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #cfStatus {
+            animation: fadeInUp 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-      <div class="container">
-        <a class="navbar-brand fw-bold text-warning" href="index.html"
-          ><i class="bi bi-balance-scale"></i> Rishab-LEX</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <!-- <li class="nav-item">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-warning" href="index.html"><i class="bi bi-balance-scale"></i>
+                Rishab-LEX</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <!-- <li class="nav-item">
               <a class="nav-link" href="bareact.html">Bare Acts</a>
             </li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="judgment/judgment.html">Judgments</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="article/article.html">Articles</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="vadodara-court.html">Vadodara-Court</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="judgment/judgment.html">Judgments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="article/article.html">Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vadodara-court.html">Vadodara-Court</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
     <!-- Contact Section -->
-    <section id="contact">
-      <div class="container">
-        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
-          <div class="row g-0">
-            <!-- LEFT INFO -->
-            <div
-              class="col-lg-5 text-light"
-              style="background: linear-gradient(135deg, #0b2545, #0f3b6b)"
-            >
-              <div class="p-4 h-100 d-flex flex-column justify-content-center">
-                <h4 class="mb-3 text-warning">
-                  <i class="bi bi-balance-scale me-2"></i>Contact Rishab
-                </h4>
-                <p>
-                  For assistance with legal drafting, notary work, property or
-                  family matters, legal notices, or basic court-related
-                  services, you can call me or DM me on Instagram for a
-                  professional consultation.
+    <section id="contact" class="py-5">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <span class="badge bg-primary px-4 py-2 rounded-pill mb-3">
+                    <i class="bi bi-envelope-paper-heart me-2"></i>Get in Touch
+                </span>
+                <!-- <h2 class="display-5 fw-bold mb-3">Let's Work Together</h2> -->
+                <p class="text-muted lead">
+                    Have a legal query or need professional assistance? I'm here to help.
                 </p>
-                <ul class="list-unstyled">
-                  <li>
-                    <i class="bi bi-envelope-fill me-2"></i>Email:
-                    <a href="mailto:example@gmail.com" class="text-warning"
-                      >rishablex05@gmail.com</a
-                    >
-                  </li>
-                  <li>
-                    <i class="bi bi-telephone-fill me-2"></i>Phone:
-                    <a href="tel:+916351166095" class="text-warning"
-                      >+91 6351166095</a
-                    >
-                  </li>
-                  <li>
-                    <i class="bi bi-geo-alt-fill me-2"></i>Vadodara, Gujarat
-                  </li>
-                </ul>
-                <div class="mt-3">
-                  <h6 class="text-warning">Office Hours</h6>
-                  <p>
-                    Mon–Fri: 10am–6pm <br />
-                    Sat: 10am–2pm
-                  </p>
-                </div>
-                <div class="mt-3">
-                  <h6 class="text-warning">Follow</h6>
-                  <a href="https://www.instagram.com/lawgically_incorrect" class="text-warning me-3"
-                    ><i class="bi bi-instagram fs-4"></i
-                  ></a>
-                  <a href="https://www.linkedin.com/in/rishab910" class="text-warning me-3"
-                    ><i class="bi bi-linkedin fs-4"></i
-                  ></a>
-                  <a href="https://github.com/RishabKanaujia" class="text-warning"
-                    ><i class="bi bi-github fs-4"></i
-                  ></a>
-                </div>
-              </div>
             </div>
 
-            <!-- RIGHT FORM -->
-            <div class="col-lg-7">
-              <div class="p-4">
-                <h5 class="mb-3">Send a Message</h5>
-                <form
-                  id="contactForm"
-                  action="https://formspree.io/f/xjkjkezv"
-                  method="POST"
-                >
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label for="cName" class="form-label">Name</label>
-                      <input
-                        type="text"
-                        id="cName"
-                        class="form-control"
-                        placeholder="Your name"
-                        required
-                      />
-                      <div class="invalid-feedback">
-                        Please enter your name.
-                      </div>
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="row g-0">
+                    <!-- LEFT INFO -->
+                    <div class="col-lg-5 position-relative">
+                        <!-- Gradient Background with Pattern -->
+                        <div class="h-100 p-5 text-light position-relative"
+                            style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);">
+
+                            <!-- Decorative Elements -->
+                            <div class="position-absolute top-0 end-0 opacity-10">
+                                <i class="bi bi-scales" style="font-size: 150px;"></i>
+                            </div>
+
+                            <div class="position-relative z-1">
+                                <!-- Header -->
+                                <div class="mb-4">
+                                    <div class="d-inline-block p-3 bg-white bg-opacity-10 rounded-3 mb-3">
+                                        <i class="bi bi-briefcase-fill"></i>
+                                    </div>
+                                    <h4 class="fw-bold mb-2">Contact Rishab</h4>
+                                    <p class="opacity-75 mb-0">
+                                        Legal Consultant & Advocate
+                                    </p>
+                                </div>
+
+                                <!-- Services -->
+                                <div class="mb-4">
+                                    <h6 class="fw-semibold text-warning mb-3">
+                                        <i class="bi bi-briefcase me-2"></i>Services Offered
+                                    </h6>
+                                    <ul class="list-unstyled small">
+                                        <li class="mb-2">
+                                            <i class="bi bi-check-circle-fill text-warning me-2"></i>
+                                            Legal Drafting & Documentation
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="bi bi-check-circle-fill text-warning me-2"></i>
+                                            Notary & Attestation Services
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="bi bi-check-circle-fill text-warning me-2"></i>
+                                            Property & Family Law Matters
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="bi bi-check-circle-fill text-warning me-2"></i>
+                                            Legal Notices & Court Services
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Contact Info -->
+                                <div class="mb-4">
+                                    <h6 class="fw-semibold text-warning mb-3">
+                                        <i class="bi bi-chat-dots me-2"></i>Contact Information
+                                    </h6>
+
+                                    <div class="d-flex align-items-center mb-3 p-3 bg-white bg-opacity-10 rounded-3">
+                                        <div class="me-3">
+                                            <i class="bi bi-envelope-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <small class="opacity-75 d-block">Email</small>
+                                            <a href="mailto:rishablex05@gmail.com"
+                                                class="text-white text-decoration-none fw-semibold">
+                                                rishablex05@gmail.com
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-center mb-3 p-3 bg-white bg-opacity-10 rounded-3">
+                                        <div class="me-3">
+                                            <i class="bi bi-telephone-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <small class="opacity-75 d-block">Phone</small>
+                                            <a href="tel:+916351166095"
+                                                class="text-white text-decoration-none fw-semibold">
+                                                +91 6351166095
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-center p-3 bg-white bg-opacity-10 rounded-3">
+                                        <div class="me-3">
+                                            <i class="bi bi-geo-alt-fill fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <small class="opacity-75 d-block">Location</small>
+                                            <span class="fw-semibold">Vadodara, Gujarat</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Office Hours -->
+                                <div class="mb-4 p-3 bg-white bg-opacity-10 rounded-3">
+                                    <h6 class="fw-semibold text-warning mb-3">
+                                        <i class="bi bi-clock me-2"></i>Office Hours
+                                    </h6>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Monday – Friday</span>
+                                        <span class="fw-semibold">10:00 AM – 6:00 PM</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span>Saturday</span>
+                                        <span class="fw-semibold">10:00 AM – 2:00 PM</span>
+                                    </div>
+                                </div>
+
+                                <!-- Social Links -->
+                                <div>
+                                    <h6 class="fw-semibold text-warning mb-3">
+                                        <i class="bi bi-share me-2"></i>Connect With Me
+                                    </h6>
+                                    <div class="d-flex gap-3">
+                                        <a href="https://www.instagram.com/lawgically_incorrect" target="_blank"
+                                            class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                            style="width: 45px; height: 45px;">
+                                            <i class="bi bi-instagram fs-5"></i>
+                                        </a>
+                                        <a href="https://www.linkedin.com/in/rishab910" target="_blank"
+                                            class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                            style="width: 45px; height: 45px;">
+                                            <i class="bi bi-linkedin fs-5"></i>
+                                        </a>
+                                        <a href="https://github.com/RishabKanaujia" target="_blank"
+                                            class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                            style="width: 45px; height: 45px;">
+                                            <i class="bi bi-github fs-5"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                      <label for="cEmail" class="form-label">Email</label>
-                      <input
-                        type="email"
-                        id="cEmail"
-                        class="form-control"
-                        placeholder="you@example.com"
-                        required
-                      />
-                      <div class="invalid-feedback">
-                        Please enter a valid email.
-                      </div>
+
+                    <!-- RIGHT FORM -->
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <!-- Form Header -->
+                            <div class="mb-4">
+                                <h3 class="fw-bold mb-2">Send a Message</h3>
+                                <p class="text-muted">
+                                    Fill out the form below and I'll get back to you within 24 hours.
+                                </p>
+                            </div>
+
+                            <!-- Contact Form -->
+                            <form id="contactForm" action="https://formspree.io/f/xjkjkezv" method="POST">
+                                <div class="row g-3">
+                                    <!-- Name -->
+                                    <div class="col-md-6">
+                                        <label for="cName" class="form-label fw-semibold">
+                                            <i class="bi bi-person me-1"></i>Full Name
+                                        </label>
+                                        <input type="text" id="cName" name="name"
+                                            class="form-control form-control-lg border-2" placeholder="Rishab k"
+                                            required />
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="col-md-6">
+                                        <label for="cEmail" class="form-label fw-semibold">
+                                            <i class="bi bi-envelope me-1"></i>Email Address
+                                        </label>
+                                        <input type="email" id="cEmail" name="email"
+                                            class="form-control form-control-lg border-2" placeholder="rit@example.com"
+                                            required />
+                                    </div>
+
+                                    <!-- Phone (Optional) -->
+                                    <div class="col-md-6">
+                                        <label for="cPhone" class="form-label fw-semibold">
+                                            <i class="bi bi-telephone me-1"></i>Phone Number
+                                            <span class="text-muted small">(Optional)</span>
+                                        </label>
+                                        <input type="tel" id="cPhone" name="phone"
+                                            class="form-control form-control-lg border-2"
+                                            placeholder="+91 98765 43210" />
+                                    </div>
+
+                                    <!-- Subject -->
+                                    <div class="col-md-6">
+                                        <label for="cSubject" class="form-label fw-semibold">
+                                            <i class="bi bi-tag me-1"></i>Subject
+                                        </label>
+                                        <select id="cSubject" name="subject" class="form-select form-select-lg border-2"
+                                            required>
+                                            <option value="">Choose...</option>
+                                            <option value="Legal Consultation">Legal Consultation</option>
+                                            <option value="Internship Inquiry">Internship Inquiry</option>
+                                            <option value="Collaboration">Collaboration</option>
+                                            <option value="Drafting Services">Drafting Services</option>
+                                            <option value="Notary Services">Notary Services</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Message -->
+                                    <div class="col-12">
+                                        <label for="cMessage" class="form-label fw-semibold">
+                                            <i class="bi bi-chat-left-text me-1"></i>Your Message
+                                        </label>
+                                        <textarea id="cMessage" name="message" rows="6"
+                                            class="form-control form-control-lg border-2"
+                                            placeholder="Tell me about your legal requirements or queries..."
+                                            required></textarea>
+                                    </div>
+
+                                    <!-- Submit Button -->
+                                    <div class="col-12">
+                                        <button type="submit"
+                                            class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-sm">
+                                            <i class="bi bi-send-fill me-2"></i>Send Message
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Status Message -->
+                                <div id="cfStatus" class="mt-4" style="display: none"></div>
+                            </form>
+
+                            <!-- Quick Note -->
+                            <div class="alert alert-light border-2 mt-4">
+                                <div class="d-flex">
+                                    <i class="bi bi-info-circle-fill text-primary me-3 fs-5"></i>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Quick Response Guaranteed</h6>
+                                        <p class="small mb-0 text-muted">
+                                            For urgent matters, please call directly or send a WhatsApp message
+                                            for faster assistance.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="cSubject" class="form-label">Subject</label>
-                    <input
-                      type="text"
-                      id="cSubject"
-                      class="form-control"
-                      placeholder="Internship / Collaboration"
-                      required
-                    />
-                    <div class="invalid-feedback">Please add a subject.</div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="cMessage" class="form-label">Message</label>
-                    <textarea
-                      id="cMessage"
-                      rows="5"
-                      class="form-control"
-                      placeholder="Write your message here..."
-                      required
-                    ></textarea>
-                    <div class="invalid-feedback">Please write a message.</div>
-                  </div>
-                  <button type="submit" class="btn btn-primary px-4">
-                    <i class="bi bi-send me-2"></i>Send
-                  </button>
-                  <div id="cfStatus" class="mt-3" style="display: none"></div>
-                </form>
-              </div>
+                </div>
             </div>
-          </div>
+
+            <!-- Additional Info Cards -->
+            <!-- <div class="row g-4 mt-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 text-center p-4">
+                        <div class="mb-3">
+                            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex p-4">
+                                <i class="bi bi-headset fs-1 text-primary"></i>
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-2">24/7 Support</h5>
+                        <p class="text-muted small mb-0">
+                            While office hours are limited, urgent queries can be addressed via WhatsApp.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 text-center p-4">
+                        <div class="mb-3">
+                            <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex p-4">
+                                <i class="bi bi-shield-check fs-1 text-success"></i>
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-2">Confidential</h5>
+                        <p class="text-muted small mb-0">
+                            All communications are kept strictly confidential as per legal ethics.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 text-center p-4">
+                        <div class="mb-3">
+                            <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex p-4">
+                                <i class="bi bi-star-fill fs-1 text-warning"></i>
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-2">Professional</h5>
+                        <p class="text-muted small mb-0">
+                            Quality legal services with transparent communication and fair pricing.
+                        </p>
+                    </div>
+                </div>
+            </div> -->
         </div>
-      </div>
     </section>
 
-   <!-- Footer -->
+
+    <!-- Footer -->
     <footer class="bg-dark text-light pt-5 pb-3 mt-5">
-      <div class="container">
-        <div class="row g-4">
-          <!-- About -->
-          <div class="col-lg-4 col-md-6">
-            <h5 class="fw-bold text-warning">
-              <i class="bi bi-balance-scale"></i> Rishab-LEX
-            </h5>
+        <div class="container">
+            <div class="row g-4">
+                <!-- About -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold text-warning">
+                        <i class="bi bi-balance-scale"></i> Rishab-LEX
+                    </h5>
 
-            <p class="small text-light-emphasis">
-              A practical legal resource platform built to help law students,
-              interns, advocates and court visitors through simplified legal
-              resources, court utilities and region-specific information.
-            </p>
+                    <p class="small text-light-emphasis">
+                        A practical legal resource platform built to help law students,
+                        interns, advocates and court visitors through simplified legal
+                        resources, court utilities and region-specific information.
+                    </p>
 
-            <small class="text-secondary">
-              © 2025 Rishab-LEX. All Rights Reserved.
-            </small>
-          </div>
+                    <small class="text-secondary">
+                        © 2025 Rishab-LEX. All Rights Reserved.
+                    </small>
+                </div>
 
-          <!-- Quick Links -->
-          <div class="col-lg-3 col-md-6">
-            <h6 class="fw-bold text-warning">Quick Links</h6>
+                <!-- Quick Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold text-warning">Quick Links</h6>
 
-            <ul class="list-unstyled small">
-              <li class="mb-2">
-                <a href="index.html" class="text-light text-decoration-none"
-                  >Home</a
-                >
-              </li>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2">
+                            <a href="index.html" class="text-light text-decoration-none">Home</a>
+                        </li>
 
-              <li class="mb-2">
-                <a href="about.html" class="text-light text-decoration-none"
-                  >About</a
-                >
-              </li>
+                        <li class="mb-2">
+                            <a href="about.html" class="text-light text-decoration-none">About</a>
+                        </li>
 
-              <li class="mb-2">
-                <a href="article/article.html" class="text-light text-decoration-none"
-                  >Articles</a
-                >
-              </li>
+                        <li class="mb-2">
+                            <a href="article/article.html" class="text-light text-decoration-none">Articles</a>
+                        </li>
 
-              <li class="mb-2">
-                <a href="judgment/judgment.html" class="text-light text-decoration-none"
-                  >Judgments</a
-                >
-              </li>
-                <a href="contact.html" class="text-light text-decoration-none"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
+                        <li class="mb-2">
+                            <a href="judgment/judgment.html" class="text-light text-decoration-none">Judgments</a>
+                        </li>
+                        <a href="contact.html" class="text-light text-decoration-none">Contact</a>
+                        </li>
+                    </ul>
+                </div>
 
-          <!-- Resources -->
-          <div class="col-lg-3 col-md-6">
-            <h6 class="fw-bold text-warning">Resources</h6>
+                <!-- Resources -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold text-warning">Resources</h6>
 
-            <ul class="list-unstyled small">
-              <li class="mb-2">
-                <a
-                  href="vadodara-court.html"
-                  class="text-light text-decoration-none"
-                >
-                  Vadodara Court Directory
-                </a>
-              </li>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2">
+                            <a href="vadodara-court.html" class="text-light text-decoration-none">
+                                Vadodara Court Directory
+                            </a>
+                        </li>
 
-              <li class="mb-2">
-                <a
-                  href="court-fee-calculator.html"
-                  class="text-light text-decoration-none"
-                >
-                  Court Fee Calculator
-                </a>
-              </li>
+                        <li class="mb-2">
+                            <a href="court-fee-calculator.html" class="text-light text-decoration-none">
+                                Court Fee Calculator
+                            </a>
+                        </li>
 
-              <li class="mb-2">
-                <a href="NGO.html" class="text-light text-decoration-none">
-                  NGOs in Vadodara
-                </a>
-              </li>
+                        <li class="mb-2">
+                            <a href="NGO.html" class="text-light text-decoration-none">
+                                NGOs in Vadodara
+                            </a>
+                        </li>
 
-              <li>
-                <a href="/" class="text-light text-decoration-none">
-                  Legal Glossary
-                </a>
-              </li>
-            </ul>
-          </div>
+                        <li>
+                            <a href="/index.html#glossary" class="text-light text-decoration-none">
+                                Legal Glossary
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-          <!-- Connect -->
-          <div class="col-lg-2 col-md-6">
-            <h6 class="fw-bold text-warning">Connect</h6>
+                <!-- Connect -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold text-warning">Connect</h6>
 
-            <div class="d-flex gap-3 fs-4">
-              <a
-                href="https://www.instagram.com/lawgically_incorrect"
-                target="_blank"
-                class="text-light"
-              >
-                <i class="bi bi-instagram"></i>
-              </a>
+                    <div class="d-flex gap-3 fs-4">
+                        <a href="https://www.instagram.com/lawgically_incorrect" target="_blank" class="text-light">
+                            <i class="bi bi-instagram"></i>
+                        </a>
 
-              <a
-                href="https://www.linkedin.com/in/rishab910"
-                target="_blank"
-                class="text-light"
-              >
-                <i class="bi bi-linkedin"></i>
-              </a>
+                        <a href="https://www.linkedin.com/in/rishab910" target="_blank" class="text-light">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
 
-              <a
-                href="https://github.com/RishabKanaujia"
-                target="_blank"
-                class="text-light"
-              >
-                <i class="bi bi-github"></i>
-              </a>
+                        <a href="https://github.com/RishabKanaujia" target="_blank" class="text-light">
+                            <i class="bi bi-github"></i>
+                        </a>
+                    </div>
+
+                    <p class="small text-secondary mt-3 mb-0">
+                        Feedback and suggestions are always welcome.
+                    </p>
+                </div>
             </div>
 
-            <p class="small text-secondary mt-3 mb-0">
-              Feedback and suggestions are always welcome.
-            </p>
-          </div>
+            <hr class="border-secondary my-4" />
+
+            <div class="d-md-flex justify-content-between align-items-center small">
+                <div class="text-secondary">
+                    Built with ❤️ to make legal information more accessible and
+                    practical.
+                </div>
+
+                <div class="mt-2 mt-md-0">
+                    <a href="privacy_policy.html" class="text-decoration-none text-light me-3">
+                        Privacy Policy
+                    </a>
+
+                    <a href="privacy_policy.html" class="text-decoration-none text-light">
+                        Disclaimer
+                    </a>
+                </div>
+            </div>
         </div>
-
-        <hr class="border-secondary my-4" />
-
-        <div class="d-md-flex justify-content-between align-items-center small">
-          <div class="text-secondary">
-            Built with ❤️ to make legal information more accessible and
-            practical.
-          </div>
-
-          <div class="mt-2 mt-md-0">
-            <a href="privacy_policy.html" class="text-decoration-none text-light me-3">
-              Privacy Policy
-            </a>
-
-            <a href="privacy_policy.html" class="text-decoration-none text-light">
-              Disclaimer
-            </a>
-          </div>
-        </div>
-      </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Enhanced Script with Better UX -->
     <script>
-      const form = document.getElementById("contactForm");
-      const status = document.getElementById("cfStatus");
+        const form = document.getElementById("contactForm");
+        const status = document.getElementById("cfStatus");
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
 
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        status.style.display = "block";
-        status.className = "alert alert-info mt-3";
-        status.textContent = "📨 Sending your message...";
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-        // Collect the data properly (add name attributes)
-        const data = new FormData(form);
-        data.append("name", document.getElementById("cName").value);
-        data.append("email", document.getElementById("cEmail").value);
-        data.append("subject", document.getElementById("cSubject").value);
-        data.append("message", document.getElementById("cMessage").value);
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Sending...';
 
-        try {
-          const res = await fetch(form.action, {
-            method: "POST",
-            body: data,
-            headers: { Accept: "application/json" },
-          });
+            status.style.display = "block";
+            status.className = "alert alert-info";
+            status.innerHTML = `
+      <div class="d-flex align-items-center">
+        <div class="spinner-border spinner-border-sm me-3" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div>Sending your message...</div>
+      </div>
+    `;
 
-          if (res.ok) {
-            status.className = "alert alert-success mt-3";
-            status.textContent = "✅ Message sent successfully!";
-            form.reset();
-          } else {
-            const errorData = await res.json();
-            throw new Error(errorData.error || "Unknown error");
-          }
-        } catch (err) {
-          status.className = "alert alert-danger mt-3";
-          status.textContent = "❌ Failed to send. Please try again later.";
-          console.error("Error:", err);
-        }
-      });
+            const data = new FormData(form);
+
+            try {
+                const res = await fetch(form.action, {
+                    method: "POST",
+                    body: data,
+                    headers: { Accept: "application/json" },
+                });
+
+                if (res.ok) {
+                    status.className = "alert alert-success";
+                    status.innerHTML = `
+          <div class="d-flex align-items-center">
+            <i class="bi bi-check-circle-fill fs-4 me-3"></i>
+            <div>
+              <h6 class="mb-1 fw-bold">Message Sent Successfully!</h6>
+              <p class="mb-0 small">Thank you for reaching out. I'll get back to you within 24 hours.</p>
+            </div>
+          </div>
+        `;
+                    form.reset();
+
+                    // Auto-hide success message after 5 seconds
+                    setTimeout(() => {
+                        status.style.display = "none";
+                    }, 5000);
+                } else {
+                    throw new Error("Failed to send");
+                }
+            } catch (err) {
+                status.className = "alert alert-danger";
+                status.innerHTML = `
+        <div class="d-flex align-items-center">
+          <i class="bi bi-exclamation-triangle-fill fs-4 me-3"></i>
+          <div>
+            <h6 class="mb-1 fw-bold">Oops! Something went wrong</h6>
+            <p class="mb-0 small">Please try again or contact directly via email/phone.</p>
+          </div>
+        </div>
+      `;
+                console.error("Error:", err);
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        });
+
+        // Form validation with visual feedback
+        form.querySelectorAll('input, textarea, select').forEach(field => {
+            field.addEventListener('blur', () => {
+                if (field.value.trim() === '' && field.hasAttribute('required')) {
+                    field.classList.add('is-invalid');
+                } else {
+                    field.classList.remove('is-invalid');
+                    field.classList.add('is-valid');
+                }
+            });
+
+            field.addEventListener('input', () => {
+                if (field.classList.contains('is-invalid')) {
+                    field.classList.remove('is-invalid');
+                }
+            });
+        });
     </script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
