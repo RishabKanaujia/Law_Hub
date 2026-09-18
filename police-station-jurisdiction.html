@@ -1,1237 +1,1017 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Vadodara Police Station Jurisdiction – Rishab-LEX</title>
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
+  <style>
+    /* ===== Custom autocomplete + mobile friendly tweaks — no major design change ===== */
+    .search-wrapper { position: relative; }
+    .search-wrapper .form-control { padding-right: 42px; }
+    .search-clear {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #f1f3f5;
+      border: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 3;
+      color: #495057;
+    }
+    .search-clear.show { display: flex; }
+    .search-clear:hover { background: #dee2e6; }
 
+    .autocomplete-list {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      right: 0;
+      background: #fff;
+      border: 1px solid #e9ecef;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+      max-height: 360px;
+      overflow-y: auto;
+      z-index: 1055;
+      display: none;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+    .autocomplete-list.show { display: block; animation: dropIn 0.18s ease; }
+    @keyframes dropIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .autocomplete-list::-webkit-scrollbar { width: 6px; }
+    .autocomplete-list::-webkit-scrollbar-thumb { background: #ced4da; border-radius: 10px; }
+
+    .autocomplete-item {
+      padding: 13px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #f1f3f5;
+      transition: background 0.15s;
+      min-height: 56px;
+    }
+    .autocomplete-item:last-child { border-bottom: none; }
+    .autocomplete-item:hover { background: #f8f9fa; }
+    .autocomplete-item.active { background: #212529; color: #fff; }
+    .autocomplete-item.active .text-muted,
+    .autocomplete-item.active small { color: #adb5bd !important; }
+    .autocomplete-item.active .badge { background: #ffc107 !important; color:#212529 !important; }
+    .ac-icon {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      background: #f1f3f5;
+      font-size: 1.1rem;
+    }
+    .autocomplete-item.active .ac-icon { background: #343a40; color: #fff; }
+    .ac-text { flex: 1; min-width: 0; }
+    .ac-title { font-weight: 700; font-size: 0.97rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ac-sub { font-size: 0.8rem; color: #6c757d; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
+    .ac-badge { flex-shrink: 0; }
+    .highlight { background: #fff3cd; padding: 0 3px; border-radius: 4px; font-weight: 800; }
+    .autocomplete-item.active .highlight { background: #ffc107; color: #212529; }
+    .ac-empty { padding: 20px; text-align: center; color: #868e96; font-size: 0.9rem; }
+    .ac-footer { padding: 10px 16px; background: #f8f9fa; border-top: 1px solid #e9ecef; font-size: 0.78rem; color: #6c757d; text-align: center; border-radius: 0 0 16px 16px; }
+
+    /* Mobile refinements — keep look same, just tighten */
+    @media (max-width: 768px) {
+      .display-5 { font-size: 1.75rem; line-height: 1.2; }
+      .hero-logo { max-height: 120px !important; }
+      .card-body.p-md-5 { padding: 1.5rem !important; }
+      .search-card-title { font-size: 1.35rem; }
+      #policeSearchBtn, #judgeSearchBtn { flex: 1 1 0; font-size: 0.92rem; padding: 10px 8px; white-space: nowrap; }
+      .results-head { flex-direction: column; align-items: flex-start !important; gap: 10px; }
+      .form-control-lg { font-size: 1rem; padding: 12px 16px; }
+      .autocomplete-list { max-height: 300px; border-radius: 14px; }
+      .autocomplete-item { padding: 12px 14px; min-height: 52px; }
+    }
+    @media (max-width: 576px) {
+      .container { padding-left: 16px; padding-right: 16px; }
+      .navbar-brand { font-size: 1.05rem; }
+      .badge { font-size: 0.72rem; }
+    }
+
+    /* Improve tap targets */
+    .btn { min-height: 44px; }
+    .form-control { min-height: 48px; }
+
+    /* Results card tweaks for mobile */
+    .result-card { transition: transform 0.15s, box-shadow 0.15s; }
+    .result-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important; }
+
+    /* Focus ring visible on mobile */
+    .form-control:focus { box-shadow: 0 0 0 0.2rem rgba(33,37,41,0.12); border-color: #212529; }
+  </style>
+</head>
 <body class="bg-light">
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
     <div class="container">
       <a class="navbar-brand fw-bold text-warning" href="index.html"><i class="bi bi-balance-scale"></i> Rishab-LEX</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <!-- <li class="nav-item">
-              <a class="nav-link" href="NGO.html">ngo list</a>
-            </li> -->
-          <li class="nav-item">
-            <a class="nav-link" href="judgment/judgment.html">Judgments</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="article/article.html">Articles</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="vadodara-court.html">Vadodara-Court</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="judgment/judgment.html">Judgments</a></li>
+          <li class="nav-item"><a class="nav-link" href="article/article.html">Articles</a></li>
+          <li class="nav-item"><a class="nav-link" href="vadodara-court.html">Vadodara-Court</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-
   <!-- Gujarat Police Hero Banner -->
-  <section class="bg-white border-bottom py-4">
+  <section class="bg-white border-bottom py-4 py-md-4">
     <div class="container">
-      <div class="row align-items-center g-4">
-
-        <!-- Gujarat Police Logo -->
-        <div class="col-md-3 text-center">
-          <img src="/img/gjpolice.png" alt="Gujarat Police" class="img-fluid" style="max-height: 180px;">
+      <div class="row align-items-center g-3 g-md-4">
+        <div class="col-12 col-md-3 text-center">
+          <img src="/img/gjpolice.png" alt="Gujarat Police" class="img-fluid hero-logo" style="max-height: 180px;" loading="lazy">
         </div>
-
-        <!-- Heading -->
-        <div class="col-md-9 text-center text-md-start">
-
-          <span class="badge bg-dark mb-3 px-3 py-2">
-            Gujarat Police · Vadodara
-          </span>
-
-          <h1 class="display-5 fw-bold mb-2">
-            Police Station Jurisdiction Search
-          </h1>
-
-          <p class="lead text-secondary mb-2">
-            Find the allotted Court & Judicial Officer for a Police Station
-          </p>
-
-          <small class="text-muted">
-            Vadodara District & Sessions Court
-          </small>
-
+        <div class="col-12 col-md-9 text-center text-md-start">
+          <span class="badge bg-dark mb-2 mb-md-3 px-3 py-2">Gujarat Police · Vadodara</span>
+          <h1 class="display-5 fw-bold mb-2">Police Station Jurisdiction Search</h1>
+          <p class="lead text-secondary mb-1" style="font-size: 1.05rem;">Find the allotted Court & Judicial Officer for a Police Station</p>
+          <small class="text-muted">Vadodara District & Sessions Court · Order No. CrI/4388/2026 dated 14.08.2026 (w.e.f. 17/08/2026) & CrI/4500/2026</small>
         </div>
-
       </div>
     </div>
   </section>
 
-
   <main class="container">
 
-
-
     <!-- Information -->
-    <div class="card border-0 shadow-sm rounded-4 my-5">
-
+    <div class="card border-0 shadow-sm rounded-4 my-4 my-md-5">
       <div class="card-body p-4">
-
-        <h5 class="fw-bold mb-3">
-          <i class="bi bi-info-circle me-2"></i>
-          How to use this page
-        </h5>
-
+        <h5 class="fw-bold mb-3"><i class="bi bi-info-circle me-2"></i>How to use this page</h5>
         <div class="row g-4">
-
           <div class="col-md-4">
             <div class="d-flex gap-3">
               <div class="fs-4">1️⃣</div>
               <div>
                 <h6 class="fw-bold">Search Police Station</h6>
-                <p class="text-muted small mb-0">
-                  Enter the name of the Police Station.
-                </p>
+                <p class="text-muted small mb-0">Enter the name of the Police Station.</p>
               </div>
             </div>
           </div>
-
           <div class="col-md-4">
             <div class="d-flex gap-3">
               <div class="fs-4">2️⃣</div>
               <div>
                 <h6 class="fw-bold">Find the Court</h6>
-                <p class="text-muted small mb-0">
-                  The allotted Court and Judicial Officer will appear.
-                </p>
+                <p class="text-muted small mb-0">The allotted Court and Judicial Officer will appear.</p>
               </div>
             </div>
           </div>
-
           <div class="col-md-4">
             <div class="d-flex gap-3">
               <div class="fs-4">3️⃣</div>
               <div>
                 <h6 class="fw-bold">Check Part of Offence</h6>
-                <p class="text-muted small mb-0">
-                  The applicable Part I, II and/or III is displayed
-                  as per the allocation.
-                </p>
+                <p class="text-muted small mb-0">The applicable Part I, II and/or III is displayed as per the allocation.</p>
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
-
-
-
     </div>
 
-
     <!-- Search Card -->
-    <div class="card border-0 shadow-sm rounded-4 mb-5">
-
+    <div class="card border-0 shadow-sm rounded-4 mb-4 mb-md-5">
       <div class="card-body p-4 p-md-5">
-
         <div class="text-center mb-4">
-
-          <h3 class="fw-bold">
-            <i class="bi bi-search me-2"></i>
-            Search Jurisdiction
-          </h3>
-
-          <p class="text-muted mb-0">
-            Search by Police Station or Judicial Officer
-          </p>
-
+          <h3 class="fw-bold search-card-title"><i class="bi bi-search me-2"></i>Search Jurisdiction</h3>
+          <p class="text-muted mb-0">Search by Police Station or Judicial Officer</p>
         </div>
-
 
         <!-- Search Type -->
-        <div class="d-flex justify-content-center gap-2 mb-4">
-
-          <button type="button" id="policeSearchBtn" class="btn btn-dark active">
-            <i class="bi bi-building me-1"></i>
-            Police Station
-          </button>
-
-          <button type="button" id="judgeSearchBtn" class="btn btn-outline-dark">
-            <i class="bi bi-person-badge me-1"></i>
-            Judge / Court
-          </button>
-
+        <div class="d-flex justify-content-center gap-2 mb-4" role="tablist">
+          <button type="button" id="policeSearchBtn" class="btn btn-dark active" aria-selected="true" role="tab"><i class="bi bi-building me-1"></i> Police Station</button>
+          <button type="button" id="judgeSearchBtn" class="btn btn-outline-dark" aria-selected="false" role="tab"><i class="bi bi-person-badge me-1"></i> Judge / Court</button>
         </div>
-
 
         <!-- Police Search -->
         <div id="policeSearchBox">
-
-          <label for="policeInput" class="form-label fw-semibold">
-            Search Police Station
-          </label>
-
-          <input type="text" id="policeInput" class="form-control form-control-lg" list="policeStations"
-            placeholder="e.g. Harni, Raopura, Gotri..." autocomplete="off">
-
-          <datalist id="policeStations"></datalist>
-
-          <div class="form-text">
-            Type the name of a Police Station to find the allotted
-            Court / Judicial Officer.
+          <label for="policeInput" class="form-label fw-semibold">Search Police Station</label>
+          <div class="search-wrapper">
+            <input type="text" id="policeInput" class="form-control form-control-lg" placeholder="e.g. Harni, Raopura, Gotri..." autocomplete="off" autocorrect="off" spellcheck="false" aria-autocomplete="list" aria-expanded="false">
+            <button type="button" class="search-clear" id="clearPolice" aria-label="Clear search"><i class="bi bi-x-lg"></i></button>
+            <div id="policeAutocomplete" class="autocomplete-list" role="listbox" aria-label="Police station suggestions"></div>
           </div>
-
+          <div class="form-text">Type the name of a Police Station to find the allotted Court / Judicial Officer.</div>
         </div>
-
 
         <!-- Judge Search -->
         <div id="judgeSearchBox" class="d-none">
-
-          <label for="judgeInput" class="form-label fw-semibold">
-            Search Judge / Court
-          </label>
-
-          <input type="text" id="judgeInput" class="form-control form-control-lg" list="judgesList"
-            placeholder="e.g. J.M. Solanki, H.P. Joshi..." autocomplete="off">
-
-          <datalist id="judgesList"></datalist>
-
-          <div class="form-text">
-            Search a Judicial Officer to see all Police Stations
-            allotted to that Court.
+          <label for="judgeInput" class="form-label fw-semibold">Search Judge / Court</label>
+          <div class="search-wrapper">
+            <input type="text" id="judgeInput" class="form-control form-control-lg" placeholder="e.g. J.M. Solanki, H.P. Joshi..." autocomplete="off" autocorrect="off" spellcheck="false" aria-autocomplete="list" aria-expanded="false">
+            <button type="button" class="search-clear" id="clearJudge" aria-label="Clear search"><i class="bi bi-x-lg"></i></button>
+            <div id="judgeAutocomplete" class="autocomplete-list" role="listbox" aria-label="Judge suggestions"></div>
           </div>
-
+          <div class="form-text">Search a Judicial Officer to see all Police Stations allotted to that Court.</div>
         </div>
 
       </div>
     </div>
-
 
     <!-- Results -->
     <div id="resultsSection" class="d-none">
-
-      <div class="d-flex justify-content-between align-items-center mb-3">
-
+      <div class="d-flex justify-content-between align-items-center mb-3 results-head">
         <div>
-          <h4 class="fw-bold mb-1" id="resultsTitle">
-            Search Results
-          </h4>
-
-          <p class="text-muted mb-0" id="resultsSubtitle"></p>
+          <h4 class="fw-bold mb-1" id="resultsTitle">Search Results</h4>
+          <p class="text-muted mb-0 small" id="resultsSubtitle"></p>
         </div>
-
         <span id="resultCount" class="badge bg-dark rounded-pill px-3 py-2"></span>
-
       </div>
-
-      <div id="resultsContainer" class="row g-4"></div>
-
+      <div id="resultsContainer" class="row g-3 g-md-4"></div>
     </div>
-
 
     <!-- No Results -->
     <div id="noResults" class="d-none">
-
       <div class="card border-0 shadow-sm rounded-4">
         <div class="card-body text-center py-5">
-
-          <div class="display-5 mb-3">
-            🔎
-          </div>
-
-          <h5 class="fw-bold">
-            No jurisdiction found
-          </h5>
-
-          <p class="text-muted mb-0">
-            Please check the spelling or try another Police Station
-            or Judicial Officer.
-          </p>
-
+          <div class="display-5 mb-3">🔎</div>
+          <h5 class="fw-bold">No jurisdiction found</h5>
+          <p class="text-muted mb-0">Please check the spelling or try another Police Station or Judicial Officer.</p>
         </div>
       </div>
-
     </div>
 
     <!-- Disclaimer -->
     <div class="alert alert-secondary border-0 rounded-4 my-4">
-
-      <h6 class="fw-bold">
-        <i class="bi bi-exclamation-triangle me-2"></i>
-        Disclaimer
-      </h6>
-
-      <p class="small mb-2">
-        This information has been compiled by Rishab-LEX from the
-        District & Sessions Court, Vadodara office orders available
-        with us. It is intended only as a convenient reference for
-        advocates, law students, litigants and other court users.
-      </p>
-
-      <p class="small mb-2">
-        Court jurisdiction and Police Station allocations may change
-        due to transfers, promotions, new postings, administrative
-        orders or subsequent revisions. Existing cases may also be
-        governed by earlier orders, wherever applicable.
-      </p>
-
-      <p class="small mb-2">
-        Rishab-LEX does not claim that this information is a substitute
-        for an official court record or order. Users should verify
-        important and time-sensitive information with the concerned
-        court or official source before relying upon it.
-      </p>
-
-      <p class="small mb-0">
-        If you notice any incorrect, missing or outdated information,
-        please inform us through the
-        <a href="contact.html" class="fw-semibold text-dark">
-          Contact section
-        </a>,
-        Instagram DM or WhatsApp so that it can be reviewed and
-        corrected as soon as possible.
-      </p>
-
+      <h6 class="fw-bold"><i class="bi bi-exclamation-triangle me-2"></i>Disclaimer</h6>
+      <p class="small mb-2">This information has been compiled by Rishab-LEX from the District & Sessions Court, Vadodara office orders <strong>CrI/4388/2026 (14.08.2026)</strong> and <strong>CrI/4500/2026 (19.08.2026)</strong> available with us. It is intended only as a convenient reference for advocates, law students, litigants and other court users. Verified & corrected as per scanned PDF.</p>
+      <p class="small mb-2">Court jurisdiction and Police Station allocations may change due to transfers, promotions, new postings, administrative orders or subsequent revisions. Existing cases may also be governed by earlier orders, wherever applicable. <em>Note: Part-I & II = IPC & Other than IPC offences, Part-III = Prohibition Act offences (as per Note 5 of the order).</em></p>
+      <p class="small mb-2">Rishab-LEX does not claim that this information is a substitute for an official court record or order. Users should verify important and time-sensitive information with the concerned court or official source before relying upon it.</p>
+      <p class="small mb-0">If you notice any incorrect, missing or outdated information, please inform us through the <a href="contact.html" class="fw-semibold text-dark">Contact section</a>, Instagram DM or WhatsApp so that it can be reviewed and corrected as soon as possible.</p>
     </div>
 
   </main>
-
 
   <!-- Footer -->
   <footer class="bg-dark text-light pt-5 pb-3 mt-5">
     <div class="container">
       <div class="row g-4">
-        <!-- About -->
         <div class="col-lg-4 col-md-6">
-          <h5 class="fw-bold text-warning">
-            <i class="bi bi-balance-scale"></i> Rishab-LEX
-          </h5>
-
-          <p class="small text-light-emphasis">
-            A practical legal resource platform built to help law students,
-            interns, advocates and court visitors through simplified legal
-            resources, court utilities and region-specific information.
-          </p>
-
-          <small class="text-secondary">
-            © 2025 Rishab-LEX. All Rights Reserved.
-          </small>
+          <h5 class="fw-bold text-warning"><i class="bi bi-balance-scale"></i> Rishab-LEX</h5>
+          <p class="small text-light-emphasis">A practical legal resource platform built to help law students, interns, advocates and court visitors through simplified legal resources, court utilities and region-specific information.</p>
+          <small class="text-secondary">© 2025 Rishab-LEX. All Rights Reserved.</small>
         </div>
-
-        <!-- Quick Links -->
         <div class="col-lg-3 col-md-6">
           <h6 class="fw-bold text-warning">Quick Links</h6>
-
           <ul class="list-unstyled small">
-            <li class="mb-2">
-              <a href="index.html" class="text-light text-decoration-none">Home</a>
-            </li>
-
-            <li class="mb-2">
-              <a href="about.html" class="text-light text-decoration-none">About</a>
-            </li>
-
-            <li class="mb-2">
-              <a href="article/article.html" class="text-light text-decoration-none">Articles</a>
-            </li>
-
-            <li class="mb-2">
-              <a href="judgment/judgment.html" class="text-light text-decoration-none">Judgments</a>
-            </li>
-            <a href="contact.html" class="text-light text-decoration-none">Contact</a>
-            </li>
+            <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">About</a></li>
+            <li class="mb-2"><a href="article/article.html" class="text-light text-decoration-none">Articles</a></li>
+            <li class="mb-2"><a href="judgment/judgment.html" class="text-light text-decoration-none">Judgments</a></li>
+            <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
           </ul>
         </div>
-
-        <!-- Resources -->
         <div class="col-lg-3 col-md-6">
           <h6 class="fw-bold text-warning">Resources</h6>
-
           <ul class="list-unstyled small">
-            <li class="mb-2">
-              <a href="vadodara-court.html" class="text-light text-decoration-none">
-                Vadodara Court Directory
-              </a>
-            </li>
-
-            <li class="mb-2">
-              <a href="court-fee-calculator.html" class="text-light text-decoration-none">
-                Court Fee Calculator
-              </a>
-            </li>
-
-            <li class="mb-2">
-              <a href="NGO.html" class="text-light text-decoration-none">
-                NGOs in Vadodara
-              </a>
-            </li>
-
-            <li>
-              <a href="/index.html#glossary" class="text-light text-decoration-none">
-                Legal Glossary
-              </a>
-            </li>
+            <li class="mb-2"><a href="vadodara-court.html" class="text-light text-decoration-none">Vadodara Court Directory</a></li>
+            <li class="mb-2"><a href="court-fee-calculator.html" class="text-light text-decoration-none">Court Fee Calculator</a></li>
+            <li class="mb-2"><a href="NGO.html" class="text-light text-decoration-none">NGOs in Vadodara</a></li>
+            <li><a href="/index.html#glossary" class="text-light text-decoration-none">Legal Glossary</a></li>
           </ul>
         </div>
-
-        <!-- Connect -->
         <div class="col-lg-2 col-md-6">
           <h6 class="fw-bold text-warning">Connect</h6>
-
           <div class="d-flex gap-3 fs-4">
-            <a href="https://www.instagram.com/lawgically_incorrect" target="_blank" class="text-light">
-              <i class="bi bi-instagram"></i>
-            </a>
-
-            <a href="https://www.linkedin.com/in/rishab910" target="_blank" class="text-light">
-              <i class="bi bi-linkedin"></i>
-            </a>
-
-            <a href="https://github.com/RishabKanaujia" target="_blank" class="text-light">
-              <i class="bi bi-github"></i>
-            </a>
+            <a href="https://www.instagram.com/lawgically_incorrect" target="_blank" class="text-light"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/rishab910" target="_blank" class="text-light"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/RishabKanaujia" target="_blank" class="text-light"><i class="bi bi-github"></i></a>
           </div>
-
-          <p class="small text-secondary mt-3 mb-0">
-            Feedback and suggestions are always welcome.
-          </p>
+          <p class="small text-secondary mt-3 mb-0">Feedback and suggestions are always welcome.</p>
         </div>
       </div>
-
       <hr class="border-secondary my-4" />
-
       <div class="d-md-flex justify-content-between align-items-center small">
-        <div class="text-secondary">
-          Built with ❤️ to make legal information more accessible and
-          practical.
-        </div>
-
+        <div class="text-secondary">Built with ❤️ to make legal information more accessible and practical.</div>
         <div class="mt-2 mt-md-0">
-          <a href="privacy_policy.html" class="text-decoration-none text-light me-3">
-            Privacy Policy
-          </a>
-
-          <a href="privacy_policy.html" class="text-decoration-none text-light">
-            Disclaimer
-          </a>
+          <a href="privacy_policy.html" class="text-decoration-none text-light me-3">Privacy Policy</a>
+          <a href="privacy_policy.html" class="text-decoration-none text-light">Disclaimer</a>
         </div>
       </div>
     </div>
   </footer>
 
-
   <script>
-
     /*
       ============================================
       VADODARA POLICE STATION JURISDICTION DATA
+      Corrected & verified against Office Order CrI/4388/2026 dated 14.08.2026 (pages 2-4)
+      Part definitions: Part I & II = IPC & Other than IPC, Part III = Prohibition
       ============================================
     */
-
     const jurisdictionData = [
-
       {
         judge: "Mr. P.B. Nayak",
         designation: "Chief Judicial Magistrate, Vadodara",
-        parts: "I & II",
         stations: [
-          "D.C.B Police Station",
-          "L.C.B. Police Station",
-          "C.I.D. Police Station",
-          "Jawaharnagar Police Station",
-          "Kapurai Police Station"
+          { name: "D.C.B Police Station", parts: "I & II" },
+          { name: "L.C.B. Police Station", parts: "I & II" },
+          { name: "C.I.D. Police Station", parts: "I & II" },
+          { name: "Jawaharnagar Police Station", parts: "I & II" },
+          { name: "Kapurai Police Station", parts: "I & II" }
         ]
       },
-
       {
         judge: "Mr. B.P. Mahida",
-        designation: "34th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I & V",
+        designation: "3rd Additional Chief Judicial Magistrate, Vadodara",
         stations: [
-          "Raopura Police Station"
+          { name: "Raopura Police Station", parts: "I & II" }
         ]
       },
-
       {
         judge: "Mr. R.V. Limbachiya",
         designation: "4th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I & II",
         stations: [
-          "Bapod Police Station"
+          { name: "Bapod Police Station", parts: "I & II" }
         ]
       },
-
       {
         judge: "Mr. P.K. Gadhvi",
         designation: "5th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I & II",
         stations: [
-          "P Road Police Station"
+          { name: "J P Road Police Station", parts: "I & II" }
         ]
       },
-
       {
         judge: "Mr. R.B. Gosai",
         designation: "9th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I, II & III",
         stations: [
-          "Panigate Police Station"
+          { name: "Panigate Police Station", parts: "I, II & III" }
         ]
       },
-
       {
         judge: "Mr. J.M. Solanki",
         designation: "10th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I & II",
         stations: [
-          "Harni Police Station"
+          { name: "Harni Police Station", parts: "I & II" }
         ]
       },
-
       {
-        judge: "Mr. L.S. Saiyed",
+        judge: "Mr. I.S. Saiyed",
         designation: "12th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "II & III",
         stations: [
-          "Vadodara Railway Police Station"
+          { name: "Vadodara Railway Police Station", parts: "I, II & III" }
         ]
       },
-
       {
         judge: "Mr. S.G. Parmar",
         designation: "13th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "II",
         stations: [
-          "Nawapura Police Station"
+          { name: "Nawapura Police Station", parts: "I" }
         ]
       },
-
       {
         judge: "Mr. S.M. Mishra",
         designation: "14th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I",
         stations: [
-          "Cyber Crime Police Station",
-          "Vadodara City Police Station"
+          { name: "Cyber Crime Police Station", parts: "I & II" },
+          { name: "Vadodara City Police Station", parts: "I" }
         ]
       },
-
       {
         judge: "Mr. J.V. Shah",
         designation: "15th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I",
         stations: [
-          "Sayajigunj Police Station"
+          { name: "Sayajigunj Police Station", parts: "I" }
         ]
       },
-
       {
         judge: "Mr. P.B. Patel",
         designation: "16th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I & II",
         stations: [
-          "Chhani Police Station",
-          "Vadodara Taluka Police Station",
-          "Manjusar Police Station",
-          "Cyber Crime Range Station"
+          { name: "Chhani Police Station", parts: "I" },
+          { name: "Vadodara Taluka Police Station", parts: "I & II" },
+          { name: "Manjusar Police Station", parts: "I & II" },
+          { name: "Cyber Crime Police Range Station", parts: "I & II" }
         ]
       },
-
       {
         judge: "Mr. A.G. Dodiya",
         designation: "17th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "II",
         stations: [
-          "Manjalpur Police Station"
+          { name: "Manjalpur Police Station", parts: "I, II, III" }
         ]
       },
-
       {
         judge: "Mr. D.M. Singhal",
         designation: "18th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I, II & III",
         stations: [
-          "Warasiya Police Station",
-          "Kumbharwada Police Station"
+          { name: "Warasiya Police Station", parts: "I, II, III" },
+          { name: "Kumbharwada Police Station", parts: "I, II, III" }
         ]
       },
-
       {
         judge: "Mr. S.K. Sharma",
         designation: "19th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I & II",
         stations: [
-          "Fatehgunj Police Station",
-          "Laxmipura Police Station"
+          { name: "Fatehgunj Police Station", parts: "I, II, III" },
+          { name: "Laxmipura Police Station", parts: "I & II" }
         ]
       },
-
       {
-        judge: "Mr. C.V. Bhait",
+        judge: "Mr. C.V. Bhatt",
         designation: "20th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I, II & III",
         stations: [
-          "Makarpura Police Station"
+          { name: "Makarpura Police Station", parts: "I, II, III" }
         ]
       },
-
       {
         judge: "Mr. O.L. Khan",
         designation: "22nd Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I & II",
         stations: [
-          "Wadi Police Station"
+          { name: "Wadi Police Station", parts: "I & II" }
         ]
       },
-
       {
         judge: "Dr. H.P. Joshi",
         designation: "24th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I, II & III",
         stations: [
-          "Gotri Police Station",
-          "Chhani Police Station"
+          { name: "Gotri Police Station", parts: "I, II, III" },
+          { name: "Chhani Police Station", parts: "II, III" }
         ]
       },
-
       {
         judge: "Mr. H.S. Desai",
-        designation: "29th Additional Chief Judicial Magistrate, Vadodara",
-        parts: "I & II",
+        designation: "25th Additional Chief Judicial Magistrate, Vadodara",
         stations: [
-          "Atladara Police Station",
-          "Raopura Police Station",
-          "Laxmipura Police Station",
-          "Kapurai Police Station"
+          { name: "Atladara Police Station", parts: "I & II" },
+          { name: "Raopura Police Station", parts: "III" },
+          { name: "Laxmipura Police Station", parts: "III" },
+          { name: "Kapurai Police Station", parts: "III" }
         ]
       },
-
       {
         judge: "Ms. E.K. Chandrawat",
         designation: "Judicial Magistrate First Class (Municipal), Vadodara",
-        parts: "I & III",
         stations: [
-          "Karelibaug Police Station",
-          "Nawapura Police Station"
+          { name: "Karelibaug Police Station", parts: "I, II, III" },
+          { name: "Nawapura Police Station", parts: "II, III" }
         ]
       },
-
       {
         judge: "Mr. B.U. Tarak",
         designation: "Judicial Magistrate First Class (Traffic), Vadodara",
-        parts: "II & III",
         stations: [
-          "Sama Police Station"
+          { name: "Sama Police Station", parts: "I, II, III" }
         ]
       },
-
       {
         judge: "Ms. D.P. Shah",
         designation: "Judicial Magistrate First Class (1st Court), Vadodara",
-        parts: "III",
         stations: [
-          "Atladara Police Station",
-          "Akota Police Station",
-          "Varnama Police Station"
+          { name: "Atladara Police Station", parts: "III" },
+          { name: "Akota Police Station", parts: "III" },
+          { name: "Varnama Police Station", parts: "I, II, III" }
         ]
       },
-
       {
         judge: "Ms. Shipra Sayal",
         designation: "Judicial Magistrate First Class (2nd Court), Vadodara",
-        parts: "I, II & III",
         stations: [
-          "Vadodara City Police Station",
-          "Gorwa Police Station",
-          "Mahila City Police Station"
+          { name: "Vadodara City Police Station", parts: "II, III" },
+          { name: "Gorwa Police Station", parts: "I, II & III" },
+          { name: "Mahila City Police Station", parts: "I & II" }
         ]
       },
-
       {
         judge: "Ms. K.N. Trivedi",
         designation: "Judicial Magistrate First Class (3rd Court), Vadodara",
-        parts: "I & II",
         stations: [
-          "Akota Police Station",
-          "P Road Police Station",
-          "Mahila City Police Station"
+          { name: "Akota Police Station", parts: "I & II" },
+          { name: "J P Road Police Station", parts: "III" },
+          { name: "Mahila City Police Station", parts: "III" },
+          { name: "D.C.B Police Station", parts: "III" }
         ]
       },
-
       {
         judge: "Ms. H.D. Panchal",
         designation: "Judicial Magistrate First Class (4th Court), Vadodara",
-        parts: "II & III",
         stations: [
-          "D.C.B Police Station",
-          "Nandesari Police Station",
-          "Vadodara Taluka Police Station",
-          "Manjusar Police Station",
-          "L.C.B. Police Station"
+          { name: "Nandesari Police Station", parts: "I, II, III" },
+          { name: "Vadodara Taluka Police Station", parts: "III" },
+          { name: "Manjusar Police Station", parts: "III" },
+          { name: "L.C.B. Police Station", parts: "III" }
         ]
       },
-
       {
         judge: "Mrs. Kavita Gehlot",
         designation: "2nd Additional Civil Judge & Judicial Magistrate First Class, Vadodara",
-        parts: "II & III",
         stations: [
-          "Bapod Police Station",
-          "Harni Police Station",
-          "Wadi Police Station"
+          { name: "Bapod Police Station", parts: "III" },
+          { name: "Harni Police Station", parts: "III" },
+          { name: "Wadi Police Station", parts: "III" }
         ]
       },
-
       {
         judge: "Ms. Poonam Swami",
         designation: "3rd Additional Civil Judge & Judicial Magistrate First Class, Vadodara",
-        parts: "III",
         stations: [
-          "Jawaharnagar Police Station",
-          "Sayajigunj Police Station",
-          "MGVCL Police Station",
-          "Mahila Rural Police Station"
+          { name: "Jawaharnagar Police Station", parts: "III" },
+          { name: "Sayajigunj Police Station", parts: "II, III" },
+          { name: "MGVCL Police Station", parts: "I & II" },
+          { name: "Mahila Rural Police Station", parts: "I, II & III" }
         ]
       },
-
-
-      /* PADRA TALUKA */
-
       {
         judge: "Ms. M.S. Pande",
         designation: "Principal Senior Civil Judge & ACJM, Padra",
-        parts: "As per Padra allocation order",
         stations: [
-          "Vadu Police Station"
+          { name: "Vadu Police Station", parts: "As per Padra allocation order" }
         ],
         padra: true
       },
-
       {
         judge: "Mr. V.B. Chauhan",
         designation: "Additional Senior Civil Judge & ACJM, Padra",
-        parts: "As per Padra allocation order",
         stations: [
-          "Padra Police Station"
+          { name: "Padra Police Station", parts: "As per Padra allocation order" }
         ],
         padra: true
       }
-
     ];
 
-
-    /*
-      ============================================
-      ELEMENTS
-      ============================================
-    */
-
+    // ===== Elements =====
     const policeInput = document.getElementById("policeInput");
     const judgeInput = document.getElementById("judgeInput");
-
     const policeSearchBox = document.getElementById("policeSearchBox");
     const judgeSearchBox = document.getElementById("judgeSearchBox");
-
     const policeSearchBtn = document.getElementById("policeSearchBtn");
     const judgeSearchBtn = document.getElementById("judgeSearchBtn");
-
-    const policeStations = document.getElementById("policeStations");
-    const judgesList = document.getElementById("judgesList");
-
     const resultsSection = document.getElementById("resultsSection");
     const resultsContainer = document.getElementById("resultsContainer");
     const resultsTitle = document.getElementById("resultsTitle");
     const resultsSubtitle = document.getElementById("resultsSubtitle");
     const resultCount = document.getElementById("resultCount");
-
     const noResults = document.getElementById("noResults");
+    const policeAutocomplete = document.getElementById("policeAutocomplete");
+    const judgeAutocomplete = document.getElementById("judgeAutocomplete");
+    const clearPolice = document.getElementById("clearPolice");
+    const clearJudge = document.getElementById("clearJudge");
 
+    // ===== Derived lists =====
+    const allStations = [...new Set(jurisdictionData.flatMap(item => item.stations.map(s => s.name)))].sort();
+    const allJudges = jurisdictionData.map(item => ({ judge: item.judge, designation: item.designation }));
 
-    /*
-      ============================================
-      POPULATE AUTOCOMPLETE
-      ============================================
-    */
+    let policeFocusIndex = -1;
+    let judgeFocusIndex = -1;
 
-    const allStations = [
-      ...new Set(
-        jurisdictionData.flatMap(item => item.stations)
-      )
-    ].sort();
+    // ===== Helpers =====
+    function escapeHTML(value) {
+      return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+    function highlightMatch(text, query) {
+      if (!query) return escapeHTML(text);
+      const idx = text.toLowerCase().indexOf(query.toLowerCase());
+      if (idx === -1) return escapeHTML(text);
+      const before = escapeHTML(text.slice(0, idx));
+      const match = escapeHTML(text.slice(idx, idx + query.length));
+      const after = escapeHTML(text.slice(idx + query.length));
+      return `${before}<span class="highlight">${match}</span>${after}`;
+    }
+    function partBadges(parts) {
+      if (parts === "As per Padra allocation order") {
+        return `<span class="badge bg-secondary">As per Padra allocation order</span>`;
+      }
+      const cleanParts = parts.replace(/&/g, ",").split(",").map(p => p.trim()).filter(Boolean);
+      return cleanParts.map(part => `<span class="badge bg-dark me-1 mb-1">Part ${escapeHTML(part)}</span>`).join("");
+    }
+    function showNoResults() {
+      resultsSection.classList.add("d-none");
+      noResults.classList.remove("d-none");
+    }
+    function hideResults() {
+      resultsSection.classList.add("d-none");
+      noResults.classList.add("d-none");
+      resultsContainer.innerHTML = "";
+    }
+    function closeAllAutocomplete() {
+      policeAutocomplete.classList.remove("show");
+      judgeAutocomplete.classList.remove("show");
+      policeInput.setAttribute("aria-expanded", "false");
+      judgeInput.setAttribute("aria-expanded", "false");
+      policeFocusIndex = -1;
+      judgeFocusIndex = -1;
+    }
 
-    allStations.forEach(station => {
+    // ===== Police Autocomplete =====
+    function renderPoliceAutocomplete(query) {
+      const q = query.trim().toLowerCase();
+      let filtered;
+      if (!q) {
+        filtered = allStations.slice(0, 8);
+      } else {
+        filtered = allStations.filter(s => s.toLowerCase().includes(q));
+      }
+      if (filtered.length === 0) {
+        policeAutocomplete.innerHTML = `<div class="ac-empty">No station found for “${escapeHTML(query)}”</div>`;
+        policeAutocomplete.classList.add("show");
+        policeInput.setAttribute("aria-expanded", "true");
+        return;
+      }
+      const maxShow = 8;
+      const toShow = filtered.slice(0, maxShow);
+      let html = toShow.map((station, idx) => {
+        const occurrences = jurisdictionData.filter(j => j.stations.some(s => s.name === station));
+        const partsList = [...new Set(occurrences.flatMap(j => j.stations.filter(s => s.name === station).map(s => s.parts)))].join(" • ");
+        const judgesPreview = occurrences.map(o => o.judge.replace("Mr. ","").replace("Ms. ","").replace("Mrs. ","").replace("Dr. ","")).slice(0,2).join(", ");
+        const moreCount = occurrences.length > 1 ? ` · ${occurrences.length} Courts` : "";
+        return `
+          <div class="autocomplete-item" role="option" data-value="${escapeHTML(station)}" data-index="${idx}" id="police-opt-${idx}">
+            <div class="ac-icon"><i class="bi bi-building"></i></div>
+            <div class="ac-text">
+              <div class="ac-title">${highlightMatch(station, query)}</div>
+              <div class="ac-sub">${escapeHTML(judgesPreview)}${occurrences.length>2 ? " + more" : ""} · ${escapeHTML(partsList)}${moreCount}</div>
+            </div>
+            <div class="ac-badge"><i class="bi bi-arrow-up-right text-muted"></i></div>
+          </div>
+        `;
+      }).join("");
+      if (filtered.length > maxShow) {
+        html += `<div class="ac-footer">Showing ${maxShow} of ${filtered.length} stations — keep typing to filter</div>`;
+      }
+      policeAutocomplete.innerHTML = html;
+      policeAutocomplete.classList.add("show");
+      policeInput.setAttribute("aria-expanded", "true");
+      policeFocusIndex = -1;
+      policeAutocomplete.querySelectorAll(".autocomplete-item").forEach(el => {
+        el.addEventListener("click", () => {
+          const val = el.getAttribute("data-value");
+          policeInput.value = val;
+          closeAllAutocomplete();
+          updateClearButtons();
+          handlePoliceSearch(val);
+          policeInput.focus();
+        });
+      });
+    }
 
-      const option = document.createElement("option");
+    function renderJudgeAutocomplete(query) {
+      const q = query.trim().toLowerCase();
+      let filtered;
+      if (!q) {
+        filtered = jurisdictionData.slice(0, 8);
+      } else {
+        filtered = jurisdictionData.filter(item => item.judge.toLowerCase().includes(q) || item.designation.toLowerCase().includes(q));
+      }
+      if (filtered.length === 0) {
+        judgeAutocomplete.innerHTML = `<div class="ac-empty">No judge/court found for “${escapeHTML(query)}”</div>`;
+        judgeAutocomplete.classList.add("show");
+        judgeInput.setAttribute("aria-expanded", "true");
+        return;
+      }
+      const maxShow = 8;
+      const toShow = filtered.slice(0, maxShow);
+      let html = toShow.map((item, idx) => {
+        const stationCount = item.stations.length;
+        const stationPreview = item.stations.slice(0,2).map(s=>s.name).join(", ");
+        return `
+          <div class="autocomplete-item" role="option" data-value="${escapeHTML(item.judge)}" data-index="${idx}" id="judge-opt-${idx}">
+            <div class="ac-icon"><i class="bi bi-person-badge"></i></div>
+            <div class="ac-text">
+              <div class="ac-title">${highlightMatch(item.judge, query)}</div>
+              <div class="ac-sub">${escapeHTML(item.designation)} · ${stationCount} station${stationCount>1?'s':''} · ${escapeHTML(stationPreview)}${stationCount>2 ? " + more" : ""}</div>
+            </div>
+            <div class="ac-badge"><i class="bi bi-arrow-up-right text-muted"></i></div>
+          </div>
+        `;
+      }).join("");
+      if (filtered.length > maxShow) {
+        html += `<div class="ac-footer">Showing ${maxShow} of ${filtered.length} — keep typing to filter</div>`;
+      }
+      judgeAutocomplete.innerHTML = html;
+      judgeAutocomplete.classList.add("show");
+      judgeInput.setAttribute("aria-expanded", "true");
+      judgeFocusIndex = -1;
+      judgeAutocomplete.querySelectorAll(".autocomplete-item").forEach(el => {
+        el.addEventListener("click", () => {
+          const val = el.getAttribute("data-value");
+          judgeInput.value = val;
+          closeAllAutocomplete();
+          updateClearButtons();
+          handleJudgeSearch(val);
+          judgeInput.focus();
+        });
+      });
+    }
 
-      option.value = station;
+    function updateClearButtons() {
+      if (policeInput.value.trim().length > 0) clearPolice.classList.add("show");
+      else clearPolice.classList.remove("show");
+      if (judgeInput.value.trim().length > 0) clearJudge.classList.add("show");
+      else clearJudge.classList.remove("show");
+    }
 
-      policeStations.appendChild(option);
-
-    });
-
-
-    const allJudges = jurisdictionData.map(item => item.judge);
-
-    allJudges.forEach(judge => {
-
-      const option = document.createElement("option");
-
-      option.value = judge;
-
-      judgesList.appendChild(option);
-
-    });
-
-
-    /*
-      ============================================
-      SEARCH MODE
-      ============================================
-    */
-
+    // ===== Search Mode Switching =====
     policeSearchBtn.addEventListener("click", () => {
-
       policeSearchBox.classList.remove("d-none");
       judgeSearchBox.classList.add("d-none");
-
       policeSearchBtn.classList.add("btn-dark", "active");
       policeSearchBtn.classList.remove("btn-outline-dark");
-
+      policeSearchBtn.setAttribute("aria-selected","true");
       judgeSearchBtn.classList.remove("btn-dark", "active");
       judgeSearchBtn.classList.add("btn-outline-dark");
-
+      judgeSearchBtn.setAttribute("aria-selected","false");
       judgeInput.value = "";
-
+      closeAllAutocomplete();
       hideResults();
-
+      updateClearButtons();
       policeInput.focus();
-
+      if (window.innerWidth < 768) policeInput.scrollIntoView({ behavior: "smooth", block: "center" });
     });
-
-
     judgeSearchBtn.addEventListener("click", () => {
-
       judgeSearchBox.classList.remove("d-none");
       policeSearchBox.classList.add("d-none");
-
       judgeSearchBtn.classList.add("btn-dark", "active");
       judgeSearchBtn.classList.remove("btn-outline-dark");
-
+      judgeSearchBtn.setAttribute("aria-selected","true");
       policeSearchBtn.classList.remove("btn-dark", "active");
       policeSearchBtn.classList.add("btn-outline-dark");
-
+      policeSearchBtn.setAttribute("aria-selected","false");
       policeInput.value = "";
-
+      closeAllAutocomplete();
       hideResults();
-
+      updateClearButtons();
       judgeInput.focus();
-
+      if (window.innerWidth < 768) judgeInput.scrollIntoView({ behavior: "smooth", block: "center" });
     });
 
-
-    /*
-      ============================================
-      POLICE STATION SEARCH
-      ============================================
-    */
-
+    // ===== Input Events =====
     policeInput.addEventListener("input", () => {
-
-      const query = policeInput.value.trim().toLowerCase();
-
-      if (!query) {
+      updateClearButtons();
+      const query = policeInput.value;
+      if (!query.trim()) {
         hideResults();
-        return;
       }
-
-      const results = [];
-
-      jurisdictionData.forEach(item => {
-
-        item.stations.forEach(station => {
-
-          if (station.toLowerCase().includes(query)) {
-
-            results.push({
-              ...item,
-              matchedStation: station
-            });
-
-          }
-
-        });
-
-      });
-
-      renderPoliceResults(results, policeInput.value);
-
+      renderPoliceAutocomplete(query);
+      handlePoliceSearch(query, false);
     });
-
-
-    /*
-      ============================================
-      JUDGE SEARCH
-      ============================================
-    */
-
+    policeInput.addEventListener("focus", () => {
+      renderPoliceAutocomplete(policeInput.value);
+    });
     judgeInput.addEventListener("input", () => {
-
-      const query = judgeInput.value.trim().toLowerCase();
-
-      if (!query) {
+      updateClearButtons();
+      const query = judgeInput.value;
+      if (!query.trim()) {
         hideResults();
-        return;
       }
-
-      const results = jurisdictionData.filter(item =>
-        item.judge.toLowerCase().includes(query) ||
-        item.designation.toLowerCase().includes(query)
-      );
-
-      renderJudgeResults(results, judgeInput.value);
-
+      renderJudgeAutocomplete(query);
+      handleJudgeSearch(query, false);
+    });
+    judgeInput.addEventListener("focus", () => {
+      renderJudgeAutocomplete(judgeInput.value);
     });
 
+    clearPolice.addEventListener("click", () => {
+      policeInput.value = "";
+      updateClearButtons();
+      closeAllAutocomplete();
+      hideResults();
+      policeInput.focus();
+    });
+    clearJudge.addEventListener("click", () => {
+      judgeInput.value = "";
+      updateClearButtons();
+      closeAllAutocomplete();
+      hideResults();
+      judgeInput.focus();
+    });
 
-    /*
-      ============================================
-      POLICE RESULTS
-      ============================================
-    */
-
-    function renderPoliceResults(results, query) {
-
-      if (!results.length) {
-
-        showNoResults();
-
-        return;
-
+    // Keyboard navigation for police
+    policeInput.addEventListener("keydown", (e) => {
+      const items = policeAutocomplete.querySelectorAll(".autocomplete-item");
+      if (!items.length || !policeAutocomplete.classList.contains("show")) return;
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        policeFocusIndex = Math.min(policeFocusIndex + 1, items.length - 1);
+        updateActiveItem(items, policeFocusIndex);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        policeFocusIndex = Math.max(policeFocusIndex - 1, 0);
+        updateActiveItem(items, policeFocusIndex);
+      } else if (e.key === "Enter") {
+        if (policeFocusIndex >= 0 && items[policeFocusIndex]) {
+          e.preventDefault();
+          items[policeFocusIndex].click();
+        }
+      } else if (e.key === "Escape") {
+        closeAllAutocomplete();
       }
-
-      noResults.classList.add("d-none");
-      resultsSection.classList.remove("d-none");
-
-      resultsContainer.innerHTML = "";
-
-      resultsTitle.textContent = "Jurisdiction Found";
-
-      resultsSubtitle.textContent =
-        `Police Station search: ${query}`;
-
-      resultCount.textContent =
-        `${results.length} result${results.length > 1 ? "s" : ""}`;
-
-
-      results.forEach(item => {
-
-        const card = document.createElement("div");
-
-        card.className = "col-12";
-
-
-        card.innerHTML = `
-
-          <div class="card border-0 shadow-sm rounded-4 h-100">
-
-            <div class="card-body p-4">
-
-              <div class="row g-4 align-items-center">
-
-                <div class="col-lg-7">
-
-                  <div class="d-flex align-items-start gap-3">
-
-                    <div class="bg-light rounded-3 p-3">
-                      <i class="bi bi-building fs-3"></i>
-                    </div>
-
-                    <div>
-
-                      <span class="badge bg-secondary mb-2">
-                        Police Station
-                      </span>
-
-                      <h4 class="fw-bold mb-1">
-                        ${escapeHTML(item.matchedStation)}
-                      </h4>
-
-                      <p class="text-muted mb-0">
-                        <i class="bi bi-arrow-right-circle me-1"></i>
-                        Allotted Court / Judicial Officer
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-                <div class="col-lg-5">
-
-                  <div class="border rounded-4 p-3 bg-light">
-
-                    <h5 class="fw-bold mb-1">
-                      ${escapeHTML(item.judge)}
-                    </h5>
-
-                    <p class="text-muted mb-3">
-                      ${escapeHTML(item.designation)}
-                    </p>
-
-                    <div>
-
-                      <span class="small fw-semibold me-2">
-                        Part of Offence:
-                      </span>
-
-                      ${partBadges(item.parts)}
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        `;
-
-        resultsContainer.appendChild(card);
-
+    });
+    judgeInput.addEventListener("keydown", (e) => {
+      const items = judgeAutocomplete.querySelectorAll(".autocomplete-item");
+      if (!items.length || !judgeAutocomplete.classList.contains("show")) return;
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        judgeFocusIndex = Math.min(judgeFocusIndex + 1, items.length - 1);
+        updateActiveItem(items, judgeFocusIndex);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        judgeFocusIndex = Math.max(judgeFocusIndex - 1, 0);
+        updateActiveItem(items, judgeFocusIndex);
+      } else if (e.key === "Enter") {
+        if (judgeFocusIndex >= 0 && items[judgeFocusIndex]) {
+          e.preventDefault();
+          items[judgeFocusIndex].click();
+        }
+      } else if (e.key === "Escape") {
+        closeAllAutocomplete();
+      }
+    });
+    function updateActiveItem(items, index) {
+      items.forEach((el, i) => {
+        if (i === index) {
+          el.classList.add("active");
+          el.scrollIntoView({ block: "nearest" });
+        } else {
+          el.classList.remove("active");
+        }
       });
-
     }
 
+    // Close autocomplete when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".search-wrapper")) {
+        closeAllAutocomplete();
+      }
+    });
+    // Close on scroll (mobile)
+    document.addEventListener("scroll", () => {
+      // don't close immediately, keep available
+    }, { passive: true });
 
-    /*
-      ============================================
-      JUDGE RESULTS
-      ============================================
-    */
+    // ===== Search Logic =====
+    function handlePoliceSearch(query, shouldRender = true) {
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        if (shouldRender) hideResults();
+        return;
+      }
+      const results = [];
+      jurisdictionData.forEach(item => {
+        item.stations.forEach(st => {
+          if (st.name.toLowerCase().includes(q)) {
+            results.push({
+              judge: item.judge,
+              designation: item.designation,
+              matchedStation: st.name,
+              parts: st.parts
+            });
+          }
+        });
+      });
+      if (!shouldRender) {
+        // Don't auto-render results while typing? But user wants instant search — we will render if >=2 chars
+        if (q.length >= 2) renderPoliceResults(results, query);
+        else if (q.length === 0) hideResults();
+        return;
+      }
+      renderPoliceResults(results, query);
+    }
+
+    function handleJudgeSearch(query, shouldRender = true) {
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        if (shouldRender) hideResults();
+        return;
+      }
+      const results = jurisdictionData.filter(item =>
+        item.judge.toLowerCase().includes(q) ||
+        item.designation.toLowerCase().includes(q)
+      );
+      if (!shouldRender) {
+        if (q.length >= 2) renderJudgeResults(results, query);
+        else if (q.length === 0) hideResults();
+        return;
+      }
+      renderJudgeResults(results, query);
+    }
+
+    // ===== Render Police Results — now per-station parts =====
+    function renderPoliceResults(results, query) {
+      if (!results.length) {
+        showNoResults();
+        return;
+      }
+      noResults.classList.add("d-none");
+      resultsSection.classList.remove("d-none");
+      resultsContainer.innerHTML = "";
+      resultsTitle.textContent = "Jurisdiction Found";
+      resultsSubtitle.textContent = `Police Station search: ${query}`;
+      resultCount.textContent = `${results.length} result${results.length > 1 ? "s" : ""}`;
+      results.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "col-12";
+        card.innerHTML = `
+          <div class="card border-0 shadow-sm rounded-4 h-100 result-card">
+            <div class="card-body p-3 p-md-4">
+              <div class="row g-3 g-md-4 align-items-center">
+                <div class="col-lg-7">
+                  <div class="d-flex align-items-start gap-3">
+                    <div class="bg-light rounded-3 p-3 d-none d-sm-flex"><i class="bi bi-building fs-3"></i></div>
+                    <div class="flex-grow-1 min-w-0">
+                      <span class="badge bg-secondary mb-2">Police Station</span>
+                      <h4 class="fw-bold mb-1" style="word-break:break-word;">${escapeHTML(item.matchedStation)}</h4>
+                      <p class="text-muted mb-0 small"><i class="bi bi-arrow-right-circle me-1"></i>Allotted Court / Judicial Officer</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-5">
+                  <div class="border rounded-4 p-3 bg-light">
+                    <h5 class="fw-bold mb-1" style="font-size:1.05rem;">${escapeHTML(item.judge)}</h5>
+                    <p class="text-muted mb-3 small">${escapeHTML(item.designation)}</p>
+                    <div><span class="small fw-semibold me-2">Part of Offence:</span> ${partBadges(item.parts)}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        resultsContainer.appendChild(card);
+      });
+      // scroll to results on mobile after selection
+      if (window.innerWidth < 768 && results.length > 0) {
+        setTimeout(()=> resultsSection.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+      }
+    }
 
     function renderJudgeResults(results, query) {
-
       if (!results.length) {
-
         showNoResults();
-
         return;
-
       }
-
       noResults.classList.add("d-none");
       resultsSection.classList.remove("d-none");
-
       resultsContainer.innerHTML = "";
-
       resultsTitle.textContent = "Judge / Court Jurisdiction";
-
-      resultsSubtitle.textContent =
-        `Judge search: ${query}`;
-
-      resultCount.textContent =
-        `${results.length} result${results.length > 1 ? "s" : ""}`;
-
-
+      resultsSubtitle.textContent = `Judge search: ${query}`;
+      resultCount.textContent = `${results.length} result${results.length > 1 ? "s" : ""}`;
       results.forEach(item => {
-
         const card = document.createElement("div");
-
         card.className = "col-12";
-
-
         const stationHTML = item.stations.map(station => `
-
-          <div class="border rounded-3 p-3 mb-2 bg-light">
-
+          <div class="border rounded-3 p-3 mb-2 bg-light d-flex align-items-center justify-content-between gap-2 flex-wrap">
             <div class="d-flex align-items-center gap-2">
-
               <i class="bi bi-building text-secondary"></i>
-
-              <span class="fw-semibold">
-                ${escapeHTML(station)}
-              </span>
-
+              <span class="fw-semibold small">${escapeHTML(station.name)}</span>
             </div>
-
+            <div>${partBadges(station.parts)}</div>
           </div>
-
         `).join("");
-
-
         card.innerHTML = `
-
-          <div class="card border-0 shadow-sm rounded-4">
-
-            <div class="card-body p-4">
-
-              <div class="d-flex align-items-start gap-3 mb-4">
-
-                <div class="bg-dark text-white rounded-3 p-3">
-                  <i class="bi bi-person-badge fs-3"></i>
+          <div class="card border-0 shadow-sm rounded-4 result-card">
+            <div class="card-body p-3 p-md-4">
+              <div class="d-flex align-items-start gap-3 mb-3">
+                <div class="bg-dark text-white rounded-3 p-3 d-none d-sm-flex"><i class="bi bi-person-badge fs-3"></i></div>
+                <div class="flex-grow-1">
+                  <span class="badge bg-dark mb-2">Judicial Officer</span>
+                  <h4 class="fw-bold mb-1" style="font-size:1.15rem;">${escapeHTML(item.judge)}</h4>
+                  <p class="text-muted mb-2 small">${escapeHTML(item.designation)}</p>
+                  <div class="d-none">per-judge parts no longer used, per station shown below</div>
                 </div>
-
-                <div>
-
-                  <span class="badge bg-dark mb-2">
-                    Judicial Officer
-                  </span>
-
-                  <h4 class="fw-bold mb-1">
-                    ${escapeHTML(item.judge)}
-                  </h4>
-
-                  <p class="text-muted mb-2">
-                    ${escapeHTML(item.designation)}
-                  </p>
-
-                  <div>
-                    <span class="small fw-semibold me-2">
-                      Part of Offence:
-                    </span>
-
-                    ${partBadges(item.parts)}
-                  </div>
-
-                </div>
-
               </div>
-
-
-              <hr>
-
-
-              <h6 class="fw-bold mb-3">
-                <i class="bi bi-geo-alt me-2"></i>
-                Allotted Police Stations
-              </h6>
-
+              <hr class="my-3">
+              <h6 class="fw-bold mb-3 small"><i class="bi bi-geo-alt me-2"></i>Allotted Police Stations <span class="badge bg-secondary ms-2">${item.stations.length}</span></h6>
               ${stationHTML}
-
             </div>
-
           </div>
-
         `;
-
         resultsContainer.appendChild(card);
-
       });
-
-    }
-
-
-    /*
-      ============================================
-      PART BADGES
-      ============================================
-    */
-
-    function partBadges(parts) {
-
-      if (parts === "As per Padra allocation order") {
-
-        return `
-          <span class="badge bg-secondary">
-            As per Padra allocation order
-          </span>
-        `;
-
+      if (window.innerWidth < 768 && results.length > 0) {
+        setTimeout(()=> resultsSection.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
       }
-
-      const cleanParts = parts
-        .replace(/&/g, ",")
-        .split(",")
-        .map(part => part.trim())
-        .filter(Boolean);
-
-      return cleanParts.map(part => {
-
-        return `
-          <span class="badge bg-dark me-1">
-            Part ${escapeHTML(part)}
-          </span>
-        `;
-
-      }).join("");
-
     }
 
-
-    /*
-      ============================================
-      NO RESULTS
-      ============================================
-    */
-
-    function showNoResults() {
-
-      resultsSection.classList.add("d-none");
-
-      noResults.classList.remove("d-none");
-
-    }
-
-
-    function hideResults() {
-
-      resultsSection.classList.add("d-none");
-
-      noResults.classList.add("d-none");
-
-      resultsContainer.innerHTML = "";
-
-    }
-
-
-    /*
-      ============================================
-      BASIC HTML ESCAPE
-      ============================================
-    */
-
-    function escapeHTML(value) {
-
-      return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-    }
-
+    // Initial clear button state
+    updateClearButtons();
   </script>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-  </script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
