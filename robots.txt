@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 User-agent: *
 Allow: /
 
-=======
-User-agent: *
-Allow: /
-
->>>>>>> bf915a5eb237b0dece606780ec726950a00d47e5
 Sitemap: https://rishab-lex.vercel.app/sitemap.xml
