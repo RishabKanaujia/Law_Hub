@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vadodara District Court | Rishab-LEX</title>
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    /* =====================================================
+       GENERAL
+    ===================================================== */
+
+    :root {
+      --navy: #071b35;
+      --deep-navy: #06172d;
+      --gold: #d9a83f;
+      --cream: #f7f6f0;
+      --text: #26364a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    /* =====================================================
+       ACCESSIBILITY
+    ===================================================== */
+
+    .visually-hidden-focusable:active,
+    .visually-hidden-focusable:focus {
+      position: absolute !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 10px 15px !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+      z-index: 9999;
+      background: white;
+      color: var(--navy);
+    }
+
+
+    /* =====================================================
+       HEADER / COURT BUILDING
+    ===================================================== */
+
+    .court-header {
+      position: relative;
+      min-height: 430px;
+
+      background-image:
+        linear-gradient(
+          rgba(5, 22, 43, 0.70),
+          rgba(5, 22, 43, 0.70)
+        ),
+        url("/img/2022111729.jpg");
+
+      background-size: cover;
+      background-position: center 43%;
+      background-repeat: no-repeat;
+
+      color: white;
+      overflow: hidden;
+    }
+
+
+    /* Bottom fade */
+
+    .court-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      height: 80px;
+
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--cream)
+      );
+
+      pointer-events: none;
+    }
+
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    .court-navbar {
+      position: relative;
+      z-index: 10;
+
+      min-height: 64px;
+
+      background: rgba(4, 17, 33, 0.82) !important;
+
+      border-bottom: 1px solid
+        rgba(255, 255, 255, 0.14);
+
+      backdrop-filter: blur(6px);
+    }
+
+
+    .brand {
+      font-family: Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+
+      color: white !important;
+    }
+
+    .brand span {
+      color: var(--gold);
+    }
+
+
+    .navbar-nav .nav-link {
+      color: rgba(255,255,255,0.72) !important;
+
+      font-size: 14px;
+
+      margin-left: 8px;
+
+      transition: 0.2s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: white !important;
+    }
+
+
+    /* =====================================================
+       HERO TITLE
+    ===================================================== */
+
+    .court-heading {
+      position: relative;
+      z-index: 5;
+
+      padding-top: 85px;
+      padding-bottom: 100px;
+    }
+
+
+    .court-label {
+      color: #e4b24c;
+
+      font-size: 10px;
+      font-weight: 700;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 14px;
+    }
+
+
+    .court-heading h1 {
+      margin: 0;
+
+      color: white;
+
+      font-family: "Playfair Display",
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(38px, 5vw, 62px);
+
+      line-height: 1.08;
+
+      font-weight: 500;
+
+      text-shadow:
+        0 4px 20px rgba(0,0,0,0.4);
+    }
+
+
+    .court-heading h1 span {
+      display: block;
+
+      color: #e4b24c;
+
+      font-style: italic;
+    }
+
+
+    .court-heading p {
+      max-width: 620px;
+
+      margin: 20px auto 0;
+
+      color: rgba(255,255,255,0.83);
+
+      font-size: 14px;
+
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       SEARCH SECTION
+    ===================================================== */
+
+    .search-wrapper {
+      position: relative;
+      z-index: 20;
+
+      margin-top: -18px;
+
+      margin-bottom: 35px;
+    }
+
+
+    .search-card {
+      max-width: 850px;
+
+      margin: auto;
+
+      padding: 18px;
+
+      background: rgba(255,255,255,0.97);
+
+      border: 1px solid #e4e4df;
+
+      border-radius: 14px;
+
+      box-shadow:
+        0 12px 35px rgba(20,35,55,0.10);
+    }
+
+
+    .search-label {
+      display: block;
+
+      margin-bottom: 7px;
+
+      color: #637083;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      text-align: left;
+
+      letter-spacing: 0.3px;
+    }
+
+
+    .search-box {
+      height: 48px;
+
+      border: 1px solid #d3d7dc;
+
+      border-radius: 9px;
+
+      padding: 0 15px;
+
+      font-size: 15px;
+    }
+
+
+    .search-box:focus {
+      border-color: var(--gold);
+
+      box-shadow:
+        0 0 0 3px rgba(217,168,63,0.15);
+    }
+
+
+    .locate-btn {
+      height: 48px;
+
+      padding: 0 25px;
+
+      border: none;
+
+      border-radius: 9px;
+
+      background: var(--navy);
+
+      color: white;
+
+      font-weight: 600;
+    }
+
+
+    .locate-btn:hover {
+      background: #0c2b50;
+    }
+
+
+    .clear-btn {
+      height: 48px;
+
+      border-radius: 9px;
+    }
+
+
+    /* =====================================================
+       RESULT
+    ===================================================== */
+
+    #resultBox {
+      max-width: 850px;
+      margin: 18px auto 0;
+    }
+
+
+    .room-result {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 25px;
+
+      padding: 20px 22px;
+
+      background: white;
+
+      border: 1px solid #e2e5e8;
+
+      border-left: 4px solid var(--gold);
+
+      border-radius: 12px;
+
+      text-align: left;
+
+      box-shadow:
+        0 8px 25px rgba(20,35,55,0.07);
+    }
+
+
+    .result-label {
+
+      display: block;
+
+      color: #b08224;
+
+      font-size: 9px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 5px;
+    }
+
+
+    .room-result h2 {
+
+      margin: 0 0 5px;
+
+      color: var(--navy);
+
+      font-family: Georgia, serif;
+
+      font-size: 27px;
+    }
+
+
+    .room-type {
+
+      margin-bottom: 5px;
+
+      font-weight: 600;
+
+      color: #344054;
+    }
+
+
+    .room-description {
+
+      margin: 0;
+
+      color: #667085;
+
+      font-size: 13px;
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       MAP CARD
+    ===================================================== */
+
+    .map-section {
+      margin-top: 30px;
+      margin-bottom: 60px;
+    }
+
+
+    .map-card {
+
+      background: white;
+
+      border: 1px solid #e0e1dd;
+
+      border-radius: 14px;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 15px 40px rgba(20,35,55,0.10);
+    }
+
+
+    .map-card-header {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 13px 20px;
+
+      background: var(--navy);
+
+      color: white;
+    }
+
+
+    .map-card-header strong {
+
+      font-family: Georgia, serif;
+
+      font-size: 13px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+
+    .map-card-header span {
+
+      font-size: 11px;
+
+      color: rgba(255,255,255,0.65);
+    }
+
+
+    /* =====================================================
+       MAP
+    ===================================================== */
+
+    .map-viewport {
+
+      position: relative;
+
+      margin: 20px;
+
+      background: #f0eee6;
+
+      border-radius: 8px;
+
+      overflow: hidden;
+    }
+
+
+    .map-image {
+
+      display: block;
+
+      width: 100%;
+
+      height: auto;
+
+      user-select: none;
+
+      -webkit-user-drag: none;
+    }
+
+
+    /* =====================================================
+       ROOM HIGHLIGHT
+    ===================================================== */
+
+    .room-highlight {
+
+      position: absolute;
+
+      width: 42px;
+      height: 42px;
+
+      border-radius: 50%;
+
+      border: 3px solid #f0a900;
+
+      background: rgba(255,190,0,0.13);
+
+      box-shadow:
+        0 0 0 4px rgba(240,169,0,0.22),
+        0 0 20px rgba(240,169,0,0.85);
+
+      transform:
+        translate(-50%, -50%)
+        scale(1);
+
+      pointer-events: none;
+
+      display: none;
+
+      z-index: 30;
+
+      animation:
+        roomPulse 1.15s ease-in-out infinite;
+    }
+
+
+    @keyframes roomPulse {
+
+      0%,
+      100% {
+
+        transform:
+          translate(-50%, -50%)
+          scale(1);
+
+        opacity: 1;
+      }
+
+      50% {
+
+        transform:
+          translate(-50%, -50%)
+          scale(1.18);
+
+        opacity: 0.65;
+      }
+    }
+
+
+    /* =====================================================
+       MAP FOOTNOTE
+    ===================================================== */
+
+    .map-note {
+
+      padding: 0 20px 18px;
+
+      color: #7b8491;
+
+      font-size: 11px;
+    }
+
+
+    /* =====================================================
+       READ ALOUD BUTTON
+    ===================================================== */
+
+    .read-btn {
+
+      border-color: #c9ced5;
+
+      color: #344054;
+
+      background: white;
+    }
+
+
+    .read-btn:hover {
+
+      background: #f5f6f7;
+
+      border-color: #aeb5bd;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+
+      padding: 25px 0;
+
+      border-top: 1px solid #e3e2dc;
+
+      color: #7a8492;
+
+      font-size: 12px;
+
+      text-align: center;
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 768px) {
+
+      .court-header {
+        min-height: 400px;
+
+        background-position: center center;
+      }
+
+
+      .court-heading {
+
+        padding-top: 70px;
+
+        padding-bottom: 90px;
+      }
+
+
+      .court-heading h1 {
+
+        font-size: 38px;
+      }
+
+
+      .court-heading p {
+
+        padding: 0 15px;
+      }
+
+
+      .navbar-nav {
+
+        padding-top: 10px;
+      }
+
+
+      .navbar-nav .nav-link {
+
+        margin-left: 0;
+      }
+
+
+      .room-result {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+
+
+      .map-viewport {
+
+        margin: 10px;
+      }
+
+
+      .room-highlight {
+
+        width: 32px;
+
+        height: 32px;
+
+        border-width: 2px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SKIP LINK — SCREEN READER / KEYBOARD ACCESSIBILITY
+===================================================== -->
+
+<a
+  href="#main-content"
+  class="visually-hidden-focusable"
+>
+  Skip to main content
+</a>
+
+
+
+<!-- =====================================================
+     COURT HEADER
+===================================================== -->
+
+<header class="court-header">
+
+
+  <!-- NAVBAR -->
+
+  <nav
+    class="navbar navbar-expand-lg navbar-dark court-navbar"
+    aria-label="Main navigation"
+  >
+
+    <div class="container">
+
+
+      <a
+        class="navbar-brand brand"
+        href="#"
+        aria-label="Rishab-LEX Home"
+      >
+        Rishab-<span>LEX</span>
+      </a>
+
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavigation"
+        aria-controls="mainNavigation"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+
+      <div
+        class="collapse navbar-collapse"
+        id="mainNavigation"
+      >
+
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Home
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              About
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Judgments
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Articles
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="#"
+            >
+              Vadodara-Court
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- HERO CONTENT -->
+
+  <div class="container court-heading text-center">
+
+    <div class="court-label">
+      COURT UTILITY
+    </div>
+
+
+    <h1>
+      Vadodara District Court
+      <span>Room Seating Plan</span>
+    </h1>
+
+
+    <p>
+      Quickly find a courtroom, chamber or office on the
+      fourth-floor seating plan.
+    </p>
+
+  </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main id="main-content">
+
+
+  <!-- SEARCH -->
+
+  <section
+    class="container search-wrapper"
+    aria-labelledby="search-heading"
+  >
+
+    <div class="search-card">
+
+
+      <h2
+        id="search-heading"
+        class="visually-hidden"
+      >
+        Court Room Search
+      </h2>
+
+
+      <label
+        for="searchBox"
+        class="search-label"
+      >
+        SEARCH COURT ROOM
+      </label>
+
+
+      <div class="row g-2">
+
+
+        <div class="col-md">
+
+          <input
+            type="search"
+            id="searchBox"
+            class="form-control search-box"
+            placeholder="Search room number, e.g. 54..."
+            autocomplete="off"
+            aria-describedby="searchHelp"
+            aria-controls="resultBox"
+          >
+
+        </div>
+
+
+        <div class="col-auto">
+
+          <button
+            type="button"
+            id="searchBtn"
+            class="btn locate-btn"
+          >
+            Locate
+          </button>
+
+        </div>
+
+
+        <div class="col-auto">
+
+          <button
+            type="button"
+            id="clearBtn"
+            class="btn btn-outline-secondary clear-btn"
+          >
+            Clear
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="searchHelp"
+        class="form-text mt-2"
+      >
+        Enter a room number from 1 to 82.
+      </div>
+
+
+      <!-- Live screen-reader announcement -->
+
+      <div
+        id="liveAnnouncement"
+        class="visually-hidden"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      ></div>
+
+    </div>
+
+
+
+    <!-- SEARCH RESULT -->
+
+    <div
+      id="resultBox"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+  </section>
+
+
+
+  <!-- ===================================================
+       MAP
+  ==================================================== -->
+
+  <section
+    class="container map-section"
+    aria-labelledby="map-heading"
+  >
+
+    <div class="map-card">
+
+
+      <div class="map-card-header">
+
+        <strong id="map-heading">
+          Fourth Floor
+        </strong>
+
+        <span>
+          Rooms 1–82
+        </span>
+
+      </div>
+
+
+      <div
+        class="map-viewport"
+        id="mapViewport"
+        aria-label="Fourth floor court room seating plan"
+      >
+
+
+        <!-- EXACT HIGH QUALITY MAP -->
+
+        <img
+          src="/img/vadodara-court-floor-map-hq.png"
+          id="floorMap"
+          class="map-image"
+          alt="Fourth floor Vadodara District Court seating plan showing rooms 1 through 82"
+          draggable="false"
+        >
+
+
+        <!-- Highlight -->
+
+        <div
+          id="roomHighlight"
+          class="room-highlight"
+          aria-hidden="true"
+        ></div>
+
+
+      </div>
+
+
+      <p class="map-note mb-0">
+
+        <span aria-hidden="true">📍</span>
+
+        Search for a room number to highlight its exact
+        position on the floor plan.
+
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  <div class="container">
+
+    Rishab-LEX · Vadodara District Court Room Utility
+
+  </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     BOOTSTRAP JS
+===================================================== -->
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<script>
+
+/* =====================================================
+   ROOM DATA
+=====================================================
+
+   IMPORTANT:
+   Yahan actual judge names/details baad mein add kar sakte ho.
+   Abhi system room-number based hai.
+
+===================================================== */
+
+const rooms = {
+
+  1: {
+    type: "Court Hall",
+    floor: "Fourth Floor",
+    description: "Room 1 is located in the lower central-left section of the fourth floor."
+  },
+
+  2: {
+    type: "Chamber",
+    floor: "Fourth Floor",
+    description: "Room 2 is located in the lower central-left section."
+  },
+
+  3: {
+    type: "Chamber",
+    floor: "Fourth Floor",
+    description: "Room 3 is located near Room 2."
+  },
+
+  18: {
+    type: "Court Hall",
+    floor: "Fourth Floor",
+    description: "Room 18 is located in the central-left portion of the floor."
+  },
+
+  29: {
+    type: "Court Hall",
+    floor: "Fourth Floor",
+    description: "Room 29 is located in the upper-left section."
+  },
+
+  30: {
+    type: "Court Hall",
+    floor: "Fourth Floor",
+    description: "Room 30 is located in the upper-left section."
+  },
+
+  42: {
+    type: "Chamber",
+    floor: "Fourth Floor",
+    description: "Room 42 is located near the central passage."
+  },
+
+  43: {
+    type: "Court Hall",
+    floor: "Fourth Floor",
+    description: "Room 43 is located in the central-right section."
+  },
+
+  54: {
+    type: "Court Hall",
+    floor: "Fourth Floor",
+    description: "Room 54 is located in the upper central-right section of the fourth floor."
+  },
+
+  55: {
+    type: "Court Hall",
+    floor: "Fourth Floor",
+    description: "Room 55 is located immediately to the right of Room 54."
+  },
+
+  64: {
+    type: "Court Hall",
+    floor: "Fourth Floor",
+    description: "Room 64 is located in the lower central-right section."
+  },
+
+  81: {
+    type: "Court Hall",
+    floor: "Fourth Floor",
+    description: "Room 81 is located on the right side of the fourth floor."
+  },
+
+  82: {
+    type: "Open Area",
+    floor: "Fourth Floor",
+    description: "Room 82 area is located at the far lower-right side of the floor plan."
+  }
+
+};
+
+
+/* =====================================================
+   ROOM POSITIONS
+=====================================================
+
+   Coordinates are percentage based:
+   [LEFT %, TOP %]
+
+===================================================== */
+
+const roomPositions = {
+
+  1:[45.0,55.0],
+  2:[41.0,52.5],
+  3:[39.0,52.5],
+  4:[47.0,63.0],
+  5:[39.0,65.0],
+  6:[30.0,50.5],
+  7:[30.0,56.5],
+  8:[31.0,62.5],
+  9:[22.5,61.5],
+  10:[21.5,55.5],
+  11:[22.5,49.5],
+  12:[17.0,64.5],
+  13:[12.0,57.5],
+  14:[25.0,45.5],
+  15:[23.0,45.5],
+  16:[16.5,43.5],
+  17:[8.5,58.5],
+
+  18:[45.0,43.5],
+  19:[40.5,42.0],
+  20:[38.5,42.0],
+  21:[45.5,31.0],
+  22:[45.5,27.0],
+  23:[45.5,22.5],
+  24:[46.5,19.0],
+  25:[44.5,19.0],
+  26:[41.0,19.0],
+
+  27:[31.0,36.5],
+  28:[31.0,31.5],
+  29:[36.5,24.5],
+  30:[28.0,24.5],
+  31:[25.0,31.5],
+  32:[24.0,35.5],
+  33:[16.5,18.5],
+  34:[16.5,27.5],
+  35:[25.0,38.5],
+  36:[22.5,38.5],
+  37:[17.0,40.0],
+  38:[8.5,26.5],
+  39:[2.0,19.5],
+  40:[2.0,26.5],
+  41:[2.0,34.5],
+
+  42:[51.0,43.5],
+  43:[56.5,42.5],
+  44:[61.0,41.0],
+  45:[63.5,41.0],
+
+  46:[56.5,28.5],
+  47:[55.5,20.0],
+  48:[58.0,20.0],
+  49:[56.5,24.5],
+  50:[60.5,20.0],
+  51:[64.0,20.0],
+
+  52:[66.0,35.5],
+  53:[66.0,30.5],
+
+  /* ROOM 54 */
+  54:[67.0,23.8],
+
+  55:[75.5,24.5],
+  56:[76.0,31.0],
+  57:[76.0,35.5],
+  58:[82.0,18.5],
+  59:[84.0,27.5],
+  60:[77.5,38.5],
+  61:[80.0,38.5],
+  62:[82.0,40.0],
+  63:[96.0,28.5],
+
+  64:[56.5,55.0],
+  65:[62.0,52.5],
+  66:[65.0,52.5],
+  67:[67.0,62.5],
+  68:[84.0,56.5],
+  69:[84.0,62.0],
+  70:[60.0,65.0],
+
+  71:[75.5,55.0],
+  72:[75.5,61.0],
+  73:[73.0,64.0],
+  74:[68.0,64.0],
+  75:[69.5,56.5],
+  76:[69.5,52.0],
+  77:[80.0,65.0],
+  78:[89.0,63.5],
+  79:[76.5,47.5],
+  80:[79.0,47.5],
+  81:[83.0,43.5],
+  82:[96.0,58.5]
+
+};
+
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const searchBox =
+  document.getElementById("searchBox");
+
+const searchBtn =
+  document.getElementById("searchBtn");
+
+const clearBtn =
+  document.getElementById("clearBtn");
+
+const resultBox =
+  document.getElementById("resultBox");
+
+const highlight =
+  document.getElementById("roomHighlight");
+
+const mapViewport =
+  document.getElementById("mapViewport");
+
+const liveAnnouncement =
+  document.getElementById("liveAnnouncement");
+
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function searchRoom() {
+
+  const value =
+    searchBox.value.trim();
+
+
+  if (!value) {
+
+    resultBox.innerHTML = `
+      <div class="alert alert-warning">
+        Please enter a room number.
+      </div>
+    `;
+
+    stopHighlight();
+
+    return;
+  }
+
+
+  const roomNumber =
+    Number(value);
+
+
+  const room =
+    rooms[roomNumber] || {
+
+      type: "Room / Court Area",
+
+      floor: "Fourth Floor",
+
+      description:
+        "This room is shown on the fourth-floor seating plan."
+
+    };
+
+
+  if (!roomPositions[roomNumber]) {
+
+    resultBox.innerHTML = `
+      <div
+        class="alert alert-warning"
+        role="alert"
+      >
+        Room ${roomNumber} is not currently mapped
+        in the interactive coordinates.
+      </div>
+    `;
+
+    return;
+  }
+
+
+  showRoomResult(roomNumber, room);
+
+  locateRoom(roomNumber);
+
+}
+
+
+
+/* =====================================================
+   SHOW RESULT
+===================================================== */
+
+function showRoomResult(roomNumber, room) {
+
+  resultBox.innerHTML = `
+
+    <article
+      class="room-result"
+      aria-labelledby="roomResultTitle"
+    >
+
+      <div>
+
+        <span class="result-label">
+          LOCATION FOUND
+        </span>
+
+        <h2 id="roomResultTitle">
+          Room ${roomNumber}
+        </h2>
+
+        <div class="room-type">
+          ${room.type}
+        </div>
+
+        <div class="small text-muted mb-2">
+          ${room.floor}
+        </div>
+
+        <p class="room-description">
+          ${room.description}
+        </p>
+
+      </div>
+
+
+      <div
+        class="d-flex gap-2 flex-wrap"
+      >
+
+        <button
+          type="button"
+          class="btn btn-dark"
+          onclick="locateRoom(${roomNumber})"
+        >
+          📍 Locate on Map
+        </button>
+
+
+        <button
+          type="button"
+          class="btn read-btn"
+          onclick="readRoom(${roomNumber})"
+          aria-label="Read aloud information about Room ${roomNumber}"
+        >
+          🔊 Read Aloud
+        </button>
+
+
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          onclick="stopReading()"
+        >
+          ■ Stop
+        </button>
+
+      </div>
+
+    </article>
+
+  `;
+}
+
+
+
+/* =====================================================
+   LOCATE ROOM
+===================================================== */
+
+function locateRoom(roomNumber) {
+
+  const position =
+    roomPositions[roomNumber];
+
+
+  if (!position) {
+
+    return;
+  }
+
+
+  highlight.style.left =
+    position[0] + "%";
+
+
+  highlight.style.top =
+    position[1] + "%";
+
+
+  highlight.style.display =
+    "block";
+
+
+  /*
+    Scroll map into view.
+  */
+
+  mapViewport.scrollIntoView({
+
+    behavior: "smooth",
+
+    block: "center"
+
+  });
+
+
+  /*
+    Accessibility announcement.
+  */
+
+  const room =
+    rooms[roomNumber];
+
+
+  liveAnnouncement.textContent =
+    `Room ${roomNumber}, ${
+      room ? room.type : "court area"
+    }, located on the fourth floor.`;
+
+
+}
+
+
+
+/* =====================================================
+   STOP HIGHLIGHT
+===================================================== */
+
+function stopHighlight() {
+
+  highlight.style.display =
+    "none";
+
+}
+
+
+
+/* =====================================================
+   CLEAR
+===================================================== */
+
+function clearSearch() {
+
+  searchBox.value = "";
+
+  resultBox.innerHTML = "";
+
+  stopHighlight();
+
+  stopReading();
+
+  liveAnnouncement.textContent =
+    "Search cleared.";
+
+  searchBox.focus();
+
+}
+
+
+
+/* =====================================================
+   READ ALOUD
+===================================================== */
+
+function readRoom(roomNumber) {
+
+  if (!("speechSynthesis" in window)) {
+
+    alert(
+      "Read Aloud is not supported by this browser."
+    );
+
+    return;
+  }
+
+
+  const room =
+    rooms[roomNumber] || {
+
+      type: "court area",
+
+      floor: "Fourth Floor",
+
+      description:
+        "This room is shown on the fourth-floor seating plan."
+
+    };
+
+
+  stopReading();
+
+
+  const text = `
+
+    Room ${roomNumber}.
+
+    ${room.type}.
+
+    ${room.floor}.
+
+    ${room.description}.
+
+  `;
+
+
+  const speech =
+    new SpeechSynthesisUtterance(text);
+
+
+  /*
+    Indian English voice preference.
+  */
+
+  speech.lang = "en-IN";
+
+  speech.rate = 0.88;
+
+  speech.pitch = 1;
+
+  speech.volume = 1;
+
+
+  /*
+    Try to select an English voice.
+  */
+
+  const voices =
+    window.speechSynthesis.getVoices();
+
+
+  const preferredVoice =
+    voices.find(
+      voice =>
+        voice.lang === "en-IN"
+    ) ||
+    voices.find(
+      voice =>
+        voice.lang.startsWith("en")
+    );
+
+
+  if (preferredVoice) {
+
+    speech.voice =
+      preferredVoice;
+
+  }
+
+
+  window.speechSynthesis.speak(
+    speech
+  );
+
+}
+
+
+
+/* =====================================================
+   STOP READ ALOUD
+===================================================== */
+
+function stopReading() {
+
+  if ("speechSynthesis" in window) {
+
+    window.speechSynthesis.cancel();
+
+  }
+
+}
+
+
+
+/* =====================================================
+   EVENTS
+===================================================== */
+
+searchBtn.addEventListener(
+  "click",
+  searchRoom
+);
+
+
+clearBtn.addEventListener(
+  "click",
+  clearSearch
+);
+
+
+searchBox.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key === "Enter") {
+
+      event.preventDefault();
+
+      searchRoom();
+
+    }
+
+  }
+);
+
+
+/*
+  Load browser voices.
+*/
+
+if ("speechSynthesis" in window) {
+
+  window.speechSynthesis.onvoiceschanged =
+    function() {
+
+      window.speechSynthesis.getVoices();
+
+    };
+
+}
+
+</script>
+
+
+</body>
+</html>

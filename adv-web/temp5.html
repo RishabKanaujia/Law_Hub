@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LexNova Legal — Advocate / Law Firm</title>
+  <meta name="description"
+    content="Trendy single-page website template for Advocate/Law Firm. Responsive, premium dark+gold design with Bootstrap." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg0: #070A12;
+      --bg1: #0A1126;
+
+      --text: rgba(255, 255, 255, .92);
+      --muted: rgba(255, 255, 255, .68);
+
+      --card: rgba(255, 255, 255, .06);
+      --stroke: rgba(255, 255, 255, .12);
+
+      --gold: #D7B35A;
+      --gold2: #F2D18B;
+      --blue: #2A6CFF;
+
+      --radius: 18px;
+      --shadow: 0 22px 70px rgba(0, 0, 0, .45);
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1000px 560px at 15% 18%, rgba(215, 179, 90, .17), transparent 60%),
+        radial-gradient(1000px 560px at 85% 18%, rgba(42, 108, 255, .14), transparent 60%),
+        radial-gradient(900px 520px at 50% 92%, rgba(242, 209, 139, .10), transparent 62%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1120px;
+    }
+
+    /* Navbar */
+    .navbar {
+      transition: background .25s ease, border-color .25s ease;
+      border-bottom: 1px solid transparent;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar.nav-scrolled {
+      background: rgba(9, 12, 22, .70);
+      border-bottom: 1px solid rgba(255, 255, 255, .10);
+    }
+
+    .brandMark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(215, 179, 90, .95), rgba(242, 209, 139, .70));
+      box-shadow: 0 18px 55px rgba(215, 179, 90, .18);
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .10);
+      flex: 0 0 auto;
+    }
+
+    .brandMark i {
+      color: rgba(10, 16, 34, .95);
+    }
+
+    .navbar-brand .name {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, .74) !important;
+      font-weight: 500;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: rgba(255, 255, 255, .96) !important;
+    }
+
+    /* Buttons */
+    .btn-neo {
+      border-radius: 14px;
+      padding: 12px 16px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(255, 255, 255, .06);
+      color: rgba(255, 255, 255, .92);
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .btn-neo:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .btn-gold {
+      border: 1px solid rgba(215, 179, 90, .55);
+      background: linear-gradient(135deg, rgba(215, 179, 90, .95), rgba(242, 209, 139, .75));
+      color: rgba(10, 16, 34, .96);
+      font-weight: 800;
+      box-shadow: 0 22px 70px rgba(215, 179, 90, .18);
+    }
+
+    .btn-gold:hover {
+      border-color: rgba(255, 255, 255, .22);
+      color: rgba(10, 16, 34, .98);
+    }
+
+    /* Hero */
+    #home {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      padding-top: 92px;
+      padding-bottom: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #home:before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background:
+        radial-gradient(1300px 560px at 26% 18%, rgba(215, 179, 90, .16), transparent 62%),
+        radial-gradient(1100px 580px at 70% 18%, rgba(42, 108, 255, .14), transparent 60%);
+      pointer-events: none;
+    }
+
+    .heroGrid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    @media (max-width: 992px) {
+      .heroGrid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .04);
+      color: rgba(255, 255, 255, .78);
+      font-size: 13px;
+    }
+
+    .pulseDot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(215, 179, 90, .14);
+    }
+
+    .heroTitle {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(40px, 5vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin: 14px 0 10px;
+      font-weight: 700;
+    }
+
+    .goldText {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .heroSub {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.75;
+      max-width: 62ch;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(0, 0, 0, .22);
+      color: rgba(255, 255, 255, .86);
+      backdrop-filter: blur(8px);
+      font-size: 13px;
+      user-select: none;
+    }
+
+    .heroCard {
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .heroCard .media {
+      height: 330px;
+      border-radius: 14px;
+      margin: 16px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background:
+        radial-gradient(900px 340px at 35% 15%, rgba(215, 179, 90, .22), transparent 65%),
+        linear-gradient(180deg, rgba(0, 0, 0, .06), rgba(0, 0, 0, .55)),
+        url("https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .heroCard .media .badgeRow {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .heroCard .body {
+      padding: 0 16px 16px 16px;
+    }
+
+    /* Sections */
+    section {
+      padding: 88px 0;
+    }
+
+    .sectionTitle {
+      font-size: 13px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .65);
+      margin-bottom: 10px;
+    }
+
+    .sectionHeading {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      font-size: clamp(28px, 3vw, 42px);
+      margin: 0 0 12px;
+    }
+
+    .sectionLead {
+      color: var(--muted);
+      max-width: 72ch;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .cardNeo {
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .12);
+      box-shadow: 0 16px 60px rgba(0, 0, 0, .28);
+    }
+
+    /* Practice cards */
+    .service {
+      padding: 18px;
+      height: 100%;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18);
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .iconBubble {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(215, 179, 90, .28), rgba(42, 108, 255, .10));
+      border: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .service h5 {
+      margin: 12px 0 6px;
+      font-weight: 800;
+    }
+
+    .service p {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    /* Publications */
+    .pub {
+      overflow: hidden;
+      height: 100%;
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+      cursor: pointer;
+    }
+
+    .pub:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18);
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .pub .cover {
+      height: 160px;
+      border-bottom: 1px solid rgba(255, 255, 255, .10);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .pub .cover:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(700px 240px at 30% 20%, rgba(215, 179, 90, .14), transparent 62%),
+        linear-gradient(180deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .45));
+    }
+
+    .pub .body {
+      padding: 16px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .04);
+      color: rgba(255, 255, 255, .78);
+    }
+
+    /* Contact form */
+    .form-control,
+    .form-select {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: rgba(255, 255, 255, .92);
+      border-radius: 14px;
+      padding: 12px 12px;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      box-shadow: 0 0 0 .2rem rgba(215, 179, 90, .16);
+      border-color: rgba(215, 179, 90, .55);
+      background: rgba(255, 255, 255, .06);
+      color: rgba(255, 255, 255, .92);
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, .45);
+    }
+
+    footer {
+      padding: 34px 0 56px;
+      color: rgba(255, 255, 255, .65);
+      border-top: 1px solid rgba(255, 255, 255, .10);
+      background: rgba(0, 0, 0, .10);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Back to top */
+    .toTop {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(9, 12, 22, .55);
+      backdrop-filter: blur(10px);
+      color: rgba(255, 255, 255, .86);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .32);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+      z-index: 1050;
+    }
+
+    .toTop.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .hrSoft {
+      border-color: rgba(255, 255, 255, .10);
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-smooth-scroll="true" tabindex="0">
+
+  <!-- NAVBAR -->
+  <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
+    <div class="container py-2">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#home" aria-label="Home">
+        <span class="brandMark"><i class="bi bi-scale fs-5"></i></span>
+        <span class="name">LexNova <span class="text-white-50 fw-semibold">Legal</span></span>
+      </a>
+
+      <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#navCanvas" aria-controls="navCanvas" aria-label="Open menu">
+        <i class="bi bi-list fs-2"></i>
+      </button>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#practice">Area of Practice</a></li>
+          <li class="nav-item"><a class="nav-link" href="#publications">Publication</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contacts</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-neo btn-gold d-inline-flex align-items-center gap-2" href="#contact">
+              <i class="bi bi-chat-left-text"></i><span>Consult</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Offcanvas (mobile menu) -->
+  <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="navCanvas" aria-labelledby="navCanvasLabel"
+    style="background: rgba(9,12,22,.95); border-left: 1px solid rgba(255,255,255,.10);">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="navCanvasLabel">Menu</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="d-grid gap-2">
+        <a class="btn btn-neo text-start" data-close-canvas href="#home">Home</a>
+        <a class="btn btn-neo text-start" data-close-canvas href="#practice">Area of Practice</a>
+        <a class="btn btn-neo text-start" data-close-canvas href="#publications">Publication</a>
+        <a class="btn btn-neo text-start" data-close-canvas href="#contact">Contacts</a>
+        <hr class="hrSoft my-3">
+        <a class="btn btn-neo btn-gold" data-close-canvas href="#contact"><i
+            class="bi bi-chat-left-text me-2"></i>Consult</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOME -->
+  <header id="home">
+    <div class="container">
+      <div class="heroGrid">
+        <div class="reveal">
+          <div class="kicker">
+            <span class="pulseDot"></span>
+            <span>Advocate • Litigation • Advisory</span>
+          </div>
+
+          <h1 class="heroTitle">
+            Clear Strategy.<br>
+            Strong <span class="goldText">Representation</span>.
+          </h1>
+
+          <p class="heroSub">
+            Minimal, professional legal support—focused on documentation, negotiation, and courtroom readiness.
+          </p>
+
+          <div class="d-flex gap-2 flex-wrap mt-3">
+            <a class="btn btn-neo btn-gold d-inline-flex align-items-center gap-2" href="#contact">
+              <i class="bi bi-telephone"></i> Call for consultation
+            </a>
+            <a class="btn btn-neo d-inline-flex align-items-center gap-2" href="#practice">
+              <i class="bi bi-grid-1x2-fill"></i> Practice areas
+            </a>
+          </div>
+
+          <div class="d-flex gap-2 flex-wrap mt-4">
+            <span class="chip"><i class="bi bi-shield-check"></i> Confidential</span>
+            <span class="chip"><i class="bi bi-file-earmark-text"></i> Drafting</span>
+            <span class="chip"><i class="bi bi-bank2"></i> Court work</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="heroCard">
+            <div class="media">
+              <div class="badgeRow">
+                <span class="chip"><i class="bi bi-award"></i> 10+ Years</span>
+                <span class="chip"><i class="bi bi-star-fill"></i> 4.9 Rating</span>
+              </div>
+            </div>
+
+            <div class="body">
+              <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
+                <div>
+                  <div class="fw-semibold">LexNova Legal</div>
+                  <div class="text-white-50 small">Mumbai, India</div>
+                </div>
+                <span class="tag"><i class="bi bi-check2-circle me-1"></i> Bar Registered</span>
+              </div>
+
+              <hr class="hrSoft my-3">
+
+              <div class="d-flex gap-2 flex-wrap">
+                <a class="btn btn-neo py-2 px-3" href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a class="btn btn-neo py-2 px-3" href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a class="btn btn-neo py-2 px-3" href="mailto:hello@yourfirm.com" aria-label="Email"><i
+                    class="bi bi-envelope"></i></a>
+                <span class="text-white-50 small align-self-center">Replace links</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- AREA OF PRACTICE -->
+  <section id="practice">
+    <div class="container">
+      <div class="row g-4 align-items-end">
+        <div class="col-lg-8 reveal">
+          <div class="sectionTitle">Area of Practice</div>
+          <h2 class="sectionHeading">Focused practice. Simple communication.</h2>
+          <p class="sectionLead">Short list of core services (you can change names easily).</p>
+        </div>
+        <div class="col-lg-4 text-lg-end reveal">
+          <a class="btn btn-neo btn-gold" href="#contact"><i class="bi bi-calendar2-check me-2"></i>Get appointment</a>
+        </div>
+      </div>
+
+      <div class="row g-3 mt-2">
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="cardNeo service">
+            <div class="iconBubble"><i class="bi bi-bank"></i></div>
+            <h5>Civil Litigation</h5>
+            <p>Notices, suits, injunctions.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="cardNeo service">
+            <div class="iconBubble"><i class="bi bi-shield-lock"></i></div>
+            <h5>Criminal</h5>
+            <p>Bail, filings, hearings.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="cardNeo service">
+            <div class="iconBubble"><i class="bi bi-buildings"></i></div>
+            <h5>Corporate</h5>
+            <p>Contracts & compliance.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="cardNeo service">
+            <div class="iconBubble"><i class="bi bi-house-check"></i></div>
+            <h5>Property</h5>
+            <p>Title, disputes, drafting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="container">
+      <div class="row g-4 align-items-end">
+        <div class="col-lg-8 reveal">
+          <div class="sectionTitle">Publication</div>
+          <h2 class="sectionHeading">Notes & articles (minimal).</h2>
+          <p class="sectionLead">Click any card to preview in modal.</p>
+        </div>
+      </div>
+
+      <div class="row g-3 mt-2">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="cardNeo pub" data-title="Legal Notice: What to include" data-meta="Article • 5 min read"
+            data-text="A legal notice should be concise, factual, and well-structured—cover parties, timeline, demands, and a clear deadline. Avoid unnecessary allegations and keep documentation ready."
+            data-img="https://images.unsplash.com/photo-1528747045269-390fe33c19a3?auto=format&fit=crop&w=1400&q=80">
+            <div class="cover"
+              style="background-image:url('https://images.unsplash.com/photo-1528747045269-390fe33c19a3?auto=format&fit=crop&w=1400&q=80')">
+            </div>
+            <div class="body">
+              <div class="d-flex justify-content-between align-items-start gap-2">
+                <div class="fw-semibold">Legal Notice: What to include</div>
+                <span class="tag">Article</span>
+              </div>
+              <div class="text-white-50 small mt-1">5 min read</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="cardNeo pub" data-title="Bail basics in brief" data-meta="Note • Quick guide"
+            data-text="Bail depends on facts, sections, past record, and court discretion. Early documentation and a clean, consistent narrative improves clarity during hearings."
+            data-img="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=80">
+            <div class="cover"
+              style="background-image:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=80')">
+            </div>
+            <div class="body">
+              <div class="d-flex justify-content-between align-items-start gap-2">
+                <div class="fw-semibold">Bail basics in brief</div>
+                <span class="tag">Note</span>
+              </div>
+              <div class="text-white-50 small mt-1">Quick guide</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="cardNeo pub" data-title="Contracts: 3 common risk clauses" data-meta="Article • Business"
+            data-text="Watch indemnity scope, termination triggers, and limitation of liability. Use clear definitions and ensure obligations match operational reality."
+            data-img="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1400&q=80">
+            <div class="cover"
+              style="background-image:url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1400&q=80')">
+            </div>
+            <div class="body">
+              <div class="d-flex justify-content-between align-items-start gap-2">
+                <div class="fw-semibold">Contracts: 3 common risk clauses</div>
+                <span class="tag">Article</span>
+              </div>
+              <div class="text-white-50 small mt-1">Business</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-white-50 small mt-3 reveal">
+        Disclaimer: Publications are informational only and not legal advice.
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section id="contact">
+    <div class="container">
+      <div class="row g-4 align-items-end">
+        <div class="col-lg-8 reveal">
+          <div class="sectionTitle">Contacts</div>
+          <h2 class="sectionHeading">Send a quick query.</h2>
+          <p class="sectionLead">Demo form validation included (no backend). Want EmailJS/PHP? Tell me.</p>
+        </div>
+      </div>
+
+      <div class="row g-3 mt-2">
+        <div class="col-lg-7 reveal">
+          <div class="cardNeo p-3 p-lg-4">
+            <form id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label text-white-50 small">Name</label>
+                  <input class="form-control" name="name" placeholder="Full name" required minlength="2">
+                  <div class="invalid-feedback">Enter your name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-white-50 small">Phone</label>
+                  <input class="form-control" name="phone" placeholder="+91 00000 00000" required minlength="8">
+                  <div class="invalid-feedback">Enter a valid phone.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-white-50 small">Email</label>
+                  <input class="form-control" type="email" name="email" placeholder="you@email.com" required>
+                  <div class="invalid-feedback">Enter a valid email.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-white-50 small">Practice</label>
+                  <select class="form-select" name="practice" required>
+                    <option value="" selected disabled>Select</option>
+                    <option>Civil</option>
+                    <option>Criminal</option>
+                    <option>Corporate</option>
+                    <option>Property</option>
+                  </select>
+                  <div class="invalid-feedback">Select practice.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label text-white-50 small">Message</label>
+                  <textarea class="form-control" name="message" rows="5" placeholder="Briefly describe your issue..."
+                    required minlength="12"></textarea>
+                  <div class="invalid-feedback">Minimum 12 characters.</div>
+                </div>
+
+                <div class="col-12 d-flex gap-2 flex-wrap align-items-center">
+                  <button class="btn btn-neo btn-gold" type="submit">
+                    <i class="bi bi-send me-2"></i>Send
+                  </button>
+                  <span id="formNote" class="text-white-50 small"></span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-5 reveal">
+          <div class="cardNeo p-3 p-lg-4 h-100">
+            <div class="fw-semibold mb-2">Office</div>
+            <div class="text-white-50 small mb-3">Mumbai, India (replace address)</div>
+
+            <div class="d-grid gap-2">
+              <a class="btn btn-neo text-start" href="tel:+910000000000"><i class="bi bi-telephone me-2"></i>+91 00000
+                00000</a>
+              <a class="btn btn-neo text-start" href="mailto:hello@yourfirm.com"><i
+                  class="bi bi-envelope me-2"></i>hello@yourfirm.com</a>
+              <a class="btn btn-neo text-start" href="#"><i class="bi bi-clock me-2"></i>Mon–Sat • 10 AM – 7 PM</a>
+            </div>
+
+            <hr class="hrSoft my-3">
+
+            <div class="ratio ratio-16x9"
+              style="border-radius: 14px; overflow:hidden; border: 1px solid rgba(255,255,255,.10);">
+              <iframe title="Map" src="https://www.google.com/maps?q=Mumbai&output=embed" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>© <span id="year"></span> LexNova Legal</div>
+        <div class="text-white-50 small">Informational only • Not legal advice</div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="toTop" href="#home" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
+
+  <!-- Publication Modal -->
+  <div class="modal fade" id="pubModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content text-bg-dark"
+        style="background: rgba(9,12,22,.95); border: 1px solid rgba(255,255,255,.12); border-radius: 18px;">
+        <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,.10);">
+          <h5 class="modal-title" id="pmTitle">Publication</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="cardNeo overflow-hidden">
+            <div id="pmImg" style="height: 240px; background-size: cover; background-position:center;"></div>
+            <div class="p-3 p-lg-4">
+              <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                <div>
+                  <div class="text-white-50 small">Details</div>
+                  <div id="pmMeta" class="fw-semibold"></div>
+                </div>
+                <span class="tag"><i class="bi bi-file-earmark-text me-1"></i> Preview</span>
+              </div>
+              <hr class="hrSoft my-3">
+              <p id="pmText" class="mb-0" style="color: rgba(255,255,255,.74); line-height: 1.8;"></p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid rgba(255,255,255,.10);">
+          <a class="btn btn-neo btn-gold" href="#contact" data-bs-dismiss="modal">
+            <i class="bi bi-chat-left-text me-2"></i>Discuss this
+          </a>
+          <button class="btn btn-neo" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const qs = (s, el = document) => el.querySelector(s);
+    const qsa = (s, el = document) => [...el.querySelectorAll(s)];
+
+    // Year
+    qs('#year').textContent = new Date().getFullYear();
+
+    // Navbar scroll + back to top
+    const nav = qs('#mainNav');
+    const toTop = qs('.toTop');
+    const onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      nav.classList.toggle('nav-scrolled', y > 10);
+      toTop.classList.toggle('show', y > 600);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Smooth scroll
+    qsa('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id.length < 2) return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Close offcanvas on click
+    qsa('[data-close-canvas]').forEach(a => {
+      a.addEventListener('click', () => {
+        const ocEl = qs('#navCanvas');
+        const oc = bootstrap.Offcanvas.getInstance(ocEl) || new bootstrap.Offcanvas(ocEl);
+        oc.hide();
+      });
+    });
+
+    // Reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+    qsa('.reveal').forEach(el => io.observe(el));
+
+    // Publications modal
+    const pubModal = new bootstrap.Modal(qs('#pubModal'));
+    const pmTitle = qs('#pmTitle');
+    const pmMeta = qs('#pmMeta');
+    const pmText = qs('#pmText');
+    const pmImg = qs('#pmImg');
+
+    qsa('.pub').forEach(card => {
+      card.addEventListener('click', () => {
+        pmTitle.textContent = card.dataset.title || 'Publication';
+        pmMeta.textContent = card.dataset.meta || '';
+        pmText.textContent = card.dataset.text || '';
+        pmImg.style.backgroundImage = `url('${card.dataset.img || ""}')`;
+        pubModal.show();
+      });
+    });
+
+    // Contact form validation (demo)
+    const form = qs('#contactForm');
+    const formNote = qs('#formNote');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formNote.textContent = '';
+
+      if (!form.checkValidity()) {
+        e.stopPropagation();
+        form.classList.add('was-validated');
+        formNote.textContent = 'Please fix highlighted fields.';
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      console.log('Contact:', data);
+
+      form.classList.add('was-validated');
+      formNote.textContent = 'Submitted (demo). Add backend/EmailJS to send.';
+
+      setTimeout(() => {
+        form.reset();
+        form.classList.remove('was-validated');
+      }, 900);
+    });
+  </script>
+</body>
+
+</html>
