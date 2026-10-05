@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 
@@ -1080,4 +1081,1088 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
+=======
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vadodara Court Room Seating Plan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f9fafb;
+    }
+
+    body {
+      background-color: #f9fafb;
+      color: #222;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .section-title {
+      color: #003366;
+      font-weight: 700;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    .floor-card {
+      background-color: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .search-box {
+      border-radius: 10px;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .result-box {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 10px;
+      padding: 10px;
+      display: none;
+    }
+
+    .result-item {
+      padding: 8px 10px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .result-item:hover {
+      background-color: #eef4ff;
+    }
+
+    .highlight {
+      color: #003366;
+      font-weight: 600;
+    }
+
+    /* =====================================================
+       HEADER / COURT BUILDING
+    ===================================================== */
+
+    .court-header {
+      position: relative;
+      min-height: 430px;
+
+      background-image:
+        linear-gradient(
+          rgba(5, 22, 43, 0.70),
+          rgba(5, 22, 43, 0.70)
+        ),
+        url("/img/2022111729.jpg");
+
+      background-size: cover;
+      background-position: center 43%;
+      background-repeat: no-repeat;
+
+      color: white;
+      overflow: hidden;
+    }
+
+
+    /* Bottom fade */
+
+    .court-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      height: 80px;
+
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--cream)
+      );
+
+      pointer-events: none;
+    }
+
+
+    /* =====================================================
+       HERO TITLE
+    ===================================================== */
+
+    .court-heading {
+      position: relative;
+      z-index: 5;
+
+      padding-top: 85px;
+      padding-bottom: 100px;
+    }
+
+
+    .court-label {
+      color: #e4b24c;
+
+      font-size: 10px;
+      font-weight: 700;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 14px;
+    }
+
+
+    .court-heading h1 {
+      margin: 0;
+
+      color: white;
+
+      font-family: "Playfair Display",
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(38px, 5vw, 62px);
+
+      line-height: 1.08;
+
+      font-weight: 500;
+
+      text-shadow:
+        0 4px 20px rgba(0,0,0,0.4);
+    }
+
+
+    .court-heading h1 span {
+      display: block;
+
+      color: #e4b24c;
+
+      font-style: italic;
+    }
+
+
+    .court-heading p {
+      max-width: 620px;
+
+      margin: 20px auto 0;
+
+      color: rgba(255,255,255,0.83);
+
+      font-size: 14px;
+
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       FOURTH FLOOR — INTERACTIVE ROOM MAP
+       (everything scoped under #floor4Map so it can never
+       leak into / clash with the rest of the page, and the
+       same #floor1Map / #floor2Map / #floor3Map pattern can
+       be added later without collisions)
+    ===================================================== */
+
+    #floor4Map {
+      --ink: #1c1c1c;
+      --paper: #faf9f6;
+      --line: #d8d5cc;
+      --room-red: #d64545;
+      --room-maroon: #3a1f2b;
+      --room-blue: #2f7bb8;
+      --room-green: #12523a;
+      --room-orange: #e08a2b;
+      --room-lime: #c9d94a;
+      --marker: #f5d547;
+      --marker-ring: #3a3a3a;
+      --highlight: #ff3b30;
+
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+      padding: 18px;
+      border-radius: 10px;
+    }
+
+    #floor4Map .sub {
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    #floor4Map .controls {
+      max-width: 1100px;
+      margin: 0 auto 16px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    #floor4Map .controls input {
+      padding: 9px 14px;
+      font-size: 15px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      width: 220px;
+      outline: none;
+    }
+
+    #floor4Map .controls button {
+      padding: 9px 16px;
+      font-size: 14px;
+      border: 2px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #floor4Map .controls button.secondary {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    #floor4Map .controls button:hover {
+      opacity: 0.85;
+    }
+
+    #floor4Map #floor4Status {
+      font-size: 13px;
+      color: #a02020;
+      min-height: 18px;
+      text-align: center;
+    }
+
+    #floor4Map .wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      border: 3px solid var(--ink);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #efece3;
+    }
+
+    #floor4Map svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    #floor4Map .room {
+      cursor: pointer;
+    }
+
+    #floor4Map .room rect {
+      stroke: rgba(0, 0, 0, 0.28);
+      stroke-width: 1;
+      transition: opacity 0.15s ease, filter 0.15s ease;
+    }
+
+    #floor4Map .room:hover rect {
+      filter: brightness(1.12);
+    }
+
+    #floor4Map .room.active rect {
+      stroke: var(--highlight);
+      stroke-width: 3.5;
+      filter: brightness(1.18);
+    }
+
+    #floor4Map .marker circle {
+      fill: var(--marker);
+      stroke: var(--marker-ring);
+      stroke-width: 1.5;
+      transition: r 0.15s ease, fill 0.15s ease;
+    }
+
+    #floor4Map .marker text {
+      font-size: 15px;
+      font-weight: 700;
+      fill: #1c1c1c;
+      text-anchor: middle;
+      dominant-baseline: central;
+      pointer-events: none;
+    }
+
+    #floor4Map .marker:hover circle {
+      fill: #ffe98a;
+    }
+
+    #floor4Map .marker.active circle {
+      fill: var(--highlight);
+      stroke: #7a0000;
+      r: 26;
+    }
+
+    #floor4Map .marker.active text {
+      fill: #fff;
+    }
+
+    #floor4Map .pulse {
+      fill: none;
+      stroke: var(--highlight);
+      stroke-width: 3;
+      opacity: 0;
+    }
+
+    #floor4Map .marker.active .pulse {
+      animation: floor4Pulse 1.4s ease-out infinite;
+    }
+
+    @keyframes floor4Pulse {
+      0% { r: 20; opacity: 0.9; }
+      100% { r: 44; opacity: 0; }
+    }
+
+    #floor4Map .you-are-here {
+      font-weight: 700;
+      font-size: 15px;
+      fill: #1c1c1c;
+    }
+
+    #floor4Map .legend {
+      max-width: 1100px;
+      margin: 14px auto 0;
+      display: flex;
+      gap: 22px;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    #floor4Map .legend .swatch {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      margin-right: 6px;
+      vertical-align: middle;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
+  </style>
+</head>
+
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-warning" href="index.html"><i class="bi bi-balance-scale"></i> Rishab-LEX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <!-- <li class="nav-item">
+              <a class="nav-link" href="bareact.html">Bare Acts</a>
+            </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="judgment/judgment.html">Judgments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="article/article.html">Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vadodara-court.html">Vadodara-Court</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO / COURT BUILDING BACKGROUND ================= -->
+  <header class="court-header">
+    <div class="container court-heading text-center">
+
+      <div class="court-label">
+        COURT UTILITY
+      </div>
+
+      <h1>
+        Vadodara District Court
+        <span>Room Seating Plan</span>
+      </h1>
+
+      <p>
+        Quickly find a courtroom, chamber or office on the
+        fourth-floor seating plan.
+      </p>
+
+    </div>
+  </header>
+
+  <div class="container py-5">
+
+    <!-- 🔍 Search Section -->
+    <div class="text-center mb-4">
+      <input type="text" id="searchBox" class="search-box" placeholder="Search Judge by Name..."
+        onkeyup="searchJudge()" />
+      <div id="resultBox" class="result-box"></div>
+    </div>
+
+    <!-- 🔽 Search Result Display -->
+    <div id="selectedResult" class="text-center mb-5"></div>
+
+    <!-- 🧾 Floor Wise Display -->
+    <div class="floor-card">
+      <h4 class="section-title">Ground Floor (A)</h4>
+      <p>
+        A1 - <br />
+        A8 - Mr. P.N. Raval, 4th AddL District judge <br />
+        A9 - Mr B.K Dasondi 9th Addl. District judge <br />
+        A17 - Mr. Sunilkumar Sharma, 19th Addl. Sr. Civil Judge <br />
+        A29 - Mr. R.A Agrawal, 10 Addl. District judge <br />
+        A32 - Mr. S.M. Mishra, 14th Addl. Sr. Civil Judgе <br />
+        A33 - Mr. A.G Dodia, 17th Addl. Sr. Civil Judge <br />
+        A45 - Mr. P.B. Nayak, Chief Judicial Magistrate <br />
+        A56 - Mr. J.V. Shah, 15th Addl. Sr. Civil Judge <br />
+        <!-- A58 - J.V. Shah <br /> -->
+        A59 - Ms D.P Shah, J.M.F.C. 1st Court <br />
+        A69 - Ms. Shipra Sayal, J.M.F.C., 2nd Court <br />
+        A85 - Ms H.D.Panchal, J.M.F.C., 4th Court <br />
+        A95 - Mr. B.U Tarak, J.M.F.C., Traffic Court <br />
+        A96 - Ms. E.K Chandawal, JMFC (Municipal Court) <br />
+        A106 - Ms. K N.Trived, J.M.F.C., 3rd Court
+      </p>
+    </div>
+
+    <div class="floor-card">
+      <h4 class="section-title">First Floor (B)</h4>
+      <p>
+        B6 - Mr. M.A.Tailor. 3 Addl. District Judge <br />
+        B7 - D.K. Soni, 6th Addl. District judge <br />
+        B15 - C.M. Pawar, Addl. District Judge<br />
+        B21 - Mr. D.V.Savala, Secretary DLSA<br />
+        B29 - Mr. B.G.Dave, Principal District Judge <br />
+        B44 - Mr. D.D.Shah. 15th Addl. District judge <br />
+        B57 - Mr. I.S. Saiyed, 12th Addl. Sr. Civil Judge <br />
+        B58 - Mr. D.J.Rajput. 16th Addl. District judge<br />
+        B65 - MS. HD Panchal, 10 Addl. Civil Judge <br />
+        B77 - A.P Kadiwar, Addl. Civil Judge
+        <br />
+        B87 - Dr. H.P. Joshi, 24th Addl. Civil Judge <br />
+        <!-- B88 - S.D. Kapadia <br /> -->
+        <!-- B98 - T.H. Thakkar -->
+      </p>
+    </div>
+
+    <div class="floor-card">
+      <h4 class="section-title">Second Floor (C)</h4>
+      <p>
+        C1 - Mr. R.B Marfatiya, 12th Addl. District judge<br />
+        C6 - Mr. M.H. Padhiyar, 8th Addl. Sr. Civil Judge <br />
+        C9 - Mr. M.R Zala, 14th Addl. District judge <br />
+        C18 - Mr. P.B. Patel, 16th Addl. Sr. Civil Judge <br />
+        C24 - Mr. K.L. Nadia, 23rd Addl. Sr. Civil Judge <br />
+        C32 - Mr.P.V.Bhatt, 11th Addl. District judge <br />
+        C35 - Mr. G.J. Thoriya 8th Addl. District judge <br />
+        C42 - Mr. H.J.Thaker, 13th Addl. District judge <br />
+        <!-- C49 - M.M. Qureshi <br /> -->
+        C61 - Mr.P.K. Gadhvi, 5th AddL, Sr. Civil Judge <br />
+        C62 - Mr. R.B. Gosai, 9th Addl. Sr. Civil Judge <br />
+        C70 - Dr.A.K.Sharma, 2 Addl. Sr. Civil Judge <br />
+        <!-- C77 - D.P. Shah <br /> -->
+        <!-- C84 - L.M. Parmar <br /> -->
+        C87 - Mr.bB.P.Mahida, 3rd Addl. Sr. Civil Judge <br />
+        <!-- C94 - P. Rathore -->
+      </p>
+    </div>
+
+    <div class="floor-card">
+      <h4 class="section-title">Third Floor (D)</h4>
+      <p>
+        D1 - Mr. J.J. Bhatt, Principal Sr.Civil Judge <br />
+        D8 - Mr. M.J. Gadhavi, 6th Addl. Sr. Civil Judge <br />
+        <!-- D9 - M.D. Valani <br /> -->
+        <!-- D17 - M.B. Mehta <br /> -->
+        D19 - Mr. C.V. Bhatt, 21th Addl. Sr. Civil Judge <br />
+        D30 - Mr.B.M. Gadhiya, 11th Addl. Sr. Civil Judge <br />
+        <!-- D31 - A.A. Shaikh <br /> -->
+        D45 - R.V. Raje (Family Court No. 2) <br />
+        D57 - B.S. Shah (Family Court No. 3) <br />
+        D58 - S.C. Vyas (Family Court No. 4) <br />
+        D62 - R.S. Rajput (Family Court No. 5) <br />
+        D73 - Mr. Y.R. Agrawal, 7th Addl. Sr. Civil Judge <br />
+        D80 - Mrs Kavita Gehlot, 2nd Addl. Civil Judge <br />
+        D81 - N/A<br />
+        D88 - Mr. R.P. Raghav, Principal Judge
+      </p>
+    </div>
+
+    <div class="floor-card">
+      <h4 class="section-title">Fourth Floor (E)</h4>
+      <p>
+        E1 - T.J. Patel (Small Cause Court) <br />
+        E8 - B.M Raj, 2nd Addl. Judge (Small Cause Court) <br />
+        E9 - Mr. K. H. Shekha, Addl. Judge, (Small Cause Court) <br />
+        E16 - Mr. O.L. Pathan, 22nd Addl. Sr. Civil Judge <br />
+        E18 - Mr. H.S. Desai, 25th Addl. Civil Judge <br />
+        E29 - Mr. D.M. Singhal, 18th Addl. Sr. Civil Judge <br />
+        E30 - Mr. R.V. Limbachiya, 4th Addl. Sr. Civil Judge <br />
+        E37 - Ms. Poonam Swami, 3rd Addl. Civil Judge<br />
+        E54 - Mr. J.M. Solanki, 10th Addl. Sr. Civil Judge <br />
+        <!-- E55 - R.M. Shaikh <br /> -->
+        E62 - Chitra Ratnoo (Family Court No. 6) <br />
+        E64 - Mr. S.G. Parmar, 13th Addl. Sr. Civil Judge <br />
+        E73 - Mr. D.M. Bavishi, 20th Addl. Sr. Civil Judge
+      </p>
+    </div>
+
+    <!-- ================= FOURTH FLOOR — INTERACTIVE ROOM MAP ================= -->
+    <div class="floor-card">
+      <h4 class="section-title">Fourth Floor — Interactive Room Map</h4>
+
+      <div id="floor4Map">
+
+        <div class="sub">
+          Type a room number and press Enter (or Highlight) to locate it on the map.
+        </div>
+
+        <div class="controls">
+          <input
+            id="floor4SearchBox"
+            type="text"
+            inputmode="numeric"
+            placeholder="Enter room number (1–82)"
+          />
+          <button id="floor4HighlightBtn">Highlight</button>
+          <button id="floor4ClearBtn" class="secondary">Clear</button>
+        </div>
+        <div id="floor4Status"></div>
+
+        <div class="wrap">
+          <svg
+            id="floor4Svg"
+            viewBox="0 0 1600 823"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect x="0" y="0" width="1600" height="823" fill="#efece3" />
+
+            <!-- ===== Approximate room blocks (schematic, colors mirror legend) ===== -->
+            <g id="floor4RoomBlocks" opacity="0.85"></g>
+
+            <!-- corridors (light) -->
+            <rect x="0" y="0" width="1600" height="823" fill="none" />
+
+            <!-- You are here marker -->
+            <g transform="translate(762,412)">
+              <circle r="7" fill="#c0392b" />
+              <path
+                d="M0,-22 C10,-22 16,-14 16,-6 C16,4 0,20 0,20 C0,20 -16,4 -16,-6 C-16,-14 -10,-22 0,-22 Z"
+                fill="#c0392b"
+              />
+              <circle cy="-6" r="5" fill="#fff" />
+              <text x="22" y="-4" class="you-are-here">YOU ARE HERE</text>
+            </g>
+
+            <!-- Room number markers -->
+            <g id="floor4Markers"></g>
+          </svg>
+        </div>
+
+        <div class="legend">
+          <div>
+            <span class="swatch" style="background: #181818"></span>Toilet &amp;
+            Drinking Water
+          </div>
+          <div>
+            <span class="swatch" style="background: #d8433a"></span>&#9855;
+            Accessible Toilet &amp; Drinking Water
+          </div>
+          <div>
+            <span class="swatch" style="background: #2b1522"></span>Court room /
+            chamber
+          </div>
+          <div>
+            <span class="swatch" style="background: #2f7fc1"></span>Office block
+          </div>
+          <div>
+            <span class="swatch" style="background: #e08a2b"></span>Reception /
+            registry
+          </div>
+          <div>
+            <span class="swatch" style="background: #cbd94a"></span>Open area
+          </div>
+          <div>
+            <span
+              class="swatch"
+              style="background: var(--marker); border-color: #3a3a3a"
+            ></span
+            >Room number marker
+          </div>
+        </div>
+
+        <div class="sub" style="margin-top: 6px">
+          Colors follow the source signage; only black and red are formally keyed on
+          the original board — others are shown here for visual reference.
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div class="alert alert-warning border-0 shadow-sm rounded-4 mt-4" role="alert">
+      <div class="d-flex">
+        <div class="me-3 fs-5">⚠️</div>
+        <div>
+          <h6 class="fw-bold mb-2"> Vadodara District Court Seating Plan – Latest Update as on 9 August 2026</h6>
+
+          <p class="mb-2 small">
+            This seating plan has been recently updated to reflect
+            <strong>the new courtroom allocations following recent transfers, promotions, and changes in judicial
+              postings</strong>.
+            As these details may change from time to time, there may be an unintended
+            error, mismatch, missing entry, or outdated information.
+          </p>
+
+          <p class="mb-2 small">
+            If you notice any <strong>incorrect judge name, courtroom/room number,
+              missing entry, mismatch, or technical issue</strong>,
+            please inform me through the
+            <a href="contact.html" class="fw-semibold text-decoration-none">Contact section</a>,
+            Instagram DM, or WhatsApp.Your feedback will help me verify and correct the information at the earliest.
+          </p>
+
+          <p class="mb-0 small text-muted">
+            <em>Please verify important information with the concerned court or official sources before relying on
+              it.</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- About -->
+        <div class="col-lg-4 col-md-6">
+          <h5 class="fw-bold text-warning">
+            <i class="bi bi-balance-scale"></i> Rishab-LEX
+          </h5>
+
+          <p class="small text-light-emphasis">
+            A practical legal resource platform built to help law students,
+            interns, advocates and court visitors through simplified legal
+            resources, court utilities and region-specific information.
+          </p>
+
+          <small class="text-secondary">
+            © 2025 Rishab-LEX. All Rights Reserved.
+          </small>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold text-warning">Quick Links</h6>
+
+          <ul class="list-unstyled small">
+            <li class="mb-2">
+              <a href="index.html" class="text-light text-decoration-none">Home</a>
+            </li>
+
+            <li class="mb-2">
+              <a href="about.html" class="text-light text-decoration-none">About</a>
+            </li>
+
+            <li class="mb-2">
+              <a href="article/article.html" class="text-light text-decoration-none">Articles</a>
+            </li>
+
+            <li class="mb-2">
+              <a href="judgment/judgment.html" class="text-light text-decoration-none">Judgments</a>
+            </li>
+            <a href="contact.html" class="text-light text-decoration-none">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold text-warning">Resources</h6>
+
+          <ul class="list-unstyled small">
+            <li class="mb-2">
+              <a href="vadodara-court.html" class="text-light text-decoration-none">
+                Vadodara Court Directory
+              </a>
+            </li>
+
+            <li class="mb-2">
+              <a href="court-fee-calculator.html" class="text-light text-decoration-none">
+                Court Fee Calculator
+              </a>
+            </li>
+
+            <li class="mb-2">
+              <a href="ngo.html" class="text-light text-decoration-none">
+                NGOs in Vadodara
+              </a>
+            </li>
+
+            <li>
+              <a href="/" class="text-light text-decoration-none">
+                Legal Glossary
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Connect -->
+        <div class="col-lg-2 col-md-6">
+          <h6 class="fw-bold text-warning">Connect</h6>
+
+          <div class="d-flex gap-3 fs-4">
+            <a href="https://www.instagram.com/lawgically_incorrect" target="_blank" class="text-light">
+              <i class="bi bi-instagram"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/rishab910" target="_blank" class="text-light">
+              <i class="bi bi-linkedin"></i>
+            </a>
+
+            <a href="https://github.com/RishabKanaujia" target="_blank" class="text-light">
+              <i class="bi bi-github"></i>
+            </a>
+          </div>
+
+          <p class="small text-secondary mt-3 mb-0">
+            Feedback and suggestions are always welcome.
+          </p>
+        </div>
+      </div>
+
+      <hr class="border-secondary my-4" />
+
+      <div class="d-md-flex justify-content-between align-items-center small">
+        <div class="text-secondary">
+          Built with ❤️ to make legal information more accessible and
+          practical.
+        </div>
+
+        <div class="mt-2 mt-md-0">
+          <a href="privacy_policy.html" class="text-decoration-none text-light me-3">
+            Privacy Policy
+          </a>
+
+          <a href="privacy_policy.html" class="text-decoration-none text-light">
+            Disclaimer
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const judges = {
+      "Mr. P.N. Raval, 4th AddL District judge": "A8 (Ground Floor)",
+      "Mr B.K Dasondi 9th Addl. District judge": "A9 (Ground Floor)",
+      "Mr. Sunilkumar Sharma, 19th Addl. Sr. Civil Judge ": "A17 (Ground Floor)",
+      "Mr. R.A Agrawal, 10 Addl. District judge": "A21 (Ground Floor)",
+      "Mr. S.M. Mishra, 14th Addl. Sr. Civil Judgе": "A32 (Ground Floor)",
+      "Mr. A.G Dodia, 17th Addl. Sr. Civil Judge": "A33 (Ground Floor)",
+      "Mr. P.B. Nayak, Chief Judicial Magistrate": "A45 (Ground Floor)",
+      "Mr. J.V. Shah, 15th Addl. Sr. Civil Judge ": "A56 (Ground Floor)",
+      // "J.V. Shah": "A58 (Ground Floor)",
+      "Ms D.P Shah, J.M.F.C. 1st Court": "A59 (Ground Floor)",
+      "Ms Shipra Sayal, J.M.F.C., 2nd Court  ": "A69 (Ground Floor)",
+      "Ms H.D.Panchal, J.M.F.C., 4th Court ": "A85 (Municipal Court, Ground Floor)",
+      "Mr. B.U Tarak, J.M.F.C., Traffic Court": "A95 (Ground Floor)",
+      "Ms. E.K Chandawat, JMFC (Municipal Court)": "A96 (Ground Floor)",
+      "Ms. K N.Trived, J.M.F.C., 3rd Court ": "A106  (Ground Floor)",
+
+      "Mr. M.A. Tailor. 3 Addl. District Judge": "B6 (First Floor)",
+      "D.K. Soni, 6th Addl. District judge": "B7 (First Floor)",
+      "C.M. Pawar, Addl. District Judge": "B15 (First Floor)",
+      "Mr. D.V.Savala, Secretary DLSA": "B21 (First Floor)",
+      "Mr. B.G.Dave, Principal District Judge": "B29 (Principal District Judge)",
+      "Mr. I.S. Saiyed, 12th Addl. Sr. Civil Judge": "B57 (First Floor)",
+      "Mr. D.J.Rajput. 16th Addl. District judge": "B58 (First Floor)",
+      "Mr. D.D.Shah. 15th Addl. District judge": "B44 (First Floor)",
+      "Ms. A.P Kadiwar, Addl. Civil Judge": "B77 (First Floor)",
+      "Dr. H.P. Joshi, 24th Addl. Civil Judge": "B87 (First Floor)",
+      // "T.H. Thakkar": "B98 (First Floor)",
+      // "S.D. Kapadia": "B88 (First Floor)",
+      // "HD Panchal": "B65 (First Floor)",
+
+      "Mr. R.B Marfatiya, 12th Addl. District judge": "C1 (Second Floor)",
+      "Mr. M.H. Padhiyar, 8th Addl. Sr. Civil Judge": "C6 (Second Floor)",
+      "Mr. M.R Zala, 14th Addl. District judge": "C9 (Second Floor)",
+      "Mr. P.B. Patel, 16th Addl. Sr. Civil Judge": "C18 (Second Floor)",
+      "Mr. K.L. Nadia, 23rd Addl. Sr. Civil Judge": "C24 (Second Floor)",
+      "Mr. P.V.Bhatt, 11th Addl. District judge": "C34 (Second Floor)",
+      "Mr. G.J. Thoriya 8th Addl. District judge": "C35 (Second Floor)",
+      "Mr. H.J.Thaker, 13th Addl. District judge": "C42 (Second Floor)",
+      // "M.M. Qureshi": "C49 (Second Floor)",
+      "Mr.P.K. Gadhvi, 5th AddL, Sr. Civil Judge": "C61 (Second Floor)",
+      "Mr. R.B. Gosai, 9th Addl. Sr. Civil Judge": "C62 (Second Floor)",
+      "Dr.A.K.Sharma, 2nd Addl. Sr. Civil Judge": "C70 (Second Floor)",
+      // "D.P. Shah": "C77 (Second Floor)",
+      // "L.M. Parmar": "C86 (Second Floor)",
+      "Mr. B.P.Mahida, 3rd Addl. Sr. Civil Judge": "C87 (Second Floor)",
+      // "P. Rathore": "C94 (Second Floor)",
+
+      "J.J. Bhat, Principal Senior Civil": "D1 (Third Floor)",
+      "Mr. M.J. Gadhavi, 6th Addl. Sr. Civil Judge": "D8 (Third Floor)",
+      // "M.D. Valani": "D9 (Third Floor)",
+      // "M.B. Mehta": "D17 (Third Floor)",
+      "Mr. C.V. Bhatt, 21th Addl. Sr. Civil Judge": "D19 (Third Floor)",
+      "Mr.B.M.Gadhiya, 11th Addl. Sr. Civil Judge": "D30 (Third Floor)",
+      // "A.A. Shaikh": "D31 (Third Floor)",
+      "R.V. Raje": "D45 (Third Floor)",
+      "B.S. Shah": "D57 (Third Floor)",
+      "S.C. Vyas": "D58 (Third Floor)",
+      "R.S. Rajput": "D62 (Third Floor)",
+      "Mr. Y.R. Agrawal, 7th Addl. Sr. Civil Judge": "D73 (Third Floor)",
+      "Mrs Kavita Gehlot, 2nd Addl. Civil Judge": "D80 (Third Floor)",
+      // "Chitra Ratnoo": "D81 (Third Floor)",
+      "Mr. R.P. Raghav, Principal Judge": "D88 (Third Floor)",
+
+      "T.J. Patel, Small Cause Court Judge": "E1 (Fourth Floor)",
+      "B.M Raj, 2nd Addl. Small Cause Court Judge": "E8 (Fourth Floor)",
+      "Mr. K. H. Shekha, Addl Judge, Sa.Ca Court ": "E9 (Fourth Floor)",
+      "Mr. O.L. Pathan, 22nd Addl. Sr. Civil Judge": "E16 (Fourth Floor)",
+      "Mr. H.S. Desai, 25th Addl. Civil Judge": "E18 (Fourth Floor)",
+      "Mr. D.M. Singhal, 18th Addl. Sr. Civil Judge": "E29 (Fourth Floor)",
+      "Mr. R.V. Limbachiya, 4th Addl. Sr. Civil Judge": "E30 (Fourth Floor)",
+      "Ms. Poonam Swami, 3rd Addl. Civil Judge": "E37 (Fourth Floor)",
+      "Mr. J.M. Solanki, 10th Addl. Sr. Civil Judge": "E54 (Fourth Floor)",
+      // "R.M. Shaikh": "E55 (Fourth Floor)",
+      "Chitra Ratnoo (Family Court No. 6)": "E62 (Fourth Floor)",
+      "Mr. S.G. Parmar, 13th Addl. Sr. Civil Judge": "E64 (Fourth Floor)",
+      "Mr. D.M. Bavishi, 20th Addl. Sr. Civil Judge": "E73 (Fourth Floor)",
+    };
+
+    function searchJudge() {
+      const input = document.getElementById("searchBox").value.toLowerCase();
+      const resultBox = document.getElementById("resultBox");
+      const selectedResult = document.getElementById("selectedResult");
+
+      resultBox.innerHTML = "";
+      selectedResult.innerHTML = "";
+      resultBox.style.display = "none";
+
+      if (input.length === 0) return;
+
+      const matches = Object.keys(judges).filter((name) =>
+        name.toLowerCase().includes(input),
+      );
+
+      if (matches.length > 0) {
+        resultBox.style.display = "block";
+        matches.forEach((name) => {
+          const item = document.createElement("div");
+          item.className = "result-item";
+          item.textContent = name;
+          item.onclick = function () {
+            selectedResult.innerHTML = `<div class="highlight">${name}</div> → ${judges[name]}`;
+            resultBox.style.display = "none";
+            document.getElementById("searchBox").value = name;
+          };
+          resultBox.appendChild(item);
+        });
+      }
+    }
+  </script>
+
+  <!-- =====================================================
+       FOURTH FLOOR — INTERACTIVE ROOM MAP SCRIPT
+       Wrapped in its own IIFE and every name prefixed with
+       "floor4" so this can sit alongside a judges/searchJudge
+       script above, and so floor1Map / floor2Map / floor3Map
+       can be added later as separate blocks without any of
+       them clashing with each other.
+  ===================================================== -->
+  <script>
+    (function () {
+
+      // Approximate room-number positions (x, y) on a 1600x823 canvas,
+      // derived from the uploaded floor-plan photo.
+      const floor4Rooms = {
+        1: [676, 483], 2: [618, 499], 3: [601, 499], 4: [734, 592], 5: [639, 682],
+        6: [549, 538], 7: [543, 568], 8: [531, 635], 9: [395, 635], 10: [376, 568],
+        11: [376, 538], 12: [280, 676], 13: [196, 592], 14: [340, 494], 15: [301, 494],
+        16: [247, 481], 17: [43, 592], 18: [676, 354], 19: [620, 344], 20: [600, 338],
+        21: [724, 265], 22: [724, 229], 23: [724, 192], 24: [733, 155], 25: [699, 155],
+        26: [642, 157], 27: [546, 296], 28: [546, 268], 29: [536, 202], 30: [400, 202],
+        31: [383, 271], 32: [383, 296], 33: [295, 157], 34: [211, 244], 35: [340, 332],
+        36: [317, 340], 37: [254, 352], 38: [103, 280], 39: [18, 207], 40: [18, 314],
+        41: [18, 371], 42: [821, 375], 43: [956, 357], 44: [1014, 341], 45: [1042, 339],
+        46: [906, 247], 47: [933, 155], 48: [906, 155], 49: [908, 192], 50: [984, 163],
+        51: [1011, 163], 52: [1084, 296], 53: [1099, 270], 54: [1097, 205], 55: [1235, 205],
+        56: [1240, 270], 57: [1240, 300], 58: [1335, 163], 59: [1419, 249], 60: [1287, 339],
+        61: [1312, 340], 62: [1367, 357], 63: [1571, 249], 64: [968, 484], 65: [1028, 499],
+        66: [1052, 499], 67: [897, 575], 68: [918, 575], 69: [907, 610], 70: [988, 682],
+        71: [1085, 540], 72: [1099, 571], 73: [1109, 635], 74: [1235, 635], 75: [1240, 571],
+        76: [1252, 540], 77: [1348, 682], 78: [1424, 596], 79: [1289, 502], 80: [1311, 502],
+        81: [1370, 485], 82: [1583, 592]
+      };
+
+      // Colored room blocks [x, y, width, height, colorKey], derived from the source photo.
+      const floor4Blocks = {
+        1: [620, 440, 100, 70, "red"], 2: [620, 455, 40, 45, "maroon"], 3: [580, 455, 40, 45, "maroon"],
+        5: [600, 655, 90, 45, "blue"], 6: [540, 510, 40, 40, "maroon"], 7: [540, 550, 40, 40, "maroon"],
+        8: [495, 590, 85, 95, "red"], 9: [345, 585, 90, 95, "red"], 10: [345, 550, 55, 35, "maroon"],
+        11: [345, 515, 55, 35, "maroon"], 12: [225, 650, 95, 50, "lime"], 14: [330, 470, 30, 40, "maroon"],
+        15: [300, 470, 30, 40, "maroon"], 16: [205, 430, 95, 80, "red"], 17: [0, 550, 140, 150, "lime"],
+        18: [620, 305, 100, 75, "red"], 19: [620, 320, 40, 40, "maroon"], 20: [580, 320, 40, 40, "maroon"],
+        21: [680, 255, 70, 40, "blue"], 22: [680, 215, 70, 40, "blue"], 23: [680, 175, 70, 40, "blue"],
+        24: [715, 140, 35, 35, "blue"], 25: [680, 140, 35, 35, "blue"], 26: [605, 140, 75, 50, "orange"],
+        27: [495, 295, 55, 35, "maroon"], 28: [495, 255, 55, 40, "maroon"], 29: [490, 140, 110, 120, "red"],
+        30: [350, 140, 145, 115, "red"], 31: [345, 255, 55, 35, "maroon"], 32: [345, 290, 55, 35, "maroon"],
+        33: [160, 140, 170, 70, "orange"], 35: [330, 325, 30, 40, "maroon"], 36: [300, 325, 30, 40, "maroon"],
+        37: [205, 325, 95, 75, "red"], 38: [55, 180, 95, 200, "lime"], 39: [0, 170, 45, 80, "lime"],
+        40: [0, 280, 45, 65, "lime"], 41: [0, 345, 45, 65, "lime"], 42: [745, 345, 155, 45, "maroon"],
+        43: [905, 305, 105, 80, "red"], 44: [1005, 320, 35, 40, "maroon"], 45: [1040, 320, 35, 40, "maroon"],
+        47: [920, 140, 35, 35, "black"], 48: [890, 140, 35, 35, "black"], 49: [890, 175, 50, 40, "black"],
+        50: [980, 140, 35, 35, "blue"], 51: [1015, 140, 35, 35, "blue"], 52: [1055, 295, 50, 35, "maroon"],
+        53: [1055, 255, 50, 40, "maroon"], 54: [1055, 140, 105, 115, "red"], 55: [1195, 140, 105, 120, "red"],
+        56: [1195, 260, 50, 35, "maroon"], 57: [1195, 295, 50, 35, "maroon"], 58: [1300, 140, 75, 50, "blue"],
+        60: [1275, 325, 35, 40, "maroon"], 61: [1310, 325, 35, 40, "maroon"], 62: [1345, 310, 75, 80, "red"],
+        63: [1490, 140, 110, 175, "lime"], 64: [905, 445, 100, 75, "red"], 65: [1005, 480, 35, 40, "maroon"],
+        66: [1040, 480, 35, 40, "maroon"], 70: [955, 655, 90, 45, "blue"], 71: [1060, 530, 50, 35, "maroon"],
+        72: [1060, 565, 50, 35, "maroon"], 73: [1055, 600, 90, 95, "red"], 74: [1195, 590, 85, 95, "red"],
+        75: [1195, 550, 50, 40, "maroon"], 76: [1195, 515, 50, 35, "maroon"], 77: [1305, 655, 90, 45, "blue"],
+        78: [1400, 560, 70, 80, "blue"], 79: [1275, 465, 35, 40, "maroon"], 80: [1310, 465, 35, 40, "maroon"],
+        81: [1345, 445, 75, 65, "red"], 82: [1500, 590, 100, 120, "lime"]
+      };
+
+      const floor4ColorMap = {
+        red: "#d8433a",
+        maroon: "#2b1522",
+        blue: "#2f7fc1",
+        orange: "#e08a2b",
+        lime: "#cbd94a",
+        black: "#181818"
+      };
+
+      const floor4RoomBlocksG = document.getElementById("floor4RoomBlocks");
+      const floor4MarkersG = document.getElementById("floor4Markers");
+      const floor4Ns = "http://www.w3.org/2000/svg";
+
+      Object.entries(floor4Blocks).forEach(([id, [x, y, w, h, colorKey]]) => {
+        const g = document.createElementNS(floor4Ns, "g");
+        g.setAttribute("class", "room");
+        g.setAttribute("id", "floor4-block-" + id);
+
+        const rect = document.createElementNS(floor4Ns, "rect");
+        rect.setAttribute("x", x);
+        rect.setAttribute("y", y);
+        rect.setAttribute("width", w);
+        rect.setAttribute("height", h);
+        rect.setAttribute("fill", floor4ColorMap[colorKey]);
+        g.appendChild(rect);
+
+        g.addEventListener("click", () => floor4Highlight(id));
+        floor4RoomBlocksG.appendChild(g);
+      });
+
+      Object.entries(floor4Rooms).forEach(([id, [x, y]]) => {
+        const g = document.createElementNS(floor4Ns, "g");
+        g.setAttribute("class", "marker");
+        g.setAttribute("id", "floor4-room-" + id);
+        g.setAttribute("transform", `translate(${x},${y})`);
+
+        const pulse = document.createElementNS(floor4Ns, "circle");
+        pulse.setAttribute("class", "pulse");
+        pulse.setAttribute("r", "20");
+        g.appendChild(pulse);
+
+        const circle = document.createElementNS(floor4Ns, "circle");
+        circle.setAttribute("r", "15");
+        g.appendChild(circle);
+
+        const text = document.createElementNS(floor4Ns, "text");
+        text.textContent = id;
+        g.appendChild(text);
+
+        g.addEventListener("click", () => floor4Highlight(id));
+        floor4MarkersG.appendChild(g);
+      });
+
+      let floor4ActiveId = null;
+
+      function floor4Highlight(id) {
+        if (floor4ActiveId) {
+          const prevM = document.getElementById("floor4-room-" + floor4ActiveId);
+          if (prevM) prevM.classList.remove("active");
+          const prevB = document.getElementById("floor4-block-" + floor4ActiveId);
+          if (prevB) prevB.classList.remove("active");
+        }
+        const el = document.getElementById("floor4-room-" + id);
+        const blockEl = document.getElementById("floor4-block-" + id);
+        const status = document.getElementById("floor4Status");
+        if (el) {
+          el.classList.add("active");
+          if (blockEl) blockEl.classList.add("active");
+          floor4ActiveId = id;
+          el.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "center",
+          });
+          status.textContent = "";
+        } else {
+          floor4ActiveId = null;
+          status.textContent = "Room " + id + " not found (valid range: 1–82).";
+        }
+      }
+
+      function floor4ClearHighlight() {
+        if (floor4ActiveId) {
+          const prevM = document.getElementById("floor4-room-" + floor4ActiveId);
+          if (prevM) prevM.classList.remove("active");
+          const prevB = document.getElementById("floor4-block-" + floor4ActiveId);
+          if (prevB) prevB.classList.remove("active");
+        }
+        floor4ActiveId = null;
+        document.getElementById("floor4Status").textContent = "";
+        document.getElementById("floor4SearchBox").value = "";
+      }
+
+      document.getElementById("floor4HighlightBtn").addEventListener("click", () => {
+        const v = document.getElementById("floor4SearchBox").value.trim();
+        if (v) floor4Highlight(v);
+      });
+
+      document.getElementById("floor4SearchBox").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          const v = e.target.value.trim();
+          if (v) floor4Highlight(v);
+        }
+      });
+
+      document
+        .getElementById("floor4ClearBtn")
+        .addEventListener("click", floor4ClearHighlight);
+
+    })();
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+>>>>>>> bf915a5eb237b0dece606780ec726950a00d47e5
 </html>

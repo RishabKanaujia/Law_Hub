@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
   <head>
@@ -2085,3 +2086,2092 @@
     </script>
   </body>
 </html>
+=======
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LexGuard Legal — Advocate / Law Firm</title>
+    <meta
+      name="description"
+      content="Modern single-page website template for Advocate / Law Firm. Responsive, premium UI, Bootstrap + CSS + JS."
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+    <!-- Bootstrap + Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg0: #070a12;
+        --bg1: #0a1022;
+        --card: rgba(255, 255, 255, 0.06);
+        --stroke: rgba(255, 255, 255, 0.12);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.68);
+        --muted2: rgba(255, 255, 255, 0.52);
+
+        --gold: #d7b35a; /* premium law accent */
+        --gold2: #f2d18b;
+        --blue: #2a6cff;
+
+        --radius: 18px;
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.45);
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Arial,
+          sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(
+            900px 520px at 12% 18%,
+            rgba(215, 179, 90, 0.16),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 520px at 85% 20%,
+            rgba(42, 108, 255, 0.12),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 520px at 50% 92%,
+            rgba(215, 179, 90, 0.1),
+            transparent 60%
+          ),
+          linear-gradient(180deg, var(--bg0), var(--bg1));
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        max-width: 1120px;
+      }
+
+      /* Top mini bar */
+      .topbar {
+        position: relative;
+        z-index: 1060;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.72);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(0, 0, 0, 0.18);
+        backdrop-filter: blur(10px);
+      }
+      .topbar a {
+        color: rgba(255, 255, 255, 0.82);
+      }
+      .topbar a:hover {
+        color: rgba(255, 255, 255, 0.98);
+      }
+
+      /* Navbar */
+      .navbar {
+        transition:
+          background 0.25s ease,
+          border-color 0.25s ease;
+        border-bottom: 1px solid transparent;
+        backdrop-filter: blur(10px);
+      }
+      .navbar.nav-scrolled {
+        background: rgba(9, 12, 22, 0.7);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .brandMark {
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        background: linear-gradient(
+          135deg,
+          rgba(215, 179, 90, 0.95),
+          rgba(242, 209, 139, 0.7)
+        );
+        box-shadow: 0 18px 55px rgba(215, 179, 90, 0.18);
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .brandMark i {
+        color: rgba(10, 16, 34, 0.95);
+      }
+
+      .navbar-brand .name {
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .nav-link {
+        color: rgba(255, 255, 255, 0.74) !important;
+        font-weight: 500;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: rgba(255, 255, 255, 0.96) !important;
+      }
+
+      /* Buttons */
+      .btn-neo {
+        border-radius: 14px;
+        padding: 12px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.92);
+        transition:
+          transform 0.15s ease,
+          border-color 0.15s ease,
+          background 0.15s ease;
+      }
+      .btn-neo:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255, 255, 255, 0.22);
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .btn-gold {
+        border: 1px solid rgba(215, 179, 90, 0.55);
+        background: linear-gradient(
+          135deg,
+          rgba(215, 179, 90, 0.95),
+          rgba(242, 209, 139, 0.75)
+        );
+        color: rgba(10, 16, 34, 0.96);
+        font-weight: 700;
+        box-shadow: 0 22px 70px rgba(215, 179, 90, 0.18);
+      }
+      .btn-gold:hover {
+        color: rgba(10, 16, 34, 0.98);
+        border-color: rgba(255, 255, 255, 0.22);
+      }
+
+      /* Hero */
+      #hero {
+        min-height: 100vh;
+        display: grid;
+        align-items: center;
+        padding-top: 122px; /* topbar+nav space */
+        padding-bottom: 60px;
+        position: relative;
+        overflow: hidden;
+      }
+      #hero:before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        background:
+          radial-gradient(
+            1200px 520px at 25% 15%,
+            rgba(215, 179, 90, 0.18),
+            transparent 62%
+          ),
+          radial-gradient(
+            1000px 540px at 70% 10%,
+            rgba(42, 108, 255, 0.14),
+            transparent 58%
+          );
+        pointer-events: none;
+      }
+
+      .heroGrid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 28px;
+        align-items: center;
+      }
+      @media (max-width: 992px) {
+        .heroGrid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .kicker {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 13px;
+      }
+      .pulseDot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--gold);
+        box-shadow: 0 0 0 6px rgba(215, 179, 90, 0.14);
+      }
+
+      .heroTitle {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(40px, 5vw, 68px);
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+        margin: 14px 0 10px;
+        font-weight: 700;
+      }
+      .goldText {
+        background: linear-gradient(135deg, var(--gold), var(--gold2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .heroSub {
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.75;
+        max-width: 62ch;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.22);
+        color: rgba(255, 255, 255, 0.86);
+        backdrop-filter: blur(8px);
+        font-size: 13px;
+      }
+
+      .heroCard {
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        position: relative;
+      }
+      .heroCard .media {
+        height: 330px;
+        border-radius: 14px;
+        margin: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background:
+          radial-gradient(
+            900px 340px at 35% 15%,
+            rgba(215, 179, 90, 0.22),
+            transparent 65%
+          ),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.48)),
+          url("https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80");
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .heroCard .media .badgeRow {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        right: 14px;
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .heroCard .body {
+        padding: 0 16px 16px 16px;
+      }
+
+      /* Sections */
+      section {
+        padding: 88px 0;
+        position: relative;
+      }
+      .sectionTitle {
+        font-size: 13px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.65);
+        margin-bottom: 10px;
+      }
+      .sectionHeading {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        font-size: clamp(28px, 3vw, 42px);
+        margin: 0 0 12px;
+      }
+      .sectionLead {
+        color: var(--muted);
+        max-width: 76ch;
+        line-height: 1.75;
+      }
+
+      .cardNeo {
+        border-radius: var(--radius);
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 16px 60px rgba(0, 0, 0, 0.28);
+      }
+
+      /* Practice areas */
+      .area {
+        padding: 18px;
+        height: 100%;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          background 0.18s ease;
+      }
+      .area:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.07);
+      }
+      .iconBubble {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(
+          135deg,
+          rgba(215, 179, 90, 0.28),
+          rgba(42, 108, 255, 0.1)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .area h5 {
+        margin: 12px 0 6px;
+        font-weight: 700;
+      }
+      .area p {
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.65;
+      }
+
+      /* Stats */
+      .stat {
+        padding: 16px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        height: 100%;
+      }
+      .stat .num {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .stat .lbl {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* Attorneys */
+      .person {
+        overflow: hidden;
+        height: 100%;
+        transition:
+          transform 0.16s ease,
+          border-color 0.16s ease;
+        cursor: pointer;
+      }
+      .person:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+      .person .photo {
+        height: 210px;
+        background-size: cover;
+        background-position: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+      }
+      .person .photo:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            700px 260px at 30% 20%,
+            rgba(215, 179, 90, 0.15),
+            transparent 60%
+          ),
+          linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.34));
+      }
+      .person .body {
+        padding: 16px;
+      }
+      .tag {
+        font-size: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      /* Case results filter */
+      .filterBar {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 18px 0 22px;
+      }
+      .filterBtn {
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 13px;
+        cursor: pointer;
+        user-select: none;
+        transition:
+          background 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .filterBtn.active {
+        background: rgba(215, 179, 90, 0.16);
+        border-color: rgba(215, 179, 90, 0.42);
+        color: rgba(255, 255, 255, 0.92);
+      }
+      .caseCard {
+        padding: 16px;
+        height: 100%;
+        transition:
+          transform 0.16s ease,
+          border-color 0.16s ease;
+      }
+      .caseCard:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+      .caseTitle {
+        font-weight: 700;
+      }
+      .caseMeta {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 13px;
+      }
+
+      /* Testimonials */
+      .quote {
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.85;
+        font-size: 16px;
+      }
+
+      /* FAQ */
+      .accordion-item {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .accordion-button {
+        background: transparent;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+        box-shadow: none;
+      }
+      .accordion-button:not(.collapsed) {
+        background: rgba(215, 179, 90, 0.1);
+        color: rgba(255, 255, 255, 0.96);
+      }
+      .accordion-body {
+        color: rgba(255, 255, 255, 0.74);
+        line-height: 1.75;
+      }
+
+      /* Contact */
+      .form-control,
+      .form-select {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.92);
+        border-radius: 14px;
+        padding: 12px 12px;
+      }
+      .form-control:focus,
+      .form-select:focus {
+        box-shadow: 0 0 0 0.2rem rgba(215, 179, 90, 0.16);
+        border-color: rgba(215, 179, 90, 0.55);
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.92);
+      }
+      .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.45);
+      }
+
+      footer {
+        padding: 34px 0 56px;
+        color: rgba(255, 255, 255, 0.65);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      /* Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(12px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Back-to-top */
+      .toTop {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        width: 46px;
+        height: 46px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(9, 12, 22, 0.55);
+        backdrop-filter: blur(10px);
+        color: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
+        opacity: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+        z-index: 1050;
+      }
+      .toTop.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      /* Helpers */
+      .hrSoft {
+        border-color: rgba(255, 255, 255, 0.1);
+        opacity: 1;
+      }
+      .mono {
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+      }
+    </style>
+  </head>
+
+  <body
+    data-bs-spy="scroll"
+    data-bs-target="#mainNav"
+    data-bs-smooth-scroll="true"
+    tabindex="0"
+  >
+    <!-- Topbar -->
+    <div class="topbar fixed-top">
+      <div
+        class="container py-2 d-flex justify-content-between align-items-center flex-wrap gap-2"
+      >
+        <div class="d-flex gap-3 flex-wrap align-items-center">
+          <span class="d-inline-flex align-items-center gap-2">
+            <i class="bi bi-geo-alt"></i> Mumbai, India
+          </span>
+          <a
+            class="d-inline-flex align-items-center gap-2"
+            href="tel:+910000000000"
+          >
+            <i class="bi bi-telephone"></i> +91 00000 00000
+          </a>
+          <a
+            class="d-inline-flex align-items-center gap-2"
+            href="mailto:hello@yourfirm.com"
+          >
+            <i class="bi bi-envelope"></i> hello@yourfirm.com
+          </a>
+        </div>
+        <div class="d-flex gap-2">
+          <a class="btn btn-sm btn-neo py-1 px-2" href="#" aria-label="LinkedIn"
+            ><i class="bi bi-linkedin"></i
+          ></a>
+          <a
+            class="btn btn-sm btn-neo py-1 px-2"
+            href="#"
+            aria-label="Instagram"
+            ><i class="bi bi-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      id="mainNav"
+      class="navbar navbar-expand-lg fixed-top"
+      style="top: 42px"
+    >
+      <div class="container py-2">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#hero">
+          <span class="brandMark"><i class="bi bi-scale fs-5"></i></span>
+          <span class="name"
+            >LexGuard <span class="text-white-50 fw-semibold">Legal</span></span
+          >
+        </a>
+
+        <button
+          class="navbar-toggler text-white border-0"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#navCanvas"
+          aria-controls="navCanvas"
+          aria-label="Open menu"
+        >
+          <i class="bi bi-list fs-2"></i>
+        </button>
+
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#practice">Practice Areas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#team">Attorneys</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#results">Case Results</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item ms-lg-2">
+              <button
+                class="btn btn-neo btn-gold d-inline-flex align-items-center gap-2"
+                data-bs-toggle="modal"
+                data-bs-target="#apptModal"
+              >
+                <i class="bi bi-calendar2-check"></i
+                ><span>Book consultation</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Offcanvas (mobile) -->
+    <div
+      class="offcanvas offcanvas-end text-bg-dark"
+      tabindex="-1"
+      id="navCanvas"
+      aria-labelledby="navCanvasLabel"
+      style="
+        background: rgba(9, 12, 22, 0.95);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+      "
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="navCanvasLabel">Menu</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="d-grid gap-2">
+          <a class="btn btn-neo text-start" data-close-canvas href="#about"
+            >About</a
+          >
+          <a class="btn btn-neo text-start" data-close-canvas href="#practice"
+            >Practice Areas</a
+          >
+          <a class="btn btn-neo text-start" data-close-canvas href="#team"
+            >Attorneys</a
+          >
+          <a class="btn btn-neo text-start" data-close-canvas href="#results"
+            >Case Results</a
+          >
+          <a class="btn btn-neo text-start" data-close-canvas href="#faq"
+            >FAQ</a
+          >
+          <a class="btn btn-neo text-start" data-close-canvas href="#contact"
+            >Contact</a
+          >
+          <hr class="hrSoft my-3" />
+          <button
+            class="btn btn-neo btn-gold"
+            data-bs-dismiss="offcanvas"
+            data-bs-toggle="modal"
+            data-bs-target="#apptModal"
+          >
+            <i class="bi bi-calendar2-check me-2"></i>Book consultation
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <header id="hero">
+      <div class="container">
+        <div class="heroGrid">
+          <div class="reveal">
+            <div class="kicker">
+              <span class="pulseDot"></span>
+              <span
+                >Trusted Legal Counsel •
+                <span class="mono">24/7</span> Support</span
+              >
+            </div>
+
+            <h1 class="heroTitle">
+              Strategic <span class="goldText">Legal Solutions</span><br />
+              for Individuals & Businesses
+            </h1>
+
+            <p class="heroSub">
+              We help clients with litigation, contracts, corporate advisory,
+              property disputes, and family matters— with clear communication,
+              strong drafting, and courtroom-ready strategy.
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap mt-3">
+              <button
+                class="btn btn-neo btn-gold d-inline-flex align-items-center gap-2"
+                data-bs-toggle="modal"
+                data-bs-target="#apptModal"
+              >
+                <i class="bi bi-calendar2-plus"></i>Free initial consultation
+              </button>
+              <a
+                class="btn btn-neo d-inline-flex align-items-center gap-2"
+                href="#practice"
+              >
+                <i class="bi bi-grid-1x2-fill"></i>Explore practice areas
+              </a>
+              <a
+                class="btn btn-neo d-inline-flex align-items-center gap-2"
+                href="tel:+910000000000"
+              >
+                <i class="bi bi-telephone"></i>Call now
+              </a>
+            </div>
+
+            <div class="d-flex gap-2 flex-wrap mt-4">
+              <span class="chip"
+                ><i class="bi bi-shield-check"></i> Confidential & secure</span
+              >
+              <span class="chip"
+                ><i class="bi bi-file-earmark-text"></i> Strong drafting</span
+              >
+              <span class="chip"
+                ><i class="bi bi-bank2"></i> Court representation</span
+              >
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="heroCard">
+              <div class="media">
+                <div class="badgeRow">
+                  <span class="chip"
+                    ><i class="bi bi-award"></i> 10+ Years</span
+                  >
+                  <span class="chip"
+                    ><i class="bi bi-star-fill"></i> 4.9 Client Rating</span
+                  >
+                </div>
+              </div>
+              <div class="body">
+                <div
+                  class="d-flex justify-content-between align-items-start flex-wrap gap-2"
+                >
+                  <div>
+                    <div class="fw-semibold">LexGuard Legal</div>
+                    <div class="text-white-50 small">
+                      Advocate • Litigation • Advisory
+                    </div>
+                  </div>
+                  <span class="tag"
+                    ><i class="bi bi-check2-circle me-1"></i> Bar
+                    Registered</span
+                  >
+                </div>
+
+                <hr class="hrSoft my-3" />
+
+                <div class="row g-2">
+                  <div class="col-6">
+                    <div class="stat">
+                      <div class="num">
+                        <span class="counter" data-target="120">0</span>+
+                      </div>
+                      <div class="lbl">Matters handled</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="stat">
+                      <div class="num">
+                        <span class="counter" data-target="60">0</span>+
+                      </div>
+                      <div class="lbl">Drafting projects</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-3 text-white-50 small">
+                  Replace images, firm name, and details with your real data.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6 reveal">
+            <div class="sectionTitle">About the firm</div>
+            <h2 class="sectionHeading">
+              Professional, practical and client-first advocacy.
+            </h2>
+            <p class="sectionLead">
+              Our approach combines strong research, accurate drafting,
+              negotiation skills, and clear timelines. We keep clients informed
+              and focus on outcomes—not confusion.
+            </p>
+
+            <div class="mt-3 d-flex gap-2 flex-wrap">
+              <span class="tag"
+                ><i class="bi bi-check2-circle me-1"></i> Transparent fees</span
+              >
+              <span class="tag"
+                ><i class="bi bi-check2-circle me-1"></i> Case strategy</span
+              >
+              <span class="tag"
+                ><i class="bi bi-check2-circle me-1"></i> Court &
+                documentation</span
+              >
+              <span class="tag"
+                ><i class="bi bi-check2-circle me-1"></i> Fast updates</span
+              >
+            </div>
+
+            <div class="d-flex gap-2 flex-wrap mt-4">
+              <a class="btn btn-neo" href="#results"
+                ><i class="bi bi-trophy me-1"></i>View results</a
+              >
+              <button
+                class="btn btn-neo btn-gold"
+                data-bs-toggle="modal"
+                data-bs-target="#apptModal"
+              >
+                <i class="bi bi-chat-left-text me-1"></i>Talk to an advocate
+              </button>
+            </div>
+          </div>
+
+          <div class="col-lg-6 reveal">
+            <div class="cardNeo p-3 p-lg-4">
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="stat">
+                    <div class="num">
+                      <span class="counter" data-target="10">0</span>+
+                    </div>
+                    <div class="lbl">Years experience</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="stat">
+                    <div class="num">
+                      <span class="counter" data-target="250">0</span>+
+                    </div>
+                    <div class="lbl">Consultations</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="stat">
+                    <div class="num">
+                      <span class="counter" data-target="40">0</span>+
+                    </div>
+                    <div class="lbl">Corporate clients</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="stat">
+                    <div class="num">
+                      <span class="counter" data-target="96">0</span>%
+                    </div>
+                    <div class="lbl">Client satisfaction</div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="hrSoft my-3" />
+
+              <div
+                class="d-flex justify-content-between align-items-center flex-wrap gap-2"
+              >
+                <div>
+                  <div class="fw-semibold">Office hours</div>
+                  <div class="text-white-50 small">
+                    Mon–Sat • 10:00 AM – 7:00 PM
+                  </div>
+                </div>
+                <span class="tag"
+                  ><i class="bi bi-clock me-1"></i><span id="today"></span
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRACTICE AREAS -->
+    <section id="practice">
+      <div class="container">
+        <div class="row g-4 align-items-end">
+          <div class="col-lg-8 reveal">
+            <div class="sectionTitle">Practice Areas</div>
+            <h2 class="sectionHeading">
+              Focused legal support across key matters.
+            </h2>
+            <p class="sectionLead">
+              Choose a category and book a consultation. (Replace with your
+              exact services.)
+            </p>
+          </div>
+          <div class="col-lg-4 text-lg-end reveal">
+            <button
+              class="btn btn-neo btn-gold"
+              data-bs-toggle="modal"
+              data-bs-target="#apptModal"
+            >
+              <i class="bi bi-calendar2-check me-2"></i>Schedule
+            </button>
+          </div>
+        </div>
+
+        <div class="row g-3 mt-2">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="cardNeo area">
+              <div class="iconBubble"><i class="bi bi-bank"></i></div>
+              <h5>Civil Litigation</h5>
+              <p>
+                Recovery suits, injunctions, notices, pleadings, and court
+                representation.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="cardNeo area">
+              <div class="iconBubble"><i class="bi bi-shield-lock"></i></div>
+              <h5>Criminal Defense</h5>
+              <p>
+                FIR, bail, trial strategy, documentation, and strong
+                representation.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="cardNeo area">
+              <div class="iconBubble"><i class="bi bi-buildings"></i></div>
+              <h5>Corporate & Contracts</h5>
+              <p>
+                Agreements, compliance, legal opinions, and business advisory.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="cardNeo area">
+              <div class="iconBubble"><i class="bi bi-house-check"></i></div>
+              <h5>Property Matters</h5>
+              <p>
+                Title due diligence, disputes, documentation, and registration
+                guidance.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="cardNeo area">
+              <div class="iconBubble"><i class="bi bi-people"></i></div>
+              <h5>Family Law</h5>
+              <p>Divorce, maintenance, custody, mediation, and settlements.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="cardNeo area">
+              <div class="iconBubble"><i class="bi bi-receipt"></i></div>
+              <h5>Consumer Disputes</h5>
+              <p>Notices, complaints, hearings, and compensation claims.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+      <div class="container">
+        <div class="row g-4 align-items-end">
+          <div class="col-lg-8 reveal">
+            <div class="sectionTitle">Attorneys</div>
+            <h2 class="sectionHeading">Meet your legal team.</h2>
+            <p class="sectionLead">
+              Click a profile to open quick details (modal).
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-3 mt-2">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div
+              class="cardNeo person"
+              data-name="Adv. A. Sharma"
+              data-role="Litigation & Property"
+              data-bio="Specializes in civil litigation, injunctions, title disputes and courtroom strategy. Focused on clear timelines and strong documentation."
+              data-img="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80"
+            >
+              <div
+                class="photo"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80&quot;);
+                "
+              ></div>
+              <div class="body">
+                <div
+                  class="d-flex justify-content-between align-items-start gap-2"
+                >
+                  <div>
+                    <div class="fw-semibold">Adv. A. Sharma</div>
+                    <div class="text-white-50 small">Litigation & Property</div>
+                  </div>
+                  <span class="tag">10+ yrs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div
+              class="cardNeo person"
+              data-name="Adv. N. Khan"
+              data-role="Criminal Defense"
+              data-bio="Handles bail, trial strategy, documentation, and representation. Client privacy and fast updates are top priorities."
+              data-img="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80"
+            >
+              <div
+                class="photo"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80&quot;);
+                "
+              ></div>
+              <div class="body">
+                <div
+                  class="d-flex justify-content-between align-items-start gap-2"
+                >
+                  <div>
+                    <div class="fw-semibold">Adv. N. Khan</div>
+                    <div class="text-white-50 small">Criminal Defense</div>
+                  </div>
+                  <span class="tag">8+ yrs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div
+              class="cardNeo person"
+              data-name="Adv. R. Mehta"
+              data-role="Corporate & Contracts"
+              data-bio="Drafts and reviews contracts, NDAs, service agreements, and provides compliance support for startups and SMEs."
+              data-img="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=80"
+            >
+              <div
+                class="photo"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=80&quot;);
+                "
+              ></div>
+              <div class="body">
+                <div
+                  class="d-flex justify-content-between align-items-start gap-2"
+                >
+                  <div>
+                    <div class="fw-semibold">Adv. R. Mehta</div>
+                    <div class="text-white-50 small">Corporate & Contracts</div>
+                  </div>
+                  <span class="tag">7+ yrs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results">
+      <div class="container">
+        <div class="row g-4 align-items-end">
+          <div class="col-lg-8 reveal">
+            <div class="sectionTitle">Case results</div>
+            <h2 class="sectionHeading">Recent work & outcomes (sample).</h2>
+            <p class="sectionLead">
+              For privacy, these are generalized examples. Replace with your
+              real (permissible) results.
+            </p>
+          </div>
+          <div class="col-lg-4 reveal">
+            <div class="filterBar justify-content-lg-end">
+              <button class="filterBtn active" data-filter="all">All</button>
+              <button class="filterBtn" data-filter="civil">Civil</button>
+              <button class="filterBtn" data-filter="criminal">Criminal</button>
+              <button class="filterBtn" data-filter="corporate">
+                Corporate
+              </button>
+              <button class="filterBtn" data-filter="family">Family</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3 mt-1" id="cases">
+          <div class="col-md-6 col-lg-4 caseItem reveal" data-category="civil">
+            <div class="cardNeo caseCard">
+              <div
+                class="d-flex justify-content-between align-items-start gap-2"
+              >
+                <div class="caseTitle">Injunction Granted</div>
+                <span class="tag">Civil</span>
+              </div>
+              <div class="caseMeta mt-1">Property dispute • Urgent relief</div>
+              <p
+                class="mt-2 mb-0"
+                style="color: rgba(255, 255, 255, 0.72); line-height: 1.7"
+              >
+                Secured interim protection with strong documentation and quick
+                filing strategy.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-4 caseItem reveal"
+            data-category="criminal"
+          >
+            <div class="cardNeo caseCard">
+              <div
+                class="d-flex justify-content-between align-items-start gap-2"
+              >
+                <div class="caseTitle">Bail Approved</div>
+                <span class="tag">Criminal</span>
+              </div>
+              <div class="caseMeta mt-1">Bail application • Compliance</div>
+              <p
+                class="mt-2 mb-0"
+                style="color: rgba(255, 255, 255, 0.72); line-height: 1.7"
+              >
+                Prepared supporting grounds and addressed objections through
+                clear legal arguments.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-4 caseItem reveal"
+            data-category="corporate"
+          >
+            <div class="cardNeo caseCard">
+              <div
+                class="d-flex justify-content-between align-items-start gap-2"
+              >
+                <div class="caseTitle">Contract Risk Reduced</div>
+                <span class="tag">Corporate</span>
+              </div>
+              <div class="caseMeta mt-1">Agreement review • Clauses</div>
+              <p
+                class="mt-2 mb-0"
+                style="color: rgba(255, 255, 255, 0.72); line-height: 1.7"
+              >
+                Re-drafted indemnity/termination clauses and aligned obligations
+                to business goals.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 caseItem reveal" data-category="family">
+            <div class="cardNeo caseCard">
+              <div
+                class="d-flex justify-content-between align-items-start gap-2"
+              >
+                <div class="caseTitle">Mutual Consent Resolution</div>
+                <span class="tag">Family</span>
+              </div>
+              <div class="caseMeta mt-1">Mediation • Settlement</div>
+              <p
+                class="mt-2 mb-0"
+                style="color: rgba(255, 255, 255, 0.72); line-height: 1.7"
+              >
+                Assisted in settlement terms and smooth documentation for timely
+                disposal.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 caseItem reveal" data-category="civil">
+            <div class="cardNeo caseCard">
+              <div
+                class="d-flex justify-content-between align-items-start gap-2"
+              >
+                <div class="caseTitle">Recovery Notice + Filing</div>
+                <span class="tag">Civil</span>
+              </div>
+              <div class="caseMeta mt-1">Legal notice • Recovery</div>
+              <p
+                class="mt-2 mb-0"
+                style="color: rgba(255, 255, 255, 0.72); line-height: 1.7"
+              >
+                Drafted notice + suit documents to strengthen claim and
+                timeline.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-4 caseItem reveal"
+            data-category="corporate"
+          >
+            <div class="cardNeo caseCard">
+              <div
+                class="d-flex justify-content-between align-items-start gap-2"
+              >
+                <div class="caseTitle">Startup Compliance Pack</div>
+                <span class="tag">Corporate</span>
+              </div>
+              <div class="caseMeta mt-1">Policies • Contracts</div>
+              <p
+                class="mt-2 mb-0"
+                style="color: rgba(255, 255, 255, 0.72); line-height: 1.7"
+              >
+                Created NDA, MSA, privacy policy drafts, and standard clauses
+                for scaling.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="container">
+        <div class="row g-4 align-items-end">
+          <div class="col-lg-8 reveal">
+            <div class="sectionTitle">Testimonials</div>
+            <h2 class="sectionHeading">Clients trust our clarity and speed.</h2>
+            <p class="sectionLead">Replace with real reviews.</p>
+          </div>
+        </div>
+
+        <div class="cardNeo p-3 p-lg-4 reveal">
+          <div id="tCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <p class="quote mb-3">
+                  “They explained everything clearly, guided the documents, and
+                  responded quickly.”
+                </p>
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="brandMark"
+                    style="border-radius: 999px; width: 44px; height: 44px"
+                  >
+                    <i class="bi bi-person"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold">Client Name</div>
+                    <div class="text-white-50 small">Property Matter</div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <p class="quote mb-3">
+                  “Very professional drafting and practical advice for our
+                  contracts.”
+                </p>
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="brandMark"
+                    style="border-radius: 999px; width: 44px; height: 44px"
+                  >
+                    <i class="bi bi-building"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold">Client Name</div>
+                    <div class="text-white-50 small">Corporate Client</div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <p class="quote mb-3">
+                  “Strong representation and honest guidance—very supportive
+                  throughout.”
+                </p>
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="brandMark"
+                    style="border-radius: 999px; width: 44px; height: 44px"
+                  >
+                    <i class="bi bi-shield"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold">Client Name</div>
+                    <div class="text-white-50 small">Court Matter</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <button
+                class="btn btn-neo"
+                type="button"
+                data-bs-target="#tCarousel"
+                data-bs-slide="prev"
+              >
+                <i class="bi bi-arrow-left"></i>
+              </button>
+              <div class="text-white-50 small">
+                Swipe on mobile • Click arrows
+              </div>
+              <button
+                class="btn btn-neo"
+                type="button"
+                data-bs-target="#tCarousel"
+                data-bs-slide="next"
+              >
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="row g-4 align-items-end">
+          <div class="col-lg-8 reveal">
+            <div class="sectionTitle">FAQ</div>
+            <h2 class="sectionHeading">Common questions</h2>
+            <p class="sectionLead">
+              Short and clear answers (you can edit as per your practice).
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-3 mt-2">
+          <div class="col-lg-7 reveal">
+            <div class="accordion" id="faqAcc">
+              <div class="accordion-item mb-2">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#f1"
+                  >
+                    Do you offer a first consultation?
+                  </button>
+                </h2>
+                <div
+                  id="f1"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#faqAcc"
+                >
+                  <div class="accordion-body">
+                    Yes, we offer an initial consultation to understand facts,
+                    documents, and next steps. Fees depend on matter type.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item mb-2">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#f2"
+                  >
+                    What documents should I bring?
+                  </button>
+                </h2>
+                <div
+                  id="f2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAcc"
+                >
+                  <div class="accordion-body">
+                    Relevant notices, agreements, IDs, court papers, and any
+                    communication (email/WhatsApp) related to the dispute.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item mb-2">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#f3"
+                  >
+                    How do you charge fees?
+                  </button>
+                </h2>
+                <div
+                  id="f3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAcc"
+                >
+                  <div class="accordion-body">
+                    Depending on matter: consultation fee, drafting fee,
+                    per-hearing fee, or a fixed package—always communicated
+                    clearly.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#f4"
+                  >
+                    Can you handle matters urgently?
+                  </button>
+                </h2>
+                <div
+                  id="f4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAcc"
+                >
+                  <div class="accordion-body">
+                    Yes. If urgent, call directly—timelines depend on court and
+                    documentation readiness.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5 reveal">
+            <div class="cardNeo p-3 p-lg-4 h-100">
+              <div class="fw-semibold mb-2">Need quick help?</div>
+              <div class="text-white-50 small mb-3">
+                We’ll reply with next steps and required documents.
+              </div>
+
+              <div class="d-grid gap-2">
+                <a class="btn btn-neo text-start" href="tel:+910000000000"
+                  ><i class="bi bi-telephone me-2"></i>Call: +91 00000 00000</a
+                >
+                <a
+                  class="btn btn-neo text-start"
+                  href="mailto:hello@yourfirm.com"
+                  ><i class="bi bi-envelope me-2"></i>Email:
+                  hello@yourfirm.com</a
+                >
+                <button
+                  class="btn btn-neo btn-gold text-start"
+                  data-bs-toggle="modal"
+                  data-bs-target="#apptModal"
+                >
+                  <i class="bi bi-calendar2-check me-2"></i>Book a consultation
+                </button>
+              </div>
+
+              <hr class="hrSoft my-3" />
+              <div class="text-white-50 small">
+                Disclaimer: This template is for website UI. It does not
+                constitute legal advice.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="row g-4 align-items-end">
+          <div class="col-lg-8 reveal">
+            <div class="sectionTitle">Contact</div>
+            <h2 class="sectionHeading">Send your query</h2>
+            <p class="sectionLead">
+              Front-end demo validation included. If you want, I can integrate
+              EmailJS/PHP later.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-3 mt-1">
+          <div class="col-lg-7 reveal">
+            <div class="cardNeo p-3 p-lg-4">
+              <form id="contactForm" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label text-white-50 small"
+                      >Full name</label
+                    >
+                    <input
+                      class="form-control"
+                      name="name"
+                      placeholder="Your name"
+                      required
+                      minlength="2"
+                    />
+                    <div class="invalid-feedback">Please enter your name.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-white-50 small">Phone</label>
+                    <input
+                      class="form-control"
+                      name="phone"
+                      placeholder="+91 00000 00000"
+                      required
+                      minlength="8"
+                    />
+                    <div class="invalid-feedback">
+                      Please enter a valid phone.
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-white-50 small">Email</label>
+                    <input
+                      class="form-control"
+                      type="email"
+                      name="email"
+                      placeholder="you@email.com"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Please enter a valid email.
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-white-50 small"
+                      >Matter type</label
+                    >
+                    <select class="form-select" name="type" required>
+                      <option value="" selected disabled>Select</option>
+                      <option>Civil</option>
+                      <option>Criminal</option>
+                      <option>Corporate/Contracts</option>
+                      <option>Property</option>
+                      <option>Family</option>
+                      <option>Consumer</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a matter type.
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label text-white-50 small"
+                      >Message</label
+                    >
+                    <textarea
+                      class="form-control"
+                      name="message"
+                      rows="5"
+                      placeholder="Briefly describe your issue..."
+                      required
+                      minlength="12"
+                    ></textarea>
+                    <div class="invalid-feedback">
+                      Message should be at least 12 characters.
+                    </div>
+                  </div>
+
+                  <div class="col-12 d-flex gap-2 flex-wrap align-items-center">
+                    <button class="btn btn-neo btn-gold" type="submit">
+                      <i class="bi bi-send me-2"></i>Send
+                    </button>
+                    <span id="formNote" class="text-white-50 small"></span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-lg-5 reveal">
+            <div class="cardNeo p-3 p-lg-4 h-100">
+              <div class="fw-semibold mb-2">Office</div>
+              <div class="text-white-50 small mb-3">
+                123 Legal Street, Mumbai, IN
+              </div>
+
+              <div class="d-grid gap-2">
+                <a class="btn btn-neo text-start" href="tel:+910000000000"
+                  ><i class="bi bi-telephone me-2"></i>+91 00000 00000</a
+                >
+                <a
+                  class="btn btn-neo text-start"
+                  href="mailto:hello@yourfirm.com"
+                  ><i class="bi bi-envelope me-2"></i>hello@yourfirm.com</a
+                >
+                <a class="btn btn-neo text-start" href="#"
+                  ><i class="bi bi-clock me-2"></i>Mon–Sat • 10 AM – 7 PM</a
+                >
+              </div>
+
+              <hr class="hrSoft my-3" />
+
+              <div
+                class="ratio ratio-16x9"
+                style="
+                  border-radius: 14px;
+                  overflow: hidden;
+                  border: 1px solid rgba(255, 255, 255, 0.1);
+                "
+              >
+                <!-- Replace with your Google Maps embed if needed -->
+                <iframe
+                  title="Map"
+                  src="https://www.google.com/maps?q=Mumbai&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-2"
+        >
+          <div>
+            © <span id="year"></span> LexGuard Legal • All rights reserved
+          </div>
+          <div class="d-flex gap-2">
+            <button
+              class="btn btn-neo py-2 px-3"
+              data-bs-toggle="modal"
+              data-bs-target="#apptModal"
+            >
+              <i class="bi bi-calendar2-check"></i>
+            </button>
+            <a
+              class="btn btn-neo py-2 px-3"
+              href="#hero"
+              aria-label="Back to top"
+            >
+              <i class="bi bi-arrow-up"></i>
+            </a>
+          </div>
+        </div>
+        <div class="text-white-50 small mt-2">
+          Disclaimer: This website content is for informational purposes only
+          and does not constitute legal advice.
+        </div>
+      </div>
+    </footer>
+
+    <a class="toTop" href="#hero" aria-label="Back to top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
+
+    <!-- Appointment Modal -->
+    <div class="modal fade" id="apptModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div
+          class="modal-content text-bg-dark"
+          style="
+            background: rgba(9, 12, 22, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+          "
+        >
+          <div
+            class="modal-header"
+            style="border-bottom: 1px solid rgba(255, 255, 255, 0.1)"
+          >
+            <h5 class="modal-title">Book a consultation</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="cardNeo p-3 p-lg-4">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label text-white-50 small"
+                    >Preferred date</label
+                  >
+                  <input id="apptDate" class="form-control" type="date" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-white-50 small"
+                    >Preferred time</label
+                  >
+                  <select id="apptTime" class="form-select">
+                    <option>11:00 AM</option>
+                    <option>12:30 PM</option>
+                    <option>03:00 PM</option>
+                    <option>05:00 PM</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-white-50 small"
+                    >Your name</label
+                  >
+                  <input
+                    id="apptName"
+                    class="form-control"
+                    placeholder="Full name"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-white-50 small">Phone</label>
+                  <input
+                    id="apptPhone"
+                    class="form-control"
+                    placeholder="+91 00000 00000"
+                  />
+                </div>
+                <div class="col-12">
+                  <label class="form-label text-white-50 small"
+                    >Brief details</label
+                  >
+                  <textarea
+                    id="apptMsg"
+                    class="form-control"
+                    rows="4"
+                    placeholder="Matter type + short description"
+                  ></textarea>
+                </div>
+                <div class="col-12 d-flex gap-2 align-items-center flex-wrap">
+                  <button
+                    class="btn btn-neo btn-gold"
+                    type="button"
+                    onclick="saveAppointment()"
+                  >
+                    <i class="bi bi-check2-circle me-2"></i>Confirm (demo)
+                  </button>
+                  <span id="apptNote" class="text-white-50 small"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal-footer"
+            style="border-top: 1px solid rgba(255, 255, 255, 0.1)"
+          >
+            <button type="button" class="btn btn-neo" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Attorney modal -->
+    <div class="modal fade" id="attorneyModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div
+          class="modal-content text-bg-dark"
+          style="
+            background: rgba(9, 12, 22, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+          "
+        >
+          <div
+            class="modal-header"
+            style="border-bottom: 1px solid rgba(255, 255, 255, 0.1)"
+          >
+            <h5 class="modal-title" id="amName">Attorney</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="cardNeo overflow-hidden">
+              <div
+                id="amImg"
+                style="
+                  height: 260px;
+                  background-size: cover;
+                  background-position: center;
+                "
+              ></div>
+              <div class="p-3 p-lg-4">
+                <div
+                  class="d-flex justify-content-between align-items-start flex-wrap gap-2"
+                >
+                  <div>
+                    <div class="text-white-50 small">Practice</div>
+                    <div id="amRole" class="fw-semibold"></div>
+                  </div>
+                  <span class="tag"
+                    ><i class="bi bi-shield-check me-1"></i> Verified
+                    profile</span
+                  >
+                </div>
+                <hr class="hrSoft my-3" />
+                <p
+                  id="amBio"
+                  class="mb-0"
+                  style="color: rgba(255, 255, 255, 0.72); line-height: 1.75"
+                ></p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal-footer"
+            style="border-top: 1px solid rgba(255, 255, 255, 0.1)"
+          >
+            <button
+              class="btn btn-neo btn-gold"
+              data-bs-dismiss="modal"
+              data-bs-toggle="modal"
+              data-bs-target="#apptModal"
+            >
+              <i class="bi bi-calendar2-check me-2"></i>Book with this attorney
+            </button>
+            <button class="btn btn-neo" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Helpers
+      const qs = (s, el = document) => el.querySelector(s);
+      const qsa = (s, el = document) => [...el.querySelectorAll(s)];
+
+      // Dates
+      qs("#year").textContent = new Date().getFullYear();
+      qs("#today").textContent = new Date().toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+      });
+
+      // Navbar scroll + back to top
+      const nav = qs("#mainNav");
+      const toTop = qs(".toTop");
+      const onScroll = () => {
+        const y = window.scrollY || document.documentElement.scrollTop;
+        nav.classList.toggle("nav-scrolled", y > 10);
+        toTop.classList.toggle("show", y > 600);
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      // Smooth scroll for anchors
+      qsa('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const id = a.getAttribute("href");
+          if (!id || id.length < 2) return;
+          const target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      // Offcanvas close after click
+      qsa("[data-close-canvas]").forEach((a) => {
+        a.addEventListener("click", () => {
+          const ocEl = qs("#navCanvas");
+          const oc =
+            bootstrap.Offcanvas.getInstance(ocEl) ||
+            new bootstrap.Offcanvas(ocEl);
+          oc.hide();
+        });
+      });
+
+      // Reveal animation
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((en) => {
+            if (en.isIntersecting) en.target.classList.add("in");
+          });
+        },
+        { threshold: 0.12 },
+      );
+      qsa(".reveal").forEach((el) => io.observe(el));
+
+      // Counters
+      const counterIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((en) => {
+            if (!en.isIntersecting) return;
+            const el = en.target;
+            const target = parseInt(el.dataset.target || "0", 10);
+            let v = 0;
+            const step = Math.max(1, Math.round(target / 60));
+            const t = setInterval(() => {
+              v += step;
+              if (v >= target) {
+                v = target;
+                clearInterval(t);
+              }
+              el.textContent = v;
+            }, 18);
+            counterIO.unobserve(el);
+          });
+        },
+        { threshold: 0.5 },
+      );
+      qsa(".counter").forEach((c) => counterIO.observe(c));
+
+      // Case filter
+      const filterBtns = qsa(".filterBtn");
+      const caseItems = qsa(".caseItem");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const f = btn.dataset.filter;
+
+          caseItems.forEach((item) => {
+            const cat = item.dataset.category;
+            const show = f === "all" || f === cat;
+            item.style.display = show ? "" : "none";
+          });
+        });
+      });
+
+      // Attorney modal
+      const attorneyModal = new bootstrap.Modal(qs("#attorneyModal"));
+      const amName = qs("#amName");
+      const amRole = qs("#amRole");
+      const amBio = qs("#amBio");
+      const amImg = qs("#amImg");
+
+      qsa(".person").forEach((card) => {
+        card.addEventListener("click", () => {
+          amName.textContent = card.dataset.name || "Attorney";
+          amRole.textContent = card.dataset.role || "";
+          amBio.textContent = card.dataset.bio || "";
+          amImg.style.backgroundImage = `url('${card.dataset.img || ""}')`;
+          attorneyModal.show();
+        });
+      });
+
+      // Contact form validation (demo)
+      const form = qs("#contactForm");
+      const formNote = qs("#formNote");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        formNote.textContent = "";
+
+        if (!form.checkValidity()) {
+          e.stopPropagation();
+          form.classList.add("was-validated");
+          formNote.textContent = "Please fix the highlighted fields.";
+          return;
+        }
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        console.log("Contact form:", data);
+        formNote.textContent =
+          "Submitted (demo). Add EmailJS/PHP to actually send.";
+        form.classList.add("was-validated");
+
+        setTimeout(() => {
+          form.reset();
+          form.classList.remove("was-validated");
+        }, 900);
+      });
+
+      // Appointment (demo)
+      function saveAppointment() {
+        const note = qs("#apptNote");
+        const payload = {
+          date: qs("#apptDate").value,
+          time: qs("#apptTime").value,
+          name: qs("#apptName").value.trim(),
+          phone: qs("#apptPhone").value.trim(),
+          message: qs("#apptMsg").value.trim(),
+        };
+
+        if (!payload.date || !payload.name || payload.phone.length < 8) {
+          note.textContent = "Please fill date, name, and valid phone.";
+          return;
+        }
+        note.textContent = "Booked (demo). Check console for saved details.";
+        console.log("Appointment:", payload);
+      }
+      window.saveAppointment = saveAppointment;
+
+      // Set default appointment date to tomorrow
+      const d = new Date();
+      d.setDate(d.getDate() + 1);
+      qs("#apptDate").value = d.toISOString().slice(0, 10);
+    </script>
+  </body>
+</html>
+>>>>>>> bf915a5eb237b0dece606780ec726950a00d47e5
